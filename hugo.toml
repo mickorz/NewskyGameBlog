@@ -45,11 +45,6 @@ theme = "PaperMod"
   ShowBreadCrumbs = true # 显示面包屑导航
   ShowPostNavLinks = true # 显示上一篇/下一篇文章跳转
 
-  # 首页配置
-  [params.homeInfoParams]
-    Title = "你好! 👋"
-    Content = "欢迎来到我的游戏技术博客。这里主要分享 Unity 开发心得和 Animancer 插件的深度解析。"
-
   # 社交链接 (可选)
   [[params.socialIcons]]
     name = "github"
