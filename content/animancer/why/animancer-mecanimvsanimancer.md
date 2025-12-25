@@ -376,25 +376,25 @@ _animancer.Play(_walkTransition);
 ## 参考资料
 
 ### 📚 详细对比文档
-- [\1]({{< ref "animancer-why.md" >}}) - 六大优势详解
-- [\1]({{< ref "animancer-simplicity.md" >}})
-- [\1]({{< ref "animancer-transparency.md" >}})
-- [\1]({{< ref "animancer-adaptability.md" >}})
-- [\1]({{< ref "animancer-clarity.md" >}})
-- [\1]({{< ref "animancer-safety.md" >}})
-- [\1]({{< ref "animancer-reliability.md" >}})
+- [animancer-why]({{< ref "animancer-why.md" >}}) - 六大优势详解
+- [animancer-simplicity]({{< ref "animancer-simplicity.md" >}})
+- [animancer-transparency]({{< ref "animancer-transparency.md" >}})
+- [animancer-adaptability]({{< ref "animancer-adaptability.md" >}})
+- [animancer-clarity]({{< ref "animancer-clarity.md" >}})
+- [animancer-safety]({{< ref "animancer-safety.md" >}})
+- [animancer-reliability]({{< ref "animancer-reliability.md" >}})
 
 ### 🔍 实战对比
-- [\1]({{< ref "animancer-playing.md" >}})
-- [\1]({{< ref "animancer-waiting.md" >}})
-- [\1]({{< ref "animancer-speedandtime.md" >}})
-- [\1]({{< ref "animancer-weaponanimations.md" >}})
+- [animancer-playing]({{< ref "animancer-playing.md" >}})
+- [animancer-waiting]({{< ref "animancer-waiting.md" >}})
+- [animancer-speedandtime]({{< ref "animancer-speedandtime.md" >}})
+- [animancer-weaponanimations]({{< ref "animancer-weaponanimations.md" >}})
 
 ### ⚡ 性能分析
-- [\1]({{< ref "animancer-performance.md" >}})
+- [animancer-performance]({{< ref "animancer-performance.md" >}})
 
 ### 📖 术语表
-- [\1]({{< ref "animancer-glossary.md" >}})
+- [animancer-glossary]({{< ref "animancer-glossary.md" >}})
 
 ---
 

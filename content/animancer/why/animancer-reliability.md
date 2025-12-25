@@ -360,9 +360,9 @@ IEnumerator AttackSequence()
 ## 参考资料
 
 ### 📚 相关文档
-- [\1]({{< ref "animancer-why.md" >}})
-- [\1]({{< ref "animancer-safety.md" >}})
-- [\1]({{< ref "animancer-events.md" >}})
+- [animancer-why]({{< ref "animancer-why.md" >}})
+- [animancer-safety]({{< ref "animancer-safety.md" >}})
+- [animancer-events]({{< ref "animancer-events.md" >}})
 
 ---
 

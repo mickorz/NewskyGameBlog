@@ -229,12 +229,12 @@ state.Speed = 1.5f;
 ## 参考资料
 
 ### 📚 详细文档
-- [\1]({{< ref "animancer-simplicity.md" >}})
-- [\1]({{< ref "animancer-transparency.md" >}})
-- [\1]({{< ref "animancer-adaptability.md" >}})
-- [\1]({{< ref "animancer-clarity.md" >}})
-- [\1]({{< ref "animancer-safety.md" >}})
-- [\1]({{< ref "animancer-reliability.md" >}})
+- [animancer-simplicity]({{< ref "animancer-simplicity.md" >}})
+- [animancer-transparency]({{< ref "animancer-transparency.md" >}})
+- [animancer-adaptability]({{< ref "animancer-adaptability.md" >}})
+- [animancer-clarity]({{< ref "animancer-clarity.md" >}})
+- [animancer-safety]({{< ref "animancer-safety.md" >}})
+- [animancer-reliability]({{< ref "animancer-reliability.md" >}})
 
 ---
 

@@ -223,9 +223,9 @@ state.Events.AddNormalized(0.5f, OnHalfway);
 ## 参考资料
 
 ### 📚 相关文档
-- [\1]({{< ref "animancer-why.md" >}})
-- [\1]({{< ref "animancer-transparency.md" >}})
-- [\1]({{< ref "animancer-adaptability.md" >}})
+- [animancer-why]({{< ref "animancer-why.md" >}})
+- [animancer-transparency]({{< ref "animancer-transparency.md" >}})
+- [animancer-adaptability]({{< ref "animancer-adaptability.md" >}})
 
 ---
 

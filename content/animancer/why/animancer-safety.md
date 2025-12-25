@@ -337,9 +337,9 @@ public class CharacterEditor : Editor
 ## 参考资料
 
 ### 📚 相关文档
-- [\1]({{< ref "animancer-why.md" >}})
-- [\1]({{< ref "animancer-clarity.md" >}})
-- [\1]({{< ref "animancer-reliability.md" >}})
+- [animancer-why]({{< ref "animancer-why.md" >}})
+- [animancer-clarity]({{< ref "animancer-clarity.md" >}})
+- [animancer-reliability]({{< ref "animancer-reliability.md" >}})
 
 ---
 

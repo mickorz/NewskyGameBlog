@@ -1,0 +1,25 @@
+<style>
+    /* 1. 强制覆盖容器最大宽度 */
+    body .max-w-screen-xl {
+        max-width: 95% !important; /* 几乎占满全屏，也可以写固定值如 1600px */
+    }
+
+    /* 2. 针对 Blowfish 的 article 容器加宽 */
+    body section.flex.flex-col {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* 3. 强制表格撑开，不许缩成一团 */
+    .prose table {
+        display: table !important;
+        width: 100% !important;
+        min-width: 1000px !important; /* 强制产生横向滚动条而不是挤压内容 */
+    }
+
+    /* 4. 隐藏不需要的空白边距 */
+    .prose {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+</style>

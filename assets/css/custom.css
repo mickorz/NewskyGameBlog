@@ -1,0 +1,23 @@
+/* 强制增加正文区域的最大宽度 */
+.max-w-screen-xl {
+    max-width: 1440px !important; /* 默认通常是 1280px，你可以改成 1600px 或更高 */
+}
+
+/* 针对 Blowfish 文章容器的专项加宽 */
+.prose {
+    max-width: 100% !important; /* 让文字部分不再被限制在窄行内 */
+}
+
+/* 让表格能够横向铺开 */
+table {
+    display: table !important;
+    width: 100% !important;
+    margin-bottom: 2rem;
+}
+
+/* 调整侧边栏 TOC 的位置，避免遮挡变宽后的正文 */
+@media screen and (min-width: 1280px) {
+    .toc {
+        margin-right: -150px; /* 根据你的实际宽度微调，防止重叠 */
+    }
+}

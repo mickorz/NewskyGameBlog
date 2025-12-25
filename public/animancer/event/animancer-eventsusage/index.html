@@ -1,0 +1,2457 @@
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh-cn">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Animancer Events - Usage &middot; Newsky Game Blog</title>
+    <meta name="title" content="Animancer Events - Usage &middot; Newsky Game Blog">
+  
+
+  
+  
+    <meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  
+  
+  
+    <meta name="robots" content="noindex, nofollow">
+  
+  
+  <link rel="canonical" href="http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsusage/">
+  
+
+  
+  
+    <meta name="author" content="mickorz">
+  
+  
+    
+      
+        
+          <link href="https://github.com/mickorz" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsusage/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Animancer Events - Usage">
+  <meta property="og:description" content="Animancer Events - Usage 官方文档#📋 目录#概述 三种配置方法 方法1：Transitions（Inspector配置） 方法2：Code（代码配置） 方法3：Hybrid（混合模式） 高级特性 代码示例 最佳实践 FAQ常见问题 参考资料 概述#Animancer Events 提供三种主要配置方法，每种方法都有其独特的优势和适用场景。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="animancer">
+    <meta property="article:published_time" content="2025-12-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-25T00:00:00+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Animancer Events - Usage">
+  <meta name="twitter:description" content="Animancer Events - Usage 官方文档#📋 目录#概述 三种配置方法 方法1：Transitions（Inspector配置） 方法2：Code（代码配置） 方法3：Hybrid（混合模式） 高级特性 代码示例 最佳实践 FAQ常见问题 参考资料 概述#Animancer Events 提供三种主要配置方法，每种方法都有其独特的优势和适用场景。">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/NewskyGameBlog/css/main.bundle.min.ad4a2404cd820d9a561641b272de1ea768230edad666e70eabdf8cf3cd832073a4696419403ce3fcb1475c4b0d503ecbb9b82477b416ec54c62eec4fc87f20fd.css"
+    integrity="sha512-rUokBM2CDZpWFkGyct4ep2gjDtrWZucOq9&#43;M882DIHOkaWQZQDzj/LFHXEsNUD7Lubgkd7QW7FTGLuxPyH8g/Q==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/NewskyGameBlog/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/NewskyGameBlog/js/main.bundle.min.e2a486e2d26101d42b0ae6565951c0ab32807f06c8cac845e9a430aac163bf4b95eaaf22ac52825b7c9135e177953252afda0c2c8b6e64291c90238a4685aaa3.js"
+      integrity="sha512-4qSG4tJhAdQrCuZWWVHAqzKAfwbIyshF6aQwqsFjv0uV6q8irFKCW3yRNeF3lTJSr9oMLItuZCkckCOKRoWqow=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+
+  
+  
+
+<script src="/NewskyGameBlog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/NewskyGameBlog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/NewskyGameBlog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/NewskyGameBlog/favicon-16x16.png">
+    <link rel="manifest" href="/NewskyGameBlog/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Animancer 中文文档目录",
+    "name": "Animancer Events - Usage",
+    "headline": "Animancer Events - Usage",
+    
+    "inLanguage": "zh-cn",
+    "url" : "http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsusage/",
+    "author" : {
+      "@type": "Person",
+      "name": "mickorz"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-25T00:00:00\u002b00:00",
+    "datePublished": "2025-12-25T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-12-25T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1584"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        跳过正文
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/NewskyGameBlog/" class="text-base font-medium">
+          Newsky Game Blog
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/NewskyGameBlog/animancer/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 Animancer 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 Animancer 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/posts/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="所有文章"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      所有文章
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="https://github.com/mickorz"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="github"
+  title="">
+  
+    <span >
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+    </span>
+  
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/animancer/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 Animancer 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 Animancer 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/posts/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="所有文章"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        所有文章
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/mickorz"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="github"
+    title="">
+    
+      <div >
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+      </div>
+    
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Animancer Events - Usage
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1584 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        作者
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        mickorz
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">专注于 Unity 开发与 Animancer 插件深度解析</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/mickorz"
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-目录">📋 目录</a></li>
+    <li><a href="#概述">概述</a>
+      <ul>
+        <li><a href="#-三种配置方法对比">🎯 三种配置方法对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#三种配置方法">三种配置方法</a>
+      <ul>
+        <li><a href="#方法对比图">方法对比图</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法1transitions配置">方法1：Transitions配置</a>
+      <ul>
+        <li><a href="#-核心理念">📝 核心理念</a></li>
+        <li><a href="#-配置步骤">🎨 配置步骤</a></li>
+        <li><a href="#-完整示例">📊 完整示例</a></li>
+        <li><a href="#-优点">✅ 优点</a></li>
+        <li><a href="#-缺点">❌ 缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法2code代码配置">方法2：Code代码配置</a>
+      <ul>
+        <li><a href="#-核心理念-1">💻 核心理念</a></li>
+        <li><a href="#-基础模式">🎯 基础模式</a></li>
+        <li><a href="#-详细步骤">📚 详细步骤</a></li>
+        <li><a href="#-完整示例-1">📊 完整示例</a></li>
+        <li><a href="#-优点-1">✅ 优点</a></li>
+        <li><a href="#-缺点-1">❌ 缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法3hybrid混合模式">方法3：Hybrid混合模式</a>
+      <ul>
+        <li><a href="#-核心理念-2">🔀 核心理念</a></li>
+        <li><a href="#-三种实现策略">🎯 三种实现策略</a></li>
+        <li><a href="#-混合模式对比">📊 混合模式对比</a></li>
+        <li><a href="#-优点-2">✅ 优点</a></li>
+        <li><a href="#-缺点-2">❌ 缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#高级特性">高级特性</a>
+      <ul>
+        <li><a href="#-animancereventcurrent">🎯 AnimancerEvent.Current</a></li>
+        <li><a href="#-shared-state-events共享状态事件">🔄 Shared State Events（共享状态事件）</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码示例">代码示例</a>
+      <ul>
+        <li><a href="#示例1完整的混合模式实战">示例1：完整的混合模式实战</a></li>
+        <li><a href="#示例2动态事件管理">示例2：动态事件管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践">最佳实践</a>
+      <ul>
+        <li><a href="#-do推荐做法">✅ DO（推荐做法）</a></li>
+        <li><a href="#-dont避免做法">❌ DON&rsquo;T（避免做法）</a></li>
+      </ul>
+    </li>
+    <li><a href="#faq常见问题">FAQ常见问题</a>
+      <ul>
+        <li><a href="#q1-三种方法应该选哪个">Q1: 三种方法应该选哪个？</a></li>
+        <li><a href="#q2-命名事件如何工作">Q2: 命名事件如何工作？</a></li>
+        <li><a href="#q3-animancereventcurrent-什么时候可用">Q3: AnimancerEvent.Current 什么时候可用？</a></li>
+        <li><a href="#q4-如何避免共享状态事件重复初始化">Q4: 如何避免共享状态事件重复初始化？</a></li>
+        <li><a href="#q5-可以在运行时修改-inspector-配置的事件吗">Q5: 可以在运行时修改 Inspector 配置的事件吗？</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资料">参考资料</a>
+      <ul>
+        <li><a href="#-相关文档">📚 相关文档</a></li>
+        <li><a href="#-官方资源">🔗 官方资源</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-目录">📋 目录</a></li>
+    <li><a href="#概述">概述</a>
+      <ul>
+        <li><a href="#-三种配置方法对比">🎯 三种配置方法对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#三种配置方法">三种配置方法</a>
+      <ul>
+        <li><a href="#方法对比图">方法对比图</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法1transitions配置">方法1：Transitions配置</a>
+      <ul>
+        <li><a href="#-核心理念">📝 核心理念</a></li>
+        <li><a href="#-配置步骤">🎨 配置步骤</a></li>
+        <li><a href="#-完整示例">📊 完整示例</a></li>
+        <li><a href="#-优点">✅ 优点</a></li>
+        <li><a href="#-缺点">❌ 缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法2code代码配置">方法2：Code代码配置</a>
+      <ul>
+        <li><a href="#-核心理念-1">💻 核心理念</a></li>
+        <li><a href="#-基础模式">🎯 基础模式</a></li>
+        <li><a href="#-详细步骤">📚 详细步骤</a></li>
+        <li><a href="#-完整示例-1">📊 完整示例</a></li>
+        <li><a href="#-优点-1">✅ 优点</a></li>
+        <li><a href="#-缺点-1">❌ 缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法3hybrid混合模式">方法3：Hybrid混合模式</a>
+      <ul>
+        <li><a href="#-核心理念-2">🔀 核心理念</a></li>
+        <li><a href="#-三种实现策略">🎯 三种实现策略</a></li>
+        <li><a href="#-混合模式对比">📊 混合模式对比</a></li>
+        <li><a href="#-优点-2">✅ 优点</a></li>
+        <li><a href="#-缺点-2">❌ 缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#高级特性">高级特性</a>
+      <ul>
+        <li><a href="#-animancereventcurrent">🎯 AnimancerEvent.Current</a></li>
+        <li><a href="#-shared-state-events共享状态事件">🔄 Shared State Events（共享状态事件）</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码示例">代码示例</a>
+      <ul>
+        <li><a href="#示例1完整的混合模式实战">示例1：完整的混合模式实战</a></li>
+        <li><a href="#示例2动态事件管理">示例2：动态事件管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践">最佳实践</a>
+      <ul>
+        <li><a href="#-do推荐做法">✅ DO（推荐做法）</a></li>
+        <li><a href="#-dont避免做法">❌ DON&rsquo;T（避免做法）</a></li>
+      </ul>
+    </li>
+    <li><a href="#faq常见问题">FAQ常见问题</a>
+      <ul>
+        <li><a href="#q1-三种方法应该选哪个">Q1: 三种方法应该选哪个？</a></li>
+        <li><a href="#q2-命名事件如何工作">Q2: 命名事件如何工作？</a></li>
+        <li><a href="#q3-animancereventcurrent-什么时候可用">Q3: AnimancerEvent.Current 什么时候可用？</a></li>
+        <li><a href="#q4-如何避免共享状态事件重复初始化">Q4: 如何避免共享状态事件重复初始化？</a></li>
+        <li><a href="#q5-可以在运行时修改-inspector-配置的事件吗">Q5: 可以在运行时修改 Inspector 配置的事件吗？</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资料">参考资料</a>
+      <ul>
+        <li><a href="#-相关文档">📚 相关文档</a></li>
+        <li><a href="#-官方资源">🔗 官方资源</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">Animancer Events - Usage 官方文档
+    <div id="animancer-events---usage-官方文档" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#animancer-events---usage-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+
+<h2 class="relative group">📋 目录
+    <div id="-目录" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e7%9b%ae%e5%bd%95" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e6%a6%82%e8%bf%b0" >概述</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e4%b8%89%e7%a7%8d%e9%85%8d%e7%bd%ae%e6%96%b9%e6%b3%95" >三种配置方法</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e6%96%b9%e6%b3%951transitions%e9%85%8d%e7%bd%ae" >方法1：Transitions（Inspector配置）</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e6%96%b9%e6%b3%952code%e4%bb%a3%e7%a0%81%e9%85%8d%e7%bd%ae" >方法2：Code（代码配置）</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e6%96%b9%e6%b3%953hybrid%e6%b7%b7%e5%90%88%e6%a8%a1%e5%bc%8f" >方法3：Hybrid（混合模式）</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7" >高级特性</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b" >代码示例</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" >最佳实践</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#faq%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" >FAQ常见问题</a></li>
+<li><a href="/NewskyGameBlog/animancer/event/animancer-eventsusage/#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" >参考资料</a></li>
+</ul>
+<hr>
+
+<h2 class="relative group">概述
+    <div id="概述" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%bf%b0" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p>Animancer Events 提供<strong>三种主要配置方法</strong>，每种方法都有其独特的优势和适用场景。</p>
+
+<h3 class="relative group">🎯 三种配置方法对比
+    <div id="-三种配置方法对比" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e4%b8%89%e7%a7%8d%e9%85%8d%e7%bd%ae%e6%96%b9%e6%b3%95%e5%af%b9%e6%af%94" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>配置位置</th>
+          <th>回调位置</th>
+          <th>优点</th>
+          <th>适用场景</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Transitions</strong></td>
+          <td>Inspector</td>
+          <td>Inspector</td>
+          <td>可视化预览，易调整</td>
+          <td>简单事件，设计师友好</td>
+      </tr>
+      <tr>
+          <td><strong>Code</strong></td>
+          <td>代码</td>
+          <td>代码</td>
+          <td>完全可控，易维护</td>
+          <td>复杂逻辑，程序员友好</td>
+      </tr>
+      <tr>
+          <td><strong>Hybrid</strong></td>
+          <td>Inspector时间 + 代码回调</td>
+          <td>代码</td>
+          <td>兼顾可视化和灵活性</td>
+          <td>团队协作，最佳实践</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">三种配置方法
+    <div id="三种配置方法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%89%e7%a7%8d%e9%85%8d%e7%bd%ae%e6%96%b9%e6%b3%95" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">方法对比图
+    <div id="方法对比图" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%95%e5%af%b9%e6%af%94%e5%9b%be" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                   Transitions 方法                       │
+</span></span><span class="line"><span class="cl">│  ┌──────────────┐        ┌──────────────┐              │
+</span></span><span class="line"><span class="cl">│  │  Inspector   │  配置  │  Inspector   │              │
+</span></span><span class="line"><span class="cl">│  │  (时间+回调) │ ────&gt; │  (UnityEvent)│              │
+</span></span><span class="line"><span class="cl">│  └──────────────┘        └──────────────┘              │
+</span></span><span class="line"><span class="cl">│  优点: 可视化预览，设计师友好                           │
+</span></span><span class="line"><span class="cl">│  缺点: 不易维护，回调分散                               │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────┘
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                     Code 方法                            │
+</span></span><span class="line"><span class="cl">│  ┌──────────────┐        ┌──────────────┐              │
+</span></span><span class="line"><span class="cl">│  │    代码      │  配置  │    代码      │              │
+</span></span><span class="line"><span class="cl">│  │  (时间+回调) │ ────&gt; │  (方法/Lambda)│             │
+</span></span><span class="line"><span class="cl">│  └──────────────┘        └──────────────┘              │
+</span></span><span class="line"><span class="cl">│  优点: 易维护，集中管理                                 │
+</span></span><span class="line"><span class="cl">│  缺点: 调整时间需重新编译                               │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────┘
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                    Hybrid 方法 (推荐)                    │
+</span></span><span class="line"><span class="cl">│  ┌──────────────┐        ┌──────────────┐              │
+</span></span><span class="line"><span class="cl">│  │  Inspector   │  配置  │    代码      │              │
+</span></span><span class="line"><span class="cl">│  │   (时间)     │ ────&gt; │  (命名回调)   │              │
+</span></span><span class="line"><span class="cl">│  └──────────────┘        └──────────────┘              │
+</span></span><span class="line"><span class="cl">│  优点: 兼顾可视化和灵活性                               │
+</span></span><span class="line"><span class="cl">│  缺点: 需要理解命名事件机制                             │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────┘</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">方法1：Transitions配置
+    <div id="方法1transitions配置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%951transitions%e9%85%8d%e7%bd%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">📝 核心理念
+    <div id="-核心理念" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e6%a0%b8%e5%bf%83%e7%90%86%e5%bf%b5" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<blockquote ><p><strong>&ldquo;Easily adjust the event times in the Inspector and using the Transition Preview Window to align them correctly with the animation&rsquo;s visuals.&rdquo;</strong></p>
+<p>在 Inspector 中轻松调整事件时间，使用 Transition Preview Window 与动画视觉对齐。</p>
+</blockquote>
+<h3 class="relative group">🎨 配置步骤
+    <div id="-配置步骤" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e9%85%8d%e7%bd%ae%e6%ad%a5%e9%aa%a4" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">步骤1：创建 Transition
+    <div id="步骤1创建-transition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a41%e5%88%9b%e5%bb%ba-transition" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="na">[SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_AttackTransition</span><span class="p">;</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">步骤2：在 Inspector 中添加事件
+    <div id="步骤2在-inspector-中添加事件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a42%e5%9c%a8-inspector-%e4%b8%ad%e6%b7%bb%e5%8a%a0%e4%ba%8b%e4%bb%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<ol>
+<li>选中 Transition</li>
+<li>展开 &ldquo;Events&rdquo; 面板</li>
+<li><strong>双击时间轴添加事件</strong></li>
+<li>设置事件时间（归一化时间 0-1）</li>
+<li>配置 UnityEvent 回调</li>
+</ol>
+
+<h4 class="relative group">步骤3：调整事件时间（快捷键）
+    <div id="步骤3调整事件时间快捷键" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a43%e8%b0%83%e6%95%b4%e4%ba%8b%e4%bb%b6%e6%97%b6%e9%97%b4%e5%bf%ab%e6%8d%b7%e9%94%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>快捷键</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>双击时间轴</strong></td>
+          <td>添加新事件</td>
+      </tr>
+      <tr>
+          <td><strong>← →</strong></td>
+          <td>微调时间（小步长）</td>
+      </tr>
+      <tr>
+          <td><strong>Shift + ← →</strong></td>
+          <td>粗调时间（大步长）</td>
+      </tr>
+      <tr>
+          <td><strong>Space</strong></td>
+          <td>四舍五入时间值</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">步骤4：使用 Transition Preview Window
+    <div id="步骤4使用-transition-preview-window" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a44%e4%bd%bf%e7%94%a8-transition-preview-window" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p>打开预览窗口（Window &gt; Animancer &gt; Transition Preview），可以：</p>
+<ul>
+<li>实时预览动画</li>
+<li>可视化查看事件标记</li>
+<li>精确对齐事件与动画帧</li>
+</ul>
+
+<h4 class="relative group">步骤5：播放动画
+    <div id="步骤5播放动画" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a45%e6%92%ad%e6%94%be%e5%8a%a8%e7%94%bb" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AttackTransition</span><span class="p">);</span> <span class="c1">// 自动应用Inspector配置的事件</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">📊 完整示例
+    <div id="-完整示例" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e5%ae%8c%e6%95%b4%e7%a4%ba%e4%be%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// Transitions方法示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 所有配置在Inspector中完成</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">TransitionsMethodExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在Inspector中配置事件：</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// - Event 1: Time=0.3, Callback=OnAttackStart</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// - Event 2: Time=0.5, Callback=OnAttackHit</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// - OnEnd: Callback=OnAttackEnd</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_AttackTransition</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Mouse0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 播放时自动应用Inspector配置的事件</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AttackTransition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 这些方法由Inspector中的UnityEvents调用</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">OnAttackStart</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击开始&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">OnAttackHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击命中判定&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">OnAttackEnd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击结束&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_IdleClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">✅ 优点
+    <div id="-优点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e4%bc%98%e7%82%b9" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>可视化预览</strong>：实时查看事件标记</li>
+<li><strong>易于调整</strong>：快捷键快速微调时间</li>
+<li><strong>设计师友好</strong>：无需编程知识</li>
+<li><strong>快速迭代</strong>：无需重新编译</li>
+</ul>
+
+<h3 class="relative group">❌ 缺点
+    <div id="-缺点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e7%bc%ba%e7%82%b9" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>难以维护</strong>：事件回调分散在Inspector中</li>
+<li><strong>不易重构</strong>：修改方法名需要更新所有Inspector引用</li>
+<li><strong>难以复用</strong>：每个Transition都需要单独配置</li>
+<li><strong>无法传参</strong>：UnityEvent参数支持有限</li>
+</ul>
+<hr>
+
+<h2 class="relative group">方法2：Code代码配置
+    <div id="方法2code代码配置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%952code%e4%bb%a3%e7%a0%81%e9%85%8d%e7%bd%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">💻 核心理念
+    <div id="-核心理念-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e6%a0%b8%e5%bf%83%e7%90%86%e5%bf%b5-1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>使用纯代码配置事件，提供完全的程序化控制。</p>
+
+<h3 class="relative group">🎯 基础模式
+    <div id="-基础模式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e5%9f%ba%e7%a1%80%e6%a8%a1%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">AnimancerState</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Animation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取事件序列</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">out</span> <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Sequence</span> <span class="n">events</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 添加事件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.4f</span><span class="p">,</span> <span class="n">OnHitStart</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="n">EnterIdleState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">📚 详细步骤
+    <div id="-详细步骤" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e8%af%a6%e7%bb%86%e6%ad%a5%e9%aa%a4" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">步骤1：播放动画获取状态
+    <div id="步骤1播放动画获取状态" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a41%e6%92%ad%e6%94%be%e5%8a%a8%e7%94%bb%e8%8e%b7%e5%8f%96%e7%8a%b6%e6%80%81" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">AnimancerState</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AttackClip</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">步骤2：获取事件序列
+    <div id="步骤2获取事件序列" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a42%e8%8e%b7%e5%8f%96%e4%ba%8b%e4%bb%b6%e5%ba%8f%e5%88%97" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 方法A：使用out参数</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">out</span> <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Sequence</span> <span class="n">events</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// events可用</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 方法B：直接获取</span>
+</span></span><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">events</span> <span class="p">=</span> <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">(</span><span class="k">this</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">步骤3：添加事件
+    <div id="步骤3添加事件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a43%e6%b7%bb%e5%8a%a0%e4%ba%8b%e4%bb%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 使用方法引用</span>
+</span></span><span class="line"><span class="cl"><span class="n">events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="n">OnAttackHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用Lambda表达式</span>
+</span></span><span class="line"><span class="cl"><span class="n">events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击命中！&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DealDamage</span><span class="p">(</span><span class="m">50</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加结束事件</span>
+</span></span><span class="line"><span class="cl"><span class="n">events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_IdleClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">📊 完整示例
+    <div id="-完整示例-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e5%ae%8c%e6%95%b4%e7%a4%ba%e4%be%8b-1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// Code方法示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 所有配置在代码中完成</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">CodeMethodExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_AttackClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">WeaponCollider</span> <span class="n">_Weapon</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Mouse0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">PerformAttack</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PerformAttack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放动画</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AttackClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取事件序列</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">out</span> <span class="kt">var</span> <span class="n">events</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 清除旧事件</span>
+</span></span><span class="line"><span class="cl">            <span class="n">events</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 添加事件（使用方法引用）</span>
+</span></span><span class="line"><span class="cl">            <span class="n">events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.3f</span><span class="p">,</span> <span class="n">OnAttackStart</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="n">OnAttackHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 添加事件（使用Lambda）</span>
+</span></span><span class="line"><span class="cl">            <span class="n">events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.7f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击后摇开始&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">_Weapon</span><span class="p">.</span><span class="n">DisableCollider</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 结束事件</span>
+</span></span><span class="line"><span class="cl">            <span class="n">events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击结束&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_IdleClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackStart</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击前摇&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Weapon</span><span class="p">.</span><span class="n">EnableCollider</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击判定&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Weapon</span><span class="p">.</span><span class="n">CheckHit</span><span class="p">(</span><span class="m">50</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">WeaponCollider</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">EnableCollider</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">DisableCollider</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">CheckHit</span><span class="p">(</span><span class="kt">int</span> <span class="n">damage</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">✅ 优点
+    <div id="-优点-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e4%bc%98%e7%82%b9-1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>易于维护</strong>：所有逻辑集中在代码中</li>
+<li><strong>易于重构</strong>：方法名修改自动同步</li>
+<li><strong>支持Lambda</strong>：内联回调，无需单独方法</li>
+<li><strong>完全可控</strong>：运行时动态修改</li>
+<li><strong>易于复用</strong>：封装为方法即可</li>
+</ul>
+
+<h3 class="relative group">❌ 缺点
+    <div id="-缺点-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e7%bc%ba%e7%82%b9-1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>调整不便</strong>：修改时间需要重新编译</li>
+<li><strong>无可视化</strong>：难以直观查看事件分布</li>
+<li><strong>设计师不友好</strong>：需要编程知识</li>
+</ul>
+<hr>
+
+<h2 class="relative group">方法3：Hybrid混合模式
+    <div id="方法3hybrid混合模式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%953hybrid%e6%b7%b7%e5%90%88%e6%a8%a1%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">🔀 核心理念
+    <div id="-核心理念-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e6%a0%b8%e5%bf%83%e7%90%86%e5%bf%b5-2" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>在 Inspector 中配置事件时间，在代码中注册回调</strong>，结合了两者的优势。</p>
+
+<h3 class="relative group">🎯 三种实现策略
+    <div id="-三种实现策略" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e4%b8%89%e7%a7%8d%e5%ae%9e%e7%8e%b0%e7%ad%96%e7%95%a5" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">策略1：Central Events（中央事件）
+    <div id="策略1central-events中央事件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%ad%96%e7%95%a51central-events%e4%b8%ad%e5%a4%ae%e4%ba%8b%e4%bb%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p>为所有动画注册命名事件的回调：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 中央事件模式</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 在一个地方注册所有命名事件的回调</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">CentralEventsExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注册全局命名事件回调</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Footstep&#34;</span><span class="p">,</span> <span class="n">OnFootstep</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;AttackHit&#34;</span><span class="p">,</span> <span class="n">OnAttackHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;SpawnEffect&#34;</span><span class="p">,</span> <span class="n">OnSpawnEffect</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnFootstep</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;脚步声&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击命中&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnSpawnEffect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;生成特效&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">Inspector配置：
+</span></span></span><span class="line"><span class="cl"><span class="cm">- WalkTransition: Event Name=&#34;Footstep&#34; @ 0.3, 0.7
+</span></span></span><span class="line"><span class="cl"><span class="cm">- AttackTransition: Event Name=&#34;AttackHit&#34; @ 0.5
+</span></span></span><span class="line"><span class="cl"><span class="cm">- SkillTransition: Event Name=&#34;SpawnEffect&#34; @ 0.6
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">策略2：Transition Events（Transition事件）
+    <div id="策略2transition-eventstransition事件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%ad%96%e7%95%a52transition-eventstransition%e4%ba%8b%e4%bb%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p>为特定 Transition 添加命名事件回调：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// Transition事件模式</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 为特定Transition注册回调</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">TransitionEventsExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_AttackTransition</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 为Transition的命名事件注册回调</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_AttackTransition</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;WindUp&#34;</span><span class="p">,</span> <span class="n">OnAttackWindUp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_AttackTransition</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Hit&#34;</span><span class="p">,</span> <span class="n">OnAttackHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_AttackTransition</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="n">OnAttackEnd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Mouse0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 播放时自动触发注册的回调</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AttackTransition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackWindUp</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击前摇&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击命中判定&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackEnd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击结束&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">Inspector配置（在_AttackTransition中）：
+</span></span></span><span class="line"><span class="cl"><span class="cm">- Event 1: Time=0.3, Name=&#34;WindUp&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cm">- Event 2: Time=0.5, Name=&#34;Hit&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">策略3：State Events（状态事件）
+    <div id="策略3state-events状态事件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%ad%96%e7%95%a53state-events%e7%8a%b6%e6%80%81%e4%ba%8b%e4%bb%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p>直接在动画状态上添加命名事件回调：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// State事件模式</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 在动画状态上注册回调</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">StateEventsExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_AttackTransition</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Mouse0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">PerformAttack</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PerformAttack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AttackTransition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 为状态的命名事件注册回调</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Hit&#34;</span><span class="p">,</span> <span class="n">OnAttackHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="n">OnAttackEnd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击命中判定&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttackEnd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;攻击结束&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">Inspector配置（在_AttackTransition中）：
+</span></span></span><span class="line"><span class="cl"><span class="cm">- Event: Time=0.5, Name=&#34;Hit&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">📊 混合模式对比
+    <div id="-混合模式对比" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e6%b7%b7%e5%90%88%e6%a8%a1%e5%bc%8f%e5%af%b9%e6%af%94" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>策略</th>
+          <th>注册位置</th>
+          <th>适用场景</th>
+          <th>优点</th>
+          <th>缺点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Central Events</strong></td>
+          <td>Awake/Start</td>
+          <td>全局通用事件</td>
+          <td>集中管理</td>
+          <td>命名冲突风险</td>
+      </tr>
+      <tr>
+          <td><strong>Transition Events</strong></td>
+          <td>Start</td>
+          <td>特定Transition</td>
+          <td>模块化</td>
+          <td>每个Transition单独配置</td>
+      </tr>
+      <tr>
+          <td><strong>State Events</strong></td>
+          <td>播放时</td>
+          <td>动态事件</td>
+          <td>最灵活</td>
+          <td>每次播放都注册</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">✅ 优点
+    <div id="-优点-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e4%bc%98%e7%82%b9-2" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>可视化时间调整</strong>：在Inspector中调整</li>
+<li><strong>代码管理回调</strong>：易于维护和重构</li>
+<li><strong>团队协作友好</strong>：设计师调时间，程序员写逻辑</li>
+<li><strong>最佳实践</strong>：推荐用于生产项目</li>
+</ul>
+
+<h3 class="relative group">❌ 缺点
+    <div id="-缺点-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e7%bc%ba%e7%82%b9-2" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>需要命名约定</strong>：事件名需要统一管理</li>
+<li><strong>学习曲线</strong>：需要理解命名事件机制</li>
+</ul>
+<hr>
+
+<h2 class="relative group">高级特性
+    <div id="高级特性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">🎯 AnimancerEvent.Current
+    <div id="-animancereventcurrent" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-animancereventcurrent" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<blockquote ><p><strong>&ldquo;AnimancerEvent.Current allows you to access event details&rdquo;</strong></p>
+<p>在事件回调中访问事件详细信息。</p>
+</blockquote><div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">OnAttackHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 访问当前触发的事件</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">currentEvent</span> <span class="p">=</span> <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;事件时间: {currentEvent.normalizedTime}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;事件名称: {currentEvent.name}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 访问触发的动画状态</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">currentEvent</span><span class="p">.</span><span class="n">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;动画名称: {state.Clip.name}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;动画速度: {state.Speed}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">🔄 Shared State Events（共享状态事件）
+    <div id="-shared-state-events共享状态事件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-shared-state-events%e5%85%b1%e4%ba%ab%e7%8a%b6%e6%80%81%e4%ba%8b%e4%bb%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>避免多个脚本重复初始化同一动画的事件：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 共享状态事件示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 多个脚本共享同一动画状态的事件</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SharedStateEventsExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_WalkClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">States</span><span class="p">.</span><span class="n">GetOrCreate</span><span class="p">(</span><span class="n">_WalkClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 检查是否已经初始化过</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 首次初始化</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.3f</span><span class="p">,</span> <span class="n">OnFootstep</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.7f</span><span class="p">,</span> <span class="n">OnFootstep</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;初始化共享事件&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;共享事件已存在，跳过初始化&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnFootstep</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;脚步声&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 另一个脚本可以复用同一状态</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AnotherScript</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_WalkClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">States</span><span class="p">.</span><span class="n">GetOrCreate</span><span class="p">(</span><span class="n">_WalkClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 使用已存在的事件，无需重新初始化</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">代码示例
+    <div id="代码示例" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">示例1：完整的混合模式实战
+    <div id="示例1完整的混合模式实战" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b1%e5%ae%8c%e6%95%b4%e7%9a%84%e6%b7%b7%e5%90%88%e6%a8%a1%e5%bc%8f%e5%ae%9e%e6%88%98" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 战斗系统 - 混合模式完整示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// Inspector配置时间，代码注册回调</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">CombatSystemHybrid</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;组件&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">WeaponController</span> <span class="n">_Weapon</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AudioSource</span> <span class="n">_AudioSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ParticleSystem</span> <span class="n">_SlashEffect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;动画 - Inspector中配置命名事件&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Attack1: &#34;WindUp&#34;@0.2, &#34;Hit&#34;@0.5, &#34;Recovery&#34;@0.7</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_Attack1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Attack2: &#34;WindUp&#34;@0.3, &#34;Hit&#34;@0.6, &#34;Recovery&#34;@0.8</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_Attack2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Attack3: &#34;WindUp&#34;@0.25, &#34;Hit&#34;@0.55, &#34;Impact&#34;@0.6, &#34;Recovery&#34;@0.9</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_Attack3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;音效&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AudioClip</span> <span class="n">_SwingSound</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AudioClip</span> <span class="n">_HitSound</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_comboCount</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 中央注册所有命名事件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">RegisterNamedEvents</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">RegisterNamedEvents</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 为所有攻击动画注册通用回调</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;WindUp&#34;</span><span class="p">,</span> <span class="n">OnWindUp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Hit&#34;</span><span class="p">,</span> <span class="n">OnHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Impact&#34;</span><span class="p">,</span> <span class="n">OnImpact</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Recovery&#34;</span><span class="p">,</span> <span class="n">OnRecovery</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Mouse0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">PerformComboAttack</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PerformComboAttack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_comboCount</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">AnimancerState</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_comboCount</span> <span class="k">switch</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="m">1</span> <span class="p">=&gt;</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Attack1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="m">2</span> <span class="p">=&gt;</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Attack2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_</span> <span class="p">=&gt;</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Attack3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 添加结束事件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">_comboCount</span> <span class="p">&gt;=</span> <span class="m">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">_comboCount</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;连击结束&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 命名事件回调</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnWindUp</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;攻击{_comboCount}前摇&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_AudioSource</span><span class="p">.</span><span class="n">PlayOneShot</span><span class="p">(</span><span class="n">_SwingSound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Weapon</span><span class="p">.</span><span class="n">EnableCollider</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;攻击{_comboCount}判定&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">damage</span> <span class="p">=</span> <span class="n">_comboCount</span> <span class="p">*</span> <span class="m">30</span><span class="p">;</span> <span class="c1">// 连击伤害递增</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Weapon</span><span class="p">.</span><span class="n">CheckHit</span><span class="p">(</span><span class="n">damage</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_AudioSource</span><span class="p">.</span><span class="n">PlayOneShot</span><span class="p">(</span><span class="n">_HitSound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnImpact</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;重击冲击&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_SlashEffect</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnRecovery</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;攻击{_comboCount}后摇&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Weapon</span><span class="p">.</span><span class="n">DisableCollider</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">WeaponController</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">EnableCollider</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">DisableCollider</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">CheckHit</span><span class="p">(</span><span class="kt">int</span> <span class="n">damage</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">示例2：动态事件管理
+    <div id="示例2动态事件管理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b2%e5%8a%a8%e6%80%81%e4%ba%8b%e4%bb%b6%e7%ae%a1%e7%90%86" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 动态事件管理示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 根据游戏状态动态修改事件行为</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">DynamicEventManagement</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_RunTransition</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">bool</span> <span class="n">_isSprinting</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">bool</span> <span class="n">_isStealthy</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 切换冲刺模式</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">LeftShift</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_isSprinting</span> <span class="p">=</span> <span class="p">!</span><span class="n">_isSprinting</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 切换潜行模式</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">LeftControl</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_isStealthy</span> <span class="p">=</span> <span class="p">!</span><span class="n">_isStealthy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放跑步动画</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">W</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">PlayRunWithDynamicEvents</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayRunWithDynamicEvents</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_RunTransition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 清除旧事件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 根据状态添加不同的脚步声事件</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">_isSprinting</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 冲刺：脚步频率更快，音量更大</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.25f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="m">1.0f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="m">1.0f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.75f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="m">1.0f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">_isStealthy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 潜行：脚步频率更慢，音量更小</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.3f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="m">0.3f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.7f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="m">0.3f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 普通跑步</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.3f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="m">0.7f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddNormalized</span><span class="p">(</span><span class="m">0.7f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="m">0.7f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayFootstep</span><span class="p">(</span><span class="kt">float</span> <span class="n">volume</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;脚步声 (音量: {volume})&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">最佳实践
+    <div id="最佳实践" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">✅ DO（推荐做法）
+    <div id="-do推荐做法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-do%e6%8e%a8%e8%8d%90%e5%81%9a%e6%b3%95" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li><strong>生产项目使用混合模式</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：Inspector配置时间，代码管理回调</span>
+</span></span><span class="line"><span class="cl"><span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Hit&#34;</span><span class="p">,</span> <span class="n">OnHit</span><span class="p">);</span></span></span></code></pre></div></div>
+<ol start="2">
+<li><strong>使用命名约定</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：清晰的命名规范</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;WindUp&#34;</span><span class="p">,</span> <span class="s">&#34;Hit&#34;</span><span class="p">,</span> <span class="s">&#34;Recovery&#34;</span><span class="p">,</span> <span class="s">&#34;Footstep_L&#34;</span><span class="p">,</span> <span class="s">&#34;Footstep_R&#34;</span></span></span></code></pre></div></div>
+<ol start="3">
+<li><strong>使用 AnimancerEvent.Current 获取上下文</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：访问事件详情</span>
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">OnEvent</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">evt</span> <span class="p">=</span> <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;时间: {evt.normalizedTime}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<ol start="4">
+<li><strong>检查共享状态避免重复初始化</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：避免重复添加事件</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="n">OnHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<ol start="5">
+<li><strong>清除旧事件避免累积</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：每次播放前清除</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="n">NewCallback</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">❌ DON&rsquo;T（避免做法）
+    <div id="-dont避免做法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-dont%e9%81%bf%e5%85%8d%e5%81%9a%e6%b3%95" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li><strong>不要混用多种模式</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 差：混乱的配置方式</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 部分在Inspector，部分在代码，难以维护</span></span></span></code></pre></div></div>
+<ol start="2">
+<li><strong>不要使用模糊的事件名</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 差：不清晰的命名</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;Event1&#34;</span><span class="p">,</span> <span class="s">&#34;Event2&#34;</span><span class="p">,</span> <span class="s">&#34;DoSomething&#34;</span></span></span></code></pre></div></div>
+<ol start="3">
+<li><strong>不要忘记清除事件</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 差：事件累积</span>
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">Play</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="n">OnHit</span><span class="p">);</span> <span class="c1">// 重复添加！</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<ol start="4">
+<li><strong>不要在事件中执行耗时操作</strong></li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 差：阻塞主线程</span>
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">OnEvent</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Thread</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">100</span><span class="p">);</span> <span class="c1">// 卡顿！</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">FAQ常见问题
+    <div id="faq常见问题" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#faq%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Q1: 三种方法应该选哪个？
+    <div id="q1-三种方法应该选哪个" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q1-%e4%b8%89%e7%a7%8d%e6%96%b9%e6%b3%95%e5%ba%94%e8%af%a5%e9%80%89%e5%93%aa%e4%b8%aa" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A:</strong> 根据项目需求：</p>
+<ul>
+<li><strong>小型项目/原型</strong>：Transitions 方法（快速简单）</li>
+<li><strong>中型项目</strong>：Code 方法（易维护）</li>
+<li><strong>大型项目/团队协作</strong>：Hybrid 方法（推荐）</li>
+</ul>
+
+<h3 class="relative group">Q2: 命名事件如何工作？
+    <div id="q2-命名事件如何工作" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q2-%e5%91%bd%e5%90%8d%e4%ba%8b%e4%bb%b6%e5%a6%82%e4%bd%95%e5%b7%a5%e4%bd%9c" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A:</strong></p>
+<ol>
+<li>Inspector 中配置事件，设置 Name 字段</li>
+<li>代码中使用 <code>Events.Add(&quot;Name&quot;, Callback)</code> 注册</li>
+<li>播放动画时，匹配 Name 触发回调</li>
+</ol>
+
+<h3 class="relative group">Q3: AnimancerEvent.Current 什么时候可用？
+    <div id="q3-animancereventcurrent-什么时候可用" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q3-animancereventcurrent-%e4%bb%80%e4%b9%88%e6%97%b6%e5%80%99%e5%8f%af%e7%94%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A:</strong> 仅在事件回调函数执行期间可用：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">OnHit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">evt</span> <span class="p">=</span> <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span> <span class="c1">// ✅ 可用</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">DelayedAccess</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">IEnumerator</span> <span class="n">DelayedAccess</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">evt</span> <span class="p">=</span> <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span> <span class="c1">// ❌ 不可用（已过期）</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">Q4: 如何避免共享状态事件重复初始化？
+    <div id="q4-如何避免共享状态事件重复初始化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q4-%e5%a6%82%e4%bd%95%e9%81%bf%e5%85%8d%e5%85%b1%e4%ba%ab%e7%8a%b6%e6%80%81%e4%ba%8b%e4%bb%b6%e9%87%8d%e5%a4%8d%e5%88%9d%e5%a7%8b%e5%8c%96" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A:</strong> 检查事件数量：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">States</span><span class="p">.</span><span class="n">GetOrCreate</span><span class="p">(</span><span class="n">_Clip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 首次初始化</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="n">OnHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">Q5: 可以在运行时修改 Inspector 配置的事件吗？
+    <div id="q5-可以在运行时修改-inspector-配置的事件吗" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q5-%e5%8f%af%e4%bb%a5%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%e4%bf%ae%e6%94%b9-inspector-%e9%85%8d%e7%bd%ae%e7%9a%84%e4%ba%8b%e4%bb%b6%e5%90%97" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A:</strong> 可以，但会覆盖 Inspector 配置：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Transition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 清除Inspector配置的事件</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加新的事件</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="n">NewCallback</span><span class="p">);</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">参考资料
+    <div id="参考资料" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">📚 相关文档
+    <div id="-相关文档" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e7%9b%b8%e5%85%b3%e6%96%87%e6%a1%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><a href="https://kybernetik.com.au/animancer/docs/manual/events/"  target="_blank">Animancer Events 主页</a></li>
+<li><a href="https://kybernetik.com.au/animancer/docs/manual/events/animancer/behaviour"  target="_blank">Animancer Events - Behaviour</a></li>
+<li><a href="https://kybernetik.com.au/animancer/docs/manual/events/animancer/parameters/"  target="_blank">Animancer Events - Parameters</a></li>
+<li><a href="https://kybernetik.com.au/animancer/docs/manual/transitions/previews/"  target="_blank">Transition Preview Window</a></li>
+</ul>
+
+<h3 class="relative group">🔗 官方资源
+    <div id="-官方资源" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#-%e5%ae%98%e6%96%b9%e8%b5%84%e6%ba%90" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><a href="https://kybernetik.com.au/animancer/docs/samples/"  target="_blank">Animancer Events 示例</a></li>
+<li><a href="https://kybernetik.com.au/animancer/api/"  target="_blank">API 文档</a></li>
+</ul>
+<hr>
+<p><strong>文档版本</strong>: 1.0
+<strong>最后更新</strong>: 2025-12-25
+<strong>适用 Animancer 版本</strong>: 8.0+（需要 Pro 版本）</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/NewskyGameBlog/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_animancer\event\animancer-eventsusage.md"
+          data-oid-likes="likes_animancer\event\animancer-eventsusage.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/event/animancer-eventsutilities/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Animancer Events - Utilities
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/event/animancer-eventsparameters/">
+              <span class="leading-6">
+                Animancer Events - Parameters&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          mickorz
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/NewskyGameBlog/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

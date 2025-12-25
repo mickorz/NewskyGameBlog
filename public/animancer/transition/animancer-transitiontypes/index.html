@@ -1,0 +1,2364 @@
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh-cn">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Animancer Transition Types &middot; Newsky Game Blog</title>
+    <meta name="title" content="Animancer Transition Types &middot; Newsky Game Blog">
+  
+
+  
+  
+    <meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  
+  
+  
+    <meta name="robots" content="noindex, nofollow">
+  
+  
+  <link rel="canonical" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitiontypes/">
+  
+
+  
+  
+    <meta name="author" content="mickorz">
+  
+  
+    
+      
+        
+          <link href="https://github.com/mickorz" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitiontypes/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Animancer Transition Types">
+  <meta property="og:description" content="Animancer Transition Types 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/types/ 抓取日期：2025-01-24
+概述 (Overview)#Animancer 中的每个状态类型都对应一个转换类型，用于在调用 AnimancerComponent.Play(ITransition) 时创建相应的状态。
+核心机制#Transition Type（转换类型） → 创建 → State Type（状态类型） ↓ ↓ ClipTransition ClipState LinearMixerTransition LinearMixerState MixerTransition2D Mixer2D ...等等序列化引用机制 (Serialization Reference)#问题背景#Unity 通常不支持序列化继承类型。例如，如果你有一个 ITransition 接口，直接序列化会失败：">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="animancer">
+    <meta property="article:published_time" content="2025-12-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-25T00:00:00+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Animancer Transition Types">
+  <meta name="twitter:description" content="Animancer Transition Types 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/types/ 抓取日期：2025-01-24
+概述 (Overview)#Animancer 中的每个状态类型都对应一个转换类型，用于在调用 AnimancerComponent.Play(ITransition) 时创建相应的状态。
+核心机制#Transition Type（转换类型） → 创建 → State Type（状态类型） ↓ ↓ ClipTransition ClipState LinearMixerTransition LinearMixerState MixerTransition2D Mixer2D ...等等序列化引用机制 (Serialization Reference)#问题背景#Unity 通常不支持序列化继承类型。例如，如果你有一个 ITransition 接口，直接序列化会失败：">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/NewskyGameBlog/css/main.bundle.min.ad4a2404cd820d9a561641b272de1ea768230edad666e70eabdf8cf3cd832073a4696419403ce3fcb1475c4b0d503ecbb9b82477b416ec54c62eec4fc87f20fd.css"
+    integrity="sha512-rUokBM2CDZpWFkGyct4ep2gjDtrWZucOq9&#43;M882DIHOkaWQZQDzj/LFHXEsNUD7Lubgkd7QW7FTGLuxPyH8g/Q==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/NewskyGameBlog/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/NewskyGameBlog/js/main.bundle.min.e2a486e2d26101d42b0ae6565951c0ab32807f06c8cac845e9a430aac163bf4b95eaaf22ac52825b7c9135e177953252afda0c2c8b6e64291c90238a4685aaa3.js"
+      integrity="sha512-4qSG4tJhAdQrCuZWWVHAqzKAfwbIyshF6aQwqsFjv0uV6q8irFKCW3yRNeF3lTJSr9oMLItuZCkckCOKRoWqow=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+
+  
+  
+
+<script src="/NewskyGameBlog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/NewskyGameBlog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/NewskyGameBlog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/NewskyGameBlog/favicon-16x16.png">
+    <link rel="manifest" href="/NewskyGameBlog/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Animancer 中文文档目录",
+    "name": "Animancer Transition Types",
+    "headline": "Animancer Transition Types",
+    
+    "inLanguage": "zh-cn",
+    "url" : "http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitiontypes/",
+    "author" : {
+      "@type": "Person",
+      "name": "mickorz"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-25T00:00:00\u002b00:00",
+    "datePublished": "2025-12-25T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-12-25T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1906"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        跳过正文
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/NewskyGameBlog/" class="text-base font-medium">
+          Newsky Game Blog
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/NewskyGameBlog/animancer/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 Animancer 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 Animancer 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/posts/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="所有文章"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      所有文章
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="https://github.com/mickorz"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="github"
+  title="">
+  
+    <span >
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+    </span>
+  
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/animancer/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 Animancer 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 Animancer 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/posts/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="所有文章"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        所有文章
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/mickorz"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="github"
+    title="">
+    
+      <div >
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+      </div>
+    
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Animancer Transition Types
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1906 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">9 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        作者
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        mickorz
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">专注于 Unity 开发与 Animancer 插件深度解析</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/mickorz"
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述-overview">概述 (Overview)</a>
+      <ul>
+        <li><a href="#核心机制">核心机制</a></li>
+      </ul>
+    </li>
+    <li><a href="#序列化引用机制-serialization-reference">序列化引用机制 (Serialization Reference)</a>
+      <ul>
+        <li><a href="#问题背景">问题背景</a></li>
+        <li><a href="#解决方案serializereference">解决方案：SerializeReference</a></li>
+      </ul>
+    </li>
+    <li><a href="#transition-类型分类">Transition 类型分类</a>
+      <ul>
+        <li><a href="#一剪辑转换-clip-transitions">一、剪辑转换 (Clip Transitions)</a></li>
+        <li><a href="#二混合器转换-mixer-transitions">二、混合器转换 (Mixer Transitions)</a></li>
+        <li><a href="#三其他转换-other-transitions">三、其他转换 (Other Transitions)</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义转换-custom-transitions">自定义转换 (Custom Transitions)</a>
+      <ul>
+        <li><a href="#创建自定义-transition">创建自定义 Transition</a></li>
+        <li><a href="#自定义-inspector-绘制器">自定义 Inspector 绘制器</a></li>
+      </ul>
+    </li>
+    <li><a href="#transition-类型选择指南">Transition 类型选择指南</a>
+      <ul>
+        <li><a href="#决策树">决策树</a></li>
+        <li><a href="#常见场景推荐">常见场景推荐</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践">最佳实践</a>
+      <ul>
+        <li><a href="#1-选择合适的-transition-类型">1. 选择合适的 Transition 类型</a></li>
+        <li><a href="#2-合理使用-synchronize-children">2. 合理使用 Synchronize Children</a></li>
+        <li><a href="#3-阈值设置技巧">3. 阈值设置技巧</a></li>
+        <li><a href="#4-性能优化">4. 性能优化</a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题-faq">常见问题 FAQ</a>
+      <ul>
+        <li><a href="#q1-何时使用-cliptransition-vs-cliptransitionsequence">Q1: 何时使用 ClipTransition vs ClipTransitionSequence？</a></li>
+        <li><a href="#q2-linearmixer-和-mixer2d-有什么区别">Q2: LinearMixer 和 Mixer2D 有什么区别？</a></li>
+        <li><a href="#q3-manualmixer-适合什么场景">Q3: ManualMixer 适合什么场景？</a></li>
+        <li><a href="#q4-controllertransition-的性能如何">Q4: ControllerTransition 的性能如何？</a></li>
+        <li><a href="#q5-如何创建自定义-transition">Q5: 如何创建自定义 Transition？</a></li>
+        <li><a href="#q6-mixer2d-的三种类型有什么区别">Q6: Mixer2D 的三种类型有什么区别?</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#核心要点">核心要点</a></li>
+        <li><a href="#transition-类型速查表">Transition 类型速查表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述-overview">概述 (Overview)</a>
+      <ul>
+        <li><a href="#核心机制">核心机制</a></li>
+      </ul>
+    </li>
+    <li><a href="#序列化引用机制-serialization-reference">序列化引用机制 (Serialization Reference)</a>
+      <ul>
+        <li><a href="#问题背景">问题背景</a></li>
+        <li><a href="#解决方案serializereference">解决方案：SerializeReference</a></li>
+      </ul>
+    </li>
+    <li><a href="#transition-类型分类">Transition 类型分类</a>
+      <ul>
+        <li><a href="#一剪辑转换-clip-transitions">一、剪辑转换 (Clip Transitions)</a></li>
+        <li><a href="#二混合器转换-mixer-transitions">二、混合器转换 (Mixer Transitions)</a></li>
+        <li><a href="#三其他转换-other-transitions">三、其他转换 (Other Transitions)</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义转换-custom-transitions">自定义转换 (Custom Transitions)</a>
+      <ul>
+        <li><a href="#创建自定义-transition">创建自定义 Transition</a></li>
+        <li><a href="#自定义-inspector-绘制器">自定义 Inspector 绘制器</a></li>
+      </ul>
+    </li>
+    <li><a href="#transition-类型选择指南">Transition 类型选择指南</a>
+      <ul>
+        <li><a href="#决策树">决策树</a></li>
+        <li><a href="#常见场景推荐">常见场景推荐</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践">最佳实践</a>
+      <ul>
+        <li><a href="#1-选择合适的-transition-类型">1. 选择合适的 Transition 类型</a></li>
+        <li><a href="#2-合理使用-synchronize-children">2. 合理使用 Synchronize Children</a></li>
+        <li><a href="#3-阈值设置技巧">3. 阈值设置技巧</a></li>
+        <li><a href="#4-性能优化">4. 性能优化</a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题-faq">常见问题 FAQ</a>
+      <ul>
+        <li><a href="#q1-何时使用-cliptransition-vs-cliptransitionsequence">Q1: 何时使用 ClipTransition vs ClipTransitionSequence？</a></li>
+        <li><a href="#q2-linearmixer-和-mixer2d-有什么区别">Q2: LinearMixer 和 Mixer2D 有什么区别？</a></li>
+        <li><a href="#q3-manualmixer-适合什么场景">Q3: ManualMixer 适合什么场景？</a></li>
+        <li><a href="#q4-controllertransition-的性能如何">Q4: ControllerTransition 的性能如何？</a></li>
+        <li><a href="#q5-如何创建自定义-transition">Q5: 如何创建自定义 Transition？</a></li>
+        <li><a href="#q6-mixer2d-的三种类型有什么区别">Q6: Mixer2D 的三种类型有什么区别?</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#核心要点">核心要点</a></li>
+        <li><a href="#transition-类型速查表">Transition 类型速查表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">Animancer Transition Types 官方文档
+    <div id="animancer-transition-types-官方文档" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#animancer-transition-types-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<blockquote ><p>原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/types/
+抓取日期：2025-01-24</p>
+</blockquote><hr>
+
+<h2 class="relative group">概述 (Overview)
+    <div id="概述-overview" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%bf%b0-overview" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p>Animancer 中的<strong>每个状态类型都对应一个转换类型</strong>，用于在调用 <code>AnimancerComponent.Play(ITransition)</code> 时创建相应的状态。</p>
+
+<h3 class="relative group">核心机制
+    <div id="核心机制" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a0%b8%e5%bf%83%e6%9c%ba%e5%88%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Transition Type（转换类型） → 创建 → State Type（状态类型）
+</span></span><span class="line"><span class="cl">        ↓                                    ↓
+</span></span><span class="line"><span class="cl">  ClipTransition                        ClipState
+</span></span><span class="line"><span class="cl">  LinearMixerTransition                 LinearMixerState
+</span></span><span class="line"><span class="cl">  MixerTransition2D                     Mixer2D
+</span></span><span class="line"><span class="cl">  ...等等</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">序列化引用机制 (Serialization Reference)
+    <div id="序列化引用机制-serialization-reference" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%ba%8f%e5%88%97%e5%8c%96%e5%bc%95%e7%94%a8%e6%9c%ba%e5%88%b6-serialization-reference" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">问题背景
+    <div id="问题背景" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%97%ae%e9%a2%98%e8%83%8c%e6%99%af" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>Unity 通常<strong>不支持序列化继承类型</strong>。例如，如果你有一个 <code>ITransition</code> 接口，直接序列化会失败：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 这样不行，Unity 无法序列化接口</span>
+</span></span><span class="line"><span class="cl"><span class="na">[SerializeField]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">ITransition</span> <span class="n">_Animation</span><span class="p">;</span> <span class="c1">// 在 Inspector 中显示为空</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">解决方案：SerializeReference
+    <div id="解决方案serializereference" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88serializereference" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>使用 <code>[SerializeReference]</code> 属性可以解决这个问题：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 使用 SerializeReference 属性</span>
+</span></span><span class="line"><span class="cl"><span class="na">[SerializeReference]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">ITransition</span> <span class="n">_Animation</span><span class="p">;</span></span></span></code></pre></div></div>
+<p><strong>效果</strong>：</p>
+<ul>
+<li>在 Inspector 中会显示一个<strong>下拉菜单</strong></li>
+<li>可以选择任何实现了 <code>ITransition</code> 的类型</li>
+<li>代码无需了解具体类型，保持了多态性</li>
+</ul>
+<p><strong>可视化示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Inspector 中的显示：
+</span></span><span class="line"><span class="cl">┌─────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│ Animation                       │
+</span></span><span class="line"><span class="cl">│ ┌─────────────────────────────┐ │
+</span></span><span class="line"><span class="cl">│ │ ▼ ClipTransition            │ │  ← 下拉菜单
+</span></span><span class="line"><span class="cl">│ ├─────────────────────────────┤ │
+</span></span><span class="line"><span class="cl">│ │   Clip: [拖入动画片段]      │ │
+</span></span><span class="line"><span class="cl">│ │   Fade Duration: 0.25       │ │
+</span></span><span class="line"><span class="cl">│ │   Speed: 1                  │ │
+</span></span><span class="line"><span class="cl">│ └─────────────────────────────┘ │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────┘</span></span></code></pre></div></div>
+<p>点击下拉菜单可以切换为：</p>
+<ul>
+<li>ClipTransition</li>
+<li>LinearMixerTransition</li>
+<li>MixerTransition2D</li>
+<li>ControllerTransition</li>
+<li>等等&hellip;</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Transition 类型分类
+    <div id="transition-类型分类" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transition-%e7%b1%bb%e5%9e%8b%e5%88%86%e7%b1%bb" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">一、剪辑转换 (Clip Transitions)
+    <div id="一剪辑转换-clip-transitions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%80%e5%89%aa%e8%be%91%e8%bd%ac%e6%8d%a2-clip-transitions" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">1. ClipTransition（单个剪辑转换）
+    <div id="1-cliptransition单个剪辑转换" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-cliptransition%e5%8d%95%e4%b8%aa%e5%89%aa%e8%be%91%e8%bd%ac%e6%8d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>功能</strong>：创建 <code>ClipState</code> 以播放<strong>单个 AnimationClip</strong></p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>✅ 简单的单个动画播放（如死亡、受击、装弹）</li>
+<li>✅ 不需要混合的动画</li>
+<li>✅ 需要精确控制淡入、速度、起始时间的动画</li>
+</ul>
+<p><strong>配置字段</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">Clip（动画片段）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Animation Clip</span><span class="p">:</span><span class="w"> </span><span class="l">要播放的动画片段</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Fade Duration</span><span class="p">:</span><span class="w"> </span><span class="l">淡入时长（默认 0.25s）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Speed</span><span class="p">:</span><span class="w"> </span><span class="l">播放速度（默认 1）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Start Time</span><span class="p">:</span><span class="w"> </span><span class="l">起始时间（默认 0）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ End Time</span><span class="p">:</span><span class="w"> </span><span class="l">结束时间（默认动画长度）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">└─ Events</span><span class="p">:</span><span class="w"> </span><span class="l">动画事件列表</span></span></span></code></pre></div></div>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ClipTransitionExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_DeathAnimation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">Die</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放死亡动画</span>
+</span></span><span class="line"><span class="cl">        <span class="n">AnimancerState</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_DeathAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 可以访问状态进行进一步操作</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="n">OnDeathAnimationEnd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">OnDeathAnimationEnd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;角色死亡动画播放完毕&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 执行死亡后的逻辑</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Inspector 配置示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ClipTransition
+</span></span><span class="line"><span class="cl">├─ Clip: Rifle_Death_R
+</span></span><span class="line"><span class="cl">├─ Fade Duration: 0.1
+</span></span><span class="line"><span class="cl">├─ Speed: 1
+</span></span><span class="line"><span class="cl">├─ Start Time: 0
+</span></span><span class="line"><span class="cl">└─ Events:
+</span></span><span class="line"><span class="cl">    └─ Normalized Time: 1.0 → OnDeathComplete</span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">2. ClipTransitionSequence（剪辑序列转换）
+    <div id="2-cliptransitionsequence剪辑序列转换" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-cliptransitionsequence%e5%89%aa%e8%be%91%e5%ba%8f%e5%88%97%e8%bd%ac%e6%8d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>功能</strong>：继承自 <code>ClipTransition</code>，包含一个<strong>转换数组</strong>，按顺序播放多个动画剪辑</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>✅ 需要连续播放多个动画（如连续攻击：轻击→重击→收刀）</li>
+<li>✅ 过场动画序列</li>
+<li>✅ 技能释放的多段动画</li>
+</ul>
+<p><strong>工作原理</strong>：</p>
+<ol>
+<li>播放第一个动画</li>
+<li>第一个动画结束后自动播放第二个</li>
+<li>依次类推，直到所有动画播放完毕</li>
+</ol>
+<p><strong>配置字段</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">ClipTransitionSequence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Transitions（转换数组）</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [0] 第一个动画配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [1] 第二个动画配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  └─ [2] 第三个动画配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">└─ 其他字段继承自 ClipTransition</span></span></span></code></pre></div></div>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ComboAttackExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ClipTransitionSequence</span> <span class="n">_ComboAttack</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Space</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 播放连续攻击序列</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_ComboAttack</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Inspector 配置示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ClipTransitionSequence &#34;三连击&#34;
+</span></span><span class="line"><span class="cl">├─ Transitions:
+</span></span><span class="line"><span class="cl">│  ├─ [0] 轻击1
+</span></span><span class="line"><span class="cl">│  │  ├─ Clip: Attack_Light_1
+</span></span><span class="line"><span class="cl">│  │  ├─ Fade Duration: 0.1
+</span></span><span class="line"><span class="cl">│  │  └─ Speed: 1
+</span></span><span class="line"><span class="cl">│  ├─ [1] 轻击2
+</span></span><span class="line"><span class="cl">│  │  ├─ Clip: Attack_Light_2
+</span></span><span class="line"><span class="cl">│  │  ├─ Fade Duration: 0.05
+</span></span><span class="line"><span class="cl">│  │  └─ Speed: 1.2
+</span></span><span class="line"><span class="cl">│  └─ [2] 重击
+</span></span><span class="line"><span class="cl">│     ├─ Clip: Attack_Heavy
+</span></span><span class="line"><span class="cl">│     ├─ Fade Duration: 0.05
+</span></span><span class="line"><span class="cl">│     └─ Speed: 1</span></span></code></pre></div></div>
+<p><strong>应用示例（连击系统）</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ComboSystem</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义多个连击序列</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransitionSequence</span> <span class="n">_LightCombo</span><span class="p">;</span>  <span class="c1">// 轻攻击3连</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransitionSequence</span> <span class="n">_HeavyCombo</span><span class="p">;</span>  <span class="c1">// 重攻击2连</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Mouse0</span><span class="p">))</span> <span class="c1">// 左键</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_LightCombo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Mouse1</span><span class="p">))</span> <span class="c1">// 右键</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_HeavyCombo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">二、混合器转换 (Mixer Transitions)
+    <div id="二混合器转换-mixer-transitions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%ba%8c%e6%b7%b7%e5%90%88%e5%99%a8%e8%bd%ac%e6%8d%a2-mixer-transitions" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>混合器转换用于创建各类<strong>混合器状态</strong>，可以在多个动画之间平滑混合。</p>
+<p><strong>右键菜单功能</strong>：</p>
+<ul>
+<li>右键点击混合器转换可以打开上下文菜单</li>
+<li>包含多个实用功能（如添加子动画、删除子动画、调整顺序等）</li>
+</ul>
+<hr>
+
+<h4 class="relative group">1. ManualMixerTransition（手动混合器转换）
+    <div id="1-manualmixertransition手动混合器转换" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-manualmixertransition%e6%89%8b%e5%8a%a8%e6%b7%b7%e5%90%88%e5%99%a8%e8%bd%ac%e6%8d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>功能</strong>：创建 <code>ManualMixerState</code>，手动控制每个子动画的权重</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>✅ 需要精确控制每个动画的权重</li>
+<li>✅ 自定义混合逻辑</li>
+<li>✅ 动画权重需要根据复杂条件计算</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>不依赖参数自动混合</li>
+<li>完全由代码控制权重</li>
+<li>灵活度最高</li>
+</ul>
+<p><strong>配置字段</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">ManualMixerTransition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Children（子动画列表）</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [0] 动画1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [1] 动画2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  └─ [2] 动画3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Fade Duration</span><span class="p">:</span><span class="w"> </span><span class="l">淡入时长</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">└─ Synchronize Children</span><span class="p">:</span><span class="w"> </span><span class="l">是否同步子动画</span></span></span></code></pre></div></div>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ManualMixerExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ManualMixerTransition</span> <span class="n">_IdleMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ManualMixerState</span> <span class="n">_IdleState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放手动混合器</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_IdleState</span> <span class="p">=</span> <span class="p">(</span><span class="n">ManualMixerState</span><span class="p">)</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_IdleMixer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 根据玩家状态手动设置权重</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">health</span> <span class="p">=</span> <span class="n">GetHealthPercentage</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">health</span> <span class="p">&gt;</span> <span class="m">0.7f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 健康状态：100% 正常待机</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span> <span class="c1">// 正常待机</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span> <span class="c1">// 疲惫待机</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span> <span class="c1">// 受伤待机</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">health</span> <span class="p">&gt;</span> <span class="m">0.3f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 中等状态：混合正常和疲惫</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">float</span> <span class="n">tiredness</span> <span class="p">=</span> <span class="p">(</span><span class="m">0.7f</span> <span class="p">-</span> <span class="n">health</span><span class="p">)</span> <span class="p">/</span> <span class="m">0.4f</span><span class="p">;</span> <span class="c1">// 0 到 1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span> <span class="p">-</span> <span class="n">tiredness</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">tiredness</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 危险状态：混合疲惫和受伤</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">float</span> <span class="n">injury</span> <span class="p">=</span> <span class="p">(</span><span class="m">0.3f</span> <span class="p">-</span> <span class="n">health</span><span class="p">)</span> <span class="p">/</span> <span class="m">0.3f</span><span class="p">;</span> <span class="c1">// 0 到 1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span> <span class="p">-</span> <span class="n">injury</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleState</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">injury</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">float</span> <span class="n">GetHealthPercentage</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 返回当前生命值百分比（0-1）</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="m">0.5f</span><span class="p">;</span> <span class="c1">// 示例值</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Inspector 配置示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ManualMixerTransition &#34;生命值待机混合&#34;
+</span></span><span class="line"><span class="cl">├─ Fade Duration: 0.25
+</span></span><span class="line"><span class="cl">├─ Synchronize Children: true
+</span></span><span class="line"><span class="cl">└─ Children:
+</span></span><span class="line"><span class="cl">    ├─ [0] Idle_Healthy（健康待机）
+</span></span><span class="line"><span class="cl">    ├─ [1] Idle_Tired（疲惫待机）
+</span></span><span class="line"><span class="cl">    └─ [2] Idle_Injured（受伤待机）</span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">2. LinearMixerTransition（线性混合器转换）
+    <div id="2-linearmixertransition线性混合器转换" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-linearmixertransition%e7%ba%bf%e6%80%a7%e6%b7%b7%e5%90%88%e5%99%a8%e8%bd%ac%e6%8d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>功能</strong>：创建 <code>LinearMixerState</code>，根据<strong>单个参数</strong>在多个动画之间线性混合（1D 混合）</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>✅ 速度混合（慢走 → 快走 → 跑步）</li>
+<li>✅ 根据单一数值的变化混合动画</li>
+<li>✅ Animator BlendTree 1D 的替代</li>
+</ul>
+<p><strong>配置字段</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">LinearMixerTransition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Children（子动画列表）</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [0] 动画1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [1] 动画2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  └─ [2] 动画3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Thresholds（阈值）</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [0] -1.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [1] 0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  └─ [2] 1.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Parameter（参数）</span><span class="p">:</span><span class="w"> </span><span class="l">控制混合的参数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Fade Duration</span><span class="p">:</span><span class="w"> </span><span class="l">淡入时长</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">└─ Synchronize Children</span><span class="p">:</span><span class="w"> </span><span class="l">是否同步子动画</span></span></span></code></pre></div></div>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">LinearMixerExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LinearMixerTransition</span> <span class="n">_MovementBlend</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">StringAsset</span> <span class="n">_SpeedParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LinearMixerState</span> <span class="n">_MovementState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放线性混合器</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MovementState</span> <span class="p">=</span> <span class="p">(</span><span class="n">LinearMixerState</span><span class="p">)</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_MovementBlend</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 根据输入更新速度参数</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">inputMagnitude</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">);</span> <span class="c1">// -1 到 1</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="n">inputMagnitude</span> <span class="p">*</span> <span class="m">5f</span><span class="p">;</span> <span class="c1">// -5 到 5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 更新参数，混合器会自动混合动画</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_SpeedParameter</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="n">speed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Inspector 配置示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">LinearMixerTransition &#34;移动速度混合&#34;
+</span></span><span class="line"><span class="cl">├─ Fade Duration: 0.25
+</span></span><span class="line"><span class="cl">├─ Parameter: SpeedValue.asset
+</span></span><span class="line"><span class="cl">├─ Synchronize Children: true
+</span></span><span class="line"><span class="cl">├─ Children:
+</span></span><span class="line"><span class="cl">│  ├─ [0] Walk_Backward（后退）
+</span></span><span class="line"><span class="cl">│  ├─ [1] Idle（待机）
+</span></span><span class="line"><span class="cl">│  ├─ [2] Walk_Forward（前进）
+</span></span><span class="line"><span class="cl">│  └─ [3] Run_Forward（跑步）
+</span></span><span class="line"><span class="cl">└─ Thresholds:
+</span></span><span class="line"><span class="cl">    ├─ [0] -2.5
+</span></span><span class="line"><span class="cl">    ├─ [1] 0
+</span></span><span class="line"><span class="cl">    ├─ [2] 2.5
+</span></span><span class="line"><span class="cl">    └─ [3] 5.0</span></span></code></pre></div></div>
+<p><strong>工作原理</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">参数值 = -2.5 → 100% 后退
+</span></span><span class="line"><span class="cl">参数值 = -1.25 → 50% 后退 + 50% 待机
+</span></span><span class="line"><span class="cl">参数值 = 0    → 100% 待机
+</span></span><span class="line"><span class="cl">参数值 = 1.25 → 50% 待机 + 50% 前进
+</span></span><span class="line"><span class="cl">参数值 = 2.5  → 100% 前进
+</span></span><span class="line"><span class="cl">参数值 = 3.75 → 50% 前进 + 50% 跑步
+</span></span><span class="line"><span class="cl">参数值 = 5.0  → 100% 跑步</span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">3. MixerTransition2D（2D 混合器转换）
+    <div id="3-mixertransition2d2d-混合器转换" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-mixertransition2d2d-%e6%b7%b7%e5%90%88%e5%99%a8%e8%bd%ac%e6%8d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>功能</strong>：创建笛卡尔或方向混合器状态，根据<strong>两个参数</strong>在多个动画之间混合（2D 混合）</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>✅ 8 方向移动混合（前后左右及对角线）</li>
+<li>✅ 需要两个维度控制的动画混合</li>
+<li>✅ Animator BlendTree 2D 的替代</li>
+</ul>
+<p><strong>混合类型</strong>：</p>
+<ol>
+<li>
+<p><strong>Freeform Cartesian（自由形式笛卡尔）</strong></p>
+<ul>
+<li>适合：自由移动的循环动画</li>
+<li>示例：8 方向行走</li>
+</ul>
+</li>
+<li>
+<p><strong>Freeform Directional（自由形式方向性）</strong></p>
+<ul>
+<li>适合：方向性动画</li>
+<li>示例：起步动画、停止动画</li>
+</ul>
+</li>
+<li>
+<p><strong>Simple Directional（简单方向性）</strong></p>
+<ul>
+<li>适合：简单的方向混合</li>
+</ul>
+</li>
+</ol>
+<p><strong>配置字段</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">MixerTransition2D</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Type</span><span class="p">:</span><span class="w"> </span><span class="l">混合类型（Cartesian/Directional/Simple）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Children（子动画列表）</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [0] 动画1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  ├─ [1] 动画2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  └─ ... (通常8个)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Thresholds（2D坐标）</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">│  ├─ [0] x: 0,   y</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">    </span><span class="l">(正前)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">│  ├─ [1] x: 0.7, y</span><span class="p">:</span><span class="w"> </span><span class="m">0.7</span><span class="w">  </span><span class="l">(前右)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">│  └─ ... (对应每个动画)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Parameter X</span><span class="p">:</span><span class="w"> </span><span class="l">X轴参数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Parameter Y</span><span class="p">:</span><span class="w"> </span><span class="l">Y轴参数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Fade Duration</span><span class="p">:</span><span class="w"> </span><span class="l">淡入时长</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">└─ Synchronize Children</span><span class="p">:</span><span class="w"> </span><span class="l">是否同步子动画</span></span></span></code></pre></div></div>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Mixer2DExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">MixerTransition2D</span> <span class="n">_WalkingBlend</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">StringAsset</span> <span class="n">_HorizontalParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">StringAsset</span> <span class="n">_VerticalParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Mixer2D</span> <span class="n">_WalkingState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放2D混合器</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_WalkingState</span> <span class="p">=</span> <span class="p">(</span><span class="n">Mixer2D</span><span class="p">)</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_WalkingBlend</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取输入</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">horizontal</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Horizontal&#34;</span><span class="p">);</span> <span class="c1">// -1 到 1</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">vertical</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">);</span>     <span class="c1">// -1 到 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 更新参数，混合器会自动混合8个方向的动画</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_HorizontalParameter</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="n">horizontal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_VerticalParameter</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="n">vertical</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Inspector 配置示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">MixerTransition2D &#34;8方向行走混合&#34;
+</span></span><span class="line"><span class="cl">├─ Type: Freeform Cartesian
+</span></span><span class="line"><span class="cl">├─ Fade Duration: 0.25
+</span></span><span class="line"><span class="cl">├─ Parameter X: Horizontal.asset
+</span></span><span class="line"><span class="cl">├─ Parameter Y: Vertical.asset
+</span></span><span class="line"><span class="cl">├─ Synchronize Children: true
+</span></span><span class="line"><span class="cl">├─ Children (8个):
+</span></span><span class="line"><span class="cl">│  ├─ [0] Walk_Forward
+</span></span><span class="line"><span class="cl">│  ├─ [1] Walk_Forward_Right
+</span></span><span class="line"><span class="cl">│  ├─ [2] Walk_Right
+</span></span><span class="line"><span class="cl">│  ├─ [3] Walk_Backward_Right
+</span></span><span class="line"><span class="cl">│  ├─ [4] Walk_Backward
+</span></span><span class="line"><span class="cl">│  ├─ [5] Walk_Backward_Left
+</span></span><span class="line"><span class="cl">│  ├─ [6] Walk_Left
+</span></span><span class="line"><span class="cl">│  └─ [7] Walk_Forward_Left
+</span></span><span class="line"><span class="cl">└─ Thresholds (8组坐标):
+</span></span><span class="line"><span class="cl">    ├─ [0] x: 0,     y: 1
+</span></span><span class="line"><span class="cl">    ├─ [1] x: 0.707, y: 0.707
+</span></span><span class="line"><span class="cl">    ├─ [2] x: 1,     y: 0
+</span></span><span class="line"><span class="cl">    ├─ [3] x: 0.707, y: -0.707
+</span></span><span class="line"><span class="cl">    ├─ [4] x: 0,     y: -1
+</span></span><span class="line"><span class="cl">    ├─ [5] x: -0.707,y: -0.707
+</span></span><span class="line"><span class="cl">    ├─ [6] x: -1,    y: 0
+</span></span><span class="line"><span class="cl">    └─ [7] x: -0.707,y: 0.707</span></span></code></pre></div></div>
+<p><strong>坐标布局可视化</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">           (0, 1)
+</span></span><span class="line"><span class="cl">        正前 Forward
+</span></span><span class="line"><span class="cl">           ↑
+</span></span><span class="line"><span class="cl">   (-0.707, 0.707) | (0.707, 0.707)
+</span></span><span class="line"><span class="cl">      前左  \   |   /  前右
+</span></span><span class="line"><span class="cl">             \ | /
+</span></span><span class="line"><span class="cl">  (-1, 0) ----●---- (1, 0)
+</span></span><span class="line"><span class="cl">    正左       |       正右
+</span></span><span class="line"><span class="cl">             / | \
+</span></span><span class="line"><span class="cl">      后左  /   |   \  后右
+</span></span><span class="line"><span class="cl">(-0.707, -0.707) | (0.707, -0.707)
+</span></span><span class="line"><span class="cl">           ↓
+</span></span><span class="line"><span class="cl">        (0, -1)
+</span></span><span class="line"><span class="cl">       正后 Back</span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">三、其他转换 (Other Transitions)
+    <div id="三其他转换-other-transitions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%89%e5%85%b6%e4%bb%96%e8%bd%ac%e6%8d%a2-other-transitions" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">1. ControllerTransition（控制器转换）
+    <div id="1-controllertransition控制器转换" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-controllertransition%e6%8e%a7%e5%88%b6%e5%99%a8%e8%bd%ac%e6%8d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>功能</strong>：创建 <code>ControllerState</code>，包装 Unity 的 <strong>Animator Controller</strong></p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>✅ 需要使用现有的 Animator Controller</li>
+<li>✅ 渐进式迁移到 Animancer（保留部分 Animator 功能）</li>
+<li>✅ 复杂的状态机逻辑暂时不想用代码重写</li>
+</ul>
+<p><strong>配置字段</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">ControllerTransition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Controller</span><span class="p">:</span><span class="w"> </span><span class="l">Animator Controller 资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Fade Duration</span><span class="p">:</span><span class="w"> </span><span class="l">淡入时长</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">└─ Keep State On Stop</span><span class="p">:</span><span class="w"> </span><span class="l">停止时保持状态</span></span></span></code></pre></div></div>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ControllerTransitionExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ControllerTransition</span> <span class="n">_LegacyController</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放 Animator Controller</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ControllerState</span> <span class="n">state</span> <span class="p">=</span> <span class="p">(</span><span class="n">ControllerState</span><span class="p">)</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_LegacyController</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 可以访问底层的 Animator</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Animator</span> <span class="n">animator</span> <span class="p">=</span> <span class="n">state</span><span class="p">.</span><span class="n">Playable</span><span class="p">.</span><span class="n">GetAnimator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">animator</span><span class="p">.</span><span class="n">SetBool</span><span class="p">(</span><span class="s">&#34;IsRunning&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>使用建议</strong>：</p>
+<ul>
+<li>⚠️ 主要用于迁移过程</li>
+<li>⚠️ 长期使用建议完全转换为 Animancer 状态</li>
+<li>✅ 可以访问 Animator 的参数和功能</li>
+</ul>
+<hr>
+
+<h4 class="relative group">2. PlayableAssetTransition（可播放资源转换）
+    <div id="2-playableassettransition可播放资源转换" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-playableassettransition%e5%8f%af%e6%92%ad%e6%94%be%e8%b5%84%e6%ba%90%e8%bd%ac%e6%8d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>功能</strong>：创建 <code>PlayableAssetState</code>，支持 Unity 的 <strong>Timeline</strong> 系统</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>✅ 使用 Timeline 制作的过场动画</li>
+<li>✅ 复杂的多轨道动画序列</li>
+<li>✅ 需要与 Timeline 绑定的对象交互</li>
+</ul>
+<p><strong>配置字段</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">PlayableAssetTransition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Asset</span><span class="p">:</span><span class="w"> </span><span class="l">PlayableAsset（Timeline资源）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Bindings</span><span class="p">:</span><span class="w"> </span><span class="l">时间轴绑定数组</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">├─ Fade Duration</span><span class="p">:</span><span class="w"> </span><span class="l">淡入时长</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">└─ Speed</span><span class="p">:</span><span class="w"> </span><span class="l">播放速度</span></span></span></code></pre></div></div>
+<p><strong>时间轴绑定数组</strong>：</p>
+<ul>
+<li>用于绑定 Timeline 中的轨道到场景中的对象</li>
+<li>例如：角色轨道绑定到玩家对象</li>
+</ul>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine.Playables</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">PlayableAssetExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">PlayableAssetTransition</span> <span class="n">_Cutscene</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">PlayCutscene</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放 Timeline 过场动画</span>
+</span></span><span class="line"><span class="cl">        <span class="n">PlayableAssetState</span> <span class="n">state</span> <span class="p">=</span> <span class="p">(</span><span class="n">PlayableAssetState</span><span class="p">)</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Cutscene</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 监听播放结束</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">OnEnd</span> <span class="p">=</span> <span class="n">OnCutsceneEnd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">OnCutsceneEnd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;过场动画播放完毕&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 恢复游戏控制</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Inspector 配置示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PlayableAssetTransition &#34;开场过场动画&#34;
+</span></span><span class="line"><span class="cl">├─ Asset: OpeningCutscene.playable
+</span></span><span class="line"><span class="cl">├─ Bindings:
+</span></span><span class="line"><span class="cl">│  ├─ [0] PlayerTrack → Player GameObject
+</span></span><span class="line"><span class="cl">│  ├─ [1] CameraTrack → Main Camera
+</span></span><span class="line"><span class="cl">│  └─ [2] EnemyTrack → Boss GameObject
+</span></span><span class="line"><span class="cl">├─ Fade Duration: 0.5
+</span></span><span class="line"><span class="cl">└─ Speed: 1</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">自定义转换 (Custom Transitions)
+    <div id="自定义转换-custom-transitions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e8%bd%ac%e6%8d%a2-custom-transitions" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">创建自定义 Transition
+    <div id="创建自定义-transition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%88%9b%e5%bb%ba%e8%87%aa%e5%ae%9a%e4%b9%89-transition" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>开发者可以通过以下方式创建自定义转换：</p>
+
+<h4 class="relative group">方法一：实现 ITransition 接口
+    <div id="方法一实现-itransition-接口" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%95%e4%b8%80%e5%ae%9e%e7%8e%b0-itransition-%e6%8e%a5%e5%8f%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">MyCustomTransition</span> <span class="p">:</span> <span class="n">ITransition</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">float</span> <span class="n">_CustomParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">float</span> <span class="n">FadeDuration</span> <span class="p">=&gt;</span> <span class="m">0.25f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">AnimancerState</span> <span class="n">CreateState</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建自定义状态</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">ClipState</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">Apply</span><span class="p">(</span><span class="n">AnimancerState</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 应用自定义逻辑</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ClipState</span> <span class="n">clipState</span> <span class="p">=</span> <span class="p">(</span><span class="n">ClipState</span><span class="p">)</span><span class="n">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clipState</span><span class="p">.</span><span class="n">Clip</span> <span class="p">=</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clipState</span><span class="p">.</span><span class="n">Speed</span> <span class="p">=</span> <span class="n">_CustomParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">方法二：继承 Transition<TState>
+    <div id="方法二继承-transition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%95%e4%ba%8c%e7%bb%a7%e6%89%bf-transition" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>推荐方式</strong>，更简洁：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">MyCustomTransition</span> <span class="p">:</span> <span class="n">Transition</span><span class="p">&lt;</span><span class="n">ClipState</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">float</span> <span class="n">_CustomParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">override</span> <span class="n">ClipState</span> <span class="n">CreateState</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">ClipState</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">Apply</span><span class="p">(</span><span class="n">ClipState</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">base</span><span class="p">.</span><span class="n">Apply</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Clip</span> <span class="p">=</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Speed</span> <span class="p">=</span> <span class="n">_CustomParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">方法三：继承现有 Transition（最常用）
+    <div id="方法三继承现有-transition最常用" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%95%e4%b8%89%e7%bb%a7%e6%89%bf%e7%8e%b0%e6%9c%89-transition%e6%9c%80%e5%b8%b8%e7%94%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>示例：面部表情转换</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 面部表情转换，添加了用户友好的名称字段</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">FacialExpressionTransition</span> <span class="p">:</span> <span class="n">ClipTransition</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 添加自定义字段</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">string</span> <span class="n">_ExpressionName</span> <span class="p">=</span> <span class="s">&#34;Neutral&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">float</span> <span class="n">_Intensity</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string</span> <span class="n">ExpressionName</span> <span class="p">=&gt;</span> <span class="n">_ExpressionName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">float</span> <span class="n">Intensity</span> <span class="p">=&gt;</span> <span class="n">_Intensity</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">Apply</span><span class="p">(</span><span class="n">AnimancerState</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">base</span><span class="p">.</span><span class="n">Apply</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 应用强度到动画速度</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">Speed</span> <span class="p">=</span> <span class="n">_Intensity</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;播放表情: {_ExpressionName}, 强度: {_Intensity}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>使用示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">FacialAnimationController</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">FacialExpressionTransition</span> <span class="n">_Smile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">FacialExpressionTransition</span> <span class="n">_Angry</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">ShowExpression</span><span class="p">(</span><span class="kt">string</span> <span class="n">expressionName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">expressionName</span> <span class="p">==</span> <span class="s">&#34;Smile&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Smile</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">expressionName</span> <span class="p">==</span> <span class="s">&#34;Angry&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Angry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">自定义 Inspector 绘制器
+    <div id="自定义-inspector-绘制器" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%87%aa%e5%ae%9a%e4%b9%89-inspector-%e7%bb%98%e5%88%b6%e5%99%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>可以创建继承 <code>Drawer</code> 类的自定义绘制器：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="cp">#if</span> <span class="n">UNITY_EDITOR</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer.Editor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">[CustomPropertyDrawer(typeof(FacialExpressionTransition), true)]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">FacialExpressionDrawer</span> <span class="p">:</span> <span class="n">TransitionDrawer</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">OnGUI</span><span class="p">(</span><span class="n">Rect</span> <span class="n">position</span><span class="p">,</span> <span class="n">SerializedProperty</span> <span class="n">property</span><span class="p">,</span> <span class="n">GUIContent</span> <span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">base</span><span class="p">.</span><span class="n">OnGUI</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">property</span><span class="p">,</span> <span class="n">label</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 添加自定义 GUI</span>
+</span></span><span class="line"><span class="cl">        <span class="n">SerializedProperty</span> <span class="n">expressionName</span> <span class="p">=</span> <span class="n">property</span><span class="p">.</span><span class="n">FindPropertyRelative</span><span class="p">(</span><span class="s">&#34;_ExpressionName&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">PropertyField</span><span class="p">(</span><span class="n">expressionName</span><span class="p">,</span> <span class="k">new</span> <span class="n">GUIContent</span><span class="p">(</span><span class="s">&#34;表情名称&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">Transition 类型选择指南
+    <div id="transition-类型选择指南" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transition-%e7%b1%bb%e5%9e%8b%e9%80%89%e6%8b%a9%e6%8c%87%e5%8d%97" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">决策树
+    <div id="决策树" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%86%b3%e7%ad%96%e6%a0%91" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">需要播放什么？
+</span></span><span class="line"><span class="cl">├─ 单个动画 → ClipTransition
+</span></span><span class="line"><span class="cl">├─ 多个动画顺序播放 → ClipTransitionSequence
+</span></span><span class="line"><span class="cl">├─ 根据一个参数混合 → LinearMixerTransition
+</span></span><span class="line"><span class="cl">├─ 根据两个参数混合 → MixerTransition2D
+</span></span><span class="line"><span class="cl">├─ 手动控制权重 → ManualMixerTransition
+</span></span><span class="line"><span class="cl">├─ 使用 Animator Controller → ControllerTransition
+</span></span><span class="line"><span class="cl">├─ 使用 Timeline → PlayableAssetTransition
+</span></span><span class="line"><span class="cl">└─ 自定义需求 → 继承并创建自定义 Transition</span></span></code></pre></div></div>
+
+<h3 class="relative group">常见场景推荐
+    <div id="常见场景推荐" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%b8%e8%a7%81%e5%9c%ba%e6%99%af%e6%8e%a8%e8%8d%90" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>场景</th>
+          <th>推荐类型</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>死亡动画</td>
+          <td>ClipTransition</td>
+      </tr>
+      <tr>
+          <td>装弹动画</td>
+          <td>ClipTransition</td>
+      </tr>
+      <tr>
+          <td>连续攻击</td>
+          <td>ClipTransitionSequence</td>
+      </tr>
+      <tr>
+          <td>速度混合（走→跑）</td>
+          <td>LinearMixerTransition</td>
+      </tr>
+      <tr>
+          <td>8方向移动</td>
+          <td>MixerTransition2D</td>
+      </tr>
+      <tr>
+          <td>生命值影响待机</td>
+          <td>ManualMixerTransition</td>
+      </tr>
+      <tr>
+          <td>过场动画</td>
+          <td>PlayableAssetTransition</td>
+      </tr>
+      <tr>
+          <td>遗留系统迁移</td>
+          <td>ControllerTransition</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">最佳实践
+    <div id="最佳实践" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">1. 选择合适的 Transition 类型
+    <div id="1-选择合适的-transition-类型" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-%e9%80%89%e6%8b%a9%e5%90%88%e9%80%82%e7%9a%84-transition-%e7%b1%bb%e5%9e%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>原则</strong>：选择最简单能满足需求的类型</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">简单 → 复杂
+</span></span><span class="line"><span class="cl">ClipTransition → LinearMixer → Mixer2D → ManualMixer → Custom</span></span></code></pre></div></div>
+
+<h3 class="relative group">2. 合理使用 Synchronize Children
+    <div id="2-合理使用-synchronize-children" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-%e5%90%88%e7%90%86%e4%bd%bf%e7%94%a8-synchronize-children" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>何时启用</strong>：</p>
+<ul>
+<li>✅ 循环动画（行走、跑步）</li>
+<li>✅ 需要保持步调一致的动画</li>
+</ul>
+<p><strong>何时禁用</strong>：</p>
+<ul>
+<li>❌ 不同时长的动画</li>
+<li>❌ 单次播放的动画</li>
+</ul>
+
+<h3 class="relative group">3. 阈值设置技巧
+    <div id="3-阈值设置技巧" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-%e9%98%88%e5%80%bc%e8%ae%be%e7%bd%ae%e6%8a%80%e5%b7%a7" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>LinearMixer</strong>：</p>
+<ul>
+<li>均匀分布：<code>-1, 0, 1</code></li>
+<li>偏向某端：<code>-2, 0, 1</code>（更倾向负向）</li>
+</ul>
+<p><strong>Mixer2D</strong>：</p>
+<ul>
+<li>使用 <code>0.707</code>（√2/2）保证对角线速度一致</li>
+<li>避免使用 <code>(1, 1)</code> 导致速度√2倍</li>
+</ul>
+
+<h3 class="relative group">4. 性能优化
+    <div id="4-性能优化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#4-%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>避免过多子动画</strong>：</p>
+<ul>
+<li>LinearMixer：≤ 5 个</li>
+<li>Mixer2D：≤ 16 个</li>
+</ul>
+<p><strong>合理设置 Fade Duration</strong>：</p>
+<ul>
+<li>不要过长（&gt; 0.5s）</li>
+<li>根据动画类型调整</li>
+</ul>
+<hr>
+
+<h2 class="relative group">常见问题 FAQ
+    <div id="常见问题-faq" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98-faq" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Q1: 何时使用 ClipTransition vs ClipTransitionSequence？
+    <div id="q1-何时使用-cliptransition-vs-cliptransitionsequence" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q1-%e4%bd%95%e6%97%b6%e4%bd%bf%e7%94%a8-cliptransition-vs-cliptransitionsequence" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<ul>
+<li><strong>ClipTransition</strong>：只需播放一个动画</li>
+<li><strong>ClipTransitionSequence</strong>：需要连续播放多个动画</li>
+</ul>
+
+<h3 class="relative group">Q2: LinearMixer 和 Mixer2D 有什么区别？
+    <div id="q2-linearmixer-和-mixer2d-有什么区别" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q2-linearmixer-%e5%92%8c-mixer2d-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<ul>
+<li><strong>LinearMixer</strong>：1D 混合，用一个参数控制</li>
+<li><strong>Mixer2D</strong>：2D 混合，用两个参数控制</li>
+</ul>
+
+<h3 class="relative group">Q3: ManualMixer 适合什么场景？
+    <div id="q3-manualmixer-适合什么场景" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q3-manualmixer-%e9%80%82%e5%90%88%e4%bb%80%e4%b9%88%e5%9c%ba%e6%99%af" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 当你需要<strong>完全自定义</strong>权重计算逻辑时使用，如：</p>
+<ul>
+<li>根据复杂公式计算权重</li>
+<li>多个条件影响权重</li>
+<li>动态调整权重</li>
+</ul>
+
+<h3 class="relative group">Q4: ControllerTransition 的性能如何？
+    <div id="q4-controllertransition-的性能如何" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q4-controllertransition-%e7%9a%84%e6%80%a7%e8%83%bd%e5%a6%82%e4%bd%95" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<ul>
+<li>比直接用 Animancer 慢</li>
+<li>适合过渡期使用</li>
+<li>建议最终迁移到纯 Animancer</li>
+</ul>
+
+<h3 class="relative group">Q5: 如何创建自定义 Transition？
+    <div id="q5-如何创建自定义-transition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q5-%e5%a6%82%e4%bd%95%e5%88%9b%e5%bb%ba%e8%87%aa%e5%ae%9a%e4%b9%89-transition" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 三种方式：</p>
+<ol>
+<li>实现 <code>ITransition</code> 接口（最灵活）</li>
+<li>继承 <code>Transition&lt;TState&gt;</code>（推荐）</li>
+<li>继承现有类型（最简单，如继承 <code>ClipTransition</code>）</li>
+</ol>
+
+<h3 class="relative group">Q6: Mixer2D 的三种类型有什么区别?
+    <div id="q6-mixer2d-的三种类型有什么区别" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q6-mixer2d-%e7%9a%84%e4%b8%89%e7%a7%8d%e7%b1%bb%e5%9e%8b%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<ul>
+<li><strong>Freeform Cartesian</strong>：自由混合，适合循环动画</li>
+<li><strong>Freeform Directional</strong>：方向性混合，适合起步/停止</li>
+<li><strong>Simple Directional</strong>：简化版方向混合</li>
+</ul>
+<hr>
+
+<h2 class="relative group">总结
+    <div id="总结" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%80%bb%e7%bb%93" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">核心要点
+    <div id="核心要点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a0%b8%e5%bf%83%e8%a6%81%e7%82%b9" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>
+<p><strong>每种状态都有对应的 Transition</strong></p>
+<ul>
+<li>ClipTransition → ClipState</li>
+<li>LinearMixerTransition → LinearMixerState</li>
+<li>等等&hellip;</li>
+</ul>
+</li>
+<li>
+<p><strong>选择合适的类型很重要</strong></p>
+<ul>
+<li>简单场景用简单类型</li>
+<li>复杂需求用高级类型</li>
+<li>必要时创建自定义类型</li>
+</ul>
+</li>
+<li>
+<p><strong>Mixer 是强大的工具</strong></p>
+<ul>
+<li>LinearMixer：1D 混合</li>
+<li>Mixer2D：2D 混合</li>
+<li>ManualMixer：完全控制</li>
+</ul>
+</li>
+<li>
+<p><strong>可扩展性强</strong></p>
+<ul>
+<li>可以继承现有类型</li>
+<li>可以创建完全自定义的 Transition</li>
+<li>可以自定义 Inspector 显示</li>
+</ul>
+</li>
+</ol>
+
+<h3 class="relative group">Transition 类型速查表
+    <div id="transition-类型速查表" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transition-%e7%b1%bb%e5%9e%8b%e9%80%9f%e6%9f%a5%e8%a1%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>用途</th>
+          <th>子动画数</th>
+          <th>参数数</th>
+          <th>复杂度</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ClipTransition</td>
+          <td>单个动画</td>
+          <td>1</td>
+          <td>0</td>
+          <td>⭐</td>
+      </tr>
+      <tr>
+          <td>ClipTransitionSequence</td>
+          <td>多个顺序播放</td>
+          <td>N</td>
+          <td>0</td>
+          <td>⭐⭐</td>
+      </tr>
+      <tr>
+          <td>LinearMixerTransition</td>
+          <td>1D混合</td>
+          <td>2-5</td>
+          <td>1</td>
+          <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+          <td>MixerTransition2D</td>
+          <td>2D混合</td>
+          <td>4-16</td>
+          <td>2</td>
+          <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+          <td>ManualMixerTransition</td>
+          <td>手动权重</td>
+          <td>N</td>
+          <td>0</td>
+          <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+          <td>ControllerTransition</td>
+          <td>包装Controller</td>
+          <td>-</td>
+          <td>-</td>
+          <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+          <td>PlayableAssetTransition</td>
+          <td>Timeline</td>
+          <td>-</td>
+          <td>-</td>
+          <td>⭐⭐⭐⭐</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p><strong>文档抓取日期</strong>：2025-01-24
+<strong>原文地址</strong>：https://kybernetik.com.au/animancer/docs/manual/transitions/types/
+<strong>Animancer 版本</strong>：7.0+
+<strong>适用项目</strong>：animator-third-person-controller (ShooterTPP)</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/NewskyGameBlog/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_animancer\transition\animancer-transitiontypes.md"
+          data-oid-likes="likes_animancer\transition\animancer-transitiontypes.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/transition/animancer-transitions/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Animancer Transitions
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/transition/animancer-transitionsequences/">
+              <span class="leading-6">
+                Animancer Transition Sequences&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          mickorz
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/NewskyGameBlog/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

@@ -1,0 +1,70 @@
+/* ============================================================
+   1. 全局宽屏设置 (强制覆盖 PaperMod 默认限制)
+   ============================================================ */
+:root {
+    --main-width: 1280px;      /* 正文最大宽度，可根据需要调大 */
+    --gap: 24px;
+    --content-gap: 40px;
+}
+
+/* 移除所有对正文容器的窄屏限制 */
+.main, 
+.post-content, 
+.post-header, 
+.post-footer,
+.header {
+    max-width: var(--main-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 让表格内容能够横向撑开，不再挤成一团 */
+.post-content table {
+    width: 100%;
+    display: table; /* 恢复标准表格布局 */
+}
+
+/* ============================================================
+   2. 文章内部目录 (TOC) 侧边悬浮优化
+   ============================================================ */
+/* 仅在屏幕宽度超过 1400px 时启用侧边悬浮，否则保持在顶部 */
+@media screen and (min-width: 1400px) {
+    .toc {
+        position: fixed;
+        /* 将目录推到右侧 */
+        left: calc(50% + (var(--main-width) / 2) + 20px);
+        top: 120px;
+        width: 320px;
+        max-height: 75vh;
+        
+        /* 样式美化 */
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--theme);
+        font-size: 0.85rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        overflow-y: auto;
+    }
+
+    /* 侧边显示时强制展开目录内容 */
+    .toc details {
+        open: true !important;
+    }
+
+    /* 隐藏 TOC 顶部的三角形箭头 */
+    .toc details summary {
+        list-style: none;
+        pointer-events: none; /* 禁止点击收起 */
+        font-weight: bold;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 5px;
+    }
+}
+
+/* 适配深色模式，确保侧边栏边框可见 */
+.dark .toc {
+    background: #2e2e33;
+    border: 1px solid #3b3b3f;
+}

@@ -1,96 +1,105 @@
 # ============================================================
-# 基础配置 - 解决 404 和 样式丢失的关键
+# 基础配置
 # ============================================================
-# 必须以 https 开头，以 / 结尾。大小写必须与 GitHub 仓库名一致
 baseURL = "https://mickorz.github.io/NewskyGameBlog/"
 languageCode = "zh-cn"
 title = "Newsky Game Blog"
-theme = "PaperMod"
+theme = "blowfish"  # 修改为 blowfish
 
 # ============================================================
-# 内容解析设置 - 提高对 Markdown 的兼容性
+# 内容解析设置
 # ============================================================
 [markup]
   [markup.goldmark.renderer]
-    unsafe = true  # 允许在 Markdown 中写 HTML（比如调整图片大小）
+    unsafe = true 
   [markup.highlight]
-    codeFences = true
-    guessSyntax = true
-    lineNos = true          # 显示行号
-    style = "monokai"       # 程序员最爱的深色代码主题
-    noClasses = false       # 配合主题样式
+    noClasses = false
+    style = "monokai"
 
 # ============================================================
-# 页面参数配置 (针对 PaperMod 主题)
+# Blowfish 全局参数配置
 # ============================================================
 [params]
   env = "production"
-  title = "Newsky Game Blog"
   description = "游戏技术分享 | Animancer 中文文档 | Unity 开发笔记"
-  keywords = ["Unity", "Game Dev", "Animancer", "C#"]
-  author = "mickorz"
   
-  # 建议放在文件顶部或 markup 之外
-  disablePathLowercase = false  # 确保这是 false（默认就是 false，但显式声明更稳妥）
   
-  robots = "no_index, nofollow" # 告诉爬虫：不要索引此页，不要追踪页内的链接
+  # 界面外观设置
+  defaultAppearance = "dark"      # 默认深色模式
+  autoSwitchAppearance = true     # 自动切换
+  colorScheme = "blowfish"        # 配色方案
   
-  # 显示文章目录 (TOC)
-  ShowToc = true
-  TocOpen = true # 默认展开目录
+  # 布局宽度：改为 xl 或 wide 实现宽屏
+  layoutWidth = "wide" 
   
-  # 搜索功能支持 (需要 PaperMod 主题)
-  ShowSearchResults = true
-
-  # 界面细节
-  defaultTheme = "auto" # 自动跟随系统深色/浅色模式
-  disableThemeToggle = false
-  ShowShareButtons = true
-  ShowReadingTime = true
-  ShowBreadCrumbs = true # 显示面包屑导航
-  ShowPostNavLinks = true # 显示上一篇/下一篇文章跳转
-  
+  # 禁止 SEO 爬虫
+  robots = "noindex, nofollow"
 
 
+    # 作者
+  [params.author]
+    name = "mickorz"
+    image = "" # 如果没有头像，可以暂时留空 ""
+    headline = "游戏开发者 / 技术博主"
+    bio = "专注于 Unity 开发与 Animancer 插件深度解析"
+    links = [
+        { github = "https://github.com/mickorz" },
+        # { twitter = "https://twitter.com/..." },
+    ]
 
-  # 社交链接 (可选)
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/mickorz"
+  # 搜索配置
+  [params.search]
+    showSearch = true
+    showSearchKeys = true
 
-# ============================================================
-# 菜单配置
-# ============================================================
-[[menu.main]]
-    identifier = "animancer"
-    name = "📚 Animancer 中文文档"
-    url = "/animancer/" # 这里的路径对应 content/animancer/ 文件夹
-    weight = 1
+  # 文章内部功能
+  [params.article]
+    showTableOfContents = true    # 显示 TOC
+    showRelatedPosts = true       # 显示相关文章
+    showReadingTime = true
+    showLinksContext = true       # 显示上下文链接
 
-[[menu.main]]
-  identifier = "posts"
-  name = "所有文章"
-  url = "/NewskyGameBlog/posts/"
-  weight = 2
+  # 头部/导航栏配置 (Blowfish 专用)
+  [params.header]
+    layout = "basic"              # 可选: "basic", "fixed", "stacked"
+    showSearch = true
 
-# ============================================================
-# 首页欢迎语配置 - 这里的链接能实现“快速进入”
-# ============================================================
-[params.homeInfoParams]
-    Title = "Newsky Game Blog 🎮"
-    Content = """
-欢迎！这里专注于游戏技术分享，尤其是 **Unity 动画系统** 的深度探索。
+  # 首页欢迎语 (Blowfish 替代 HomeInfo 的方式)
+  [params.hero]
+    showHero = true
+    heroSize = "default"
+    image = ""                    # 可以放一张 Unity 相关的背景图
+    title = "Newsky Game Blog 🎮"
+    subtitle = "专注于 Unity 动画系统 Animancer 的深度探索"
+    content = """
+👉 **[立即进入：Animancer 中文索引](/animancer/)**
 
-👉 **[立即进入：Animancer 中文索引](/NewskyGameBlog/animancer/)**
-
-这里有超过 50 篇详细的翻译与实战笔记，涵盖：
-- [核心功能与 IK 系统](/NewskyGameBlog/animancer/animancer-ik/)
-- [FSM 状态机管理](/NewskyGameBlog/animancer/fsm/animancer-fsm/)
-- [动画混合与 Layer 技巧](/NewskyGameBlog/animancer/blend/animancer-blending/)
+这里有超过 50 篇详细的实战笔记，涵盖 IK 系统、FSM 状态机及动画混合技巧。
 """
 
 # ============================================================
-# 输出配置 - 支持搜索索引
+# 菜单配置 - 链接不再需要手动加仓库名后缀
+# ============================================================
+[[menu.main]]
+    identifier = "animancer"
+    name = "📚 Animancer 文档"
+    url = "/animancer/"
+    weight = 1
+
+[[menu.main]]
+    identifier = "posts"
+    name = "所有文章"
+    url = "/posts/"
+    weight = 2
+
+[[menu.main]]
+    identifier = "github"
+    pre = "github" # Blowfish 支持图标
+    url = "https://github.com/mickorz"
+    weight = 3
+
+# ============================================================
+# 输出配置
 # ============================================================
 [outputs]
   home = ["HTML", "RSS", "JSON"]

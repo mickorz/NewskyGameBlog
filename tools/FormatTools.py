@@ -193,6 +193,32 @@ weight: 10
             front_matter = self.create_front_matter(title, tags)
             return front_matter + content
 
+    def fix_placeholder_links(self, content: str) -> str:
+        """
+        修复占位符链接 [\1] -> [filename]
+        Args:
+            content: 文件内容
+        Returns:
+            修复后的内容
+        """
+        # 匹配 [\1]({{< ref "filename.md" >}}) 格式
+        def replace_placeholder(match):
+            # 提取ref中的文件名
+            ref_content = match.group(1)
+            # 从ref "filename.md"中提取文件名
+            filename_match = re.search(r'"([^"]+\.md)"', ref_content)
+            if filename_match:
+                filename = filename_match.group(1)
+                # 移除.md后缀作为显示文本
+                text = filename.replace('.md', '')
+                return f'[{text}]({{{{< {ref_content} >}}}})'
+            return match.group(0)
+
+        # 修复 [\1]({{< ref "..." >}}) 格式
+        content = re.sub(r'\[\\1\]\(\{\{<\s*(.+?)\s*>\}\}\)', replace_placeholder, content)
+
+        return content
+
     def convert_links_to_ref(self, content: str) -> str:
         """
         将markdown链接转换为Hugo ref格式
@@ -210,7 +236,6 @@ weight: 10
             if link.endswith('.md') and not link.startswith('http'):
                 # 提取文件名
                 filename = os.path.basename(link)
-                print(filename)
                 # 使用文件名作为显示文本
                 text = filename.replace(".md","")
                 # 转换为ref格式
@@ -323,7 +348,14 @@ weight: 10
                 modified = True
                 print(f"  添加Front Matter: {title}")
 
-            # 2. 转换链接为ref格式
+            # 2. 修复占位符链接 [\1] -> [filename]
+            new_content = self.fix_placeholder_links(content)
+            if new_content != content:
+                content = new_content
+                modified = True
+                print(f"  修复占位符链接")
+
+            # 3. 转换链接为ref格式
             new_content = self.convert_links_to_ref(content)
             if new_content != content:
                 content = new_content

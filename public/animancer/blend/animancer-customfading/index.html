@@ -1,0 +1,2269 @@
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh-cn">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Animancer Custom Fading &middot; Newsky Game Blog</title>
+    <meta name="title" content="Animancer Custom Fading &middot; Newsky Game Blog">
+  
+
+  
+  
+    <meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  
+  
+  
+    <meta name="robots" content="noindex, nofollow">
+  
+  
+  <link rel="canonical" href="http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-customfading/">
+  
+
+  
+  
+    <meta name="author" content="mickorz">
+  
+  
+    
+      
+        
+          <link href="https://github.com/mickorz" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-customfading/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Animancer Custom Fading">
+  <meta property="og:description" content="Animancer Custom Fading 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/custom/ 抓取日期：2025-01-24
+概述 (Overview)#Custom Easing（自定义缓动） 是 Animancer 的高级功能，允许开发者修改淡入淡出动画，使其超越默认的线性渐变。系统使用标准缓动函数或自定义委托来控制动画权重的过渡方式。
+⚠️ 重要：这是 Animancer Pro 专属功能
+核心概念 (Core Concept)#默认线性淡入淡出#默认情况下，交叉淡入淡出会以恒定速度将 AnimancerNode.Weight 移动到 AnimancerNode.TargetWeight。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="animancer">
+    <meta property="article:published_time" content="2025-12-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-25T00:00:00+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Animancer Custom Fading">
+  <meta name="twitter:description" content="Animancer Custom Fading 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/custom/ 抓取日期：2025-01-24
+概述 (Overview)#Custom Easing（自定义缓动） 是 Animancer 的高级功能，允许开发者修改淡入淡出动画，使其超越默认的线性渐变。系统使用标准缓动函数或自定义委托来控制动画权重的过渡方式。
+⚠️ 重要：这是 Animancer Pro 专属功能
+核心概念 (Core Concept)#默认线性淡入淡出#默认情况下，交叉淡入淡出会以恒定速度将 AnimancerNode.Weight 移动到 AnimancerNode.TargetWeight。">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/NewskyGameBlog/css/main.bundle.min.ad4a2404cd820d9a561641b272de1ea768230edad666e70eabdf8cf3cd832073a4696419403ce3fcb1475c4b0d503ecbb9b82477b416ec54c62eec4fc87f20fd.css"
+    integrity="sha512-rUokBM2CDZpWFkGyct4ep2gjDtrWZucOq9&#43;M882DIHOkaWQZQDzj/LFHXEsNUD7Lubgkd7QW7FTGLuxPyH8g/Q==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/NewskyGameBlog/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/NewskyGameBlog/js/main.bundle.min.e2a486e2d26101d42b0ae6565951c0ab32807f06c8cac845e9a430aac163bf4b95eaaf22ac52825b7c9135e177953252afda0c2c8b6e64291c90238a4685aaa3.js"
+      integrity="sha512-4qSG4tJhAdQrCuZWWVHAqzKAfwbIyshF6aQwqsFjv0uV6q8irFKCW3yRNeF3lTJSr9oMLItuZCkckCOKRoWqow=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+
+  
+  
+
+<script src="/NewskyGameBlog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/NewskyGameBlog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/NewskyGameBlog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/NewskyGameBlog/favicon-16x16.png">
+    <link rel="manifest" href="/NewskyGameBlog/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Animancer 中文文档目录",
+    "name": "Animancer Custom Fading",
+    "headline": "Animancer Custom Fading",
+    
+    "inLanguage": "zh-cn",
+    "url" : "http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-customfading/",
+    "author" : {
+      "@type": "Person",
+      "name": "mickorz"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-25T00:00:00\u002b00:00",
+    "datePublished": "2025-12-25T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-12-25T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1493"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        跳过正文
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/NewskyGameBlog/" class="text-base font-medium">
+          Newsky Game Blog
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/NewskyGameBlog/animancer/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 Animancer 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 Animancer 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/posts/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="所有文章"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      所有文章
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="https://github.com/mickorz"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="github"
+  title="">
+  
+    <span >
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+    </span>
+  
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/animancer/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 Animancer 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 Animancer 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/posts/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="所有文章"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        所有文章
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/mickorz"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="github"
+    title="">
+    
+      <div >
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+      </div>
+    
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Animancer Custom Fading
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1493 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        作者
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        mickorz
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">专注于 Unity 开发与 Animancer 插件深度解析</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/mickorz"
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述-overview">概述 (Overview)</a></li>
+    <li><a href="#核心概念-core-concept">核心概念 (Core Concept)</a>
+      <ul>
+        <li><a href="#默认线性淡入淡出">默认线性淡入淡出</a></li>
+        <li><a href="#自定义缓动淡入淡出">自定义缓动淡入淡出</a></li>
+      </ul>
+    </li>
+    <li><a href="#实现方法-implementation-methods">实现方法 (Implementation Methods)</a>
+      <ul>
+        <li><a href="#方法1使用自定义委托">方法1：使用自定义委托</a></li>
+        <li><a href="#方法2使用标准缓动类">方法2：使用标准缓动类</a></li>
+        <li><a href="#方法3使用缓动函数枚举">方法3：使用缓动函数枚举</a></li>
+        <li><a href="#方法4使用-animationcurve">方法4：使用 AnimationCurve</a></li>
+      </ul>
+    </li>
+    <li><a href="#缓动曲线详解-easing-curve-details">缓动曲线详解 (Easing Curve Details)</a>
+      <ul>
+        <li><a href="#in--out--inout-模式">In / Out / InOut 模式</a></li>
+        <li><a href="#常用缓动类型对比">常用缓动类型对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#曲线预设-curve-presets">曲线预设 (Curve Presets)</a></li>
+    <li><a href="#代码示例集合">代码示例集合</a>
+      <ul>
+        <li><a href="#示例1基础自定义缓动">示例1：基础自定义缓动</a></li>
+        <li><a href="#示例2对比不同缓动效果">示例2：对比不同缓动效果</a></li>
+        <li><a href="#示例3animationcurve-可视化配置">示例3：AnimationCurve 可视化配置</a></li>
+        <li><a href="#示例4基于场景选择缓动">示例4：基于场景选择缓动</a></li>
+        <li><a href="#示例5自定义数学曲线">示例5：自定义数学曲线</a></li>
+        <li><a href="#示例63d-game-kit-平滑待机过渡">示例6：3D Game Kit 平滑待机过渡</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践建议">最佳实践建议</a>
+      <ul>
+        <li><a href="#1-选择合适的缓动类型">1. <strong>选择合适的缓动类型</strong></a></li>
+        <li><a href="#2-避免过度使用复杂缓动">2. <strong>避免过度使用复杂缓动</strong></a></li>
+        <li><a href="#3-性能考虑">3. <strong>性能考虑</strong></a></li>
+        <li><a href="#4-animationcurve-优化">4. <strong>AnimationCurve 优化</strong></a></li>
+        <li><a href="#5-调试和可视化">5. <strong>调试和可视化</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题-faq">常见问题 FAQ</a>
+      <ul>
+        <li><a href="#q1-什么时候应该使用自定义缓动">Q1: 什么时候应该使用自定义缓动？</a></li>
+        <li><a href="#q2-sine-inout-和-quad-inout-有什么区别">Q2: Sine InOut 和 Quad InOut 有什么区别？</a></li>
+        <li><a href="#q3-如何在-inspector-中预览缓动曲线">Q3: 如何在 Inspector 中预览缓动曲线？</a></li>
+        <li><a href="#q4-custom-easing-是-pro-专属功能吗">Q4: Custom Easing 是 Pro 专属功能吗？</a></li>
+        <li><a href="#q5-可以对-mixer-使用自定义缓动吗">Q5: 可以对 Mixer 使用自定义缓动吗？</a></li>
+        <li><a href="#q6-如何实现自定义的弹簧效果">Q6: 如何实现自定义的弹簧效果？</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#核心要点">核心要点</a></li>
+        <li><a href="#下一步学习">下一步学习</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资源">参考资源</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述-overview">概述 (Overview)</a></li>
+    <li><a href="#核心概念-core-concept">核心概念 (Core Concept)</a>
+      <ul>
+        <li><a href="#默认线性淡入淡出">默认线性淡入淡出</a></li>
+        <li><a href="#自定义缓动淡入淡出">自定义缓动淡入淡出</a></li>
+      </ul>
+    </li>
+    <li><a href="#实现方法-implementation-methods">实现方法 (Implementation Methods)</a>
+      <ul>
+        <li><a href="#方法1使用自定义委托">方法1：使用自定义委托</a></li>
+        <li><a href="#方法2使用标准缓动类">方法2：使用标准缓动类</a></li>
+        <li><a href="#方法3使用缓动函数枚举">方法3：使用缓动函数枚举</a></li>
+        <li><a href="#方法4使用-animationcurve">方法4：使用 AnimationCurve</a></li>
+      </ul>
+    </li>
+    <li><a href="#缓动曲线详解-easing-curve-details">缓动曲线详解 (Easing Curve Details)</a>
+      <ul>
+        <li><a href="#in--out--inout-模式">In / Out / InOut 模式</a></li>
+        <li><a href="#常用缓动类型对比">常用缓动类型对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#曲线预设-curve-presets">曲线预设 (Curve Presets)</a></li>
+    <li><a href="#代码示例集合">代码示例集合</a>
+      <ul>
+        <li><a href="#示例1基础自定义缓动">示例1：基础自定义缓动</a></li>
+        <li><a href="#示例2对比不同缓动效果">示例2：对比不同缓动效果</a></li>
+        <li><a href="#示例3animationcurve-可视化配置">示例3：AnimationCurve 可视化配置</a></li>
+        <li><a href="#示例4基于场景选择缓动">示例4：基于场景选择缓动</a></li>
+        <li><a href="#示例5自定义数学曲线">示例5：自定义数学曲线</a></li>
+        <li><a href="#示例63d-game-kit-平滑待机过渡">示例6：3D Game Kit 平滑待机过渡</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践建议">最佳实践建议</a>
+      <ul>
+        <li><a href="#1-选择合适的缓动类型">1. <strong>选择合适的缓动类型</strong></a></li>
+        <li><a href="#2-避免过度使用复杂缓动">2. <strong>避免过度使用复杂缓动</strong></a></li>
+        <li><a href="#3-性能考虑">3. <strong>性能考虑</strong></a></li>
+        <li><a href="#4-animationcurve-优化">4. <strong>AnimationCurve 优化</strong></a></li>
+        <li><a href="#5-调试和可视化">5. <strong>调试和可视化</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题-faq">常见问题 FAQ</a>
+      <ul>
+        <li><a href="#q1-什么时候应该使用自定义缓动">Q1: 什么时候应该使用自定义缓动？</a></li>
+        <li><a href="#q2-sine-inout-和-quad-inout-有什么区别">Q2: Sine InOut 和 Quad InOut 有什么区别？</a></li>
+        <li><a href="#q3-如何在-inspector-中预览缓动曲线">Q3: 如何在 Inspector 中预览缓动曲线？</a></li>
+        <li><a href="#q4-custom-easing-是-pro-专属功能吗">Q4: Custom Easing 是 Pro 专属功能吗？</a></li>
+        <li><a href="#q5-可以对-mixer-使用自定义缓动吗">Q5: 可以对 Mixer 使用自定义缓动吗？</a></li>
+        <li><a href="#q6-如何实现自定义的弹簧效果">Q6: 如何实现自定义的弹簧效果？</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#核心要点">核心要点</a></li>
+        <li><a href="#下一步学习">下一步学习</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资源">参考资源</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">Animancer Custom Fading 官方文档
+    <div id="animancer-custom-fading-官方文档" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#animancer-custom-fading-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<blockquote ><p>原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/custom/
+抓取日期：2025-01-24</p>
+</blockquote><hr>
+
+<h2 class="relative group">概述 (Overview)
+    <div id="概述-overview" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%bf%b0-overview" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p><strong>Custom Easing（自定义缓动）</strong> 是 Animancer 的高级功能，允许开发者修改淡入淡出动画，使其超越默认的线性渐变。系统使用标准缓动函数或自定义委托来控制动画权重的过渡方式。</p>
+<blockquote ><p>⚠️ <strong>重要</strong>：这是 <strong>Animancer Pro 专属功能</strong></p>
+</blockquote><hr>
+
+<h2 class="relative group">核心概念 (Core Concept)
+    <div id="核心概念-core-concept" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5-core-concept" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">默认线性淡入淡出
+    <div id="默认线性淡入淡出" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%bb%98%e8%ae%a4%e7%ba%bf%e6%80%a7%e6%b7%a1%e5%85%a5%e6%b7%a1%e5%87%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>默认情况下，交叉淡入淡出会以<strong>恒定速度</strong>将 <code>AnimancerNode.Weight</code> 移动到 <code>AnimancerNode.TargetWeight</code>。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">线性淡入淡出（默认）:
+</span></span><span class="line"><span class="cl">Weight
+</span></span><span class="line"><span class="cl">  1.0 ┤           ╱
+</span></span><span class="line"><span class="cl">      │         ╱
+</span></span><span class="line"><span class="cl">      │       ╱
+</span></span><span class="line"><span class="cl">      │     ╱
+</span></span><span class="line"><span class="cl">  0.0 ┤───╱─────────&gt; Time
+</span></span><span class="line"><span class="cl">      0            1
+</span></span><span class="line"><span class="cl">      匀速上升</span></span></code></pre></div></div>
+<p><strong>公式</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">Weight</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Lerp</span><span class="p">(</span><span class="n">startWeight</span><span class="p">,</span> <span class="n">targetWeight</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// t = 线性时间进度（0-1）</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">自定义缓动淡入淡出
+    <div id="自定义缓动淡入淡出" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bc%93%e5%8a%a8%e6%b7%a1%e5%85%a5%e6%b7%a1%e5%87%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>自定义缓动通过数学曲线控制这个过渡过程，实现更平滑的过渡效果。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">缓动淡入淡出（例如 EaseInOut）:
+</span></span><span class="line"><span class="cl">Weight
+</span></span><span class="line"><span class="cl">  1.0 ┤        ╱──
+</span></span><span class="line"><span class="cl">      │      ╱
+</span></span><span class="line"><span class="cl">      │    ╱
+</span></span><span class="line"><span class="cl">      │  ╱
+</span></span><span class="line"><span class="cl">  0.0 ┤─╱────────────&gt; Time
+</span></span><span class="line"><span class="cl">      0            1
+</span></span><span class="line"><span class="cl">      慢-快-慢</span></span></code></pre></div></div>
+<p><strong>公式</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">Weight</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Lerp</span><span class="p">(</span><span class="n">startWeight</span><span class="p">,</span> <span class="n">targetWeight</span><span class="p">,</span> <span class="n">easingFunction</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// easingFunction(t) = 应用缓动曲线后的时间进度</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">实现方法 (Implementation Methods)
+    <div id="实现方法-implementation-methods" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%ae%9e%e7%8e%b0%e6%96%b9%e6%b3%95-implementation-methods" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">方法1：使用自定义委托
+    <div id="方法1使用自定义委托" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%951%e4%bd%bf%e7%94%a8%e8%87%aa%e5%ae%9a%e4%b9%89%e5%a7%94%e6%89%98" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>定义</strong>：直接传递一个 <code>Func&lt;float, float&gt;</code> 委托函数。</p>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 平方缓动（加速）</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span> <span class="p">*</span> <span class="n">t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 立方缓动（更快加速）</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span> <span class="p">*</span> <span class="n">t</span> <span class="p">*</span> <span class="n">t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 平方根缓动（减速）</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 自定义复杂曲线</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="p">&lt;</span> <span class="m">0.5f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="m">2</span> <span class="p">*</span> <span class="n">t</span> <span class="p">*</span> <span class="n">t</span><span class="p">;</span> <span class="c1">// 前半段加速</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="m">1</span> <span class="p">-</span> <span class="m">2</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">t</span><span class="p">)</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">t</span><span class="p">);</span> <span class="c1">// 后半段减速</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div></div>
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li><code>t</code>：淡入淡出的标准化时间进度（0-1）</li>
+<li>返回值：经过缓动处理的进度值（通常也是 0-1）</li>
+</ul>
+<hr>
+
+<h3 class="relative group">方法2：使用标准缓动类
+    <div id="方法2使用标准缓动类" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%952%e4%bd%bf%e7%94%a8%e6%a0%87%e5%87%86%e7%bc%93%e5%8a%a8%e7%b1%bb" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>定义</strong>：Animancer 提供了 <code>Easing</code> 类，包含多种标准数学曲线函数。</p>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Sine 曲线（InOut 模式）</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Quad 二次曲线（In 模式）</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Quad</span><span class="p">.</span><span class="n">In</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Cubic 三次曲线（Out 模式）</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Cubic</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Elastic 弹性曲线</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Elastic</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Back 回弹曲线</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Back</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Bounce 反弹曲线</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Bounce</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span></span></span></code></pre></div></div>
+<p><strong>常用缓动类型</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th>缓动类型</th>
+          <th>In</th>
+          <th>Out</th>
+          <th>InOut</th>
+          <th>特性</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Sine</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>平滑正弦曲线</td>
+      </tr>
+      <tr>
+          <td><strong>Quad</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>二次方（x²）</td>
+      </tr>
+      <tr>
+          <td><strong>Cubic</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>三次方（x³）</td>
+      </tr>
+      <tr>
+          <td><strong>Quart</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>四次方（x⁴）</td>
+      </tr>
+      <tr>
+          <td><strong>Quint</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>五次方（x⁵）</td>
+      </tr>
+      <tr>
+          <td><strong>Expo</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>指数曲线</td>
+      </tr>
+      <tr>
+          <td><strong>Circ</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>圆形曲线</td>
+      </tr>
+      <tr>
+          <td><strong>Back</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>回弹效果</td>
+      </tr>
+      <tr>
+          <td><strong>Elastic</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>弹性效果</td>
+      </tr>
+      <tr>
+          <td><strong>Bounce</strong></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>反弹效果</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">方法3：使用缓动函数枚举
+    <div id="方法3使用缓动函数枚举" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%953%e4%bd%bf%e7%94%a8%e7%bc%93%e5%8a%a8%e5%87%bd%e6%95%b0%e6%9e%9a%e4%b8%be" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>定义</strong>：通过 <code>Easing.Function</code> 枚举选择缓动类型。</p>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 使用枚举</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Function</span><span class="p">.</span><span class="n">SineInOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Function</span><span class="p">.</span><span class="n">QuadIn</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Function</span><span class="p">.</span><span class="n">CubicOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Function</span><span class="p">.</span><span class="n">ElasticInOut</span><span class="p">);</span></span></span></code></pre></div></div>
+<p><strong>动态选择示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">DynamicEasingExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">Easing</span><span class="p">.</span><span class="n">Function</span> <span class="n">_EasingType</span> <span class="p">=</span> <span class="n">Easing</span><span class="p">.</span><span class="n">Function</span><span class="p">.</span><span class="n">SineInOut</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayWithEasing</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">_EasingType</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">方法4：使用 AnimationCurve
+    <div id="方法4使用-animationcurve" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%954%e4%bd%bf%e7%94%a8-animationcurve" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>定义</strong>：通过 Unity 的 <code>AnimationCurve</code> 在 Inspector 中手动配置缓动曲线。</p>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AnimationCurveEasingExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在 Inspector 中可视化配置的曲线</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationCurve</span> <span class="n">_FadeCurve</span> <span class="p">=</span> <span class="n">AnimationCurve</span><span class="p">.</span><span class="n">EaseInOut</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayWithCustomCurve</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 使用曲线的 Evaluate 方法作为缓动函数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">_FadeCurve</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Inspector 配置</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Inspector:
+</span></span><span class="line"><span class="cl">┌─────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│ Fade Curve                      │
+</span></span><span class="line"><span class="cl">│ ┌───────────────────────────┐   │
+</span></span><span class="line"><span class="cl">│ │    ╱─────                 │   │
+</span></span><span class="line"><span class="cl">│ │  ╱                        │   │
+</span></span><span class="line"><span class="cl">│ │╱                          │   │
+</span></span><span class="line"><span class="cl">│ └───────────────────────────┘   │
+</span></span><span class="line"><span class="cl">│ 可以通过点击编辑关键帧          │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────┘</span></span></code></pre></div></div>
+<p><strong>内置曲线预设</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Unity 提供的内置曲线</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnimationCurve</span><span class="p">.</span><span class="n">EaseInOut</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>  <span class="c1">// 慢-快-慢</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnimationCurve</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>     <span class="c1">// 线性</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnimationCurve</span><span class="p">.</span><span class="n">Constant</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0.5f</span><span class="p">);</span>   <span class="c1">// 恒定值</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">缓动曲线详解 (Easing Curve Details)
+    <div id="缓动曲线详解-easing-curve-details" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bc%93%e5%8a%a8%e6%9b%b2%e7%ba%bf%e8%af%a6%e8%a7%a3-easing-curve-details" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">In / Out / InOut 模式
+    <div id="in--out--inout-模式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#in--out--inout-%e6%a8%a1%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>In（缓入）</strong>：</p>
+<ul>
+<li>开始慢，结束快</li>
+<li>适合：物体加速进入</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">In 模式:
+</span></span><span class="line"><span class="cl">  1.0 ┤          ╱
+</span></span><span class="line"><span class="cl">      │        ╱
+</span></span><span class="line"><span class="cl">      │     ╱
+</span></span><span class="line"><span class="cl">      │  ╱
+</span></span><span class="line"><span class="cl">  0.0 ┤─╱──────────&gt; Time
+</span></span><span class="line"><span class="cl">      慢启动，快结束</span></span></code></pre></div></div>
+<hr>
+<p><strong>Out（缓出）</strong>：</p>
+<ul>
+<li>开始快，结束慢</li>
+<li>适合：物体减速停止</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Out 模式:
+</span></span><span class="line"><span class="cl">  1.0 ┤───╱
+</span></span><span class="line"><span class="cl">      │  ╱
+</span></span><span class="line"><span class="cl">      │ ╱
+</span></span><span class="line"><span class="cl">      │╱
+</span></span><span class="line"><span class="cl">  0.0 ┤─────────────&gt; Time
+</span></span><span class="line"><span class="cl">      快启动，慢结束</span></span></code></pre></div></div>
+<hr>
+<p><strong>InOut（缓入缓出）</strong>：</p>
+<ul>
+<li>开始慢，中间快，结束慢</li>
+<li>适合：平滑自然过渡</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">InOut 模式:
+</span></span><span class="line"><span class="cl">  1.0 ┤      ╱──
+</span></span><span class="line"><span class="cl">      │    ╱
+</span></span><span class="line"><span class="cl">      │  ╱
+</span></span><span class="line"><span class="cl">      │╱
+</span></span><span class="line"><span class="cl">  0.0 ┤──────────────&gt; Time
+</span></span><span class="line"><span class="cl">      慢-快-慢</span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">常用缓动类型对比
+    <div id="常用缓动类型对比" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%b8%e7%94%a8%e7%bc%93%e5%8a%a8%e7%b1%bb%e5%9e%8b%e5%af%b9%e6%af%94" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">1. <strong>Sine（正弦曲线）</strong>
+    <div id="1-sine正弦曲线" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-sine%e6%ad%a3%e5%bc%a6%e6%9b%b2%e7%ba%bf" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span></span></span></code></pre></div></div>
+<p><strong>特性</strong>：</p>
+<ul>
+<li>最平滑的曲线</li>
+<li>自然的加速/减速</li>
+<li>推荐用于大多数场景</li>
+</ul>
+<p><strong>公式</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Sine InOut</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">SineInOut</span><span class="p">(</span><span class="kt">float</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">-(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">PI</span> <span class="p">*</span> <span class="n">t</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">2. <strong>Quad（二次曲线）</strong>
+    <div id="2-quad二次曲线" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-quad%e4%ba%8c%e6%ac%a1%e6%9b%b2%e7%ba%bf" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Quad</span><span class="p">.</span><span class="n">In</span><span class="p">);</span>   <span class="c1">// t²</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Quad</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>  <span class="c1">// 1 - (1-t)²</span></span></span></code></pre></div></div>
+<p><strong>特性</strong>：</p>
+<ul>
+<li>适度的加速效果</li>
+<li>比线性平滑，比三次方缓和</li>
+</ul>
+<p><strong>公式</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Quad In</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">QuadIn</span><span class="p">(</span><span class="kt">float</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">t</span> <span class="p">*</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">3. <strong>Elastic（弹性曲线）</strong>
+    <div id="3-elastic弹性曲线" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-elastic%e5%bc%b9%e6%80%a7%e6%9b%b2%e7%ba%bf" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Elastic</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span></span></span></code></pre></div></div>
+<p><strong>特性</strong>：</p>
+<ul>
+<li>有弹性效果</li>
+<li>会超出目标值再回弹</li>
+<li>适合：弹簧效果、卡通风格</li>
+</ul>
+<p><strong>效果</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Elastic Out:
+</span></span><span class="line"><span class="cl">  1.0 ┤─╱╲─╱─
+</span></span><span class="line"><span class="cl">      │╱  ╲╱
+</span></span><span class="line"><span class="cl">      │
+</span></span><span class="line"><span class="cl">  0.0 ┤───────────&gt; Time
+</span></span><span class="line"><span class="cl">      超出后回弹</span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">4. <strong>Back（回弹曲线）</strong>
+    <div id="4-back回弹曲线" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#4-back%e5%9b%9e%e5%bc%b9%e6%9b%b2%e7%ba%bf" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Back</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span></span></span></code></pre></div></div>
+<p><strong>特性</strong>：</p>
+<ul>
+<li>轻微回弹效果</li>
+<li>比 Elastic 温和</li>
+<li>适合：UI 动画、按钮效果</li>
+</ul>
+<hr>
+
+<h4 class="relative group">5. <strong>Bounce（反弹曲线）</strong>
+    <div id="5-bounce反弹曲线" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#5-bounce%e5%8f%8d%e5%bc%b9%e6%9b%b2%e7%ba%bf" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Bounce</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span></span></span></code></pre></div></div>
+<p><strong>特性</strong>：</p>
+<ul>
+<li>模拟物理反弹</li>
+<li>多次小幅震荡</li>
+<li>适合：着陆动画、掉落效果</li>
+</ul>
+<hr>
+
+<h2 class="relative group">曲线预设 (Curve Presets)
+    <div id="曲线预设-curve-presets" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%9b%b2%e7%ba%bf%e9%a2%84%e8%ae%be-curve-presets" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p>Animancer 提供可下载的曲线预设文件，用于 <code>AnimationCurve</code> 配置。</p>
+<p><strong>使用方法</strong>：</p>
+<ol>
+<li>下载官方预设文件</li>
+<li>在 Inspector 中加载预设</li>
+<li>微调关键帧</li>
+</ol>
+<p><strong>优势</strong>：</p>
+<ul>
+<li>✅ 手动配置的高效曲线</li>
+<li>✅ 最小化关键帧数量</li>
+<li>⚠️ 可能与 <code>Easing</code> 类不完全匹配</li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>预设文件是手动配置的近似曲线</li>
+<li>为了效率使用最少的关键帧</li>
+<li>如果需要精确曲线，建议使用 <code>Easing</code> 类</li>
+</ul>
+<hr>
+
+<h2 class="relative group">代码示例集合
+    <div id="代码示例集合" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b%e9%9b%86%e5%90%88" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">示例1：基础自定义缓动
+    <div id="示例1基础自定义缓动" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b1%e5%9f%ba%e7%a1%80%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bc%93%e5%8a%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">BasicCustomEasingExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_WalkClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">SwitchToWalkWithEasing</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放动画并应用缓动</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_WalkClip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 使用 Sine InOut 曲线（平滑过渡）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">示例2：对比不同缓动效果
+    <div id="示例2对比不同缓动效果" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b2%e5%af%b9%e6%af%94%e4%b8%8d%e5%90%8c%e7%bc%93%e5%8a%a8%e6%95%88%e6%9e%9c" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">EasingComparisonExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [ContextMenu(&#34;Test Linear&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">TestLinear</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 默认线性（无缓动）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;线性淡入&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [ContextMenu(&#34;Test Sine InOut&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">TestSineInOut</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;Sine InOut 淡入（慢-快-慢）&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [ContextMenu(&#34;Test Quad In&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">TestQuadIn</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Quad</span><span class="p">.</span><span class="n">In</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;Quad In 淡入（加速）&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [ContextMenu(&#34;Test Elastic Out&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">TestElasticOut</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Elastic</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;Elastic Out 淡入（弹性效果）&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">示例3：AnimationCurve 可视化配置
+    <div id="示例3animationcurve-可视化配置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b3animationcurve-%e5%8f%af%e8%a7%86%e5%8c%96%e9%85%8d%e7%bd%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AnimationCurveEasingExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在 Inspector 中可视化编辑</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationCurve</span> <span class="n">_CustomFadeCurve</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AnimationCurve</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">Keyframe</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">Keyframe</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayWithCustomCurve</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">_CustomFadeCurve</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&#34;使用自定义 AnimationCurve 淡入&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">示例4：基于场景选择缓动
+    <div id="示例4基于场景选择缓动" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b4%e5%9f%ba%e4%ba%8e%e5%9c%ba%e6%99%af%e9%80%89%e6%8b%a9%e7%bc%93%e5%8a%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ContextBasedEasingExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">enum</span> <span class="n">TransitionType</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Smooth</span><span class="p">,</span>      <span class="c1">// 平滑过渡</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Quick</span><span class="p">,</span>       <span class="c1">// 快速过渡</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Energetic</span><span class="p">,</span>   <span class="c1">// 有活力的过渡</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Bouncy</span>       <span class="c1">// 弹性过渡</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayWithEasing</span><span class="p">(</span><span class="n">AnimationClip</span> <span class="n">clip</span><span class="p">,</span> <span class="n">TransitionType</span> <span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">fadeDuration</span> <span class="p">=</span> <span class="n">GetFadeDuration</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 根据类型选择缓动</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Smooth</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Quick</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Quad</span><span class="p">.</span><span class="n">In</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Energetic</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Back</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Bouncy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Bounce</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;应用 {type} 缓动&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">GetFadeDuration</span><span class="p">(</span><span class="n">TransitionType</span> <span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Quick</span><span class="p">:</span> <span class="k">return</span> <span class="m">0.15f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Smooth</span><span class="p">:</span> <span class="k">return</span> <span class="m">0.3f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Energetic</span><span class="p">:</span> <span class="k">return</span> <span class="m">0.25f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">TransitionType</span><span class="p">.</span><span class="n">Bouncy</span><span class="p">:</span> <span class="k">return</span> <span class="m">0.4f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">default</span><span class="p">:</span> <span class="k">return</span> <span class="m">0.25f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">示例5：自定义数学曲线
+    <div id="示例5自定义数学曲线" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b5%e8%87%aa%e5%ae%9a%e4%b9%89%e6%95%b0%e5%ad%a6%e6%9b%b2%e7%ba%bf" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">CustomMathEasingExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_Clip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayWithCustomMath</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 自定义缓动：慢-快-慢（自定义曲线）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="p">&lt;</span> <span class="m">0.5f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 前半段：二次加速</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="m">2</span> <span class="p">*</span> <span class="n">t</span> <span class="p">*</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 后半段：二次减速</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">float</span> <span class="n">adjusted</span> <span class="p">=</span> <span class="m">1</span> <span class="p">-</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="m">1</span> <span class="p">-</span> <span class="m">2</span> <span class="p">*</span> <span class="n">adjusted</span> <span class="p">*</span> <span class="n">adjusted</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayWithSmoothStep</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 使用 Unity 的 SmoothStep</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">SmoothStep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">t</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlayWithCustomBounce</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 自定义反弹效果</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">float</span> <span class="n">bounce</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">PI</span> <span class="p">*</span> <span class="m">3</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Lerp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">bounce</span> <span class="p">*</span> <span class="m">0.2f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">示例6：3D Game Kit 平滑待机过渡
+    <div id="示例63d-game-kit-平滑待机过渡" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b63d-game-kit-%e5%b9%b3%e6%bb%91%e5%be%85%e6%9c%ba%e8%bf%87%e6%b8%a1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>场景</strong>：在 3D Game Kit 示例中，用于平滑不同待机动画之间的过渡。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SmoothIdleTransitionExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleNormal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleBored</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleTired</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">float</span> <span class="n">_idleTimer</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_currentIdleIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_idleTimer</span> <span class="p">+=</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 每 5 秒切换一次待机动画</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">_idleTimer</span> <span class="p">&gt;=</span> <span class="m">5.0f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_idleTimer</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">SwitchToNextIdle</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">SwitchToNextIdle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_currentIdleIndex</span> <span class="p">=</span> <span class="p">(</span><span class="n">_currentIdleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">)</span> <span class="p">%</span> <span class="m">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">AnimationClip</span> <span class="n">targetIdle</span> <span class="p">=</span> <span class="n">GetIdleClip</span><span class="p">(</span><span class="n">_currentIdleIndex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">targetIdle</span><span class="p">,</span> <span class="n">fadeDuration</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 使用 Sine InOut 实现平滑过渡</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;切换到待机动画 {_currentIdleIndex}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">AnimationClip</span> <span class="n">GetIdleClip</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="m">0</span><span class="p">:</span> <span class="k">return</span> <span class="n">_IdleNormal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="m">1</span><span class="p">:</span> <span class="k">return</span> <span class="n">_IdleBored</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="m">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">_IdleTired</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">default</span><span class="p">:</span> <span class="k">return</span> <span class="n">_IdleNormal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">最佳实践建议
+    <div id="最佳实践建议" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%e5%bb%ba%e8%ae%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">1. <strong>选择合适的缓动类型</strong>
+    <div id="1-选择合适的缓动类型" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-%e9%80%89%e6%8b%a9%e5%90%88%e9%80%82%e7%9a%84%e7%bc%93%e5%8a%a8%e7%b1%bb%e5%9e%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 推荐：根据动画类型选择缓动</span>
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">PlayAnimationWithAppropriatEasing</span><span class="p">(</span><span class="n">AnimationClip</span> <span class="n">clip</span><span class="p">,</span> <span class="n">AnimationType</span> <span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">clip</span><span class="p">,</span> <span class="m">0.3f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="n">AnimationType</span><span class="p">.</span><span class="n">Idle</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 待机：平滑过渡</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="n">AnimationType</span><span class="p">.</span><span class="n">Attack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 攻击：快速启动</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Quad</span><span class="p">.</span><span class="n">In</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="n">AnimationType</span><span class="p">.</span><span class="n">Hit</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 受击：立即反应，无缓动</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 不设置缓动，保持线性</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="n">AnimationType</span><span class="p">.</span><span class="n">UI</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// UI：轻微回弹</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Back</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">2. <strong>避免过度使用复杂缓动</strong>
+    <div id="2-避免过度使用复杂缓动" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-%e9%81%bf%e5%85%8d%e8%bf%87%e5%ba%a6%e4%bd%bf%e7%94%a8%e5%a4%8d%e6%9d%82%e7%bc%93%e5%8a%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 不推荐：所有动画都使用弹性效果</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Elastic</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span> <span class="c1">// 过于夸张</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✅ 推荐：大多数使用 Sine，特殊场景使用复杂缓动</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span> <span class="c1">// 通用平滑</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">3. <strong>性能考虑</strong>
+    <div id="3-性能考虑" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-%e6%80%a7%e8%83%bd%e8%80%83%e8%99%91" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 简单数学函数性能更好</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">t</span> <span class="p">*</span> <span class="n">t</span><span class="p">);</span> <span class="c1">// 简单快速</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ⚠️ 复杂计算可能影响性能</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 复杂的三角函数计算</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">PI</span> <span class="p">*</span> <span class="m">10</span><span class="p">)</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="n">t</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">PI</span> <span class="p">*</span> <span class="m">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span> <span class="c1">// 避免过度复杂</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">4. <strong>AnimationCurve 优化</strong>
+    <div id="4-animationcurve-优化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#4-animationcurve-%e4%bc%98%e5%8c%96" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 推荐：最小化关键帧数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnimationCurve</span> <span class="n">efficientCurve</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AnimationCurve</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">new</span> <span class="n">Keyframe</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="k">new</span> <span class="n">Keyframe</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span> <span class="c1">// 只有 2 个关键帧</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ❌ 避免：过多关键帧</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnimationCurve</span> <span class="n">complexCurve</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AnimationCurve</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 100 个关键帧...</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span> <span class="c1">// 影响性能</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">5. <strong>调试和可视化</strong>
+    <div id="5-调试和可视化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#5-%e8%b0%83%e8%af%95%e5%92%8c%e5%8f%af%e8%a7%86%e5%8c%96" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 使用 Inspector 测试不同曲线</span>
+</span></span><span class="line"><span class="cl"><span class="na">[SerializeField]</span> <span class="kd">private</span> <span class="n">Easing</span><span class="p">.</span><span class="n">Function</span> <span class="n">_TestEasingType</span> <span class="p">=</span> <span class="n">Easing</span><span class="p">.</span><span class="n">Function</span><span class="p">.</span><span class="n">SineInOut</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">TestEasing</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Clip</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">_TestEasingType</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在运行时调整 Inspector 中的枚举值，实时查看效果</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">常见问题 FAQ
+    <div id="常见问题-faq" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98-faq" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Q1: 什么时候应该使用自定义缓动？
+    <div id="q1-什么时候应该使用自定义缓动" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q1-%e4%bb%80%e4%b9%88%e6%97%b6%e5%80%99%e5%ba%94%e8%af%a5%e4%bd%bf%e7%94%a8%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bc%93%e5%8a%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<ul>
+<li>✅ 需要更平滑的过渡效果</li>
+<li>✅ UI 动画需要特殊效果（回弹、弹性）</li>
+<li>✅ 待机动画之间的切换</li>
+<li>❌ 快速反应动作（受击、死亡）- 使用线性</li>
+</ul>
+<hr>
+
+<h3 class="relative group">Q2: Sine InOut 和 Quad InOut 有什么区别？
+    <div id="q2-sine-inout-和-quad-inout-有什么区别" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q2-sine-inout-%e5%92%8c-quad-inout-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>Sine InOut</th>
+          <th>Quad InOut</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>平滑度</strong></td>
+          <td>非常平滑</td>
+          <td>适度平滑</td>
+      </tr>
+      <tr>
+          <td><strong>性能</strong></td>
+          <td>稍慢（三角函数）</td>
+          <td>更快（简单乘法）</td>
+      </tr>
+      <tr>
+          <td><strong>视觉效果</strong></td>
+          <td>更自然</td>
+          <td>稍微明显</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>推荐</strong>：</p>
+<ul>
+<li>通用场景：<code>Sine.InOut</code></li>
+<li>性能敏感：<code>Quad.InOut</code></li>
+</ul>
+<hr>
+
+<h3 class="relative group">Q3: 如何在 Inspector 中预览缓动曲线？
+    <div id="q3-如何在-inspector-中预览缓动曲线" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q3-%e5%a6%82%e4%bd%95%e5%9c%a8-inspector-%e4%b8%ad%e9%a2%84%e8%a7%88%e7%bc%93%e5%8a%a8%e6%9b%b2%e7%ba%bf" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 使用 <code>AnimationCurve</code>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="na">[SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationCurve</span> <span class="n">_PreviewCurve</span> <span class="p">=</span> <span class="n">AnimationCurve</span><span class="p">.</span><span class="n">EaseInOut</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">ApplyPreview</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">_PreviewCurve</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>在 Inspector 中可以直接看到曲线形状并编辑。</p>
+<hr>
+
+<h3 class="relative group">Q4: Custom Easing 是 Pro 专属功能吗？
+    <div id="q4-custom-easing-是-pro-专属功能吗" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q4-custom-easing-%e6%98%af-pro-%e4%b8%93%e5%b1%9e%e5%8a%9f%e8%83%bd%e5%90%97" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 是的。</p>
+<table>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th>Animancer Lite</th>
+          <th>Animancer Pro</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>线性淡入淡出</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td>自定义缓动</td>
+          <td>❌</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td><code>SetEasing</code> 方法</td>
+          <td>❌</td>
+          <td>✅</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">Q5: 可以对 Mixer 使用自定义缓动吗？
+    <div id="q5-可以对-mixer-使用自定义缓动吗" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q5-%e5%8f%af%e4%bb%a5%e5%af%b9-mixer-%e4%bd%bf%e7%94%a8%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bc%93%e5%8a%a8%e5%90%97" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 可以！</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">mixerState</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_MixerTransition</span><span class="p">,</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">mixerState</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">Easing</span><span class="p">.</span><span class="n">Sine</span><span class="p">.</span><span class="n">InOut</span><span class="p">);</span></span></span></code></pre></div></div>
+<p>所有 <code>AnimancerState</code> 类型都支持自定义缓动。</p>
+<hr>
+
+<h3 class="relative group">Q6: 如何实现自定义的弹簧效果？
+    <div id="q6-如何实现自定义的弹簧效果" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q6-%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e8%87%aa%e5%ae%9a%e4%b9%89%e7%9a%84%e5%bc%b9%e7%b0%a7%e6%95%88%e6%9e%9c" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">state</span><span class="p">.</span><span class="n">FadeGroup</span><span class="p">.</span><span class="n">SetEasing</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 模拟阻尼弹簧</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">damping</span> <span class="p">=</span> <span class="m">0.8f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">frequency</span> <span class="p">=</span> <span class="m">5.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="m">1</span> <span class="p">-</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Exp</span><span class="p">(-</span><span class="n">t</span> <span class="p">*</span> <span class="n">damping</span><span class="p">)</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="n">t</span> <span class="p">*</span> <span class="n">frequency</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">总结
+    <div id="总结" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%80%bb%e7%bb%93" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">核心要点
+    <div id="核心要点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a0%b8%e5%bf%83%e8%a6%81%e7%82%b9" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>
+<p><strong>三种实现方法</strong></p>
+<ul>
+<li>自定义委托：灵活，代码控制</li>
+<li>标准缓动类：方便，预定义曲线</li>
+<li>AnimationCurve：可视化，Inspector 配置</li>
+</ul>
+</li>
+<li>
+<p><strong>常用缓动类型</strong></p>
+<ul>
+<li><strong>Sine.InOut</strong>：最平滑，通用</li>
+<li><strong>Quad.In/Out</strong>：适度加速/减速</li>
+<li><strong>Elastic/Back</strong>：特殊效果</li>
+<li><strong>Bounce</strong>：物理反弹</li>
+</ul>
+</li>
+<li>
+<p><strong>In/Out/InOut 模式</strong></p>
+<ul>
+<li><strong>In</strong>：加速进入</li>
+<li><strong>Out</strong>：减速退出</li>
+<li><strong>InOut</strong>：平滑过渡</li>
+</ul>
+</li>
+<li>
+<p><strong>Pro 专属功能</strong></p>
+<ul>
+<li>Lite 版本不支持</li>
+<li>Pro 版本完全支持</li>
+<li>可以显著提升动画质量</li>
+</ul>
+</li>
+</ol>
+
+<h3 class="relative group">下一步学习
+    <div id="下一步学习" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%8b%e4%b8%80%e6%ad%a5%e5%ad%a6%e4%b9%a0" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>📖 深入学习 <strong>Sequences</strong> 组合多个动画</li>
+<li>🎨 探索 <strong>Layers</strong> 的缓动应用</li>
+<li>📚 了解 <strong>FadeGroup</strong> 的高级用法</li>
+<li>🔍 查看 3D Game Kit 示例的实际应用</li>
+</ul>
+<hr>
+<p><strong>文档抓取日期</strong>：2025-01-24
+<strong>原文地址</strong>：https://kybernetik.com.au/animancer/docs/manual/blending/fading/custom/
+<strong>Animancer 版本</strong>：7.0+
+<strong>适用项目</strong>：animator-third-person-controller (ShooterTPP)</p>
+
+<h2 class="relative group">参考资源
+    <div id="参考资源" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%ba%90" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><a href="https://easings.net/"  target="_blank">Easing Functions Cheat Sheet</a> - 可视化各种缓动函数</li>
+<li><a href="http://robertpenner.com/easing/"  target="_blank">Robert Penner&rsquo;s Easing Functions</a> - 经典缓动函数参考</li>
+<li><a href="https://docs.unity3d.com/ScriptReference/AnimationCurve.html"  target="_blank">Unity AnimationCurve Documentation</a> - Unity 官方文档</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/NewskyGameBlog/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_animancer\blend\animancer-customfading.md"
+          data-oid-likes="likes_animancer\blend\animancer-customfading.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/event/animancer-animancerevents/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Animancer Events
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/blend/animancer-blending/">
+              <span class="leading-6">
+                Animancer Blending&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          mickorz
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/NewskyGameBlog/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

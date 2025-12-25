@@ -326,9 +326,9 @@ public class AIAnimations : MonoBehaviour
 ## 参考资料
 
 ### 📚 相关文档
-- [\1]({{< ref "animancer-why.md" >}})
-- [\1]({{< ref "animancer-clarity.md" >}})
-- [\1]({{< ref "animancer-safety.md" >}})
+- [animancer-why]({{< ref "animancer-why.md" >}})
+- [animancer-clarity]({{< ref "animancer-clarity.md" >}})
+- [animancer-safety]({{< ref "animancer-safety.md" >}})
 
 ---
 

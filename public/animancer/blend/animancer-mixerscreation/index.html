@@ -1,0 +1,2157 @@
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh-cn">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Animancer Mixers Creation &middot; Newsky Game Blog</title>
+    <meta name="title" content="Animancer Mixers Creation &middot; Newsky Game Blog">
+  
+
+  
+  
+    <meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  
+  
+  
+    <meta name="robots" content="noindex, nofollow">
+  
+  
+  <link rel="canonical" href="http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixerscreation/">
+  
+
+  
+  
+    <meta name="author" content="mickorz">
+  
+  
+    
+      
+        
+          <link href="https://github.com/mickorz" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixerscreation/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Animancer Mixers Creation">
+  <meta property="og:description" content="Animancer Mixers Creation 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/mixers/creation/ 抓取日期：2025-01-24
+概述 (Overview)#Animancer 提供两种主要方法来创建 Mixers：通过 Inspector 配置的 Transition 或 手动代码创建。两种方法都支持嵌套 Mixers。
+创建方法对比#方法 优势 适用场景 Transition-Based 可视化配置,非程序员友好 固定配置,Inspector 管理 Manual Code 完全代码控制,动态生成 运行时动态创建,复杂逻辑 方法一：基于 Transition 创建#概述#Mixers 通常在 Inspector 中使用 Mixer Transitions 配置。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="animancer">
+    <meta property="article:published_time" content="2025-12-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-25T00:00:00+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Animancer Mixers Creation">
+  <meta name="twitter:description" content="Animancer Mixers Creation 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/mixers/creation/ 抓取日期：2025-01-24
+概述 (Overview)#Animancer 提供两种主要方法来创建 Mixers：通过 Inspector 配置的 Transition 或 手动代码创建。两种方法都支持嵌套 Mixers。
+创建方法对比#方法 优势 适用场景 Transition-Based 可视化配置,非程序员友好 固定配置,Inspector 管理 Manual Code 完全代码控制,动态生成 运行时动态创建,复杂逻辑 方法一：基于 Transition 创建#概述#Mixers 通常在 Inspector 中使用 Mixer Transitions 配置。">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/NewskyGameBlog/css/main.bundle.min.ad4a2404cd820d9a561641b272de1ea768230edad666e70eabdf8cf3cd832073a4696419403ce3fcb1475c4b0d503ecbb9b82477b416ec54c62eec4fc87f20fd.css"
+    integrity="sha512-rUokBM2CDZpWFkGyct4ep2gjDtrWZucOq9&#43;M882DIHOkaWQZQDzj/LFHXEsNUD7Lubgkd7QW7FTGLuxPyH8g/Q==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/NewskyGameBlog/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/NewskyGameBlog/js/main.bundle.min.e2a486e2d26101d42b0ae6565951c0ab32807f06c8cac845e9a430aac163bf4b95eaaf22ac52825b7c9135e177953252afda0c2c8b6e64291c90238a4685aaa3.js"
+      integrity="sha512-4qSG4tJhAdQrCuZWWVHAqzKAfwbIyshF6aQwqsFjv0uV6q8irFKCW3yRNeF3lTJSr9oMLItuZCkckCOKRoWqow=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+
+  
+  
+
+<script src="/NewskyGameBlog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/NewskyGameBlog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/NewskyGameBlog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/NewskyGameBlog/favicon-16x16.png">
+    <link rel="manifest" href="/NewskyGameBlog/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Animancer 中文文档目录",
+    "name": "Animancer Mixers Creation",
+    "headline": "Animancer Mixers Creation",
+    
+    "inLanguage": "zh-cn",
+    "url" : "http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixerscreation/",
+    "author" : {
+      "@type": "Person",
+      "name": "mickorz"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-25T00:00:00\u002b00:00",
+    "datePublished": "2025-12-25T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-12-25T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1482"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        跳过正文
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/NewskyGameBlog/" class="text-base font-medium">
+          Newsky Game Blog
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/NewskyGameBlog/animancer/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 Animancer 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 Animancer 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/posts/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="所有文章"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      所有文章
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="https://github.com/mickorz"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="github"
+  title="">
+  
+    <span >
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+    </span>
+  
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/animancer/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 Animancer 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 Animancer 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/posts/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="所有文章"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        所有文章
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/mickorz"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="github"
+    title="">
+    
+      <div >
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+      </div>
+    
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Animancer Mixers Creation
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1482 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">7 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        作者
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        mickorz
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">专注于 Unity 开发与 Animancer 插件深度解析</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/mickorz"
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述-overview">概述 (Overview)</a></li>
+    <li><a href="#创建方法对比">创建方法对比</a></li>
+    <li><a href="#方法一基于-transition-创建">方法一：基于 Transition 创建</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#配置步骤">配置步骤</a></li>
+        <li><a href="#transition-配置选项">Transition 配置选项</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法二手动代码创建">方法二：手动代码创建</a>
+      <ul>
+        <li><a href="#四步流程">四步流程</a></li>
+        <li><a href="#示例1集合初始化器方式">示例1：集合初始化器方式</a></li>
+        <li><a href="#示例2add-方法方式">示例2：Add() 方法方式</a></li>
+        <li><a href="#方法对比">方法对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置元素详解">配置元素详解</a>
+      <ul>
+        <li><a href="#1-thresholds阈值">1. Thresholds（阈值）</a></li>
+        <li><a href="#2-debug-naming调试命名">2. Debug Naming（调试命名）</a></li>
+        <li><a href="#3-synchronization-control同步控制">3. Synchronization Control（同步控制）</a></li>
+      </ul>
+    </li>
+    <li><a href="#嵌套-mixers">嵌套 Mixers</a>
+      <ul>
+        <li><a href="#方法1transition-嵌套">方法1：Transition 嵌套</a></li>
+        <li><a href="#方法2手动嵌套">方法2：手动嵌套</a></li>
+      </ul>
+    </li>
+    <li><a href="#完整创建示例">完整创建示例</a>
+      <ul>
+        <li><a href="#示例12d-directional-mixer-完整流程">示例1：2D Directional Mixer 完整流程</a></li>
+        <li><a href="#示例2动态-mixer-创建">示例2：动态 Mixer 创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践建议">最佳实践建议</a>
+      <ul>
+        <li><a href="#1-选择合适的创建方法">1. <strong>选择合适的创建方法</strong></a></li>
+        <li><a href="#2-使用调试名称">2. <strong>使用调试名称</strong></a></li>
+        <li><a href="#3-合理组织嵌套结构">3. <strong>合理组织嵌套结构</strong></a></li>
+        <li><a href="#4-验证配置">4. <strong>验证配置</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题-faq">常见问题 FAQ</a>
+      <ul>
+        <li><a href="#q1-transition-based-和-manual-创建有什么区别">Q1: Transition-Based 和 Manual 创建有什么区别？</a></li>
+        <li><a href="#q2-可以在运行时修改-transition-based-mixer-吗">Q2: 可以在运行时修改 Transition-Based Mixer 吗？</a></li>
+        <li><a href="#q3-如何实现条件子动画添加">Q3: 如何实现条件子动画添加？</a></li>
+        <li><a href="#q4-嵌套-mixer-的性能如何">Q4: 嵌套 Mixer 的性能如何？</a></li>
+        <li><a href="#q5-自动计算阈值适用于所有情况吗">Q5: 自动计算阈值适用于所有情况吗？</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#核心要点">核心要点</a></li>
+        <li><a href="#下一步学习">下一步学习</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述-overview">概述 (Overview)</a></li>
+    <li><a href="#创建方法对比">创建方法对比</a></li>
+    <li><a href="#方法一基于-transition-创建">方法一：基于 Transition 创建</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#配置步骤">配置步骤</a></li>
+        <li><a href="#transition-配置选项">Transition 配置选项</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法二手动代码创建">方法二：手动代码创建</a>
+      <ul>
+        <li><a href="#四步流程">四步流程</a></li>
+        <li><a href="#示例1集合初始化器方式">示例1：集合初始化器方式</a></li>
+        <li><a href="#示例2add-方法方式">示例2：Add() 方法方式</a></li>
+        <li><a href="#方法对比">方法对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置元素详解">配置元素详解</a>
+      <ul>
+        <li><a href="#1-thresholds阈值">1. Thresholds（阈值）</a></li>
+        <li><a href="#2-debug-naming调试命名">2. Debug Naming（调试命名）</a></li>
+        <li><a href="#3-synchronization-control同步控制">3. Synchronization Control（同步控制）</a></li>
+      </ul>
+    </li>
+    <li><a href="#嵌套-mixers">嵌套 Mixers</a>
+      <ul>
+        <li><a href="#方法1transition-嵌套">方法1：Transition 嵌套</a></li>
+        <li><a href="#方法2手动嵌套">方法2：手动嵌套</a></li>
+      </ul>
+    </li>
+    <li><a href="#完整创建示例">完整创建示例</a>
+      <ul>
+        <li><a href="#示例12d-directional-mixer-完整流程">示例1：2D Directional Mixer 完整流程</a></li>
+        <li><a href="#示例2动态-mixer-创建">示例2：动态 Mixer 创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#最佳实践建议">最佳实践建议</a>
+      <ul>
+        <li><a href="#1-选择合适的创建方法">1. <strong>选择合适的创建方法</strong></a></li>
+        <li><a href="#2-使用调试名称">2. <strong>使用调试名称</strong></a></li>
+        <li><a href="#3-合理组织嵌套结构">3. <strong>合理组织嵌套结构</strong></a></li>
+        <li><a href="#4-验证配置">4. <strong>验证配置</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题-faq">常见问题 FAQ</a>
+      <ul>
+        <li><a href="#q1-transition-based-和-manual-创建有什么区别">Q1: Transition-Based 和 Manual 创建有什么区别？</a></li>
+        <li><a href="#q2-可以在运行时修改-transition-based-mixer-吗">Q2: 可以在运行时修改 Transition-Based Mixer 吗？</a></li>
+        <li><a href="#q3-如何实现条件子动画添加">Q3: 如何实现条件子动画添加？</a></li>
+        <li><a href="#q4-嵌套-mixer-的性能如何">Q4: 嵌套 Mixer 的性能如何？</a></li>
+        <li><a href="#q5-自动计算阈值适用于所有情况吗">Q5: 自动计算阈值适用于所有情况吗？</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#核心要点">核心要点</a></li>
+        <li><a href="#下一步学习">下一步学习</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">Animancer Mixers Creation 官方文档
+    <div id="animancer-mixers-creation-官方文档" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#animancer-mixers-creation-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<blockquote ><p>原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/mixers/creation/
+抓取日期：2025-01-24</p>
+</blockquote><hr>
+
+<h2 class="relative group">概述 (Overview)
+    <div id="概述-overview" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%bf%b0-overview" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p>Animancer 提供两种主要方法来创建 Mixers：通过 <strong>Inspector 配置的 Transition</strong> 或 <strong>手动代码创建</strong>。两种方法都支持嵌套 Mixers。</p>
+<hr>
+
+<h2 class="relative group">创建方法对比
+    <div id="创建方法对比" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%88%9b%e5%bb%ba%e6%96%b9%e6%b3%95%e5%af%b9%e6%af%94" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>优势</th>
+          <th>适用场景</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Transition-Based</strong></td>
+          <td>可视化配置,非程序员友好</td>
+          <td>固定配置,Inspector 管理</td>
+      </tr>
+      <tr>
+          <td><strong>Manual Code</strong></td>
+          <td>完全代码控制,动态生成</td>
+          <td>运行时动态创建,复杂逻辑</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">方法一：基于 Transition 创建
+    <div id="方法一基于-transition-创建" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%95%e4%b8%80%e5%9f%ba%e4%ba%8e-transition-%e5%88%9b%e5%bb%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">概述
+    <div id="概述" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%bf%b0" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<blockquote ><p><strong>Mixers 通常在 Inspector 中使用 Mixer Transitions 配置。</strong></p>
+</blockquote><p><strong>工作流程</strong>：</p>
+<ol>
+<li>创建 Mixer Transition（Inline 或 Asset）</li>
+<li>在 Inspector 中配置子动画和参数</li>
+<li>在代码中播放并访问 Mixer 状态</li>
+</ol>
+<hr>
+
+<h3 class="relative group">配置步骤
+    <div id="配置步骤" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%85%8d%e7%bd%ae%e6%ad%a5%e9%aa%a4" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">步骤1：创建 Transition
+    <div id="步骤1创建-transition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a41%e5%88%9b%e5%bb%ba-transition" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>Inline Transition（内联）</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">InlineTransitionExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在 Inspector 中直接配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">LinearMixerTransition</span> <span class="n">_MovementMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放 Mixer</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">mixerState</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_MovementMixer</span><span class="p">)</span> <span class="k">as</span> <span class="n">LinearMixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>Transition Asset（资源文件）</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1. 右键 → Create → Animancer → Linear Mixer Transition
+</span></span><span class="line"><span class="cl">2. 配置子动画和阈值
+</span></span><span class="line"><span class="cl">3. 在脚本中引用</span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">步骤2：Inspector 配置
+    <div id="步骤2inspector-配置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a42inspector-%e9%85%8d%e7%bd%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<p><strong>Linear Mixer Transition Inspector</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">LinearMixerTransition:
+</span></span><span class="line"><span class="cl">┌─────────────────────────────┐
+</span></span><span class="line"><span class="cl">│ Fade Duration: 0.25         │
+</span></span><span class="line"><span class="cl">│ Speed: 1.0                  │
+</span></span><span class="line"><span class="cl">│ Parameter: SpeedValue.asset │
+</span></span><span class="line"><span class="cl">│                             │
+</span></span><span class="line"><span class="cl">│ Children (3):               │
+</span></span><span class="line"><span class="cl">│ ├─ [0] Idle                 │
+</span></span><span class="line"><span class="cl">│ │   Threshold: 0.0          │
+</span></span><span class="line"><span class="cl">│ ├─ [1] Walk                 │
+</span></span><span class="line"><span class="cl">│ │   Threshold: 0.5          │
+</span></span><span class="line"><span class="cl">│ └─ [2] Run                  │
+</span></span><span class="line"><span class="cl">│     Threshold: 1.0          │
+</span></span><span class="line"><span class="cl">│                             │
+</span></span><span class="line"><span class="cl">│ ☑ Synchronize Children      │
+</span></span><span class="line"><span class="cl">└─────────────────────────────┘</span></span></code></pre></div></div>
+<hr>
+
+<h4 class="relative group">步骤3：代码访问
+    <div id="步骤3代码访问" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%a5%e9%aa%a43%e4%bb%a3%e7%a0%81%e8%ae%bf%e9%97%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">TransitionBasedMixerExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">LinearMixerTransition</span> <span class="n">_MovementMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">StringAsset</span> <span class="n">_SpeedParameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LinearMixerState</span> <span class="n">_MixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放 Mixer Transition</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_MovementMixer</span><span class="p">)</span> <span class="k">as</span> <span class="n">LinearMixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 访问 Mixer 状态参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;Initial Parameter: {_MixerState.Parameter}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 控制参数</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="n">GetCurrentSpeed</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="n">speed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 或通过参数系统</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Parameters</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="n">_SpeedParameter</span><span class="p">,</span> <span class="n">speed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">GetCurrentSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">Transition 配置选项
+    <div id="transition-配置选项" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transition-%e9%85%8d%e7%bd%ae%e9%80%89%e9%a1%b9" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>主要配置项</strong>：</p>
+<ul>
+<li><strong>Fade Duration</strong>：淡入持续时间</li>
+<li><strong>Speed</strong>：播放速度</li>
+<li><strong>Parameter</strong>：参数绑定（StringAsset）</li>
+<li><strong>Children</strong>：子动画列表</li>
+<li><strong>Thresholds</strong>：每个子动画的阈值</li>
+<li><strong>Synchronize Children</strong>：是否同步子动画</li>
+</ul>
+<hr>
+
+<h2 class="relative group">方法二：手动代码创建
+    <div id="方法二手动代码创建" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%95%e4%ba%8c%e6%89%8b%e5%8a%a8%e4%bb%a3%e7%a0%81%e5%88%9b%e5%bb%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">四步流程
+    <div id="四步流程" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%9b%9b%e6%ad%a5%e6%b5%81%e7%a8%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li><strong>引用子动画</strong>：获取 <code>AnimationClip</code> 引用或 Transition 对象</li>
+<li><strong>实例化 Mixer</strong>：创建 Mixer 实例（如 <code>LinearMixerState</code>）</li>
+<li><strong>添加子状态</strong>：通过集合初始化器或 <code>Add()</code> 方法</li>
+<li><strong>存储引用</strong>：保持 Mixer 引用以便参数控制</li>
+</ol>
+<hr>
+
+<h3 class="relative group">示例1：集合初始化器方式
+    <div id="示例1集合初始化器方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b1%e9%9b%86%e5%90%88%e5%88%9d%e5%a7%8b%e5%8c%96%e5%99%a8%e6%96%b9%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ManualMixerCreationExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 步骤1：引用子动画</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_WalkClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_RunClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LinearMixerState</span> <span class="n">_MixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CreateMixerWithCollectionInitializer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">CreateMixerWithCollectionInitializer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 步骤2 &amp; 3：实例化 Mixer 并添加子状态</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinearMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 使用集合初始化器添加子状态</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_IdleClip</span><span class="p">,</span> <span class="m">0.0f</span> <span class="p">},</span>   <span class="c1">// Clip, Threshold</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_WalkClip</span><span class="p">,</span> <span class="m">0.5f</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_RunClip</span><span class="p">,</span> <span class="m">1.0f</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 可选：设置调试名称</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Movement Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放 Mixer</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 步骤4：存储引用（已在类成员中存储）</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 控制参数</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="n">GetCurrentSpeed</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="n">speed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">GetCurrentSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Clamp01</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">示例2：Add() 方法方式
+    <div id="示例2add-方法方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b2add-%e6%96%b9%e6%b3%95%e6%96%b9%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ManualMixerWithAddExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_WalkClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_RunClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LinearMixerState</span> <span class="n">_MixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CreateMixerWithAddMethod</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">CreateMixerWithAddMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 步骤2：实例化 Mixer</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinearMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 步骤3：使用 Add() 方法添加子状态</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_IdleClip</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="m">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_WalkClip</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_RunClip</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置调试名称</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Movement Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放 Mixer</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="n">GetCurrentSpeed</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="n">speed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">GetCurrentSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Clamp01</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">方法对比
+    <div id="方法对比" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%95%e5%af%b9%e6%af%94" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>集合初始化器</th>
+          <th>Add() 方法</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>代码简洁性</strong></td>
+          <td>✅ 更简洁</td>
+          <td>⚠️ 较冗长</td>
+      </tr>
+      <tr>
+          <td><strong>可读性</strong></td>
+          <td>✅ 清晰</td>
+          <td>✅ 清晰</td>
+      </tr>
+      <tr>
+          <td><strong>条件添加</strong></td>
+          <td>❌ 不灵活</td>
+          <td>✅ 灵活</td>
+      </tr>
+      <tr>
+          <td><strong>推荐度</strong></td>
+          <td>✅ 通用推荐</td>
+          <td>✅ 条件逻辑</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">配置元素详解
+    <div id="配置元素详解" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%85%8d%e7%bd%ae%e5%85%83%e7%b4%a0%e8%af%a6%e8%a7%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">1. Thresholds（阈值）
+    <div id="1-thresholds阈值" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-thresholds%e9%98%88%e5%80%bc" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>定义</strong>：决定每个子动画对应的参数值。</p>
+<p><strong>手动指定</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_IdleClip</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="m">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_WalkClip</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="m">2.5f</span><span class="p">);</span>  <span class="c1">// 实际速度值</span>
+</span></span><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_RunClip</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="m">5.0f</span><span class="p">);</span></span></span></code></pre></div></div>
+<hr>
+<p><strong>自动计算（Vector2）</strong>：</p>
+<p>使用自定义委托计算阈值。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer.Units</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AutoThresholdExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_ForwardClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_RightClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_BackClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_LeftClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">DirectionalMixerState</span> <span class="n">_MixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DirectionalMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 使用工具方法自动计算阈值</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_ForwardClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_RightClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_BackClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_LeftClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 自动计算基于平均速度的阈值</span>
+</span></span><span class="line"><span class="cl">        <span class="n">AnimancerUtilities</span><span class="p">.</span><span class="n">CalculateThresholdsFromAverageVelocityXZ</span><span class="p">(</span><span class="n">_MixerState</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><strong>说明</strong>：<code>AnimancerUtilities.CalculateThresholdsFromAverageVelocityXZ</code> 会分析动画的 Root Motion 速度并自动设置阈值。</p>
+<hr>
+
+<h3 class="relative group">2. Debug Naming（调试命名）
+    <div id="2-debug-naming调试命名" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-debug-naming%e8%b0%83%e8%af%95%e5%91%bd%e5%90%8d" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>目的</strong>：在 Inspector 中更容易识别。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Movement Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 在 Inspector 中显示为：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// &#34;Movement Mixer&#34; 而不是 &#34;LinearMixerState&#34;</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">3. Synchronization Control（同步控制）
+    <div id="3-synchronization-control同步控制" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-synchronization-control%e5%90%8c%e6%ad%a5%e6%8e%a7%e5%88%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>禁用同步</strong>：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 禁用整个 Mixer 的同步</span>
+</span></span><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">DontSynchronizeChildren</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 禁用特定子状态的同步</span>
+</span></span><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">DontSynchronize</span><span class="p">(</span><span class="n">_MixerState</span><span class="p">.</span><span class="n">GetChild</span><span class="p">(</span><span class="m">0</span><span class="p">));</span></span></span></code></pre></div></div>
+<p><strong>详细说明请参考</strong>：<strong>Mixer Synchronization</strong> 专题文档</p>
+<hr>
+
+<h2 class="relative group">嵌套 Mixers
+    <div id="嵌套-mixers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b5%8c%e5%a5%97-mixers" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">方法1：Transition 嵌套
+    <div id="方法1transition-嵌套" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%951transition-%e5%b5%8c%e5%a5%97" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>定义</strong>：父 Mixer 通过 Transition 定义,子 Mixer 作为 Transition Assets 引用。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">NestedTransitionMixerExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 子 Mixer Transitions（作为资源文件）</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">LinearMixerTransition</span> <span class="n">_IdleWalkMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">LinearMixerTransition</span> <span class="n">_WalkRunMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ManualMixerState</span> <span class="n">_ParentMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建父 Mixer,包含子 Mixer Transitions</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ManualMixerTransition</span> <span class="n">parentMixer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ManualMixerTransition</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_IdleWalkMixer</span><span class="p">,</span>  <span class="c1">// Child 0（Transition）</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_WalkRunMixer</span>    <span class="c1">// Child 1（Transition）</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">_ParentMixer</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">parentMixer</span><span class="p">)</span> <span class="k">as</span> <span class="n">ManualMixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="n">GetCurrentSpeed</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 根据速度选择使用哪个子 Mixer</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">speed</span> <span class="p">&lt;</span> <span class="m">0.5f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 控制 IdleWalk Mixer</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">childMixer</span> <span class="p">=</span> <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">GetChild</span><span class="p">(</span><span class="m">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">LinearMixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">childMixer</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="n">speed</span> <span class="p">*</span> <span class="m">2</span><span class="p">;</span> <span class="c1">// 0-1</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 控制 WalkRun Mixer</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">childMixer</span> <span class="p">=</span> <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">GetChild</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">LinearMixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">childMixer</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="p">(</span><span class="n">speed</span> <span class="p">-</span> <span class="m">0.5f</span><span class="p">)</span> <span class="p">*</span> <span class="m">2</span><span class="p">;</span> <span class="c1">// 0-1</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">GetCurrentSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Clamp01</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">方法2：手动嵌套
+    <div id="方法2手动嵌套" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%952%e6%89%8b%e5%8a%a8%e5%b5%8c%e5%a5%97" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>定义</strong>：通过集合初始化器或 <code>Add()</code> 方法添加子 Mixer。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ManualNestedMixerExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_WalkClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_RunClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_SprintClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ManualMixerState</span> <span class="n">_ParentMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建子 Mixer 1: Idle → Walk</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">idleWalkMixer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinearMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_IdleClip</span><span class="p">,</span> <span class="m">0.0f</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_WalkClip</span><span class="p">,</span> <span class="m">1.0f</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">idleWalkMixer</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Idle-Walk Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建子 Mixer 2: Walk → Run → Sprint</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">runMixer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinearMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_WalkClip</span><span class="p">,</span> <span class="m">0.0f</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_RunClip</span><span class="p">,</span> <span class="m">0.5f</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_SprintClip</span><span class="p">,</span> <span class="m">1.0f</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">runMixer</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Run Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建父 Mixer,包含子 Mixers</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_ParentMixer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ManualMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">idleWalkMixer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">runMixer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Parent Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="n">GetCurrentSpeed</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 控制父 Mixer 权重</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">speed</span> <span class="p">&lt;</span> <span class="m">0.3f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 低速：使用 Idle-Walk Mixer</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">childMixer</span> <span class="p">=</span> <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">GetChild</span><span class="p">(</span><span class="m">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">LinearMixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">childMixer</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="n">speed</span> <span class="p">/</span> <span class="m">0.3f</span><span class="p">;</span> <span class="c1">// 归一化到 0-1</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 高速：使用 Run Mixer</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">SetChildWeight</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">childMixer</span> <span class="p">=</span> <span class="n">_ParentMixer</span><span class="p">.</span><span class="n">GetChild</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">LinearMixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">childMixer</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="p">(</span><span class="n">speed</span> <span class="p">-</span> <span class="m">0.3f</span><span class="p">)</span> <span class="p">/</span> <span class="m">0.7f</span><span class="p">;</span> <span class="c1">// 归一化到 0-1</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">GetCurrentSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Clamp01</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">完整创建示例
+    <div id="完整创建示例" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%ae%8c%e6%95%b4%e5%88%9b%e5%bb%ba%e7%a4%ba%e4%be%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">示例1：2D Directional Mixer 完整流程
+    <div id="示例12d-directional-mixer-完整流程" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b12d-directional-mixer-%e5%ae%8c%e6%95%b4%e6%b5%81%e7%a8%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Complete2DMixerExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_IdleClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_ForwardClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_BackClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_LeftClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_RightClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_ForwardLeftClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_ForwardRightClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_BackLeftClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span> <span class="n">_BackRightClip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">DirectionalMixerState</span> <span class="n">_MixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CreateDirectionalMixer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">CreateDirectionalMixer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建 2D Directional Mixer</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DirectionalMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 中心：Idle</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_IdleClip</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">.</span><span class="n">zero</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 4 主方向</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_ForwardClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_RightClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_BackClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_LeftClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(-</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 4 对角线方向</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_ForwardRightClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">0.707f</span><span class="p">,</span> <span class="m">0.707f</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_BackRightClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">0.707f</span><span class="p">,</span> <span class="p">-</span><span class="m">0.707f</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_BackLeftClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(-</span><span class="m">0.707f</span><span class="p">,</span> <span class="p">-</span><span class="m">0.707f</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="n">_ForwardLeftClip</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(-</span><span class="m">0.707f</span><span class="p">,</span> <span class="m">0.707f</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置调试名称</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;8-Direction Movement&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 配置同步（仅同步移动动画,不同步 Idle）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">DontSynchronize</span><span class="p">(</span><span class="n">_MixerState</span><span class="p">.</span><span class="n">GetChild</span><span class="p">(</span><span class="m">0</span><span class="p">));</span> <span class="c1">// Idle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放 Mixer</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取输入</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">horizontal</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Horizontal&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">vertical</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="n">horizontal</span><span class="p">,</span> <span class="n">vertical</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">示例2：动态 Mixer 创建
+    <div id="示例2动态-mixer-创建" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b2%e5%8a%a8%e6%80%81-mixer-%e5%88%9b%e5%bb%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">DynamicMixerCreationExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationClip</span><span class="p">[]</span> <span class="n">_AnimationClips</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LinearMixerState</span> <span class="n">_MixerState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CreateDynamicMixer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">CreateDynamicMixer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinearMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 动态添加所有动画</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">_AnimationClips</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 阈值均匀分布在 0-1 之间</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">float</span> <span class="n">threshold</span> <span class="p">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">i</span> <span class="p">/</span> <span class="p">(</span><span class="n">_AnimationClips</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_MixerState</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_AnimationClips</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">threshold</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;Added {_AnimationClips[i].name} at threshold {threshold:F2}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Dynamic Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">parameter</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span><span class="p">(</span><span class="s">&#34;Vertical&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_MixerState</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="n">parameter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">最佳实践建议
+    <div id="最佳实践建议" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%e5%bb%ba%e8%ae%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">1. <strong>选择合适的创建方法</strong>
+    <div id="1-选择合适的创建方法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-%e9%80%89%e6%8b%a9%e5%90%88%e9%80%82%e7%9a%84%e5%88%9b%e5%bb%ba%e6%96%b9%e6%b3%95" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 固定配置：使用 Transition（Inspector 配置）</span>
+</span></span><span class="line"><span class="cl"><span class="na">[SerializeField]</span> <span class="kd">private</span> <span class="n">LinearMixerTransition</span> <span class="n">_FixedMixer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✅ 动态创建：使用代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">CreateDynamicMixer</span><span class="p">(</span><span class="n">AnimationClip</span><span class="p">[]</span> <span class="n">clips</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">mixer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinearMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">clip</span> <span class="k">in</span> <span class="n">clips</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mixer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">clip</span><span class="p">,</span> <span class="n">CalculateThreshold</span><span class="p">(</span><span class="n">clip</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">2. <strong>使用调试名称</strong>
+    <div id="2-使用调试名称" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-%e4%bd%bf%e7%94%a8%e8%b0%83%e8%af%95%e5%90%8d%e7%a7%b0" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 推荐：始终设置调试名称</span>
+</span></span><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">SetDebugName</span><span class="p">(</span><span class="s">&#34;Movement Mixer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 在 Inspector 中更容易识别</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">3. <strong>合理组织嵌套结构</strong>
+    <div id="3-合理组织嵌套结构" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-%e5%90%88%e7%90%86%e7%bb%84%e7%bb%87%e5%b5%8c%e5%a5%97%e7%bb%93%e6%9e%84" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 不推荐：过深的嵌套</span>
+</span></span><span class="line"><span class="cl"><span class="n">Mixer</span>
+</span></span><span class="line"><span class="cl">  <span class="err">└─</span> <span class="n">Mixer</span>
+</span></span><span class="line"><span class="cl">      <span class="err">└─</span> <span class="n">Mixer</span>
+</span></span><span class="line"><span class="cl">          <span class="err">└─</span> <span class="n">Mixer</span><span class="err">（过深）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✅ 推荐：2-3 层嵌套</span>
+</span></span><span class="line"><span class="cl"><span class="n">Mixer</span>
+</span></span><span class="line"><span class="cl">  <span class="err">├─</span> <span class="n">Mixer</span><span class="err">（</span><span class="n">IdleWalk</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">  <span class="err">└─</span> <span class="n">Mixer</span><span class="err">（</span><span class="n">RunSprint</span><span class="err">）</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">4. <strong>验证配置</strong>
+    <div id="4-验证配置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#4-%e9%aa%8c%e8%af%81%e9%85%8d%e7%bd%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">ValidateMixer</span><span class="p">(</span><span class="n">LinearMixerState</span> <span class="n">mixer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">mixer</span><span class="p">.</span><span class="n">ChildCount</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">&#34;Mixer 至少需要 2 个子动画&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 检查阈值是否递增</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">mixer</span><span class="p">.</span><span class="n">ChildCount</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">mixer</span><span class="p">.</span><span class="n">GetThreshold</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="n">mixer</span><span class="p">.</span><span class="n">GetThreshold</span><span class="p">(</span><span class="n">i</span> <span class="p">-</span> <span class="m">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">$&#34;阈值未递增: {i}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">常见问题 FAQ
+    <div id="常见问题-faq" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98-faq" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Q1: Transition-Based 和 Manual 创建有什么区别？
+    <div id="q1-transition-based-和-manual-创建有什么区别" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q1-transition-based-%e5%92%8c-manual-%e5%88%9b%e5%bb%ba%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>Transition-Based</th>
+          <th>Manual Code</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>配置位置</strong></td>
+          <td>Inspector</td>
+          <td>代码</td>
+      </tr>
+      <tr>
+          <td><strong>灵活性</strong></td>
+          <td>固定配置</td>
+          <td>完全动态</td>
+      </tr>
+      <tr>
+          <td><strong>团队协作</strong></td>
+          <td>设计师友好</td>
+          <td>需要编程</td>
+      </tr>
+      <tr>
+          <td><strong>性能</strong></td>
+          <td>相同</td>
+          <td>相同</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">Q2: 可以在运行时修改 Transition-Based Mixer 吗？
+    <div id="q2-可以在运行时修改-transition-based-mixer-吗" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q2-%e5%8f%af%e4%bb%a5%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%e4%bf%ae%e6%94%b9-transition-based-mixer-%e5%90%97" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 可以修改参数,但不能修改结构。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 可以：修改参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">_MixerState</span><span class="p">.</span><span class="n">Parameter</span> <span class="p">=</span> <span class="n">newValue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ❌ 不能：添加/删除子动画</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Transition-Based Mixer 的结构是固定的</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">Q3: 如何实现条件子动画添加？
+    <div id="q3-如何实现条件子动画添加" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q3-%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e6%9d%a1%e4%bb%b6%e5%ad%90%e5%8a%a8%e7%94%bb%e6%b7%bb%e5%8a%a0" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 使用 Manual 创建方法。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">mixer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinearMixerState</span><span class="p">(</span><span class="n">_Animancer</span><span class="p">.</span><span class="n">Graph</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 条件添加</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">hasIdleAnimation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mixer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_IdleClip</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">hasWalkAnimation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mixer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_WalkClip</span><span class="p">,</span> <span class="m">0.5f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">hasRunAnimation</span> <span class="p">&amp;&amp;</span> <span class="n">playerLevel</span> <span class="p">&gt;</span> <span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mixer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_RunClip</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">Q4: 嵌套 Mixer 的性能如何？
+    <div id="q4-嵌套-mixer-的性能如何" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q4-%e5%b5%8c%e5%a5%97-mixer-%e7%9a%84%e6%80%a7%e8%83%bd%e5%a6%82%e4%bd%95" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 轻微性能开销,但通常可以接受。</p>
+<p><strong>优化建议</strong>：</p>
+<ul>
+<li>限制嵌套层级（2-3 层）</li>
+<li>避免不必要的嵌套</li>
+<li>使用 Profiler 监控性能</li>
+</ul>
+<hr>
+
+<h3 class="relative group">Q5: 自动计算阈值适用于所有情况吗？
+    <div id="q5-自动计算阈值适用于所有情况吗" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q5-%e8%87%aa%e5%8a%a8%e8%ae%a1%e7%ae%97%e9%98%88%e5%80%bc%e9%80%82%e7%94%a8%e4%ba%8e%e6%89%80%e6%9c%89%e6%83%85%e5%86%b5%e5%90%97" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p><strong>A</strong>: 主要适用于有 Root Motion 的动画。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 适合：有 Root Motion 的移动动画</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnimancerUtilities</span><span class="p">.</span><span class="n">CalculateThresholdsFromAverageVelocityXZ</span><span class="p">(</span><span class="n">_MixerState</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ❌ 不适合：静态动画、面部表情等</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 需要手动指定阈值</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">总结
+    <div id="总结" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%80%bb%e7%bb%93" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">核心要点
+    <div id="核心要点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a0%b8%e5%bf%83%e8%a6%81%e7%82%b9" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>
+<p><strong>两种创建方法</strong></p>
+<ul>
+<li><strong>Transition-Based</strong>：Inspector 配置,适合固定配置</li>
+<li><strong>Manual Code</strong>：代码创建,适合动态生成</li>
+</ul>
+</li>
+<li>
+<p><strong>手动创建四步骤</strong></p>
+<ul>
+<li>引用子动画</li>
+<li>实例化 Mixer</li>
+<li>添加子状态</li>
+<li>存储引用</li>
+</ul>
+</li>
+<li>
+<p><strong>配置元素</strong></p>
+<ul>
+<li>Thresholds（阈值）</li>
+<li>Debug Naming（调试命名）</li>
+<li>Synchronization Control（同步控制）</li>
+</ul>
+</li>
+<li>
+<p><strong>嵌套 Mixers</strong></p>
+<ul>
+<li>Transition 嵌套</li>
+<li>手动嵌套</li>
+<li>支持多层结构</li>
+</ul>
+</li>
+</ol>
+
+<h3 class="relative group">下一步学习
+    <div id="下一步学习" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%8b%e4%b8%80%e6%ad%a5%e5%ad%a6%e4%b9%a0" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>📖 深入学习 <strong>Mixer Synchronization</strong>（同步机制）</li>
+<li>🎨 探索 <strong>参数系统</strong>的高级用法</li>
+<li>📚 了解 <strong>嵌套 Mixer</strong> 的实际应用</li>
+<li>🔍 查看实际项目中的 Mixer 创建模式</li>
+</ul>
+<hr>
+<p><strong>文档抓取日期</strong>：2025-01-24
+<strong>原文地址</strong>：https://kybernetik.com.au/animancer/docs/manual/blending/mixers/creation/
+<strong>Animancer 版本</strong>：7.0+
+<strong>适用项目</strong>：animator-third-person-controller (ShooterTPP)</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/NewskyGameBlog/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_animancer\blend\animancer-mixerscreation.md"
+          data-oid-likes="likes_animancer\blend\animancer-mixerscreation.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/animancer-parameters/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Animancer Parameters
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/animancer/blend/animancer-mixers/">
+              <span class="leading-6">
+                Animancer Mixers&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          mickorz
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/NewskyGameBlog/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

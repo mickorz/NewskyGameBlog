@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.153.2"><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Newsky Game Blog</title>
+<meta name="keywords" content="Unity, Game Dev, Animancer, C#">
+<meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+<meta name="author" content="mickorz">
+<link rel="canonical" href="http://localhost:1313/NewskyGameBlog/">
+<link crossorigin="anonymous" href="/NewskyGameBlog/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/NewskyGameBlog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/NewskyGameBlog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/NewskyGameBlog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/NewskyGameBlog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/NewskyGameBlog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/NewskyGameBlog/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="http://localhost:1313/NewskyGameBlog/index.json" title="json">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/NewskyGameBlog/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/NewskyGameBlog/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Newsky Game Blog">
+  <meta property="og:description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Newsky Game Blog">
+<meta name="twitter:description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Newsky Game Blog",
+  "url": "http://localhost:1313/NewskyGameBlog/",
+  "description": "游戏技术分享 | Animancer 中文文档 | Unity 开发笔记",
+  "logo": "http://localhost:1313/NewskyGameBlog/favicon.ico",
+  "sameAs": [
+      "https://github.com/mickorz"
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/NewskyGameBlog/" accesskey="h" title="Newsky Game Blog (Alt + H)">Newsky Game Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/animancer/" title="📚 Animancer 中文文档">
+                    <span>📚 Animancer 中文文档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/newskygameblog/posts/" title="所有文章">
+                    <span>所有文章</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Animancer Transition Previews
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transition Previews 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/previews/ 抓取日期：2025-01-24
+概述 (Overview) Transition Previews 功能允许开发者在编辑器中预览动画过渡效果，无需进入 Play Mode，从而大大提高动画调试和迭代效率。
+核心功能 “预览过渡效果的样子，无需进入 Play Mode”
+主要用途：
+可视化预览：直接查看动画切换效果 快速调试：实时调整过渡参数 多角色测试：在不同角色模型上测试动画 时间轴控制：精确查看动画的每一帧 打开 Preview 窗口 方法1：点击预览图标 在 Inspector 中，任何 Transition 字段旁边都有一个预览图标：
+1 2 3 4 5 6 7 ┌─────────────────────────────────────┐ │ Idle Animation │ │ ┌─────────────────────────────┐ [▶] │ ← 点击这个图标 │ │ Clip: Rifle_Idle │ │ │ │ Fade Duration: 0.25 │ │ │ └─────────────────────────────┘ │ └─────────────────────────────────────┘ 点击 [▶] 图标后，会打开一个新的 Inspector 窗口，专门用于预览该 Transition。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to Animancer Transition Previews" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionpreviews/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Animancer Transition Sequences
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transition Sequences 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/sequences/ 抓取日期：2025-01-24
+概述 (Overview) Transition Sequences（过渡序列） 允许您定义一系列 Transition 或 State，并将它们作为一个组进行管理和播放。它们的工作方式类似于标准的 Transition，在运行时会创建一个 SequenceState。
+核心概念 (Core Concept) TransitionSequences 允许您定义一系列 Transitions 或 States，并将它们作为一个组进行处理。
+工作原理：
+1 2 3 4 5 6 TransitionSequence: ├─ Child Transition 1 (Attack1) → 播放完成 ├─ Child Transition 2 (Attack2) → 播放完成 └─ Child Transition 3 (Attack3) → 播放完成 整个序列作为一个统一的 State 进行管理 关键特性：
+✅ 将多个动画组合成一个序列 ✅ 自动按顺序播放 ✅ 可以作为单一 State 使用 ✅ 支持事件管理 序列结构 (Sequence Structure) 基础结构 1 2 3 4 5 6 7 TransitionSequence sequence = new TransitionSequence { // 子过渡数组（通常是 ClipTransition） new ClipTransition { Clip = attack1Clip }, new ClipTransition { Clip = attack2Clip }, new ClipTransition { Clip = attack3Clip } }; 支持的 Transition 类型 常用类型：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>10 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to Animancer Transition Sequences" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionsequences/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Animancer Transition Types
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transition Types 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/types/ 抓取日期：2025-01-24
+概述 (Overview) Animancer 中的每个状态类型都对应一个转换类型，用于在调用 AnimancerComponent.Play(ITransition) 时创建相应的状态。
+核心机制 1 2 3 4 5 6 Transition Type（转换类型） → 创建 → State Type（状态类型） ↓ ↓ ClipTransition ClipState LinearMixerTransition LinearMixerState MixerTransition2D Mixer2D ...等等 序列化引用机制 (Serialization Reference) 问题背景 Unity 通常不支持序列化继承类型。例如，如果你有一个 ITransition 接口，直接序列化会失败：
+1 2 3 // ❌ 这样不行，Unity 无法序列化接口 [SerializeField] private ITransition _Animation; // 在 Inspector 中显示为空 解决方案：SerializeReference 使用 [SerializeReference] 属性可以解决这个问题：
+1 2 3 // ✅ 使用 SerializeReference 属性 [SerializeReference] private ITransition _Animation; 效果：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>12 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to Animancer Transition Types" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitiontypes/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Animancer Transitions
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transitions 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/ 抓取日期：2025-01-24
+概述 (Overview) Animancer 区分了动画控制中的两个核心概念：
+State（状态）：包含当前动画信息，如 Time（时间）和 Speed（速度） Transition（过渡/转换）：持有可序列化的数据，定义如何创建和播放状态，包括 AnimationClip 和淡入持续时间 关键概念 (Key Concept) Transition 包含可序列化的数据，这些数据定义了如何创建和播放一个状态，例如它的 AnimationClip 和用于混合的淡入持续时间。
+Animancer 中的每种状态类型都有对应的过渡类型。当传递给 AnimancerComponent.Play(ITransition) 时，它会创建相应的状态类型——例如，ClipTransition 创建一个 ClipState 来播放单个动画片段。
+Transition 字段参考 (Transition Field Reference) 字段名称 代码属性 用途说明 Animation（动画） Clip 要播放的 AnimationClip（动画片段） Fade Duration（淡入时长） FadeDuration 从上一个动画交叉淡入的时间（0 表示立即播放） Speed（播放速度） Speed 播放速度倍率；负值表示倒放 Start Time（起始时间） NormalizedStartTime 播放时的初始动画时间位置 End Time（结束时间） Events.NormalizedEndTime 决定何时触发结束事件 Events（事件） Events 过渡细节的时间轴可视化 时间字段单位 (Time Field Units) 提供三种测量系统：
+1. Normalized（归一化，x） 动画长度的倍数 示例：0.5x = 动画播放到一半的位置 用途：与动画实际长度无关的相对时间 2. Seconds（秒，s） 实际时间持续时间 示例：0.5s = 半秒 用途：精确的时间控制 3. Frames（帧，f） 基于动画帧的计数 示例：1f = 一帧 用途：逐帧精确控制 注意：不同字段的底层存储格式可能不同，具体请参考字段参考表。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to Animancer Transitions" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitions/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Animancer Weighted Mask Layers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Weighted Mask Layers 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/layers/weighted/ 抓取日期：2025-01-24
+概述 (Overview) WeightedMaskLayers 是 Animancer Pro 的高级功能,扩展了 Unity 的 AvatarMask 系统。它允许开发者控制每个单独骨骼的权重,包括随时间淡入淡出,而不是简单地启用或禁用整个骨骼组。
+⚠️ 重要：这是 Animancer Pro 专属功能
+核心概念 (Core Concept) 标准 Avatar Mask：
+骨骼要么完全启用（1.0） 要么完全禁用（0.0） 只有二元选择 Weighted Mask Layers：
+每个骨骼可以有 0.0 - 1.0 的权重 支持骨骼权重的平滑过渡 可以随时间淡入淡出骨骼影响 设置流程 (Setup Process) 步骤1：添加组件 操作：
+选择带有 AnimancerComponent 的 GameObject Add Component → Animancer → Weighted Mask Layers 1 2 // 或通过代码添加 var weightedLayers = gameObject.AddComponent&lt;WeightedMaskLayers&gt;(); 步骤2：配置骨骼和组 操作：
+在 Inspector 中找到 WeightedMaskLayers 组件 点击 Edit 按钮打开编辑器窗口 配置骨骼权重组 Inspector 界面示例：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>8 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to Animancer Weighted Mask Layers" href="http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-weightedlayers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mecanim vs. Animancer 对比文档
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mecanim vs. Animancer 对比文档 📋 目录 概述 核心差异 六大优势 对比领域 兼容性 参考资料 概述 “Animancer streamlines the animation development process by removing the need to create Animator Controllers and scripts that need to interact with each other.”
+Animancer 通过移除 Animator Controller 和脚本之间的交互需求，简化了动画开发流程。
+架构差异 系统 架构方式 Mecanim 动画逻辑分散在 Controller 和脚本中 Animancer 脚本完全管理动画逻辑 核心差异 Mecanim 的工作流程 1 2 3 4 5 6 7 8 9 创建 Animator Controller 资产 ↓ 在 Controller 中配置状态和过渡 ↓ 创建参数 ↓ 编写脚本设置参数 ↓ Controller 根据参数自动切换状态 Animancer 的工作流程 1 2 3 4 5 编写脚本 ↓ 直接调用 Play() 方法 ↓ 动画立即播放 六大优势 Animancer 相比 Mecanim 的六个主要优势：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to Mecanim vs. Animancer 对比文档" href="http://localhost:1313/NewskyGameBlog/animancer/why/animancer-mecanimvsanimancer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Why Animancer? 为什么选择Animancer？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Why Animancer? 为什么选择Animancer？ 📋 目录 概述 六大问题 Animancer解决方案 参考资料 概述 Unity的Mecanim Animator Controller系统存在六个核心问题，Animancer提供了针对性的解决方案。
+六大问题 1. 简洁性问题（Simplicity） Mecanim的问题：
+“Everything requires extra steps. To play something you need to make a state, give it an animation, make a parameter, make a transition based on the parameter, and set the parameter with a script.”
+播放一个动画需要7个步骤：
+获取Animator组件 创建Animator Controller资产 分配到Controller字段 创建状态 给状态命名 分配动画 调用Play方法 Animancer的解决：
+1 _animancer.Play(_clip); // 1行代码 2. 透明性问题（Transparency） Mecanim的问题：
+无法访问源代码进行调试 内部决策过程不可见 状态播放没有即时反馈 Animancer的解决：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to Why Animancer? 为什么选择Animancer？" href="http://localhost:1313/NewskyGameBlog/animancer/why/animancer-why/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/NewskyGameBlog/page/5/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/NewskyGameBlog/">Newsky Game Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

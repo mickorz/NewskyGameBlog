@@ -40,7 +40,7 @@ _animator.Play("Walk");
 _animancer.Play(_walk);
 ```
 
-📖 [\1]({{< ref "animancer-playing.md" >}})
+📖 [animancer-playing]({{< ref "animancer-playing.md" >}})
 
 ---
 
@@ -71,7 +71,7 @@ var state = _animancer.Play(_attack);
 state.Events.OnEnd = OnComplete;
 ```
 
-📖 [\1]({{< ref "animancer-waiting.md" >}})
+📖 [animancer-waiting]({{< ref "animancer-waiting.md" >}})
 
 ---
 
@@ -95,7 +95,7 @@ var state = _animancer.Play(_walk);
 state.Speed = 2f;
 ```
 
-📖 [\1]({{< ref "animancer-speedandtime.md" >}})
+📖 [animancer-speedandtime]({{< ref "animancer-speedandtime.md" >}})
 
 ---
 
@@ -120,7 +120,7 @@ _animator.runtimeAnimatorController = overrideController;
 _animancer.Play(weapon.AttackClip);
 ```
 
-📖 [\1]({{< ref "animancer-weaponanimations.md" >}})
+📖 [animancer-weaponanimations]({{< ref "animancer-weaponanimations.md" >}})
 
 ---
 
@@ -153,18 +153,18 @@ _animancer.Play(weapon.AttackClip);
 ## 参考资料
 
 ### 📚 详细对比文档
-- [\1]({{< ref "animancer-playing.md" >}})
-- [\1]({{< ref "animancer-waiting.md" >}})
-- [\1]({{< ref "animancer-speedandtime.md" >}})
-- [\1]({{< ref "animancer-weaponanimations.md" >}})
+- [animancer-playing]({{< ref "animancer-playing.md" >}})
+- [animancer-waiting]({{< ref "animancer-waiting.md" >}})
+- [animancer-speedandtime]({{< ref "animancer-speedandtime.md" >}})
+- [animancer-weaponanimations]({{< ref "animancer-weaponanimations.md" >}})
 
 ### 🎯 Why系列
-- [\1]({{< ref "animancer-why.md" >}})
-- [\1]({{< ref "animancer-simplicity.md" >}})
-- [\1]({{< ref "animancer-reliability.md" >}})
+- [animancer-why]({{< ref "animancer-why.md" >}})
+- [animancer-simplicity]({{< ref "animancer-simplicity.md" >}})
+- [animancer-reliability]({{< ref "animancer-reliability.md" >}})
 
 ### ⚡ 性能分析
-- [\1]({{< ref "animancer-performance.md" >}})
+- [animancer-performance]({{< ref "animancer-performance.md" >}})
 
 ---
 

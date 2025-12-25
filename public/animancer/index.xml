@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Animancer 中文文档目录 on Newsky Game Blog</title>
+    <link>http://localhost:1313/NewskyGameBlog/animancer/</link>
+    <description>Recent content in Animancer 中文文档目录 on Newsky Game Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 mickorz</copyright>
+    <lastBuildDate>Thu, 25 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/NewskyGameBlog/animancer/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Animancer - Adaptability 适应性</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-adaptability/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-adaptability/</guid>
+      <description>Animancer - Adaptability 适应性#📋 目录#关注点分离 Mecanim的强制分离问题 Animancer的灵活组织 参数系统问题 参考资料 关注点分离#“将代码分离成不同部分，每部分覆盖不同的关注点”
+好的分离： 模块化、可重用、易维护
+坏的分离： 强制分离本应耦合的内容
+Mecanim的强制分离问题#问题：不应该分离的被分离了#游戏逻辑（脚本） ←→ 动画逻辑（Controller） ↓ 需要紧密协作 ↓ 浪费时间协调两者示例：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Animation Events</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-animationevents/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-animationevents/</guid>
+      <description>Animancer - Animation Events 官方文档#📋 目录#概述 核心概念 实现步骤 参数类型 性能优化 代码示例 最佳实践 FAQ常见问题 参考资料 概述#Animation Events 是 Unity 内置的事件系统，可以在动画的特定时刻触发回调函数。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Animator Controllers</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animator/animancer-animatorcontrollers/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animator/animancer-animatorcontrollers/</guid>
+      <description>Animancer - Animator Controllers 官方文档#📋 目录#概述 使用场景 两种集成模式 Native模式 Hybrid模式 代码示例 最佳实践 参考资料 概述#Animator Controllers 集成允许 Animancer 与 Unity 的 Animator Controller 系统协同工作。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Animator Controllers Conversion</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animator/animancer-animatorcontrollersconversion/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animator/animancer-animatorcontrollersconversion/</guid>
+      <description>Animancer - Animator Controllers Conversion 官方文档#📋 目录#概述 核心转换概念 功能对应关系 转换指南 API兼容性 代码示例 最佳实践 参考资料 概述#Animancer 和 Mecanim (Animator Controller) 是完全不同的系统，无法直接转换，但功能可以映射对应。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Clarity 清晰性</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-clarity/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-clarity/</guid>
+      <description>Animancer - Clarity 清晰性#📋 目录#单一责任原则 Mecanim的依赖模糊问题 Animancer的明确声明 团队协作优势 参考资料 单一责任原则#“每个类或函数应该仅对应用程序功能的单一部分负责”
+Animator Controller 违反了这一原则：
+脚本不清楚需要什么Controller Controller不清楚需要什么脚本 两者的关系隐藏且难以追踪 Mecanim的依赖模糊问题#问题1：脚本→Controller 不明确#public class CharacterController : MonoBehaviour { private Animator _animator; void Attack() { _animator.SetTrigger("Attack"); } }疑问：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Comparison 对比总览</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-comparison/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-comparison/</guid>
+      <description>Animancer - Comparison 对比总览#📋 目录#概述 四大对比主题 参考资料 概述#本系列文档通过实战场景对比Mecanim和Animancer的实现方式，展示两者在实际开发中的差异。
+四大对比主题#1. Playing（播放动画）#“How to play a single animation (with or without scripting).”
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Controller States</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animator/animancer-controllerstates/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animator/animancer-controllerstates/</guid>
+      <description>Animancer - Controller States 官方文档#📋 目录#概述 ControllerState 使用方法 参数化ControllerState 高级工具 代码示例 最佳实践 参考资料 概述#ControllerState 是 Animancer 中的一种特殊状态类型，能够播放整个 Animator Controller 作为单个状态。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Creating Custom States</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-creatingcustomstates/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-creatingcustomstates/</guid>
+      <description>Animancer - Creating Custom States 官方文档#📋 目录#概述 实现方法 必需步骤 代码示例 高级技巧 参考资料 概述#自定义状态（Custom States） 允许开发者通过继承 AnimancerState 创建个性化的动画状态类型。
+“你可以通过继承 AnimancerState（或其派生类型）来实现自己的状态类型”
+⚠️ 授权要求#此功能仅限 Pro 版本
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - End Events</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-endevents/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-endevents/</guid>
+      <description>Animancer - End Events 官方文档#📋 目录#概述 核心概念 End Events vs 其他事件 使用方法 时间机制 共享状态处理 代码示例 最佳实践 FAQ常见问题 参考资料 概述#End Events 是 Animancer 中用于处理动画结束的特殊事件系统，具有独特的触发机制。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - End Events Alternatives</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-endeventsalternatives/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-endeventsalternatives/</guid>
+      <description>Animancer - End Events Alternatives 官方文档#📋 目录#概述 方案对比 方案1：协程（Coroutines） 方案2：手动轮询（Manual Polling） 性能对比 代码示例 最佳实践 FAQ常见问题 参考资料 概述#虽然 End Events 通常是最简单且高效的方式，但 Animancer 还提供了两种替代方案来检测动画结束：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Glossary 术语表</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-glossary/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-glossary/</guid>
+      <description>Animancer - Glossary 术语表#通用术语#术语 描述 Unity编辑器 用于开发Unity游戏的应用程序 检视面板(Inspector) 查看和编辑所选对象详细信息的窗口 编辑模式 编辑场景和脚本，不运行游戏 播放模式 在编辑器中测试运行游戏 运行时构建 编译为独立应用程序供玩家使用 动画术语#术语 描述 Mecanim Unity基于控制器的动画系统 Playables Unity低级API，用于控制动画等可播放对象 AnimationClip 包含动画数据的资源文件 动画控制器(Animator Controller) 包含有限状态机的资源 AnimancerComponent Animancer主组件，替代Animator Controller 状态(State) 图形中的节点，管理AnimationClip播放 动画层(Layer) 共享目的的状态组 混合树/混合器(Blend Tree/Mixer) 管理多个子状态混合的特殊状态 权重(Weight) 0到1之间的值，决定状态对最终混合的影响 淡入/淡出(Fade In/Out) 动画权重的渐变过渡 根运动(Root Motion) 使用动画数据驱动角色移动 IK(Inverse Kinematics) 逆向动力学，通过末端位置控制骨骼链 Animancer特有术语#术语 描述 AnimancerState Animancer中管理单个动画的状态对象 Transition 定义如何播放动画的配置资产 Event 在动画特定时间点触发的回调 FSM(Finite State Machine) Animancer的独立状态机系统 StateBehaviour 自动启用/禁用的MonoBehaviour状态基类 HybridAnimancerComponent 支持Controller和Animancer混合的组件 文档版本: 1.0 最后更新: 2025-12-25
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Performance 性能对比</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-performance/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-performance/</guid>
+      <description>Animancer - Performance 性能对比#性能建议#“选择能让开发最轻松的方案通常更重要”
+性能差异相对较小，不应成为决策主因。
+主要性能指标#实例化性能#基准: Animancer与Mecanim基本相当 按需初始化: Animancer可实现20-35%更快（成本转移到后续帧） 平均帧率#测试结果: Animancer对所有骨骼类型都比Mecanim快约5%
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Playing 播放对比</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-playing/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-playing/</guid>
+      <description>Animancer - Playing 播放对比#Mecanim vs Animancer: 播放动画#无脚本播放#Mecanim: 创建AnimatorController资源 → 配置状态 → 分配给Animator组件
+Animancer: 添加NamedAnimancerComponent → 添加AnimationClip到动画数组
+脚本控制播放#Mecanim问题: 同一帧多个Play()命令，只有首个生效
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Reliability 可靠性</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-reliability/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-reliability/</guid>
+      <description>Animancer - Reliability 可靠性#📋 目录#核心问题 延迟响应问题 命令丢失问题 Animancer的即时可靠性 参考资料 核心问题#“Animator Controller在下一次更新才会响应，甚至可能不会按预期执行”
+Mecanim的两大可靠性问题：
+延迟响应 - 命令要等到下一帧才生效 命令丢失 - 同一帧多个命令会被忽略 延迟响应问题#问题1：状态检查延迟#// Mecanim _animator.Play("Jump"); // ❌ 立即检查 - 错误的结果 var info = _animator.GetCurrentAnimatorStateInfo(0); if (info.IsName("Jump")) { // 永远不会进入这里！ // 因为状态还没更新 Debug.Log("正在跳跃"); } // ✅ 需要等待下一帧 yield return null; // 等待 var info = _animator.GetCurrentAnimatorStateInfo(0); if (info.IsName("Jump")) { // 现在可以了 Debug.Log("正在跳跃"); }问题2：无法立即获取信息#// Mecanim - 延迟 _animator.Play("Attack"); // ❌ 无法立即获取动画长度 // 需要： // 1. 等待下一帧 // 2. 查询StateInfo // 3. 手动计算长度 // Animancer - 即时 var state = _animancer.Play(_attack); Debug.Log($"动画长度: {state.Length}秒"); // ✅ 立即可用命令丢失问题#问题：同一帧多个Play()命令#// 场景：玩家同时按跳跃和攻击 void Update() { bool jump = Input.GetKeyDown(KeyCode.Space); bool attack = Input.GetKeyDown(KeyCode.Mouse0); // Mecanim if (jump) _animator.Play("Jump"); if (attack) _animator.Play("Attack"); // ❌ 问题：只有 Jump 会播放 // Attack 命令被静默忽略 // 无任何警告或错误 }Unity官方示例的问题#文档引用Unity 3D Game Kit：角色出现浮空而非播放跳跃动画
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Safety 安全性</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-safety/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-safety/</guid>
+      <description>Animancer - Safety 安全性#📋 目录#魔法字符串问题 五大风险 Animancer的类型安全 参考资料 魔法字符串问题#“魔法字符串是一个string，用来控制某些与之没有真实关联的东西”
+Mecanim的魔法字符串#// ❌ 魔法字符串 _animator.Play("Walk"); _animator.SetFloat("Speed", 5f); _animator.SetTrigger("Attack"); // 问题： // - "Walk" 状态是否存在？编译器不知道 // - "Speed" 参数是否正确？编译器不知道 // - 拼写错误？运行时才发现五大风险#风险1：状态/参数是否存在？#// Mecanim _animator.Play("Wlak"); // 拼写错误！ // ❌ 编译成功 // ❌ 运行时无警告 // ❌ 动画不播放，难以调试// Animancer [SerializeField] private AnimationClip _walk; _animancer.Play(_walk); // ✅ 如果_walk为null，Inspector会警告 // ✅ 编译器可能也会警告（取决于设置）风险2：可用动画列表不清晰#// Mecanim - 需要打开Controller查看 // 无法从代码中得知 // Animancer - 直接在脚本中列出 [SerializeField] private AnimationClip _idle; [SerializeField] private AnimationClip _walk; [SerializeField] private AnimationClip _run; [SerializeField] private AnimationClip _jump; // ✅ 一目了然风险3：动画结束时的行为不明确#// Mecanim _animator.Play("Attack"); // ❓ 结束后会做什么？ // 需要打开Controller查看过渡配置 // Animancer var state = _animancer.Play(_attack); state.Events.OnEnd = () => { // ✅ 明确定义结束行为 _animancer.Play(_idle); };风险4：重命名困难#// Mecanim - 手动查找所有引用 // 文件1 _animator.Play("Walk"); // 文件2 _animator.CrossFade("Walk", 0.25f); // 文件3 if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Walk")) // Controller中还有 "Walk" 状态 // ❌ 需要手动修改所有位置 // Animancer - IDE自动重命名 [SerializeField] private AnimationClip _walkClip; _animancer.Play(_walkClip); // ✅ 重命名变量，IDE自动更新所有引用风险5：跨Controller使用问题#// Mecanim - 同一脚本用于多个角色 public class CharacterController : MonoBehaviour { void Attack() { _animator.SetTrigger("Attack"); } } // 问题： // - 角色A的Controller有"Attack"触发器 // - 角色B的Controller忘记添加"Attack"触发器 // - ❌ 角色B的攻击不工作，难以发现 // Animancer - 明确依赖 public class CharacterController : MonoBehaviour { [SerializeField] private AnimationClip _attack; void Attack() { _animancer.Play(_attack); } } // ✅ Inspector会显示未赋值警告Animancer的类型安全#1. 编译时检查#// 强类型引用 [SerializeField] private AnimationClip _walk; _animancer.Play(_walk); // ✅ 如果类型错误，编译失败 // ✅ 如果为null，Inspector警告2. IDE支持#// 自动补全 _animancer.Play(_w...); // ✅ IDE自动提示 _walk, _walkClip 等 // 查找引用 // ✅ 右键 _walk → Find All References // 重命名 // ✅ 右键 _walk → Rename3. 明确的事件处理#// Mecanim - StateMachineBehaviour public class AttackBehaviour : StateMachineBehaviour { public override void OnStateExit(...) { // 代码与Controller分离 } } // Animancer - 内联事件 var state = _animancer.Play(_attack); state.Events.OnEnd = () => { // ✅ 逻辑集中在一处 OnAttackComplete(); };4. 集中的依赖管理#public class Character : MonoBehaviour { // ✅ 所有动画依赖一目了然 [Header("Movement")] [SerializeField] private AnimationClip _idle; [SerializeField] private AnimationClip _walk; [Header("Combat")] [SerializeField] private AnimationClip _attack; [SerializeField] private AnimationClip _block; // ✅ Inspector显示未赋值警告 // ✅ 易于检查和维护 }实战对比#场景：实现攻击系统#Mecanim方式：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Simplicity 简洁性</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-simplicity/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-simplicity/</guid>
+      <description>Animancer - Simplicity 简洁性#📋 目录#核心原则 复杂度对比 控制灵活性 参考资料 核心原则#动画系统应该只需要两个输入：要动画的对象 + 要播放的动画
+理想方案#thing.Play(animation);复杂度对比#Mecanim方式：7个步骤#1. 获取Animator组件 ↓ 2. 创建Animator Controller资产 ↓ 3. 分配到Controller字段 ↓ 4. 创建状态 ↓ 5. 给状态命名 ↓ 6. 分配动画片段 ↓ 7. 调用Play方法代码：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Speed and Time 速度时间对比</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-speedandtime/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-speedandtime/</guid>
+      <description>Animancer - Speed and Time 速度时间对比#Mecanim vs Animancer: 速度和时间控制#固定速度#Mecanim: 在Controller的状态Speed字段设置，无法运行时修改
+Animancer:
+// 方式1: 代码设置 var state = _animancer.Play(_walk); state.Speed = 1.5f; // 方式2: Transition预设 _walkTransition.Speed = 1.5f; _animancer.Play(_walkTransition);动态速度#Mecanim: 创建Float参数 → 配置Multiplier字段 → SetFloat()
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Strings</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animancer-strings/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animancer-strings/</guid>
+      <description>Animancer - Strings 官方文档#📋 目录#概述 StringReference StringAsset 代码示例 最佳实践 参考资料 概述#Strings 系统提供了两个工具来优化字符串处理性能：
+StringReference - 缓存字符串引用以避免重复的字符串比较 StringAsset - 将字符串封装为 ScriptableObject 资产 🎯 核心优势#工具 用途 性能优化 StringReference 缓存字符串引用 避免重复的字符串比较 StringAsset 字符串资产化 引用比较替代值比较 StringReference#问题：重复的字符串查找#// ❌ 每次调用都进行字符串比较 public void UpdateParameter() { _animancer.Parameters.Get<float>("Speed"); // 字符串比较 _animancer.Parameters.Get<float>("Speed"); // 再次比较 _animancer.Parameters.Get<float>("Speed"); // 又一次比较 }解决方案：StringReference#using Animancer; public class CharacterController : MonoBehaviour { // ✅ 缓存 StringReference private static readonly StringReference SpeedParameter = "Speed"; private AnimancerComponent _animancer; void Update() { // 使用缓存的引用（更快） var speed = _animancer.Parameters.Get<float>(SpeedParameter); } }工作原理#/// <summary> /// StringReference 内部结构 /// </summary> public readonly struct StringReference { private readonly string _string; private readonly int _hashCode; public StringReference(string value) { _string = value; _hashCode = value?.GetHashCode() ?? 0; } // 隐式转换 public static implicit operator StringReference(string value) => new StringReference(value); }性能对比#using UnityEngine; public class StringPerformanceTest : MonoBehaviour { private ParameterDictionary _parameters; private static readonly StringReference CachedKey = "TestParam"; void TestPerformance() { // ❌ 方式1：原始字符串（较慢） for (int i = 0; i < 10000; i++) { _parameters.Get<float>("TestParam"); } // ✅ 方式2：StringReference（更快） for (int i = 0; i < 10000; i++) { _parameters.Get<float>(CachedKey); } } }StringAsset#概念#StringAsset 是一个 ScriptableObject 包装器，将字符串作为项目资产。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Timeline</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animancer-timeline/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animancer-timeline/</guid>
+      <description>Animancer - Timeline 官方文档#📋 目录#概述 PlayableAssetTransition PlayableAssetState 代码示例 重要限制 最佳实践 参考资料 概述#Timeline 集成允许 Animancer 播放 Unity Timeline 资产作为动画状态。
+⚠️ 授权要求：此功能仅限 Pro 版本
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Transparency 透明性</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-transparency/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-transparency/</guid>
+      <description>Animancer - Transparency 透明性#📋 目录#核心理念 Mecanim的问题 Animancer的解决 代码对比 参考资料 核心理念#“追逐两只兔子，一只都抓不到” - 孔子
+Mecanim试图同时做两件事：
+动画系统 有限状态机 Animancer专注于做好一件事：动画管理
+Mecanim的问题#1. 混合职责#Animator Controller = 动画系统 + FSM ↓ 都做得不够好动画系统的问题：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Units</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animancer-units/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animancer-units/</guid>
+      <description>Animancer - Units 官方文档#📋 目录#概述 Units 特性 内置单位类型 自定义单位 代码示例 最佳实践 参考资料 概述#Units 特性用于在 Unity Inspector 中为数值字段添加单位后缀，提升可读性和直观性。
+🎯 核心优势#特性 说明 可读性 清晰显示数值的单位（秒、米、度等） 直观性 无需注释即可理解字段含义 一致性 统一的单位显示规范 基本用法#using Animancer; using UnityEngine; public class UnitsExample : MonoBehaviour { // ❌ 没有单位：不清楚是什么单位 [SerializeField] private float _duration = 2.5f; // ✅ 有单位：清楚地显示为秒 [SerializeField, Units("秒")] private float _duration = 2.5f; }Inspector 显示效果#Without Units: Duration: 2.5 With Units: Duration: 2.5 秒Units 特性#基本语法#[Units(string suffix)]参数说明#suffix - 显示在数值后的单位字符串 完整示例#using Animancer; using UnityEngine; public class MovementController : MonoBehaviour { [Header("速度设置")] [SerializeField, Units("m/s")] private float _moveSpeed = 5f; [SerializeField, Units("m/s")] private float _sprintSpeed = 8f; [Header("旋转设置")] [SerializeField, Units("度/秒")] private float _turnRate = 180f; [Header("跳跃设置")] [SerializeField, Units("米")] private float _jumpHeight = 2f; [SerializeField, Units("秒")] private float _jumpCooldown = 0.5f; [Header("重力设置")] [SerializeField, Units("m/s²")] private float _gravity = 9.81f; }内置单位类型#Animancer 提供了一些常用的单位特性：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Waiting 等待对比</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-waiting/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-waiting/</guid>
+      <description>Animancer - Waiting 等待对比#Mecanim vs Animancer: 等待动画结束#Mecanim方式#方式1: 状态信息检查
+while (true) { var info = _animator.GetCurrentAnimatorStateInfo(0); if (info.IsName("Attack") && info.normalizedTime >= 1f) break; yield return null; }需要Exit Time transitions和哈希码管理，用户体验差
+方式2: StateMachineBehaviour
+public class AttackBehaviour : StateMachineBehaviour { public override void OnStateExit(Animator animator, ...) { // 状态结束回调 } }Animancer方式#方式1: End Events
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer - Weapon Animations 武器动画对比</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-weaponanimations/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-weaponanimations/</guid>
+      <description>Animancer - Weapon Animations 武器动画对比#Mecanim vs Animancer: 武器动画系统#Mecanim方案#步骤:
+创建AnimatorController资源 创建多个状态（轻攻击、重攻击、特殊攻击等） 为每个状态创建占位符AnimationClips 每个武器配置：AnimationClips + 占位符名称 代码：创建AnimatorOverrideController并覆盖动画 var overrideController = new AnimatorOverrideController(_baseController); overrideController["PlaceholderLightAttack"] = weapon.LightAttackClip; overrideController["PlaceholderHeavyAttack"] = weapon.HeavyAttackClip; _animator.runtimeAnimatorController = overrideController;Animancer方案#步骤:
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Blending</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-blending/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-blending/</guid>
+      <description>Animancer Blending 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/ 抓取日期：2025-01-24
+概述 (Overview)#Blending（混合） 是在多个动画之间进行插值以将它们组合成单一输出的过程。
+虽然动画通常像**有限状态机（Finite State Machine）**一样工作，但混合允许多个动画同时进行插值，而不是在状态之间进行排他性切换。
+核心概念 (Key Concept)#混合是在多个动画之间进行插值，将它们组合成单一输出的过程。
+这意味着角色可以同时：
+在 Walk 和 Run 之间混合 在单独的图层上播放挥手动画（上半身） 淡入到 Standing 状态 所有这些都同时发生，而不是互斥的状态 三种主要混合类型 (Three Main Blending Types)#1. Fading（淡入淡出）#定义：在一段时间内平滑过渡到另一个动画，而不是瞬间切换。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Custom Fading</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-customfading/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-customfading/</guid>
+      <description>Animancer Custom Fading 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/custom/ 抓取日期：2025-01-24
+概述 (Overview)#Custom Easing（自定义缓动） 是 Animancer 的高级功能，允许开发者修改淡入淡出动画，使其超越默认的线性渐变。系统使用标准缓动函数或自定义委托来控制动画权重的过渡方式。
+⚠️ 重要：这是 Animancer Pro 专属功能
+核心概念 (Core Concept)#默认线性淡入淡出#默认情况下，交叉淡入淡出会以恒定速度将 AnimancerNode.Weight 移动到 AnimancerNode.TargetWeight。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Events</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-animancerevents/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-animancerevents/</guid>
+      <description>Animancer Events 官方文档#📋 目录#概述 核心特性 文档结构 配置方式 快速开始 代码示例 与其他事件系统的区别 参考资料 概述#Animancer Events 是 Animancer Pro 独有的强大事件系统，允许你注册函数在动画通过特定时间点时执行。
+🎯 核心定义#“Animancer Events allow you to register a function to be executed when an animation passes a specific point in time.”
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Events</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-events/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-events/</guid>
+      <description>Animancer Events 官方文档#📋 目录#概述 两种事件系统对比 核心概念 基础使用方法 代码示例 最佳实践 FAQ常见问题 参考资料 概述#Animancer Events 是一个强大的事件系统，允许你在动画播放过程中的特定时刻触发回调函数。
+🎯 典型应用场景#场景 说明 事件触发时机 高尔夫挥杆 击打球的精确时刻 挥杆到达最低点时 脚步声 行走时播放脚步音效 脚触地时刻 攻击检测 武器伤害判定 武器挥舞到攻击范围时 特效触发 播放视觉特效 动画关键帧时刻 动画切换 连击系统、动画序列 当前动画结束时 两种事件系统对比#Animancer 支持两种事件系统，各有优缺点：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Events - Behaviour</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsbehaviour/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsbehaviour/</guid>
+      <description>Animancer Events - Behaviour 官方文档#📋 目录#概述 核心行为机制 循环动画中的事件 End Events行为 高级特性 代码示例 最佳实践 FAQ常见问题 参考资料 概述#本文档详细解释 Animancer Events 的工作原理和触发机制，特别是在不同动画状态（循环/非循环）下的行为差异。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Events - Parameters</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsparameters/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsparameters/</guid>
+      <description>Animancer Events - Parameters 官方文档#📋 目录#概述 核心概念 使用带参数的回调 内置参数类型 自定义参数类型 代码示例 最佳实践 FAQ常见问题 参考资料 概述#Animancer Events 默认使用无参数回调，但支持通过 AnimancerEvent.Parameter 系统传递参数值给事件回调。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Events - Usage</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsusage/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsusage/</guid>
+      <description>Animancer Events - Usage 官方文档#📋 目录#概述 三种配置方法 方法1：Transitions（Inspector配置） 方法2：Code（代码配置） 方法3：Hybrid（混合模式） 高级特性 代码示例 最佳实践 FAQ常见问题 参考资料 概述#Animancer Events 提供三种主要配置方法，每种方法都有其独特的优势和适用场景。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Events - Utilities</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsutilities/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/event/animancer-eventsutilities/</guid>
+      <description>Animancer Events - Utilities 官方文档#📋 目录#概述 AnimancerEvent.Current 三个实用工具 Log Current Event Restart Current State Pause At Current Event 代码示例 最佳实践 FAQ常见问题 参考资料 概述#本文档展示了利用 AnimancerEvent.Current 属性在事件触发时访问其详情，实现多种实用行为的代码片段。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Fading</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-fading/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-fading/</guid>
+      <description>Animancer Fading 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/ 抓取日期：2025-01-24
+概述 (Overview)#Fading（淡入淡出） 是 Animancer 中实现动画平滑过渡的核心功能。通过交叉淡入淡出（Cross-Fading），可以在动画之间逐渐过渡，而前一个动画同时淡出。
+这对于骨骼动画特别有价值，允许角色在不同姿势之间平滑过渡，而不需要结束姿势和开始姿势完全相同。
+核心概念 (Key Concept)#淡入淡出允许角色模型从一个动画的结束姿势平滑过渡到另一个动画的开始姿势，而不需要两个姿势完全相同。
+工作原理#时间轴示例： |---------- Animation A (100% → 0%) ----------| |---------- Animation B (0% → 100%) ----------| ↑ 开始淡入淡出 持续时间: 0.25秒 最终输出 = A的权重 × A的姿势 + B的权重 × B的姿势关键特性：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Fading Modes</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-fadingmodes/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-fadingmodes/</guid>
+      <description>Animancer Fading Modes 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/modes/ 抓取日期：2025-01-24
+概述 (Overview)#FadeMode（淡入模式） 是 Animancer 中控制淡入淡出行为的重要参数。它决定了淡入持续时间如何被解释和应用。
+Play 方法接受一个可选的 FadeMode 参数，如果不指定则默认使用 FadeMode.FixedSpeed。
+基础用法 (Basic Usage)#// 方式1：使用默认模式（FixedSpeed） _Animancer.Play(clip, 0.25f); // 方式2：显式指定模式（等价于方式1） _Animancer.Play(clip, 0.25f, FadeMode.FixedSpeed); // 方式3：使用其他模式 _Animancer.Play(clip, 0.2f, FadeMode.NormalizedSpeed);淡入模式分类 (Fade Mode Categories)#1. Fixed Modes（固定模式）#定义：淡入持续时间独立于动画长度。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-fsm/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-fsm/</guid>
+      <description>Animancer FSM 官方文档#📋 目录#概述 核心概念 基本使用步骤 IState接口 状态转换流程 代码示例 最佳实践 FAQ常见问题 参考资料 概述#Animancer FSM 是一个通用的有限状态机（Finite State Machine）系统，设计上具有足够的灵活性以满足大多数需求，且不与动画系统绑定。
+🎯 核心特性#“通用 FSM 系统，灵活性足以满足大多数需求，但不与动画系统绑定”
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - Changing States</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-changingstates/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-changingstates/</guid>
+      <description>Animancer FSM - Changing States 官方文档#三种状态切换方法#1. TrySetState（推荐）#// 尝试进入新状态，如果已是当前状态则返回true bool success = _stateMachine.TrySetState(newState);检查 CanExitState 和 CanEnterState 如果已是当前状态，直接返回true 2. TryResetState#// 即使已是当前状态，也重新进入 _stateMachine.TryResetState(newState);验证退出和进入条件 强制重新执行状态转换 3. ForceSetState#// 跳过所有检查，强制切换 _stateMachine.ForceSetState(newState);不检查 CanExit 和 CanEnter 用于强制状态（如死亡、受击） 访问状态转换信息#// 静态属性访问 var previous = StateChange<MyState>.PreviousState; var next = StateChange<MyState>.NextState; // 扩展方法 var previous = this.GetPreviousState<MyState>();实用示例#// 跳跃状态：只能从地面状态进入 public class JumpState : IState { public bool CanEnterState => IsGrounded(); public bool CanExitState => true; public void OnEnterState() { } public void OnExitState() { } bool IsGrounded() { return Physics.Raycast(transform.position, Vector3.down, 1.1f); } } // 攻击状态：攻击未完成不能退出 public class AttackState : IState { private bool _attackFinished; public bool CanEnterState => true; public bool CanExitState => _attackFinished; public void OnEnterState() { _attackFinished = false; PerformAttack(); } public void OnExitState() { } } // 死亡状态：强制进入（跳过检查） public void Die() { _stateMachine.ForceSetState(_deathState); }文档版本: 1.0 最后更新: 2025-12-25
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - Initialization</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-initialization/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-initialization/</guid>
+      <description>Animancer FSM - Initialization 官方文档#概述#本文档介绍在Animancer中创建和初始化有限状态机（FSM）的方法。
+两种初始化方式#方式1：序列化字段（推荐用于Inspector可见）#[DefaultExecutionOrder(-10000)] public class Character : MonoBehaviour { [SerializeField] private StateMachine<MyState> _StateMachine; public StateMachine<MyState> StateMachine => _StateMachine; protected virtual void Awake() { _StateMachine.InitializeAfterDeserialize(); } }关键点：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - Input Buffer</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-inputbuffer/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-inputbuffer/</guid>
+      <description>Animancer FSM - Input Buffer 官方文档#📋 目录#概述 核心概念 使用步骤 代码示例 重要限制 参考资料 概述#Input Buffer（输入缓冲） 允许状态机在无法立即转换时将状态变更请求加入队列，并在指定时间内重试转换。
+🎯 典型应用场景#“如果玩家正在攻击并再次按下攻击键，你可能希望当前动画先完成，然后只要输入没有发生太久之前，就开始连击中的下一次攻击”
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - Keys</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-keys/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-keys/</guid>
+      <description>Animancer FSM - Keys 官方文档#两种状态机实现#1. Keyless StateMachine（无键）#public class KeylessExample : MonoBehaviour { private StateMachine<IState> _fsm; private IdleState _idle; private WalkState _walk; void Awake() { _fsm = new StateMachine<IState>(); _idle = new IdleState(); _walk = new WalkState(); // 需要直接引用状态对象 _fsm.TrySetState(_idle); } void Update() { if (Input.GetKey(KeyCode.W)) _fsm.TrySetState(_walk); // 直接引用 else _fsm.TrySetState(_idle); } }优点： 简单、易调试、无额外开销 缺点： 需要持有所有状态引用
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - Overview</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-fsmoverview/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-fsmoverview/</guid>
+      <description>Animancer FSM - Overview 官方文档#📋 目录#概述 核心概念 三大核心脚本 设计目标 主要限制 代码示例 参考资料 概述#有限状态机（Finite State Machine, FSM） 是一个管理对象当前状态及其可能状态转换的系统。
+🎯 典型应用#角色状态管理：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - Owned States</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-ownedstates/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-ownedstates/</guid>
+      <description>Animancer FSM - Owned States 官方文档#📋 目录#概述 核心概念 实现方式 扩展方法 代码示例 参考资料 概述#Owned States（状态所有权） 允许状态持有对其父状态机的引用，无需状态预先知道状态机的存在。
+“状态可以可选地实现 IOwnedState 接口，以便在状态中使用 StateExtensions 类的扩展方法”
+核心概念#🔑 问题：状态如何切换？#// ❌ 传统方式：状态需要引用角色来访问状态机 public class WalkState : IState { private Character _character; public void DoSomething() { _character.StateMachine.TrySetState(_character.RunState); } }✅ 解决方案：Owned States#// ✅ Owned States：状态直接知道自己的状态机 public class WalkState : IOwnedState<CharacterState> { public StateMachine<CharacterState> OwnerStateMachine { get; set; } public void DoSomething() { this.TryEnterState(_runState); // 扩展方法！ } }实现方式#IOwnedState 接口#/// <summary> /// 状态所有权接口 /// </summary> public interface IOwnedState<TState> where TState : class, IState { /// <summary> /// 拥有此状态的状态机 /// </summary> StateMachine<TState> OwnerStateMachine { get; } }完整实现示例#using Animancer.FSM; using UnityEngine; /// <summary> /// 角色控制器 /// </summary> public class Character : MonoBehaviour { [SerializeField] private CharacterState.StateMachine _stateMachine; public CharacterState.StateMachine StateMachine => _stateMachine; protected virtual void Awake() { _stateMachine.InitializeAfterDeserialize(); } } /// <summary> /// 角色状态基类 /// 实现IOwnedState接口 /// </summary> public abstract class CharacterState : StateBehaviour, IOwnedState<CharacterState> { [SerializeField] private Character _character; // 实现IOwnedState接口 public StateMachine<CharacterState> OwnerStateMachine => _character.StateMachine; // IState接口成员 public virtual bool CanEnterState => true; public virtual bool CanExitState => true; public abstract void OnEnterState(); public virtual void OnExitState() { } }扩展方法#可用的扩展方法#实现 IOwnedState 后，状态可以使用以下扩展方法：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - State Selector</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-stateselector/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-stateselector/</guid>
+      <description>Animancer FSM - State Selector 官方文档#📋 目录#概述 核心概念 使用步骤 优先级设置 代码示例 参考资料 概述#State Selector（状态选择器） 提供了一种简单的方式来管理优先级排序的潜在状态列表。
+"StateSelector 类提供了一种简单的方式来管理优先级排序的潜在状态列表"
+🎯 典型应用场景#AI决策系统 自动状态选择 优先级行为管理 核心概念#🔄 工作流程#请求状态切换 ↓ StateSelector 按优先级评估状态列表 ├─ 高优先级状态（如：Death） ├─ 中优先级状态（如：Attack） └─ 低优先级状态（如：Idle） ↓ 第一个满足 CanEnterState 的状态被选中 ↓ 成功进入 → 自动清空选择器📊 优先级系统#优先级 值 典型状态 最高 100+ Death, Stunned 高 50-99 Attack, Skill 中 10-49 Walk, Run 低 0-9 Idle 使用步骤#步骤1：创建 StateSelector#using Animancer.FSM; using UnityEngine; public class AIController : MonoBehaviour { private StateMachine<IState> _stateMachine; private StateMachine<IState>.StateSelector _selector; void Awake() { _stateMachine = new StateMachine<IState>(); // 创建StateSelector _selector = new StateMachine<IState>.StateSelector(_stateMachine); } }步骤2：添加状态（带优先级）#void Awake() { _stateMachine = new StateMachine<IState>(); _selector = new StateMachine<IState>.StateSelector(_stateMachine); // 添加状态并设置优先级（优先级越高越先评估） _selector.Add(_deathState, 100); // 最高优先级 _selector.Add(_attackState, 50); // 高优先级 _selector.Add(_walkState, 10); // 中优先级 _selector.Add(_idleState, 0); // 低优先级（默认） }步骤3：请求状态切换#void Update() { // 使用StateSelector的方法自动选择最高优先级的可用状态 _selector.TrySetState(); // 或使用ResetState // _selector.TryResetState(); // 或强制设置 // _selector.ForceSetState(); }步骤4：自动清空#状态成功进入后，选择器会自动清空，需要重新添加状态。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer FSM - State Types</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-statetypes/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer-statetypes/</guid>
+      <description>Animancer FSM - State Types 官方文档#📋 目录#概述 状态类型选择 基础实现 内置基础类 代码示例 参考资料 概述#Animancer的状态机系统是通用的，需要定义基础状态类型作为 StateMachine<TState> 的泛型参数。
+🔑 唯一要求#状态类必须实现 IState 接口
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer IK（逆向动力学）</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animancer-ik/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animancer-ik/</guid>
+      <description>Animancer IK（逆向动力学）官方文档#概述#IK（Inverse Kinematics） 允许直接控制骨骼链的末端位置（如手、脚），系统自动计算中间骨骼的旋转。
+Forward vs Inverse Kinematics#类型 控制方式 适用场景 Forward Kinematics 旋转每个骨骼 预制动画 Inverse Kinematics 指定末端位置 动态交互（抓取、脚步对齐） 启用IK Pass#三层级控制#// 1. Graph级别（全局） _animancer.Graph.ApplyAnimatorIK = true; // 2. Layer级别 _animancer.Layers[0].ApplyAnimatorIK = true; // 3. State级别 var state = _animancer.Play(clip); state.ApplyAnimatorIK = true;Foot IK（减少脚部滑动）#// 启用Foot IK _animancer.Graph.ApplyFootIK = true; // 或在特定Layer/State上启用 _animancer.Layers[0].ApplyFootIK = true; state.ApplyFootIK = true;OnAnimatorIK 回调#public class IKController : MonoBehaviour { [SerializeField] private AnimancerComponent _animancer; [SerializeField] private Transform _ikTarget; private Animator _animator; void Awake() { _animator = GetComponent<Animator>(); _animancer.Graph.ApplyAnimatorIK = true; } void OnAnimatorIK(int layerIndex) { if (_animator == null) return; // 设置右手IK目标 _animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1f); _animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1f); _animator.SetIKPosition(AvatarIKGoal.RightHand, _ikTarget.position); _animator.SetIKRotation(AvatarIKGoal.RightHand, _ikTarget.rotation); // 视线IK _animator.SetLookAtWeight(1f); _animator.SetLookAtPosition(_ikTarget.position); } }动画曲线控制IK权重#// 使用动画曲线控制IK影响 var animatedWeight = new AnimatedFloat(_animancer, "IKWeight"); void OnAnimatorIK(int layerIndex) { // 从动画曲线获取权重（0=完全动画，1=完全IK） float weight = animatedWeight.Value; _animator.SetIKPositionWeight(AvatarIKGoal.RightHand, weight); _animator.SetIKPosition(AvatarIKGoal.RightHand, _ikTarget.position); }完整示例#using Animancer; using UnityEngine; public class SimpleIKExample : MonoBehaviour { [SerializeField] private AnimancerComponent _animancer; [SerializeField] private AnimationClip _reachClip; [SerializeField] private Transform _target; private Animator _animator; void Awake() { _animator = GetComponent<Animator>(); // 启用IK Pass _animancer.Graph.ApplyAnimatorIK = true; // 播放动画并启用IK var state = _animancer.Play(_reachClip); state.ApplyAnimatorIK = true; } void OnAnimatorIK(int layerIndex) { if (_target == null) return; // 右手抓取目标 _animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1f); _animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1f); _animator.SetIKPosition(AvatarIKGoal.RightHand, _target.position); _animator.SetIKRotation(AvatarIKGoal.RightHand, _target.rotation); } }文档版本: 1.0 最后更新: 2025-12-25
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Layers</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-layers/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-layers/</guid>
+      <description>Animancer Layers 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/layers/ 抓取日期：2025-01-24
+概述 (Overview)#Layers（图层） 是 Animancer 中实现动画并行播放的核心机制。通过将动画隔离到不同的图层,可以同时播放多个动画而不会相互干扰。
+核心原理：在某个图层上播放动画时,只会停止同一图层上的其他动画,而不会影响其他图层上的动画。
+核心概念 (Core Concept)#当您在某个图层上播放动画时,它会停止该图层上的其他动画,但不会影响不同图层上的动画。
+工作原理:
+Layer 0 (Base Layer): ├─ Walk Animation (Weight: 1.0) → 下半身移动 Layer 1 (Upper Body): ├─ Aim Animation (Weight: 1.0) → 上半身瞄准 最终输出 = Layer 0 + Layer 1图层访问和创建 (Layer Access and Creation)#基础访问#使用 AnimancerComponent.Layers 属性管理图层。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Mixer Synchronization</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixerssynchronization/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixerssynchronization/</guid>
+      <description>Animancer Mixer Synchronization 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/mixers/synchronization/ 抓取日期：2025-01-24
+概述 (Overview)#Mixer Synchronization（混合器同步） 解决了动画混合中的一个关键问题：当混合不同长度的动画时,如果不进行同步,它们会逐渐失去相位,导致不自然的结果——例如在 Walk 到 Run 过渡时出现尴尬的拖步。
+核心问题 (The Problem)#当混合不同长度的动画时,如果让它们正常播放,它们会失去同步。
+问题示例#场景：混合 Walk 和 Run 动画 Walk 循环: 1.2 秒/循环 Run 循环: 0.8 秒/循环 时间 0.0s: Walk: 左脚着地 Run: 左脚着地 混合结果: ✅ 左脚着地 时间 0.4s: Walk: 右脚着地 Run: 左脚着地（已完成半个循环） 混合结果: ❌ 拖步、滑步 时间 0.8s: Walk: 仍在第一个循环 Run: 完成一个完整循环 混合结果: ❌ 更严重的不同步视觉效果：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Mixers</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixers/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixers/</guid>
+      <description>Animancer Mixers 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/mixers/ 抓取日期：2025-01-24
+概述 (Overview)#Mixers（混合器） 是 Animancer 中基于参数混合多个动画的系统,功能类似于 Mecanim 的 Blend Trees。它们能够实现平滑的动画过渡——例如,根据移动速度在 Idle、Walk 和 Run 状态之间混合,而不是使用离散的动画状态。
+核心概念 (Core Concept)#Mixers 基于参数混合多个动画,实现连续的动画过渡谱,而不是离散的状态切换。
+示例：
+传统状态机: Idle → Walk → Run (离散切换) Mixer: Idle ←━━━━━━━━━━━━━━━━━━━━━━━━━━→ Run Walk (连续混合,参数 = 速度)Blend Trees vs. Mixers#Blend Trees（Unity 内置）#特点：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Mixers Creation</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixerscreation/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-mixerscreation/</guid>
+      <description>Animancer Mixers Creation 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/mixers/creation/ 抓取日期：2025-01-24
+概述 (Overview)#Animancer 提供两种主要方法来创建 Mixers：通过 Inspector 配置的 Transition 或 手动代码创建。两种方法都支持嵌套 Mixers。
+创建方法对比#方法 优势 适用场景 Transition-Based 可视化配置,非程序员友好 固定配置,Inspector 管理 Manual Code 完全代码控制,动态生成 运行时动态创建,复杂逻辑 方法一：基于 Transition 创建#概述#Mixers 通常在 Inspector 中使用 Mixer Transitions 配置。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Parameters</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/animancer-parameters/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/animancer-parameters/</guid>
+      <description>Animancer Parameters 官方文档#概述#Animancer Parameters 是强类型的命名值，存储在中央字典中，用于跨多个动画状态共享数据。
+核心特性#类型安全：一旦为特定类型创建，只接受该类型 集中管理：所有参数存储在 AnimancerComponent.Parameters 字典中 监听变化：支持值变化回调 使用方式#方式1：缓存访问（推荐）#public class ParameterExample : MonoBehaviour { [SerializeField] private AnimancerComponent _animancer; [SerializeField] private StringReference _speedParam = "Speed"; private Parameter<float> _speedParameter; void Awake() { // 缓存参数引用 _speedParameter = _animancer.Parameters.GetOrCreate<float>(_speedParam); // 监听值变化 _speedParameter.OnValueChanged += OnSpeedChanged; } void Update() { // 设置值 _speedParameter.Value = CalculateSpeed(); } void OnSpeedChanged(float newSpeed) { Debug.Log($"速度改变: {newSpeed}"); } }方式2：直接访问#// 设置值 _animancer.Parameters.SetValue("Speed", 5.0f); // 获取值 float speed = _animancer.Parameters.GetValue<float>("Speed"); // 监听变化 _animancer.Parameters.AddOnValueChanged<float>("Speed", OnSpeedChanged);高级特性#平滑参数#// 平滑Float参数 var smoothSpeed = new SmoothedFloatParameter(_animancer, "Speed"); smoothSpeed.SmoothTime = 0.25f; smoothSpeed.Value = targetSpeed; // 平滑过渡 // 平滑Vector2参数 var smoothMove = new SmoothedVector2Parameter(_animancer, "Movement"); smoothMove.Value = targetMovement;与Mixer状态集成#// Mixer的参数可链接到Animancer Parameters var mixer = new LinearMixerState(_animancer.Graph); mixer.Parameter = _animancer.Parameters.GetOrCreate<float>("Speed");调试#// 启用日志 _animancer.Parameters.LogContext = LogContext.Everything; // 或通过Inspector右键菜单启用文档版本: 1.0 最后更新: 2025-12-25
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Transition Assets</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionassets/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionassets/</guid>
+      <description>Animancer Transition Assets 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/ 抓取日期：2025-01-24
+概述 (Overview)#TransitionAsset 是一个 ScriptableObject，它封装了过渡配置。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。
+核心概念#TransitionAsset (ScriptableObject) ↓ 包含 Transition 配置数据 ↓ 可以在多个脚本中引用优势：
+✅ 可重用性：多个脚本可以共享同一个配置 ✅ 集中管理：所有动画配置统一存放 ✅ 内存优化：多个实例共享同一份数据 ✅ 易于维护：修改一处，所有引用自动更新 创建方法 (Creation Methods)#方法一：使用菜单功能#最常用的创建方式：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Transition Libraries</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionlibraries/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionlibraries/</guid>
+      <description>Animancer Transition Libraries 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/libraries/ 抓取日期：2025-01-24 注意：这是 Animancer Pro 专属功能
+概述 (Overview)#Transition Libraries 是 Animancer Pro 版本的独占功能，允许开发者无需编写额外代码即可定义动画库如何修改特定的动画过渡组合。
+核心功能#“定义如何修改特定的过渡组合，而无需额外代码”
+主要用途：
+自动调整淡入时长：根据动画状态变化自动设置 Fade Duration 动画别名系统：为动画分配自定义名称，通过字符串播放动画 集中管理：作为中心动画列表，统一管理所有动画资源 关键组件 (Key Components)#Library 窗口功能#打开 Transition Library 窗口后，你会看到以下界面：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Transition Previews</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionpreviews/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionpreviews/</guid>
+      <description>Animancer Transition Previews 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/previews/ 抓取日期：2025-01-24
+概述 (Overview)#Transition Previews 功能允许开发者在编辑器中预览动画过渡效果，无需进入 Play Mode，从而大大提高动画调试和迭代效率。
+核心功能#“预览过渡效果的样子，无需进入 Play Mode”
+主要用途：
+可视化预览：直接查看动画切换效果 快速调试：实时调整过渡参数 多角色测试：在不同角色模型上测试动画 时间轴控制：精确查看动画的每一帧 打开 Preview 窗口#方法1：点击预览图标#在 Inspector 中，任何 Transition 字段旁边都有一个预览图标：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Transition Sequences</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionsequences/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionsequences/</guid>
+      <description>Animancer Transition Sequences 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/sequences/ 抓取日期：2025-01-24
+概述 (Overview)#Transition Sequences（过渡序列） 允许您定义一系列 Transition 或 State，并将它们作为一个组进行管理和播放。它们的工作方式类似于标准的 Transition，在运行时会创建一个 SequenceState。
+核心概念 (Core Concept)#TransitionSequences 允许您定义一系列 Transitions 或 States，并将它们作为一个组进行处理。
+工作原理：
+TransitionSequence: ├─ Child Transition 1 (Attack1) → 播放完成 ├─ Child Transition 2 (Attack2) → 播放完成 └─ Child Transition 3 (Attack3) → 播放完成 整个序列作为一个统一的 State 进行管理关键特性：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Transition Types</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitiontypes/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitiontypes/</guid>
+      <description>Animancer Transition Types 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/types/ 抓取日期：2025-01-24
+概述 (Overview)#Animancer 中的每个状态类型都对应一个转换类型，用于在调用 AnimancerComponent.Play(ITransition) 时创建相应的状态。
+核心机制#Transition Type（转换类型） → 创建 → State Type（状态类型） ↓ ↓ ClipTransition ClipState LinearMixerTransition LinearMixerState MixerTransition2D Mixer2D ...等等序列化引用机制 (Serialization Reference)#问题背景#Unity 通常不支持序列化继承类型。例如，如果你有一个 ITransition 接口，直接序列化会失败：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Transitions</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitions/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitions/</guid>
+      <description>Animancer Transitions 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/ 抓取日期：2025-01-24
+概述 (Overview)#Animancer 区分了动画控制中的两个核心概念：
+State（状态）：包含当前动画信息，如 Time（时间）和 Speed（速度） Transition（过渡/转换）：持有可序列化的数据，定义如何创建和播放状态，包括 AnimationClip 和淡入持续时间 关键概念 (Key Concept)#Transition 包含可序列化的数据，这些数据定义了如何创建和播放一个状态，例如它的 AnimationClip 和用于混合的淡入持续时间。
+Animancer 中的每种状态类型都有对应的过渡类型。当传递给 AnimancerComponent.Play(ITransition) 时，它会创建相应的状态类型——例如，ClipTransition 创建一个 ClipState 来播放单个动画片段。
+Transition 字段参考 (Transition Field Reference)#字段名称 代码属性 用途说明 Animation（动画） Clip 要播放的 AnimationClip（动画片段） Fade Duration（淡入时长） FadeDuration 从上一个动画交叉淡入的时间（0 表示立即播放） Speed（播放速度） Speed 播放速度倍率；负值表示倒放 Start Time（起始时间） NormalizedStartTime 播放时的初始动画时间位置 End Time（结束时间） Events.NormalizedEndTime 决定何时触发结束事件 Events（事件） Events 过渡细节的时间轴可视化 时间字段单位 (Time Field Units)#提供三种测量系统：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Animancer Weighted Mask Layers</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-weightedlayers/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-weightedlayers/</guid>
+      <description>Animancer Weighted Mask Layers 官方文档#原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/layers/weighted/ 抓取日期：2025-01-24
+概述 (Overview)#WeightedMaskLayers 是 Animancer Pro 的高级功能,扩展了 Unity 的 AvatarMask 系统。它允许开发者控制每个单独骨骼的权重,包括随时间淡入淡出,而不是简单地启用或禁用整个骨骼组。
+⚠️ 重要：这是 Animancer Pro 专属功能
+核心概念 (Core Concept)#标准 Avatar Mask：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Mecanim vs. Animancer 对比文档</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-mecanimvsanimancer/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-mecanimvsanimancer/</guid>
+      <description>Mecanim vs. Animancer 对比文档#📋 目录#概述 核心差异 六大优势 对比领域 兼容性 参考资料 概述#“Animancer streamlines the animation development process by removing the need to create Animator Controllers and scripts that need to interact with each other.”
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Why Animancer? 为什么选择Animancer？</title>
+      <link>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-why/</link>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/animancer/why/animancer-why/</guid>
+      <description>Why Animancer? 为什么选择Animancer？#📋 目录#概述 六大问题 Animancer解决方案 参考资料 概述#Unity的Mecanim Animator Controller系统存在六个核心问题，Animancer提供了针对性的解决方案。
+六大问题#1. 简洁性问题（Simplicity）#Mecanim的问题：
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>

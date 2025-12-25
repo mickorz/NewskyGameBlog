@@ -315,9 +315,9 @@ void TraceStateTransition()
 ## 参考资料
 
 ### 📚 相关文档
-- [\1]({{< ref "animancer-why.md" >}})
-- [\1]({{< ref "animancer-simplicity.md" >}})
-- [\1]({{< ref "animancer-fsm.md" >}})
+- [animancer-why]({{< ref "animancer-why.md" >}})
+- [animancer-simplicity]({{< ref "animancer-simplicity.md" >}})
+- [animancer-fsm]({{< ref "animancer-fsm.md" >}})
 
 ---
 
