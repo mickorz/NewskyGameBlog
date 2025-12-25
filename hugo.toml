@@ -1,7 +1,83 @@
+# ============================================================
+# 基础配置 - 解决 404 和 样式丢失的关键
+# ============================================================
+# 必须以 https 开头，以 / 结尾。大小写必须与 GitHub 仓库名一致
 baseURL = "https://mickorz.github.io/NewskyGameBlog/"
 languageCode = "zh-cn"
 title = "Newsky Game Blog"
-theme = "PaperMod"  # 假设你下载了 PaperMod 主题
+theme = "PaperMod"
 
-[markup.goldmark.renderer]
-  unsafe = true # 允许 Markdown 中使用 HTML（如果有需要）
+# ============================================================
+# 内容解析设置 - 提高对 Markdown 的兼容性
+# ============================================================
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true  # 允许在 Markdown 中写 HTML（比如调整图片大小）
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true          # 显示行号
+    style = "monokai"       # 程序员最爱的深色代码主题
+    noClasses = false       # 配合主题样式
+
+# ============================================================
+# 页面参数配置 (针对 PaperMod 主题)
+# ============================================================
+[params]
+  env = "production"
+  title = "Newsky Game Blog"
+  description = "游戏技术分享 | Animancer 中文文档 | Unity 开发笔记"
+  keywords = ["Unity", "Game Dev", "Animancer", "C#", "Shader"]
+  author = "mickorz"
+  
+  # 显示文章目录 (TOC)
+  ShowToc = true
+  TocOpen = true # 默认展开目录
+  
+  # 搜索功能支持 (需要 PaperMod 主题)
+  ShowSearchResults = true
+
+  # 界面细节
+  defaultTheme = "auto" # 自动跟随系统深色/浅色模式
+  disableThemeToggle = false
+  ShowShareButtons = true
+  ShowReadingTime = true
+  ShowBreadCrumbs = true # 显示面包屑导航
+  ShowPostNavLinks = true # 显示上一篇/下一篇文章跳转
+
+  # 首页配置
+  [params.homeInfoParams]
+    Title = "你好! 👋"
+    Content = "欢迎来到我的游戏技术博客。这里主要分享 Unity 开发心得和 Animancer 插件的深度解析。"
+
+  # 社交链接 (可选)
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/mickorz"
+
+# ============================================================
+# 菜单配置
+# ============================================================
+[[menu.main]]
+  identifier = "posts"
+  name = "文章"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "archives"
+  name = "归档"
+  url = "/archives/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "search"
+  name = "搜索"
+  url = "/search/"
+  weight = 30
+
+# ============================================================
+# 输出配置 - 支持搜索索引
+# ============================================================
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
