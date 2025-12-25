@@ -1,4 +1,4 @@
-baseURL = 'https://github.com/mickorz/NewskyGameBlog/'
+baseURL = "https://github.com/mickorz/NewskyGameBlog/"
 languageCode = 'en-us'
 title = 'NewSky Blog'
 theme = "PaperMod"
