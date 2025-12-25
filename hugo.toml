@@ -1,4 +1,7 @@
-baseURL = "https://github.com/mickorz/NewskyGameBlog/"
-languageCode = 'en-us'
-title = 'NewSky Blog'
-theme = "PaperMod"
+baseURL = "https://mickorz.github.io/NewskyGameBlog/"
+languageCode = "zh-cn"
+title = "Newsky Game Blog"
+theme = "PaperMod"  # 假设你下载了 PaperMod 主题
+
+[markup.goldmark.renderer]
+  unsafe = true # 允许 Markdown 中使用 HTML（如果有需要）
