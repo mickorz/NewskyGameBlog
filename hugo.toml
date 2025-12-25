@@ -59,22 +59,46 @@ theme = "PaperMod"
 # 菜单配置
 # ============================================================
 [[menu.main]]
+    identifier = "animancer"
+    name = "📚 Animancer 中文文档"
+    url = "/Animancer/" # 这里的路径对应 content/Animancer/ 文件夹
+    weight = 1
+	
+[[menu.main]]
   identifier = "posts"
-  name = "文章"
+  name = "所有文章"
   url = "/posts/"
-  weight = 10
+  weight = 2
 
-[[menu.main]]
-  identifier = "archives"
-  name = "归档"
-  url = "/archives/"
-  weight = 20
+# ============================================================
+# 首页欢迎语配置 - 这里的链接能实现“快速进入”
+# ============================================================
+[params.homeInfoParams]
+    Title = "Newsky Game Blog 🎮"
+    Content = """
+欢迎！这里专注于游戏技术分享，尤其是 **Unity 动画系统** 的深度探索。
 
-[[menu.main]]
-  identifier = "search"
-  name = "搜索"
-  url = "/search/"
-  weight = 30
+👉 **[立即进入：Animancer 中文索引](/Animancer/)**
+
+这里有超过 50 篇详细的翻译与实战笔记，涵盖：
+- [核心功能与 IK 系统](/Animancer/animancer_ik官方文档/)
+- [FSM 状态机管理](/Animancer/fsm/animancer_fsm官方文档/)
+- [动画混合与 Layer 技巧](/Animancer/blend/animancer_blending官方文档/)
+"""
+
+# ============================================================
+# 主题通用参数
+# ============================================================
+[params]
+    env = "production"
+    # 开启目录
+    ShowToc = true
+    TocOpen = true
+    # 允许在首页显示描述
+    showDescription = true
+    # 搜索功能
+    ShowSearchResults = true
+
 
 # ============================================================
 # 输出配置 - 支持搜索索引
