@@ -33,7 +33,7 @@ theme = "PaperMod"
   # 建议放在文件顶部或 markup 之外
   disablePathLowercase = false  # 确保这是 false（默认就是 false，但显式声明更稳妥）
   
-  robots = "noindex, nofollow" # 告诉爬虫：不要索引此页，不要追踪页内的链接
+  robots = "no_index, nofollow" # 告诉爬虫：不要索引此页，不要追踪页内的链接
   
   # 显示文章目录 (TOC)
   ShowToc = true

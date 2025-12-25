@@ -1,3 +1,9 @@
+---
+title: "Animancer Transitions"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer Transitions 官方文档
 
 > 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/

@@ -1,3 +1,9 @@
+---
+title: "Animancer FSM - Initialization"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer FSM - Initialization 官方文档
 
 ## 概述

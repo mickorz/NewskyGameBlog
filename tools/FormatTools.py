@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-文件名和文件夹格式化工具
-用于规范化content目录下的markdown文件名、文件夹名和内部链接
+文件名、文件夹、Front Matter和链接格式化工具
+用于规范化content目录下的markdown文件
 
 功能：
 1. 将文件夹名转换为小写
 2. 将文件名转换为小写
 3. 移除文件名中的中文字符
 4. 使用 - 作为单词分隔符，替换 _
-5. 更新文件内的markdown链接引用
-6. 删除 .meta 后缀的文件
+5. 添加/更新Front Matter（包含完整元数据）
+6. 将markdown链接转换为Hugo ref格式
+7. 更新hugo.toml中的链接
+8. 删除 .meta 后缀的文件
 """
 
 import os
@@ -18,6 +20,7 @@ import re
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple
+from datetime import datetime
 
 
 # 设置标准输出的编码为UTF-8，避免Windows下的编码问题
@@ -29,16 +32,18 @@ if sys.platform == 'win32':
 class MarkdownFileFormatter:
     """Markdown文件和文件夹格式化器"""
 
-    def __init__(self, content_dir: str):
+    def __init__(self, content_dir: str, hugo_toml_path: str = None):
         """
         初始化
         Args:
             content_dir: content目录的路径
+            hugo_toml_path: hugo.toml文件路径
         """
         self.content_dir = Path(content_dir)
+        self.hugo_toml_path = Path(hugo_toml_path) if hugo_toml_path else None
         self.file_mappings: Dict[str, str] = {}  # 旧文件名 -> 新文件名的映射
         self.folder_mappings: Dict[Path, Path] = {}  # 旧文件夹路径 -> 新文件夹路径的映射
-        self.dry_run = False  # 是否为测试运行（不实际修改文件）
+        self.dry_run = False  # 是否为测试运行
 
     def normalize_filename(self, filename: str) -> str:
         """
@@ -48,8 +53,11 @@ class MarkdownFileFormatter:
         Returns:
             规范化后的文件名
         """
-        # 保存文件扩展名
         name, ext = os.path.splitext(filename)
+
+        # 特殊处理：index.md 或 readme.md 转换为 _index.md (Hugo约定)
+        if name.lower() in ['index', 'readme']:
+            return '_index' + ext
 
         # 1. 移除中文字符
         name = re.sub(r'[\u4e00-\u9fff]+', '', name)
@@ -78,6 +86,143 @@ class MarkdownFileFormatter:
         """
         return foldername.lower()
 
+    def extract_title(self, content: str) -> str:
+        """
+        从markdown内容中提取标题
+        Args:
+            content: 文件内容
+        Returns:
+            提取的标题
+        """
+        lines = content.split('\n')
+        for line in lines:
+            line = line.strip()
+            if line.startswith('# '):
+                title = line[2:].strip()
+                # 移除可能的特殊字符
+                title = title.replace('官方文档', '').strip()
+                return title
+        return "Untitled"
+
+    def extract_tags_from_path(self, file_path: Path) -> List[str]:
+        """
+        从文件路径提取标签
+        Args:
+            file_path: 文件路径
+        Returns:
+            标签列表
+        """
+        tags = ["Unity", "Animancer"]
+
+        # 根据路径添加标签
+        path_str = str(file_path.relative_to(self.content_dir))
+
+        if 'fsm' in path_str.lower():
+            tags.append("FSM")
+        if 'blend' in path_str.lower():
+            tags.append("Blending")
+        if 'event' in path_str.lower():
+            tags.append("Events")
+        if 'transition' in path_str.lower():
+            tags.append("Transitions")
+        if 'animator' in path_str.lower():
+            tags.append("Animator")
+        if 'ik' in path_str.lower():
+            tags.append("IK")
+
+        return tags
+
+    def has_front_matter(self, content: str) -> bool:
+        """
+        检查文件是否已有Front Matter
+        Args:
+            content: 文件内容
+        Returns:
+            True if has front matter
+        """
+        return content.strip().startswith('---')
+
+    def create_front_matter(self, title: str, tags: List[str], description: str = "") -> str:
+        """
+        创建Front Matter
+        Args:
+            title: 文章标题
+            tags: 标签列表
+            description: 描述
+        Returns:
+            Front Matter字符串
+        """
+        now = datetime.now()
+        date_str = now.strftime('%Y-%m-%dT%H:%M:%S+08:00')
+
+        tags_str = ', '.join([f'"{tag}"' for tag in tags])
+
+        if not description:
+            description = f"深入了解 {title} 的使用方法和最佳实践"
+
+        front_matter = f"""---
+title: "{title}"
+date: {date_str}
+lastmod: {date_str}
+draft: false
+author: "mickorz"
+tags: [{tags_str}]
+categories: ["技术笔记"]
+description: "{description}"
+weight: 10
+---
+
+"""
+        return front_matter
+
+    def update_front_matter_in_content(self, content: str, title: str, tags: List[str]) -> str:
+        """
+        更新或添加Front Matter
+        Args:
+            content: 原始内容
+            title: 标题
+            tags: 标签
+        Returns:
+            更新后的内容
+        """
+        if self.has_front_matter(content):
+            # 已有Front Matter，保留原内容
+            return content
+        else:
+            # 添加新的Front Matter
+            front_matter = self.create_front_matter(title, tags)
+            return front_matter + content
+
+    def convert_links_to_ref(self, content: str) -> str:
+        """
+        将markdown链接转换为Hugo ref格式
+        Args:
+            content: 文件内容
+        Returns:
+            转换后的内容
+        """
+        # 匹配 [text](path/to/file.md) 格式
+        def replace_link(match):
+            original_text = match.group(1)
+            link = match.group(2)
+
+            # 只转换相对路径的.md链接
+            if link.endswith('.md') and not link.startswith('http'):
+                # 提取文件名
+                filename = os.path.basename(link)
+                print(filename)
+                # 使用文件名作为显示文本
+                text = filename.replace(".md","")
+                # 转换为ref格式
+                return f'[{text}]({{{{< ref "{filename}" >}}}})'
+
+            return match.group(0)
+
+        # 处理 [text](link.md) 格式
+        content = re.sub(r'\[([^\]]+)\]\(([^)]+\.md)\)', replace_link, content)
+
+        return content
+
     def scan_folders(self) -> List[Path]:
         """
         扫描所有子文件夹（按深度从深到浅排序）
@@ -90,7 +235,7 @@ class MarkdownFileFormatter:
                 folder_path = Path(root) / dir_name
                 folders.append(folder_path)
 
-        # 按路径深度从深到浅排序（确保先处理子文件夹，再处理父文件夹）
+        # 按路径深度从深到浅排序
         folders.sort(key=lambda p: len(p.parts), reverse=True)
         return folders
 
@@ -157,62 +302,81 @@ class MarkdownFileFormatter:
 
         return mappings
 
-    def update_file_links(self, file_path: Path):
+    def process_markdown_file(self, file_path: Path):
         """
-        更新文件中的markdown链接（包括文件夹路径和文件名）
+        处理markdown文件：添加Front Matter和转换链接
         Args:
-            file_path: 要更新的文件路径
+            file_path: 文件路径
         """
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
 
             original_content = content
+            modified = False
 
-            # 查找所有markdown链接 [text](url) 和 [text]: url
-            # 匹配 [xxx](xxx.md) 和 [xxx]: xxx.md
-            link_patterns = [
-                (r'\[([^\]]+)\]\(([^)]+\.md)\)', r'[\1]({})'),  # [text](file.md)
-                (r'\[([^\]]+)\]:\s*([^\s]+\.md)', r'[\1]: {}'),  # [text]: file.md
-            ]
+            # 1. 添加/更新Front Matter
+            if not self.has_front_matter(content):
+                title = self.extract_title(content)
+                tags = self.extract_tags_from_path(file_path)
+                content = self.update_front_matter_in_content(content, title, tags)
+                modified = True
+                print(f"  添加Front Matter: {title}")
 
-            for pattern, replacement_template in link_patterns:
-                def replace_link(match):
-                    text = match.group(1)
-                    link = match.group(2)
-                    original_link = link
+            # 2. 转换链接为ref格式
+            new_content = self.convert_links_to_ref(content)
+            if new_content != content:
+                content = new_content
+                modified = True
+                print(f"  转换链接为ref格式")
 
-                    # 提取路径部分和文件名
-                    link_parts = link.split('/')
+            # 写回文件
+            if modified and not self.dry_run:
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
 
-                    # 更新文件夹名称（转换为小写）
-                    for i in range(len(link_parts) - 1):
-                        link_parts[i] = self.normalize_foldername(link_parts[i])
-
-                    # 更新文件名（如果在映射中）
-                    old_filename = link_parts[-1]
-                    if old_filename in self.file_mappings:
-                        link_parts[-1] = self.file_mappings[old_filename]
-
-                    new_link = '/'.join(link_parts)
-
-                    if new_link != original_link:
-                        print(f"  更新链接: {original_link} -> {new_link}")
-                        return replacement_template.format(new_link)
-
-                    return match.group(0)
-
-                content = re.sub(pattern, replace_link, content)
-
-            # 如果内容有变化，写回文件
-            if content != original_content:
-                if not self.dry_run:
-                    with open(file_path, 'w', encoding='utf-8') as f:
-                        f.write(content)
-                print(f"✓ 已更新文件内链接: {file_path.relative_to(self.content_dir)}")
+                if modified:
+                    print(f"✓ 已更新: {file_path.relative_to(self.content_dir)}")
 
         except Exception as e:
-            print(f"✗ 更新文件链接失败 {file_path}: {e}")
+            print(f"✗ 处理失败 {file_path}: {e}")
+
+    def update_hugo_toml(self):
+        """
+        更新hugo.toml中的链接
+        """
+        if not self.hugo_toml_path or not self.hugo_toml_path.exists():
+            return
+
+        try:
+            with open(self.hugo_toml_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            original_content = content
+
+            # 更新文件名（下划线改为连字符）
+            for old_name, new_name in self.file_mappings.items():
+                # 移除.md后缀进行替换
+                old_base = old_name.replace('.md', '')
+                new_base = new_name.replace('.md', '')
+                content = content.replace(old_base, new_base)
+
+            # 更新文件夹名为小写
+            content = re.sub(r'/Animancer/', '/animancer/', content)
+            content = re.sub(r'/FSM/', '/fsm/', content)
+            content = re.sub(r'/Blend/', '/blend/', content)
+            content = re.sub(r'/Event/', '/event/', content)
+            content = re.sub(r'/Transition/', '/transition/', content)
+            content = re.sub(r'/Animator/', '/animator/', content)
+            content = re.sub(r'/Why/', '/why/', content)
+
+            if content != original_content and not self.dry_run:
+                with open(self.hugo_toml_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                print("✓ 已更新hugo.toml")
+
+        except Exception as e:
+            print(f"✗ 更新hugo.toml失败: {e}")
 
     def rename_folders(self, mappings: Dict[Path, Path]):
         """
@@ -260,7 +424,7 @@ class MarkdownFileFormatter:
         """
         执行格式化流程
         Args:
-            dry_run: 如果为True，只显示将要执行的操作，不实际修改文件
+            dry_run: 如果为True，只显示将要执行的操作
         """
         self.dry_run = dry_run
 
@@ -299,11 +463,7 @@ class MarkdownFileFormatter:
         file_mappings = self.build_file_mappings(md_files)
         print(f"需要重命名 {len(file_mappings)} 个文件\n")
 
-        if not folder_mappings and not file_mappings and not meta_files:
-            print("没有需要处理的文件或文件夹")
-            return
-
-        # 6. 执行文件夹重命名（从深到浅）
+        # 6. 执行文件夹重命名
         if folder_mappings:
             print("[步骤 6] 执行文件夹重命名...")
             self.rename_folders(folder_mappings)
@@ -315,17 +475,22 @@ class MarkdownFileFormatter:
             self.rename_files(file_mappings)
             print()
 
-        # 8. 更新所有markdown文件中的链接
-        print("[步骤 8] 更新文件内链接...")
-        # 重新扫描所有文件（因为路径可能已改变）
+        # 8. 处理所有markdown文件（添加Front Matter和转换链接）
+        print("[步骤 8] 处理markdown文件（Front Matter和链接）...")
         all_files = self.scan_markdown_files()
         for md_file in all_files:
-            self.update_file_links(md_file)
+            self.process_markdown_file(md_file)
         print()
 
-        # 9. 删除.meta文件
+        # 9. 更新hugo.toml
+        if self.hugo_toml_path:
+            print("[步骤 9] 更新hugo.toml...")
+            self.update_hugo_toml()
+            print()
+
+        # 10. 删除.meta文件
         if meta_files:
-            print("[步骤 9] 删除.meta文件...")
+            print("[步骤 10] 删除.meta文件...")
             self.delete_meta_files(meta_files)
             print()
 
@@ -336,18 +501,17 @@ class MarkdownFileFormatter:
 
 def main():
     """主函数"""
-    # 获取content目录的路径（相对于脚本所在目录）
     script_dir = Path(__file__).parent
     content_dir = script_dir.parent / 'content'
+    hugo_toml = script_dir.parent / 'hugo.toml'
 
     if not content_dir.exists():
         print(f"错误: content目录不存在: {content_dir}")
         return
 
     # 创建格式化器
-    formatter = MarkdownFileFormatter(str(content_dir))
+    formatter = MarkdownFileFormatter(str(content_dir), str(hugo_toml))
 
-    # 先进行测试运行，让用户确认
     print("即将开始格式化markdown文件和文件夹...")
     print(f"目标目录: {content_dir}\n")
 

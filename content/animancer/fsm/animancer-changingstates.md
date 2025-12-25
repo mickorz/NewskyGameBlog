@@ -1,3 +1,9 @@
+---
+title: "Animancer FSM - Changing States"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer FSM - Changing States 官方文档
 
 ## 三种状态切换方法

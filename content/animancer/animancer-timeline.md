@@ -1,3 +1,9 @@
+---
+title: "Animancer - Timeline"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Timeline 官方文档
 
 ## 📋 目录

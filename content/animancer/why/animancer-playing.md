@@ -1,3 +1,9 @@
+---
+title: "Animancer - Playing 播放对比"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Playing 播放对比
 
 ## Mecanim vs Animancer: 播放动画

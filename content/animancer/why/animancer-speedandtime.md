@@ -1,3 +1,9 @@
+---
+title: "Animancer - Speed and Time 速度时间对比"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Speed and Time 速度时间对比
 
 ## Mecanim vs Animancer: 速度和时间控制

@@ -1,3 +1,9 @@
+---
+title: "Animancer - Controller States"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Controller States 官方文档
 
 ## 📋 目录

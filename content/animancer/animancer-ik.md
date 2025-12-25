@@ -1,3 +1,9 @@
+---
+title: "Animancer IK（逆向动力学）"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer IK（逆向动力学）官方文档
 
 ## 概述

@@ -1,3 +1,9 @@
+---
+title: "Animancer - Performance 性能对比"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Performance 性能对比
 
 ## 性能建议

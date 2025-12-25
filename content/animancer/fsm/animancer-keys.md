@@ -1,3 +1,9 @@
+---
+title: "Animancer FSM - Keys"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer FSM - Keys 官方文档
 
 ## 两种状态机实现

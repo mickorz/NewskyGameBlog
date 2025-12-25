@@ -1,3 +1,9 @@
+---
+title: "Animancer Fading Modes"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer Fading Modes 官方文档
 
 > 原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/modes/

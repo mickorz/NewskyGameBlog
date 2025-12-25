@@ -1,3 +1,9 @@
+---
+title: "Animancer - Glossary 术语表"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Glossary 术语表
 
 ## 通用术语

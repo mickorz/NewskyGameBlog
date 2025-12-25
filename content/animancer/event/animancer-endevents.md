@@ -1,3 +1,9 @@
+---
+title: "Animancer - End Events"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - End Events 官方文档
 
 ## 📋 目录

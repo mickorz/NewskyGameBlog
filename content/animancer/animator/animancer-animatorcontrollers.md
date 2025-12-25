@@ -1,3 +1,9 @@
+---
+title: "Animancer - Animator Controllers"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Animator Controllers 官方文档
 
 ## 📋 目录

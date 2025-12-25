@@ -1,3 +1,9 @@
+---
+title: "Animancer Parameters"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer Parameters 官方文档
 
 ## 概述

@@ -1,3 +1,9 @@
+---
+title: "Animancer - Animation Events"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Animation Events 官方文档
 
 ## 📋 目录

@@ -1,3 +1,9 @@
+---
+title: "Animancer - Weapon Animations 武器动画对比"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Weapon Animations 武器动画对比
 
 ## Mecanim vs Animancer: 武器动画系统

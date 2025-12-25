@@ -1,3 +1,9 @@
+---
+title: "Animancer Events - Behaviour"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer Events - Behaviour 官方文档
 
 ## 📋 目录

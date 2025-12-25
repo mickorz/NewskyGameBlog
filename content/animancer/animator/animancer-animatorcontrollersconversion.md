@@ -1,3 +1,9 @@
+---
+title: "Animancer - Animator Controllers Conversion"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Animator Controllers Conversion 官方文档
 
 ## 📋 目录

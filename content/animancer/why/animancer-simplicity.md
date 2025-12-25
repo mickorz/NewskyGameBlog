@@ -1,3 +1,9 @@
+---
+title: "Animancer - Simplicity 简洁性"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Simplicity 简洁性
 
 ## 📋 目录
@@ -217,9 +223,9 @@ state.Events.AddNormalized(0.5f, OnHalfway);
 ## 参考资料
 
 ### 📚 相关文档
-- [\1](./animancer-why.md)
-- [\1](./animancer-transparency.md)
-- [\1](./animancer-adaptability.md)
+- [\1]({{< ref "animancer-why.md" >}})
+- [\1]({{< ref "animancer-transparency.md" >}})
+- [\1]({{< ref "animancer-adaptability.md" >}})
 
 ---
 

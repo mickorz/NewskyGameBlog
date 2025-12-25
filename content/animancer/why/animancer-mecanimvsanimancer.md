@@ -1,3 +1,9 @@
+---
+title: "Mecanim vs. Animancer 对比文档"
+date: 2025-12-25
+draft: false
+---
+
 # Mecanim vs. Animancer 对比文档
 
 ## 📋 目录
@@ -370,25 +376,25 @@ _animancer.Play(_walkTransition);
 ## 参考资料
 
 ### 📚 详细对比文档
-- [\1](./animancer-why.md) - 六大优势详解
-- [\1](./animancer-simplicity.md)
-- [\1](./animancer-transparency.md)
-- [\1](./animancer-adaptability.md)
-- [\1](./animancer-clarity.md)
-- [\1](./animancer-safety.md)
-- [\1](./animancer-reliability.md)
+- [\1]({{< ref "animancer-why.md" >}}) - 六大优势详解
+- [\1]({{< ref "animancer-simplicity.md" >}})
+- [\1]({{< ref "animancer-transparency.md" >}})
+- [\1]({{< ref "animancer-adaptability.md" >}})
+- [\1]({{< ref "animancer-clarity.md" >}})
+- [\1]({{< ref "animancer-safety.md" >}})
+- [\1]({{< ref "animancer-reliability.md" >}})
 
 ### 🔍 实战对比
-- [\1](./animancer-playing.md)
-- [\1](./animancer-waiting.md)
-- [\1](./animancer-speedandtime.md)
-- [\1](./animancer-weaponanimations.md)
+- [\1]({{< ref "animancer-playing.md" >}})
+- [\1]({{< ref "animancer-waiting.md" >}})
+- [\1]({{< ref "animancer-speedandtime.md" >}})
+- [\1]({{< ref "animancer-weaponanimations.md" >}})
 
 ### ⚡ 性能分析
-- [\1](./animancer-performance.md)
+- [\1]({{< ref "animancer-performance.md" >}})
 
 ### 📖 术语表
-- [\1](./animancer-glossary.md)
+- [\1]({{< ref "animancer-glossary.md" >}})
 
 ---
 

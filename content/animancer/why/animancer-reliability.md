@@ -1,3 +1,9 @@
+---
+title: "Animancer - Reliability 可靠性"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Reliability 可靠性
 
 ## 📋 目录
@@ -354,9 +360,9 @@ IEnumerator AttackSequence()
 ## 参考资料
 
 ### 📚 相关文档
-- [\1](./animancer-why.md)
-- [\1](./animancer-safety.md)
-- [\1](../event/animancer-events.md)
+- [\1]({{< ref "animancer-why.md" >}})
+- [\1]({{< ref "animancer-safety.md" >}})
+- [\1]({{< ref "animancer-events.md" >}})
 
 ---
 

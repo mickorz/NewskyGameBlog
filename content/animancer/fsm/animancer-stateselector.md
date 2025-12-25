@@ -1,3 +1,9 @@
+---
+title: "Animancer FSM - State Selector"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer FSM - State Selector 官方文档
 
 ## 📋 目录

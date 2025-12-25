@@ -1,3 +1,9 @@
+---
+title: "Animancer FSM"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer FSM 官方文档
 
 ## 📋 目录

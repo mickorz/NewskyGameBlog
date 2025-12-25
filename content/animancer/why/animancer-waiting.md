@@ -1,3 +1,9 @@
+---
+title: "Animancer - Waiting 等待对比"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Waiting 等待对比
 
 ## Mecanim vs Animancer: 等待动画结束

@@ -1,3 +1,9 @@
+---
+title: "Animancer - Safety 安全性"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Safety 安全性
 
 ## 📋 目录
@@ -331,9 +337,9 @@ public class CharacterEditor : Editor
 ## 参考资料
 
 ### 📚 相关文档
-- [\1](./animancer-why.md)
-- [\1](./animancer-clarity.md)
-- [\1](./animancer-reliability.md)
+- [\1]({{< ref "animancer-why.md" >}})
+- [\1]({{< ref "animancer-clarity.md" >}})
+- [\1]({{< ref "animancer-reliability.md" >}})
 
 ---
 

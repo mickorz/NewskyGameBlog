@@ -1,3 +1,9 @@
+---
+title: "Why Animancer? 为什么选择Animancer？"
+date: 2025-12-25
+draft: false
+---
+
 # Why Animancer? 为什么选择Animancer？
 
 ## 📋 目录
@@ -223,12 +229,12 @@ state.Speed = 1.5f;
 ## 参考资料
 
 ### 📚 详细文档
-- [\1](./animancer-simplicity.md)
-- [\1](./animancer-transparency.md)
-- [\1](./animancer-adaptability.md)
-- [\1](./animancer-clarity.md)
-- [\1](./animancer-safety.md)
-- [\1](./animancer-reliability.md)
+- [\1]({{< ref "animancer-simplicity.md" >}})
+- [\1]({{< ref "animancer-transparency.md" >}})
+- [\1]({{< ref "animancer-adaptability.md" >}})
+- [\1]({{< ref "animancer-clarity.md" >}})
+- [\1]({{< ref "animancer-safety.md" >}})
+- [\1]({{< ref "animancer-reliability.md" >}})
 
 ---
 

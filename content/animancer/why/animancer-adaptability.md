@@ -1,3 +1,9 @@
+---
+title: "Animancer - Adaptability 适应性"
+date: 2025-12-25
+draft: false
+---
+
 # Animancer - Adaptability 适应性
 
 ## 📋 目录
@@ -320,9 +326,9 @@ public class AIAnimations : MonoBehaviour
 ## 参考资料
 
 ### 📚 相关文档
-- [\1](./animancer-why.md)
-- [\1](./animancer-clarity.md)
-- [\1](./animancer-safety.md)
+- [\1]({{< ref "animancer-why.md" >}})
+- [\1]({{< ref "animancer-clarity.md" >}})
+- [\1]({{< ref "animancer-safety.md" >}})
 
 ---
 
