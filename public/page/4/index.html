@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.153.2"><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Newsky Game Blog</title>
+<meta name="keywords" content="Unity, Game Dev, Animancer, C#, Shader">
+<meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+<meta name="author" content="mickorz">
+<link rel="canonical" href="http://localhost:1313/NewskyGameBlog/">
+<link crossorigin="anonymous" href="/NewskyGameBlog/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/NewskyGameBlog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/NewskyGameBlog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/NewskyGameBlog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/NewskyGameBlog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/NewskyGameBlog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/NewskyGameBlog/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="http://localhost:1313/NewskyGameBlog/index.json" title="json">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/NewskyGameBlog/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/NewskyGameBlog/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Newsky Game Blog">
+  <meta property="og:description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Newsky Game Blog">
+<meta name="twitter:description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Newsky Game Blog",
+  "url": "http://localhost:1313/NewskyGameBlog/",
+  "description": "游戏技术分享 | Animancer 中文文档 | Unity 开发笔记",
+  "logo": "http://localhost:1313/NewskyGameBlog/favicon.ico",
+  "sameAs": [
+      "https://github.com/mickorz"
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/NewskyGameBlog/" accesskey="h" title="Newsky Game Blog (Alt + H)">Newsky Game Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/animancer/" title="📚 Animancer 中文文档">
+                    <span>📚 Animancer 中文文档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/posts/" title="所有文章">
+                    <span>所有文章</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer FSM - Initialization 官方文档 概述 本文档介绍在Animancer中创建和初始化有限状态机（FSM）的方法。
+两种初始化方式 方式1：序列化字段（推荐用于Inspector可见） 1 2 3 4 5 6 7 8 9 10 11 [DefaultExecutionOrder(-10000)] public class Character : MonoBehaviour { [SerializeField] private StateMachine&lt;MyState&gt; _StateMachine; public StateMachine&lt;MyState&gt; StateMachine =&gt; _StateMachine; protected virtual void Awake() { _StateMachine.InitializeAfterDeserialize(); } } 关键点：
+使用 [DefaultExecutionOrder(-10000)] 确保提前初始化 调用 InitializeAfterDeserialize() 方法 方式2：只读字段（推荐用于代码初始化） 1 2 3 4 5 6 7 8 9 public class Character : MonoBehaviour { public readonly StateMachine&lt;MyState&gt; StateMachine = new(); protected virtual void Awake() { StateMachine.TrySetState(firstState); } } 避免的做法 ❌ 在Awake中创建：其他脚本可能执行更早 ❌ 字段初始化器：无法访问实例字段 ❌ 构造函数：执行时序早于Unity序列化系统
+...</p>
+  </div>
+  <footer class="entry-footer"><span>1 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer_initialization%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer FSM - Input Buffer 官方文档 📋 目录 概述 核心概念 使用步骤 代码示例 重要限制 参考资料 概述 Input Buffer（输入缓冲） 允许状态机在无法立即转换时将状态变更请求加入队列，并在指定时间内重试转换。
+🎯 典型应用场景 “如果玩家正在攻击并再次按下攻击键，你可能希望当前动画先完成，然后只要输入没有发生太久之前，就开始连击中的下一次攻击”
+核心概念 🔄 工作流程 1 2 3 4 5 6 7 8 9 玩家输入攻击 ↓ 当前状态：Attack1（无法退出） ↓ Buffer(Attack2, 0.5秒) ← 缓冲输入 ↓ 每帧 Update() ↓ Attack1完成 → TrySetState(Attack2) ✅ 成功！ 📊 Buffer vs 直接切换 方式 行为 结果 TrySetState 立即尝试切换 失败则丢弃输入 Buffer 缓冲输入并重试 在超时前持续尝试 使用步骤 步骤1：创建 InputBuffer 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 using Animancer.FSM; using UnityEngine; public class CombatController : MonoBehaviour { private StateMachine&lt;IState&gt; _stateMachine; private StateMachine&lt;IState&gt;.InputBuffer _inputBuffer; void Awake() { _stateMachine = new StateMachine&lt;IState&gt;(); // 创建InputBuffer _inputBuffer = new StateMachine&lt;IState&gt;.InputBuffer(_stateMachine); } } 步骤2：缓冲输入 1 2 3 4 5 6 7 8 9 void Update() { if (Input.GetKeyDown(KeyCode.Mouse0)) { // 使用Buffer代替TrySetState // 参数：状态，超时时间（秒） _inputBuffer.Buffer(_attackState, 0.5f); } } 步骤3：每帧更新 1 2 3 4 5 6 7 void Update() { // 每帧调用Update重试缓冲的状态 _inputBuffer.Update(); // 处理输入... } 代码示例 示例1：基础连击系统 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 using Animancer; using Animancer.FSM; using UnityEngine; /// &lt;summary&gt; /// 使用InputBuffer实现连击系统 /// &lt;/summary&gt; public class ComboSystem : MonoBehaviour { [SerializeField] private AnimancerComponent _animancer; private StateMachine&lt;AttackState&gt; _stateMachine; private StateMachine&lt;AttackState&gt;.InputBuffer _inputBuffer; private IdleState _idle; private Attack1State _attack1; private Attack2State _attack2; private Attack3State _attack3; [Header(&#34;缓冲设置&#34;)] [SerializeField] private float _bufferTimeout = 0.5f; // 输入缓冲时间 void Awake() { // 初始化状态机 _stateMachine = new StateMachine&lt;AttackState&gt;(); _inputBuffer = new StateMachine&lt;AttackState&gt;.InputBuffer(_stateMachine); // 创建状态 _idle = new IdleState(this); _attack1 = new Attack1State(this); _attack2 = new Attack2State(this); _attack3 = new Attack3State(this); _stateMachine.TrySetState(_idle); } void Update() { // 每帧更新InputBuffer _inputBuffer.Update(); // 处理攻击输入 if (Input.GetKeyDown(KeyCode.Mouse0)) { HandleAttackInput(); } } void HandleAttackInput() { var current = _stateMachine.CurrentState; if (current == _idle) { // 从Idle直接进入Attack1 _stateMachine.TrySetState(_attack1); } else if (current == _attack1) { // 缓冲Attack2 _inputBuffer.Buffer(_attack2, _bufferTimeout); Debug.Log(&#34;缓冲Attack2输入&#34;); } else if (current == _attack2) { // 缓冲Attack3 _inputBuffer.Buffer(_attack3, _bufferTimeout); Debug.Log(&#34;缓冲Attack3输入&#34;); } } // 状态基类 public abstract class AttackState : IState { protected ComboSystem Controller; protected bool _attackFinished; public AttackState(ComboSystem controller) { Controller = controller; } public virtual bool CanEnterState =&gt; true; // 攻击未完成不能退出 public bool CanExitState =&gt; _attackFinished; public abstract void OnEnterState(); public virtual void OnExitState() { _attackFinished = false; } } // Idle状态 public class IdleState : AttackState { public IdleState(ComboSystem controller) : base(controller) { } public override void OnEnterState() { Debug.Log(&#34;→ Idle&#34;); Controller._animancer.Play(Controller._idleClip); } } // Attack1状态 public class Attack1State : AttackState { public Attack1State(ComboSystem controller) : base(controller) { } public override void OnEnterState() { Debug.Log(&#34;→ Attack1&#34;); _attackFinished = false; var state = Controller._animancer.Play(Controller._attack1Clip); state.Events.OnEnd = () =&gt; { _attackFinished = true; Controller._stateMachine.TrySetState(Controller._idle); }; } } // Attack2状态 public class Attack2State : AttackState { public Attack2State(ComboSystem controller) : base(controller) { } public override void OnEnterState() { Debug.Log(&#34;→ Attack2 (从缓冲进入)&#34;); _attackFinished = false; var state = Controller._animancer.Play(Controller._attack2Clip); state.Events.OnEnd = () =&gt; { _attackFinished = true; Controller._stateMachine.TrySetState(Controller._idle); }; } } // Attack3状态 public class Attack3State : AttackState { public Attack3State(ComboSystem controller) : base(controller) { } public override void OnEnterState() { Debug.Log(&#34;→ Attack3 (从缓冲进入)&#34;); _attackFinished = false; var state = Controller._animancer.Play(Controller._attack3Clip); state.Events.OnEnd = () =&gt; { _attackFinished = true; Controller._stateMachine.TrySetState(Controller._idle); }; } } [SerializeField] private AnimationClip _idleClip; [SerializeField] private AnimationClip _attack1Clip; [SerializeField] private AnimationClip _attack2Clip; [SerializeField] private AnimationClip _attack3Clip; } 示例2：带缓冲的跳跃系统 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 using Animancer.FSM; using UnityEngine; /// &lt;summary&gt; /// 使用InputBuffer的跳跃系统 /// 允许在空中时缓冲跳跃输入 /// &lt;/summary&gt; public class JumpSystem : MonoBehaviour { private StateMachine&lt;IState&gt; _stateMachine; private StateMachine&lt;IState&gt;.InputBuffer _inputBuffer; private GroundedState _grounded; private JumpState _jump; [SerializeField] private float _jumpBufferTime = 0.2f; void Awake() { _stateMachine = new StateMachine&lt;IState&gt;(); _inputBuffer = new StateMachine&lt;IState&gt;.InputBuffer(_stateMachine); _grounded = new GroundedState(); _jump = new JumpState(); _stateMachine.TrySetState(_grounded); } void Update() { _inputBuffer.Update(); // 跳跃输入 if (Input.GetKeyDown(KeyCode.Space)) { // 缓冲跳跃输入 // 如果在空中，落地后会自动执行跳跃 _inputBuffer.Buffer(_jump, _jumpBufferTime); Debug.Log(&#34;缓冲跳跃输入&#34;); } } // Grounded状态 public class GroundedState : IState { public bool CanEnterState =&gt; IsGrounded(); public bool CanExitState =&gt; true; public void OnEnterState() { Debug.Log(&#34;落地&#34;); } public void OnExitState() { } bool IsGrounded() { // 实际项目中的地面检测逻辑 return Physics.Raycast( transform.position, Vector3.down, 1.1f ); } } // Jump状态 public class JumpState : IState { public bool CanEnterState =&gt; true; public bool CanExitState =&gt; true; public void OnEnterState() { Debug.Log(&#34;跳跃！&#34;); // 应用跳跃力 } public void OnExitState() { } } } 示例3：检查缓冲状态 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 using Animancer.FSM; using UnityEngine; /// &lt;summary&gt; /// 检查和清除缓冲状态 /// &lt;/summary&gt; public class BufferInspection : MonoBehaviour { private StateMachine&lt;IState&gt; _stateMachine; private StateMachine&lt;IState&gt;.InputBuffer _inputBuffer; void Update() { _inputBuffer.Update(); // 检查是否有缓冲的状态 if (_inputBuffer.IsActive) { Debug.Log($&#34;缓冲中: {_inputBuffer.State}&#34;); Debug.Log($&#34;剩余时间: {_inputBuffer.TimeLeft}秒&#34;); } // 取消缓冲 if (Input.GetKeyDown(KeyCode.Escape)) { _inputBuffer.Clear(); Debug.Log(&#34;清除输入缓冲&#34;); } } } 重要限制 ⚠️ 单一缓冲限制 “系统设计上一次只处理一个缓冲状态。如果在缓冲状态执行前发生多个输入，只保留最近的输入。”
+...</p>
+  </div>
+  <footer class="entry-footer"><span>6 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer_inputbuffer%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer FSM - Keys 官方文档 两种状态机实现 1. Keyless StateMachine（无键） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 public class KeylessExample : MonoBehaviour { private StateMachine&lt;IState&gt; _fsm; private IdleState _idle; private WalkState _walk; void Awake() { _fsm = new StateMachine&lt;IState&gt;(); _idle = new IdleState(); _walk = new WalkState(); // 需要直接引用状态对象 _fsm.TrySetState(_idle); } void Update() { if (Input.GetKey(KeyCode.W)) _fsm.TrySetState(_walk); // 直接引用 else _fsm.TrySetState(_idle); } } 优点： 简单、易调试、无额外开销 缺点： 需要持有所有状态引用
+...</p>
+  </div>
+  <footer class="entry-footer"><span>2 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer_keys%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer FSM - Owned States 官方文档 📋 目录 概述 核心概念 实现方式 扩展方法 代码示例 参考资料 概述 Owned States（状态所有权） 允许状态持有对其父状态机的引用，无需状态预先知道状态机的存在。
+“状态可以可选地实现 IOwnedState 接口，以便在状态中使用 StateExtensions 类的扩展方法”
+核心概念 🔑 问题：状态如何切换？ 1 2 3 4 5 6 7 8 9 10 // ❌ 传统方式：状态需要引用角色来访问状态机 public class WalkState : IState { private Character _character; public void DoSomething() { _character.StateMachine.TrySetState(_character.RunState); } } ✅ 解决方案：Owned States 1 2 3 4 5 6 7 8 9 10 // ✅ Owned States：状态直接知道自己的状态机 public class WalkState : IOwnedState&lt;CharacterState&gt; { public StateMachine&lt;CharacterState&gt; OwnerStateMachine { get; set; } public void DoSomething() { this.TryEnterState(_runState); // 扩展方法！ } } 实现方式 IOwnedState 接口 1 2 3 4 5 6 7 8 9 10 11 /// &lt;summary&gt; /// 状态所有权接口 /// &lt;/summary&gt; public interface IOwnedState&lt;TState&gt; where TState : class, IState { /// &lt;summary&gt; /// 拥有此状态的状态机 /// &lt;/summary&gt; StateMachine&lt;TState&gt; OwnerStateMachine { get; } } 完整实现示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 using Animancer.FSM; using UnityEngine; /// &lt;summary&gt; /// 角色控制器 /// &lt;/summary&gt; public class Character : MonoBehaviour { [SerializeField] private CharacterState.StateMachine _stateMachine; public CharacterState.StateMachine StateMachine =&gt; _stateMachine; protected virtual void Awake() { _stateMachine.InitializeAfterDeserialize(); } } /// &lt;summary&gt; /// 角色状态基类 /// 实现IOwnedState接口 /// &lt;/summary&gt; public abstract class CharacterState : StateBehaviour, IOwnedState&lt;CharacterState&gt; { [SerializeField] private Character _character; // 实现IOwnedState接口 public StateMachine&lt;CharacterState&gt; OwnerStateMachine =&gt; _character.StateMachine; // IState接口成员 public virtual bool CanEnterState =&gt; true; public virtual bool CanExitState =&gt; true; public abstract void OnEnterState(); public virtual void OnExitState() { } } 扩展方法 可用的扩展方法 实现 IOwnedState 后，状态可以使用以下扩展方法：
+...</p>
+  </div>
+  <footer class="entry-footer"><span>6 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer_ownedstates%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer FSM - State Selector 官方文档 📋 目录 概述 核心概念 使用步骤 优先级设置 代码示例 参考资料 概述 State Selector（状态选择器） 提供了一种简单的方式来管理优先级排序的潜在状态列表。
+&#34;StateSelector 类提供了一种简单的方式来管理优先级排序的潜在状态列表&#34;
+🎯 典型应用场景 AI决策系统 自动状态选择 优先级行为管理 核心概念 🔄 工作流程 1 2 3 4 5 6 7 8 9 10 请求状态切换 ↓ StateSelector 按优先级评估状态列表 ├─ 高优先级状态（如：Death） ├─ 中优先级状态（如：Attack） └─ 低优先级状态（如：Idle） ↓ 第一个满足 CanEnterState 的状态被选中 ↓ 成功进入 → 自动清空选择器 📊 优先级系统 优先级 值 典型状态 最高 100&#43; Death, Stunned 高 50-99 Attack, Skill 中 10-49 Walk, Run 低 0-9 Idle 使用步骤 步骤1：创建 StateSelector 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 using Animancer.FSM; using UnityEngine; public class AIController : MonoBehaviour { private StateMachine&lt;IState&gt; _stateMachine; private StateMachine&lt;IState&gt;.StateSelector _selector; void Awake() { _stateMachine = new StateMachine&lt;IState&gt;(); // 创建StateSelector _selector = new StateMachine&lt;IState&gt;.StateSelector(_stateMachine); } } 步骤2：添加状态（带优先级） 1 2 3 4 5 6 7 8 9 10 11 void Awake() { _stateMachine = new StateMachine&lt;IState&gt;(); _selector = new StateMachine&lt;IState&gt;.StateSelector(_stateMachine); // 添加状态并设置优先级（优先级越高越先评估） _selector.Add(_deathState, 100); // 最高优先级 _selector.Add(_attackState, 50); // 高优先级 _selector.Add(_walkState, 10); // 中优先级 _selector.Add(_idleState, 0); // 低优先级（默认） } 步骤3：请求状态切换 1 2 3 4 5 6 7 8 9 10 11 void Update() { // 使用StateSelector的方法自动选择最高优先级的可用状态 _selector.TrySetState(); // 或使用ResetState // _selector.TryResetState(); // 或强制设置 // _selector.ForceSetState(); } 步骤4：自动清空 状态成功进入后，选择器会自动清空，需要重新添加状态。
+...</p>
+  </div>
+  <footer class="entry-footer"><span>6 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer_stateselector%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer FSM - State Types 官方文档 📋 目录 概述 状态类型选择 基础实现 内置基础类 代码示例 参考资料 概述 Animancer的状态机系统是通用的，需要定义基础状态类型作为 StateMachine&lt;TState&gt; 的泛型参数。
+🔑 唯一要求 状态类必须实现 IState 接口
+状态类型选择 📦 三种实现方式 类型 适用场景 优点 缺点 MonoBehaviour 需要Unity生命周期方法 可使用Update/FixedUpdate 需要附加到GameObject ScriptableObject 可复用的状态资产 可在Inspector配置 需要创建Asset文件 普通C#类 纯逻辑状态 轻量级，无开销 无Unity功能 🎯 选择建议 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 // 方式1：MonoBehaviour - 需要Unity生命周期 public class IdleState : StateBehaviour { void Update() { /* 每帧更新 */ } void OnTriggerEnter(Collider other) { /* 碰撞检测 */ } } // 方式2：ScriptableObject - 可复用配置 [CreateAssetMenu(menuName = &#34;States/Idle&#34;)] public class IdleStateAsset : State { [SerializeField] private float _duration; } // 方式3：普通C#类 - 纯逻辑（推荐） public class IdleState : IState { public bool CanEnterState =&gt; true; public bool CanExitState =&gt; true; public void OnEnterState() { } public void OnExitState() { } } 基础实现 📝 最小实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 /// &lt;summary&gt; /// 最基础的状态实现 /// &lt;/summary&gt; public class MinimalState : IState { // 可以进入 public bool CanEnterState =&gt; true; // 可以退出 public bool CanExitState =&gt; true; // 进入状态时调用 public void OnEnterState() { Debug.Log(&#34;进入状态&#34;); } // 退出状态时调用 public void OnExitState() { Debug.Log(&#34;退出状态&#34;); } } 🎨 自定义基类 推荐：“可以简单地继承它，仅覆盖实际需要使用的成员”
+...</p>
+  </div>
+  <footer class="entry-footer"><span>7 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer_statetypes%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transition Assets 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/ 抓取日期：2025-01-24
+概述 (Overview) TransitionAsset 是一个 ScriptableObject，它封装了过渡配置。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。
+核心概念 1 2 3 4 5 TransitionAsset (ScriptableObject) ↓ 包含 Transition 配置数据 ↓ 可以在多个脚本中引用 优势：
+✅ 可重用性：多个脚本可以共享同一个配置 ✅ 集中管理：所有动画配置统一存放 ✅ 内存优化：多个实例共享同一份数据 ✅ 易于维护：修改一处，所有引用自动更新 创建方法 (Creation Methods) 方法一：使用菜单功能 最常用的创建方式：
+1 2 3 4 步骤： 1. 在 Project 窗口中右键 2. 选择 Assets → Create → Animancer → Transition Asset 3. 命名并配置 示例：
+1 2 3 创建位置：Assets/Animations/Transitions/ 文件名：Idle.asset 类型：Clip Transition 方法二：通过 Transition Library 创建 在 Transition Library 窗口中创建（Pro 版本功能）：
+...</p>
+  </div>
+  <footer class="entry-footer"><span>9 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionassets%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transition Libraries 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/libraries/ 抓取日期：2025-01-24 注意：这是 Animancer Pro 专属功能
+概述 (Overview) Transition Libraries 是 Animancer Pro 版本的独占功能，允许开发者无需编写额外代码即可定义动画库如何修改特定的动画过渡组合。
+核心功能 “定义如何修改特定的过渡组合，而无需额外代码”
+主要用途：
+自动调整淡入时长：根据动画状态变化自动设置 Fade Duration 动画别名系统：为动画分配自定义名称，通过字符串播放动画 集中管理：作为中心动画列表，统一管理所有动画资源 关键组件 (Key Components) Library 窗口功能 打开 Transition Library 窗口后，你会看到以下界面：
+1 2 3 4 5 6 7 8 9 10 11 12 13 ┌────────────────────────────────────────────┐ │ Transition Library │ ├────────────────────────────────────────────┤ │ Pages: [▼ Modifiers] [Aliases] │ ← 页面切换下拉菜单 ├────────────────────────────────────────────┤ │ Asset: [PlayerAnimationLibrary.asset] [○] │ ← 资源路径（可点击选中） ├────────────────────────────────────────────┤ │ [Revert] [Apply] [☑ Auto Apply] │ ← 管理按钮 ├────────────────────────────────────────────┤ │ │ │ (Modifiers 或 Aliases 页面内容) │ │ │ └────────────────────────────────────────────┘ 1. Pages 下拉菜单 切换不同的功能页面：
+...</p>
+  </div>
+  <footer class="entry-footer"><span>11 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionlibraries%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transition Previews 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/previews/ 抓取日期：2025-01-24
+概述 (Overview) Transition Previews 功能允许开发者在编辑器中预览动画过渡效果，无需进入 Play Mode，从而大大提高动画调试和迭代效率。
+核心功能 “预览过渡效果的样子，无需进入 Play Mode”
+主要用途：
+可视化预览：直接查看动画切换效果 快速调试：实时调整过渡参数 多角色测试：在不同角色模型上测试动画 时间轴控制：精确查看动画的每一帧 打开 Preview 窗口 方法1：点击预览图标 在 Inspector 中，任何 Transition 字段旁边都有一个预览图标：
+1 2 3 4 5 6 7 ┌─────────────────────────────────────┐ │ Idle Animation │ │ ┌─────────────────────────────┐ [▶] │ ← 点击这个图标 │ │ Clip: Rifle_Idle │ │ │ │ Fade Duration: 0.25 │ │ │ └─────────────────────────────┘ │ └─────────────────────────────────────┘ 点击 [▶] 图标后，会打开一个新的 Inspector 窗口，专门用于预览该 Transition。
+...</p>
+  </div>
+  <footer class="entry-footer"><span>7 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionpreviews%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Animancer Transition Sequences 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/sequences/ 抓取日期：2025-01-24
+概述 (Overview) Transition Sequences（过渡序列） 允许您定义一系列 Transition 或 State，并将它们作为一个组进行管理和播放。它们的工作方式类似于标准的 Transition，在运行时会创建一个 SequenceState。
+核心概念 (Core Concept) TransitionSequences 允许您定义一系列 Transitions 或 States，并将它们作为一个组进行处理。
+工作原理：
+1 2 3 4 5 6 TransitionSequence: ├─ Child Transition 1 (Attack1) → 播放完成 ├─ Child Transition 2 (Attack2) → 播放完成 └─ Child Transition 3 (Attack3) → 播放完成 整个序列作为一个统一的 State 进行管理 关键特性：
+✅ 将多个动画组合成一个序列 ✅ 自动按顺序播放 ✅ 可以作为单一 State 使用 ✅ 支持事件管理 序列结构 (Sequence Structure) 基础结构 1 2 3 4 5 6 7 TransitionSequence sequence = new TransitionSequence { // 子过渡数组（通常是 ClipTransition） new ClipTransition { Clip = attack1Clip }, new ClipTransition { Clip = attack2Clip }, new ClipTransition { Clip = attack3Clip } }; 支持的 Transition 类型 常用类型：
+...</p>
+  </div>
+  <footer class="entry-footer"><span>10 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionsequences%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/NewskyGameBlog/page/3/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="http://localhost:1313/NewskyGameBlog/page/5/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/NewskyGameBlog/">Newsky Game Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

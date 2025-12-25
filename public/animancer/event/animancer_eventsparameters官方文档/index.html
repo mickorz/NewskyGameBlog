@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Newsky Game Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Animancer Events - Parameters 官方文档
+📋 目录
+
+概述
+核心概念
+使用带参数的回调
+内置参数类型
+自定义参数类型
+代码示例
+最佳实践
+FAQ常见问题
+参考资料
+
+
+概述
+Animancer Events 默认使用无参数回调，但支持通过 AnimancerEvent.Parameter 系统传递参数值给事件回调。
+🎯 核心特性
+
+&ldquo;事件回调默认为无参数，但可以通过设置 AnimancerEvent.Parameter 选项来传递参数值&rdquo;
+
+
+核心概念
+📦 参数系统架构
+
+
+1
+2
+3
+4
+5
+6
+7
+
+
+AnimancerEvent
+    ├── 无参数回调 (默认)
+    │   └── Action callback
+    │
+    └── 带参数回调
+            ├── AnimancerEvent.Parameter&lt;T&gt; (引用类型)
+            └── AnimancerEvent.ParameterBoxed&lt;T&gt; (值类型)
+
+
+🔍 参数类型分类
+
+  
+      
+          参数类型
+          基类
+          适用于
+          示例
+      
+  
+  
+      
+          引用类型
+          AnimancerEvent.Parameter&lt;T&gt;
+          class
+          AudioSource, GameObject
+      
+      
+          值类型
+          AnimancerEvent.ParameterBoxed&lt;T&gt;
+          struct, enum
+          Vector3, int, SoundType
+      
+  
+
+
+使用带参数的回调
+🎯 基础语法
+使用泛型方法注册带参数的回调：">
+<meta name="author" content="mickorz">
+<link rel="canonical" href="http://localhost:1313/NewskyGameBlog/animancer/event/animancer_eventsparameters%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+<link crossorigin="anonymous" href="/NewskyGameBlog/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/NewskyGameBlog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/NewskyGameBlog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/NewskyGameBlog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/NewskyGameBlog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/NewskyGameBlog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/NewskyGameBlog/animancer/event/animancer_eventsparameters%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/NewskyGameBlog/animancer/event/animancer_eventsparameters%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Newsky Game Blog">
+  <meta property="og:description" content="Animancer Events - Parameters 官方文档 📋 目录 概述 核心概念 使用带参数的回调 内置参数类型 自定义参数类型 代码示例 最佳实践 FAQ常见问题 参考资料 概述 Animancer Events 默认使用无参数回调，但支持通过 AnimancerEvent.Parameter 系统传递参数值给事件回调。
+🎯 核心特性 “事件回调默认为无参数，但可以通过设置 AnimancerEvent.Parameter 选项来传递参数值”
+核心概念 📦 参数系统架构 1 2 3 4 5 6 7 AnimancerEvent ├── 无参数回调 (默认) │ └── Action callback │ └── 带参数回调 ├── AnimancerEvent.Parameter&lt;T&gt; (引用类型) └── AnimancerEvent.ParameterBoxed&lt;T&gt; (值类型) 🔍 参数类型分类 参数类型 基类 适用于 示例 引用类型 AnimancerEvent.Parameter&lt;T&gt; class AudioSource, GameObject 值类型 AnimancerEvent.ParameterBoxed&lt;T&gt; struct, enum Vector3, int, SoundType 使用带参数的回调 🎯 基础语法 使用泛型方法注册带参数的回调：">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="animancer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="Animancer Events - Parameters 官方文档
+📋 目录
+
+概述
+核心概念
+使用带参数的回调
+内置参数类型
+自定义参数类型
+代码示例
+最佳实践
+FAQ常见问题
+参考资料
+
+
+概述
+Animancer Events 默认使用无参数回调，但支持通过 AnimancerEvent.Parameter 系统传递参数值给事件回调。
+🎯 核心特性
+
+&ldquo;事件回调默认为无参数，但可以通过设置 AnimancerEvent.Parameter 选项来传递参数值&rdquo;
+
+
+核心概念
+📦 参数系统架构
+
+
+1
+2
+3
+4
+5
+6
+7
+
+
+AnimancerEvent
+    ├── 无参数回调 (默认)
+    │   └── Action callback
+    │
+    └── 带参数回调
+            ├── AnimancerEvent.Parameter&lt;T&gt; (引用类型)
+            └── AnimancerEvent.ParameterBoxed&lt;T&gt; (值类型)
+
+
+🔍 参数类型分类
+
+  
+      
+          参数类型
+          基类
+          适用于
+          示例
+      
+  
+  
+      
+          引用类型
+          AnimancerEvent.Parameter&lt;T&gt;
+          class
+          AudioSource, GameObject
+      
+      
+          值类型
+          AnimancerEvent.ParameterBoxed&lt;T&gt;
+          struct, enum
+          Vector3, int, SoundType
+      
+  
+
+
+使用带参数的回调
+🎯 基础语法
+使用泛型方法注册带参数的回调：">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "http://localhost:1313/NewskyGameBlog/animancer/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/NewskyGameBlog/animancer/event/animancer_eventsparameters%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Animancer Events - Parameters 官方文档 📋 目录 概述 核心概念 使用带参数的回调 内置参数类型 自定义参数类型 代码示例 最佳实践 FAQ常见问题 参考资料 概述 Animancer Events 默认使用无参数回调，但支持通过 AnimancerEvent.Parameter 系统传递参数值给事件回调。\n🎯 核心特性 \u0026ldquo;事件回调默认为无参数，但可以通过设置 AnimancerEvent.Parameter 选项来传递参数值\u0026rdquo;\n核心概念 📦 参数系统架构 1 2 3 4 5 6 7 AnimancerEvent ├── 无参数回调 (默认) │ └── Action callback │ └── 带参数回调 ├── AnimancerEvent.Parameter\u0026lt;T\u0026gt; (引用类型) └── AnimancerEvent.ParameterBoxed\u0026lt;T\u0026gt; (值类型) 🔍 参数类型分类 参数类型 基类 适用于 示例 引用类型 AnimancerEvent.Parameter\u0026lt;T\u0026gt; class AudioSource, GameObject 值类型 AnimancerEvent.ParameterBoxed\u0026lt;T\u0026gt; struct, enum Vector3, int, SoundType 使用带参数的回调 🎯 基础语法 使用泛型方法注册带参数的回调：\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Animancer Events - Parameters 官方文档 📋 目录 概述 核心概念 使用带参数的回调 内置参数类型 自定义参数类型 代码示例 最佳实践 FAQ常见问题 参考资料 概述 Animancer Events 默认使用无参数回调，但支持通过 AnimancerEvent.Parameter 系统传递参数值给事件回调。\n🎯 核心特性 “事件回调默认为无参数，但可以通过设置 AnimancerEvent.Parameter 选项来传递参数值”\n核心概念 📦 参数系统架构 1 2 3 4 5 6 7 AnimancerEvent ├── 无参数回调 (默认) │ └── Action callback │ └── 带参数回调 ├── AnimancerEvent.Parameter (引用类型) └── AnimancerEvent.ParameterBoxed (值类型) 🔍 参数类型分类 参数类型 基类 适用于 示例 引用类型 AnimancerEvent.Parameter class AudioSource, GameObject 值类型 AnimancerEvent.ParameterBoxed struct, enum Vector3, int, SoundType 使用带参数的回调 🎯 基础语法 使用泛型方法注册带参数的回调：\n1 2 3 // 泛型语法指定参数类型 _Animancer.Events.AddTo\u003cAudioSource\u003e(_EventName, PlaySound); _Animation.Events.AddCallback\u003cAudioSource\u003e(_EventName, PlaySound); 📚 三种配置方式 所有三种事件配置方式都支持参数：\n1. Central Events（中央事件） 1 2 3 4 5 6 7 8 9 10 void Awake() { // 注册带参数的全局事件 _Animancer.Events.AddTo\u003cAudioSource\u003e(\"PlaySound\", PlaySound); } void PlaySound(AudioSource audioSource) { audioSource.Play(); } 2. Transition Events（Transition事件） 1 2 3 4 5 6 7 8 9 10 void Start() { // 为Transition注册带参数回调 _AttackTransition.Events.AddCallback\u003cint\u003e(\"Hit\", OnHit); } void OnHit(int damage) { Debug.Log($\"造成 {damage} 点伤害\"); } 3. State Events（状态事件） 1 2 3 4 5 6 7 8 9 10 11 12 void PerformAttack() { var state = _Animancer.Play(_AttackClip); // 在状态上注册带参数回调 state.Events.AddCallback\u003cVector3\u003e(\"SpawnEffect\", SpawnEffect); } void SpawnEffect(Vector3 position) { Instantiate(_EffectPrefab, position, Quaternion.identity); } 内置参数类型 Animancer 内置支持常见参数类型：\n📝 常用类型 1 2 3 4 5 6 7 8 9 10 11 12 13 // Unity常用类型（引用类型） AudioSource GameObject Transform ParticleSystem AudioClip // 值类型 int float bool Vector3 Quaternion 📊 使用示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 using Animancer; using UnityEngine; public class BuiltInParameterExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; void Awake() { // AudioSource参数 _Animancer.Events.AddTo\u003cAudioSource\u003e(\"PlaySound\", PlaySound); // int参数 _Animancer.Events.AddTo\u003cint\u003e(\"Damage\", ApplyDamage); // Vector3参数 _Animancer.Events.AddTo\u003cVector3\u003e(\"SpawnAt\", SpawnEffect); // bool参数 _Animancer.Events.AddTo\u003cbool\u003e(\"SetActive\", SetWeaponActive); } void PlaySound(AudioSource source) =\u003e source.Play(); void ApplyDamage(int damage) =\u003e Debug.Log($\"伤害: {damage}\"); void SpawnEffect(Vector3 pos) =\u003e Debug.Log($\"生成特效 @ {pos}\"); void SetWeaponActive(bool active) =\u003e Debug.Log($\"武器激活: {active}\"); } 自定义参数类型 🎨 创建自定义参数类型 根据类型分类选择基类：\n引用类型（class） 1 2 3 4 [System.Serializable] public class ParameterAudioSource : Animancer.AnimancerEvent.Parameter\u003cAudioSource\u003e { } 值类型（struct/enum） 1 2 3 4 5 6 7 8 9 [System.Serializable] public class ParameterVector3 : Animancer.AnimancerEvent.ParameterBoxed\u003cVector3\u003e { } [System.Serializable] public class ParameterSoundType : Animancer.AnimancerEvent.ParameterBoxed\u003cSoundType\u003e { } 📚 完整示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 using Animancer; using UnityEngine; // 定义枚举 public enum SoundType { Footstep, Jump, Land, Attack } // 创建参数类型 [System.Serializable] public class ParameterSoundType : AnimancerEvent.ParameterBoxed\u003cSoundType\u003e { } /// /// 自定义参数类型示例 /// public class CustomParameterExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [SerializeField] private ClipTransition _WalkTransition; void Awake() { // 注册带自定义参数的事件 _Animancer.Events.AddTo\u003cSoundType\u003e(\"PlaySound\", PlaySound); } void PlaySound(SoundType soundType) { Debug.Log($\"播放音效: {soundType}\"); switch (soundType) { case SoundType.Footstep: // 播放脚步声 break; case SoundType.Jump: // 播放跳跃音效 break; // ... } } } 🔧 高级：实现 IInvokable 接口 对于更复杂的需求，可以直接实现 IInvokable 接口：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 using Animancer; using UnityEngine; /// /// 自定义可调用事件 /// [System.Serializable] public class CustomInvokable : IInvokable { public string EventName; public int Damage; public float Multiplier; public void Invoke(AnimancerState state) { Debug.Log($\"事件: {EventName}\"); Debug.Log($\"伤害: {Damage * Multiplier}\"); } } 代码示例 示例1：Footstep Events（脚步声事件） 官方示例：“Footstep Events示例演示了如何用参数区分左右脚事件”\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 using Animancer; using UnityEngine; // 定义脚步类型枚举 public enum FootType { Left, Right } // 创建参数类型 [System.Serializable] public class ParameterFootType : AnimancerEvent.ParameterBoxed\u003cFootType\u003e { } /// /// 脚步声事件参数示例 /// 使用参数区分左右脚，避免创建重复的事件名称 /// public class FootstepEventsExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [SerializeField] private ClipTransition _WalkTransition; [Header(\"音效\")] [SerializeField] private AudioSource _AudioSource; [SerializeField] private AudioClip[] _LeftFootSounds; [SerializeField] private AudioClip[] _RightFootSounds; [Header(\"粒子特效\")] [SerializeField] private ParticleSystem _DustEffect; [SerializeField] private Transform _LeftFoot; [SerializeField] private Transform _RightFoot; void Awake() { // 注册单个事件名，使用参数区分左右脚 _Animancer.Events.AddTo\u003cFootType\u003e(\"Footstep\", OnFootstep); } void OnFootstep(FootType footType) { // 根据脚步类型播放不同音效 AudioClip[] sounds = footType == FootType.Left ? _LeftFootSounds : _RightFootSounds; if (sounds.Length \u003e 0) { var clip = sounds[Random.Range(0, sounds.Length)]; _AudioSource.PlayOneShot(clip); } // 在对应脚的位置生成粉尘特效 Transform foot = footType == FootType.Left ? _LeftFoot : _RightFoot; _DustEffect.transform.position = foot.position; _DustEffect.Play(); Debug.Log($\"{footType}脚触地\"); } } /* Inspector配置（在_WalkTransition中）： - Event 1: Time=0.3, Name=\"Footstep\", Parameter=FootType.Left - Event 2: Time=0.7, Name=\"Footstep\", Parameter=FootType.Right */ 示例2：武器系统参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 using Animancer; using UnityEngine; // 武器配置 [System.Serializable] public class WeaponConfig { public string Name; public int Damage; public float Range; public ParticleSystem HitEffect; } // 参数类型 [System.Serializable] public class ParameterWeaponConfig : AnimancerEvent.Parameter\u003cWeaponConfig\u003e { } /// /// 武器系统参数示例 /// 使用参数传递武器配置 /// public class WeaponSystemExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [Header(\"武器配置\")] [SerializeField] private WeaponConfig _SwordConfig; [SerializeField] private WeaponConfig _AxeConfig; [SerializeField] private WeaponConfig _SpearConfig; void Awake() { // 注册带武器配置参数的事件 _Animancer.Events.AddTo\u003cWeaponConfig\u003e(\"Attack\", OnAttack); } void OnAttack(WeaponConfig weapon) { Debug.Log($\"攻击: {weapon.Name}\"); Debug.Log($\"伤害: {weapon.Damage}\"); Debug.Log($\"范围: {weapon.Range}\"); // 检测命中 CheckHit(weapon); // 播放特效 if (weapon.HitEffect != null) { weapon.HitEffect.Play(); } } void CheckHit(WeaponConfig weapon) { Collider[] hits = Physics.OverlapSphere( transform.position, weapon.Range ); foreach (var hit in hits) { if (hit.CompareTag(\"Enemy\")) { hit.GetComponent\u003cEnemy\u003e()?.TakeDamage(weapon.Damage); } } } } public class Enemy : MonoBehaviour { public void TakeDamage(int damage) { } } 示例3：技能特效参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 using Animancer; using UnityEngine; // 特效配置 [System.Serializable] public class EffectConfig { public GameObject EffectPrefab; public Vector3 LocalOffset; public float Lifetime = 2f; public bool AttachToParent = false; } // 参数类型 [System.Serializable] public class ParameterEffectConfig : AnimancerEvent.Parameter\u003cEffectConfig\u003e { } /// /// 技能特效参数示例 /// 使用参数配置特效生成 /// public class SkillEffectExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [SerializeField] private ClipTransition _FireballSkill; [SerializeField] private ClipTransition _IceSpellSkill; [Header(\"特效配置\")] [SerializeField] private EffectConfig _FireballEffect; [SerializeField] private EffectConfig _IceEffect; [SerializeField] private Transform _CastPoint; void Awake() { // 注册特效生成事件 _Animancer.Events.AddTo\u003cEffectConfig\u003e(\"SpawnEffect\", SpawnEffect); } void SpawnEffect(EffectConfig config) { if (config.EffectPrefab == null) return; // 计算生成位置 Vector3 spawnPos = _CastPoint.position + _CastPoint.TransformDirection(config.LocalOffset); // 生成特效 GameObject effect = Instantiate( config.EffectPrefab, spawnPos, _CastPoint.rotation ); // 是否附加到父物体 if (config.AttachToParent) { effect.transform.SetParent(_CastPoint); } // 设置生命周期 Destroy(effect, config.Lifetime); Debug.Log($\"生成特效: {config.EffectPrefab.name}\"); } void Update() { if (Input.GetKeyDown(KeyCode.Alpha1)) { _Animancer.Play(_FireballSkill); } else if (Input.GetKeyDown(KeyCode.Alpha2)) { _Animancer.Play(_IceSpellSkill); } } } /* Inspector配置： - FireballSkill: Event=\"SpawnEffect\", Parameter=_FireballEffect @ 0.6 - IceSpellSkill: Event=\"SpawnEffect\", Parameter=_IceEffect @ 0.5 */ 示例4：多参数组合 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 using Animancer; using UnityEngine; // 复合参数配置 [System.Serializable] public class AttackData { public int Damage; public float KnockbackForce; public Vector3 HitDirection; public AudioClip HitSound; public ParticleSystem HitEffect; } // 参数类型 [System.Serializable] public class ParameterAttackData : AnimancerEvent.Parameter\u003cAttackData\u003e { } /// /// 多参数组合示例 /// 使用复合参数传递多个配置 /// public class MultiParameterExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [Header(\"攻击配置\")] [SerializeField] private AttackData _LightAttackData; [SerializeField] private AttackData _HeavyAttackData; [SerializeField] private AttackData _SpecialAttackData; [SerializeField] private AudioSource _AudioSource; void Awake() { // 注册复合参数事件 _Animancer.Events.AddTo\u003cAttackData\u003e(\"ExecuteAttack\", ExecuteAttack); } void ExecuteAttack(AttackData data) { Debug.Log($\"执行攻击:\"); Debug.Log($\"- 伤害: {data.Damage}\"); Debug.Log($\"- 击退: {data.KnockbackForce}\"); Debug.Log($\"- 方向: {data.HitDirection}\"); // 播放音效 if (data.HitSound != null) { _AudioSource.PlayOneShot(data.HitSound); } // 播放特效 if (data.HitEffect != null) { data.HitEffect.Play(); } // 执行攻击逻辑 PerformAttackLogic(data); } void PerformAttackLogic(AttackData data) { // 检测敌人 Collider[] enemies = Physics.OverlapSphere(transform.position, 2f); foreach (var enemy in enemies) { if (enemy.CompareTag(\"Enemy\")) { // 造成伤害 enemy.GetComponent\u003cEnemy\u003e()?.TakeDamage(data.Damage); // 应用击退 Rigidbody rb = enemy.GetComponent\u003cRigidbody\u003e(); if (rb != null) { rb.AddForce(data.HitDirection * data.KnockbackForce, ForceMode.Impulse); } } } } } 最佳实践 ✅ DO（推荐做法） 使用参数避免重复事件名 1 2 3 4 5 6 // ✅ 好：单个事件名，用参数区分 _Animancer.Events.AddTo\u003cFootType\u003e(\"Footstep\", OnFootstep); // ❌ 差：多个事件名 _Animancer.Events.Add(\"FootstepLeft\", OnFootstepLeft); _Animancer.Events.Add(\"FootstepRight\", OnFootstepRight); 为值类型使用 ParameterBoxed 1 2 3 4 // ✅ 好：值类型使用ParameterBoxed [System.Serializable] public class ParameterVector3 : AnimancerEvent.ParameterBoxed\u003cVector3\u003e { } 为引用类型使用 Parameter 1 2 3 4 // ✅ 好：引用类型使用Parameter [System.Serializable] public class ParameterAudioSource : AnimancerEvent.Parameter\u003cAudioSource\u003e { } 使用配置对象传递多个参数 1 2 3 4 5 6 7 // ✅ 好：封装配置 public class AttackConfig { public int Damage; public float Range; public AudioClip Sound; } ❌ DON’T（避免做法） 不要为每个参数值创建事件名 1 2 // ❌ 差：难以维护 \"FootstepLeft\", \"FootstepRight\", \"FootstepLeftHeavy\", ... 不要混淆参数类型基类 1 2 3 // ❌ 差：Vector3是值类型，应该用ParameterBoxed public class ParameterVector3 : AnimancerEvent.Parameter\u003cVector3\u003e { } // 错误！ 不要在参数中存储状态 1 2 3 4 5 // ❌ 差：参数应该是数据，不是状态 public class BadParameter { public bool hasTriggered; // 不应该有状态 } FAQ常见问题 Q1: 什么时候应该使用参数？ A:\n场景 是否使用参数 多个事件只是参数不同 ✅ 使用 需要传递配置数据 ✅ 使用 事件逻辑完全不同 ❌ 不使用，分开事件 简单的无数据事件 ❌ 不使用 Q2: Parameter 和 ParameterBoxed 有什么区别？ A:\n1 2 3 4 5 6 7 // Parameter: 用于引用类型（class） public class ParameterAudioSource : AnimancerEvent.Parameter\u003cAudioSource\u003e { } // ParameterBoxed: 用于值类型（struct, enum） public class ParameterVector3 : AnimancerEvent.ParameterBoxed\u003cVector3\u003e { } Q3: 如何在Inspector中设置参数值？ A: 创建参数类型后，会自动在Inspector的事件面板中显示参数字段：\n1 2 3 4 5 Event: ├─ Name: \"Footstep\" ├─ Time: 0.3 └─ Parameter: [FootType Dropdown] └─ Left / Right Q4: 可以传递多个参数吗？ A: 不能直接传递多个参数，但可以封装为配置对象：\n1 2 3 4 5 6 7 8 9 // ✅ 好：封装多个参数 public class EventData { public int Param1; public string Param2; public Vector3 Param3; } _Animancer.Events.AddTo\u003cEventData\u003e(\"Event\", OnEvent); Q5: 参数类型必须标记为 [Serializable] 吗？ A: 如果需要在Inspector中配置，必须标记：\n1 2 3 4 5 6 7 8 // ✅ 好：可以在Inspector中配置 [System.Serializable] public class ParameterData : AnimancerEvent.Parameter\u003cMyData\u003e { } // ❌ 差：无法在Inspector中配置 public class ParameterData : AnimancerEvent.Parameter\u003cMyData\u003e { } 参考资料 📚 相关文档 Animancer Events - Usage Animancer Events - Behaviour Footstep Events 示例 🔗 API 参考 AnimancerEvent.Parameter AnimancerEvent.ParameterBoxed IInvokable 接口 文档版本: 1.0 最后更新: 2025-12-25 适用 Animancer 版本: 8.0+（需要 Pro 版本）\n",
+  "wordCount" : "1752",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mickorz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/NewskyGameBlog/animancer/event/animancer_eventsparameters%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Newsky Game Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/NewskyGameBlog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/NewskyGameBlog/" accesskey="h" title="Newsky Game Blog (Alt + H)">Newsky Game Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/animancer/" title="📚 Animancer 中文文档">
+                    <span>📚 Animancer 中文文档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/posts/" title="所有文章">
+                    <span>所有文章</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/NewskyGameBlog/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/NewskyGameBlog/animancer/"></a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta"><span>9 min</span>&nbsp;·&nbsp;<span>mickorz</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#animancer-events---parameters-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3" aria-label="Animancer Events - Parameters 官方文档">Animancer Events - Parameters 官方文档</a><ul>
+                        
+                <li>
+                    <a href="#-%e7%9b%ae%e5%bd%95" aria-label="📋 目录">📋 目录</a></li>
+                <li>
+                    <a href="#%e6%a6%82%e8%bf%b0" aria-label="概述">概述</a><ul>
+                        
+                <li>
+                    <a href="#-%e6%a0%b8%e5%bf%83%e7%89%b9%e6%80%a7" aria-label="🎯 核心特性">🎯 核心特性</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5" aria-label="核心概念">核心概念</a><ul>
+                        
+                <li>
+                    <a href="#-%e5%8f%82%e6%95%b0%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84" aria-label="📦 参数系统架构">📦 参数系统架构</a></li>
+                <li>
+                    <a href="#-%e5%8f%82%e6%95%b0%e7%b1%bb%e5%9e%8b%e5%88%86%e7%b1%bb" aria-label="🔍 参数类型分类">🔍 参数类型分类</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e5%b8%a6%e5%8f%82%e6%95%b0%e7%9a%84%e5%9b%9e%e8%b0%83" aria-label="使用带参数的回调">使用带参数的回调</a><ul>
+                        
+                <li>
+                    <a href="#-%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95" aria-label="🎯 基础语法">🎯 基础语法</a></li>
+                <li>
+                    <a href="#-%e4%b8%89%e7%a7%8d%e9%85%8d%e7%bd%ae%e6%96%b9%e5%bc%8f" aria-label="📚 三种配置方式">📚 三种配置方式</a><ul>
+                        
+                <li>
+                    <a href="#1-central-events%e4%b8%ad%e5%a4%ae%e4%ba%8b%e4%bb%b6" aria-label="1. Central Events（中央事件）">1. Central Events（中央事件）</a></li>
+                <li>
+                    <a href="#2-transition-eventstransition%e4%ba%8b%e4%bb%b6" aria-label="2. Transition Events（Transition事件）">2. Transition Events（Transition事件）</a></li>
+                <li>
+                    <a href="#3-state-events%e7%8a%b6%e6%80%81%e4%ba%8b%e4%bb%b6" aria-label="3. State Events（状态事件）">3. State Events（状态事件）</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%86%85%e7%bd%ae%e5%8f%82%e6%95%b0%e7%b1%bb%e5%9e%8b" aria-label="内置参数类型">内置参数类型</a><ul>
+                        
+                <li>
+                    <a href="#-%e5%b8%b8%e7%94%a8%e7%b1%bb%e5%9e%8b" aria-label="📝 常用类型">📝 常用类型</a></li>
+                <li>
+                    <a href="#-%e4%bd%bf%e7%94%a8%e7%a4%ba%e4%be%8b" aria-label="📊 使用示例">📊 使用示例</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%8f%82%e6%95%b0%e7%b1%bb%e5%9e%8b" aria-label="自定义参数类型">自定义参数类型</a><ul>
+                        
+                <li>
+                    <a href="#-%e5%88%9b%e5%bb%ba%e8%87%aa%e5%ae%9a%e4%b9%89%e5%8f%82%e6%95%b0%e7%b1%bb%e5%9e%8b" aria-label="🎨 创建自定义参数类型">🎨 创建自定义参数类型</a><ul>
+                        
+                <li>
+                    <a href="#%e5%bc%95%e7%94%a8%e7%b1%bb%e5%9e%8bclass" aria-label="引用类型（class）">引用类型（class）</a></li>
+                <li>
+                    <a href="#%e5%80%bc%e7%b1%bb%e5%9e%8bstructenum" aria-label="值类型（struct/enum）">值类型（struct/enum）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-%e5%ae%8c%e6%95%b4%e7%a4%ba%e4%be%8b" aria-label="📚 完整示例">📚 完整示例</a></li>
+                <li>
+                    <a href="#-%e9%ab%98%e7%ba%a7%e5%ae%9e%e7%8e%b0-iinvokable-%e6%8e%a5%e5%8f%a3" aria-label="🔧 高级：实现 IInvokable 接口">🔧 高级：实现 IInvokable 接口</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b" aria-label="代码示例">代码示例</a><ul>
+                        
+                <li>
+                    <a href="#%e7%a4%ba%e4%be%8b1footstep-events%e8%84%9a%e6%ad%a5%e5%a3%b0%e4%ba%8b%e4%bb%b6" aria-label="示例1：Footstep Events（脚步声事件）">示例1：Footstep Events（脚步声事件）</a></li>
+                <li>
+                    <a href="#%e7%a4%ba%e4%be%8b2%e6%ad%a6%e5%99%a8%e7%b3%bb%e7%bb%9f%e5%8f%82%e6%95%b0" aria-label="示例2：武器系统参数">示例2：武器系统参数</a></li>
+                <li>
+                    <a href="#%e7%a4%ba%e4%be%8b3%e6%8a%80%e8%83%bd%e7%89%b9%e6%95%88%e5%8f%82%e6%95%b0" aria-label="示例3：技能特效参数">示例3：技能特效参数</a></li>
+                <li>
+                    <a href="#%e7%a4%ba%e4%be%8b4%e5%a4%9a%e5%8f%82%e6%95%b0%e7%bb%84%e5%90%88" aria-label="示例4：多参数组合">示例4：多参数组合</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" aria-label="最佳实践">最佳实践</a><ul>
+                        
+                <li>
+                    <a href="#-do%e6%8e%a8%e8%8d%90%e5%81%9a%e6%b3%95" aria-label="✅ DO（推荐做法）">✅ DO（推荐做法）</a></li>
+                <li>
+                    <a href="#-dont%e9%81%bf%e5%85%8d%e5%81%9a%e6%b3%95" aria-label="❌ DON&rsquo;T（避免做法）">❌ DON&rsquo;T（避免做法）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#faq%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" aria-label="FAQ常见问题">FAQ常见问题</a><ul>
+                        
+                <li>
+                    <a href="#q1-%e4%bb%80%e4%b9%88%e6%97%b6%e5%80%99%e5%ba%94%e8%af%a5%e4%bd%bf%e7%94%a8%e5%8f%82%e6%95%b0" aria-label="Q1: 什么时候应该使用参数？">Q1: 什么时候应该使用参数？</a></li>
+                <li>
+                    <a href="#q2-parameter-%e5%92%8c-parameterboxed-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="Q2: Parameter 和 ParameterBoxed 有什么区别？">Q2: Parameter 和 ParameterBoxed 有什么区别？</a></li>
+                <li>
+                    <a href="#q3-%e5%a6%82%e4%bd%95%e5%9c%a8inspector%e4%b8%ad%e8%ae%be%e7%bd%ae%e5%8f%82%e6%95%b0%e5%80%bc" aria-label="Q3: 如何在Inspector中设置参数值？">Q3: 如何在Inspector中设置参数值？</a></li>
+                <li>
+                    <a href="#q4-%e5%8f%af%e4%bb%a5%e4%bc%a0%e9%80%92%e5%a4%9a%e4%b8%aa%e5%8f%82%e6%95%b0%e5%90%97" aria-label="Q4: 可以传递多个参数吗？">Q4: 可以传递多个参数吗？</a></li>
+                <li>
+                    <a href="#q5-%e5%8f%82%e6%95%b0%e7%b1%bb%e5%9e%8b%e5%bf%85%e9%a1%bb%e6%a0%87%e8%ae%b0%e4%b8%ba-serializable-%e5%90%97" aria-label="Q5: 参数类型必须标记为 [Serializable] 吗？">Q5: 参数类型必须标记为 [Serializable] 吗？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" aria-label="参考资料">参考资料</a><ul>
+                        
+                <li>
+                    <a href="#-%e7%9b%b8%e5%85%b3%e6%96%87%e6%a1%a3" aria-label="📚 相关文档">📚 相关文档</a></li>
+                <li>
+                    <a href="#-api-%e5%8f%82%e8%80%83" aria-label="🔗 API 参考">🔗 API 参考</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="animancer-events---parameters-官方文档">Animancer Events - Parameters 官方文档<a hidden class="anchor" aria-hidden="true" href="#animancer-events---parameters-官方文档">#</a></h1>
+<h2 id="-目录">📋 目录<a hidden class="anchor" aria-hidden="true" href="#-目录">#</a></h2>
+<ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>
+<li><a href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">核心概念</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E5%9B%9E%E8%B0%83">使用带参数的回调</a></li>
+<li><a href="#%E5%86%85%E7%BD%AE%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B">内置参数类型</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B">自定义参数类型</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">代码示例</a></li>
+<li><a href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">最佳实践</a></li>
+<li><a href="#faq%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">FAQ常见问题</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<hr>
+<h2 id="概述">概述<a hidden class="anchor" aria-hidden="true" href="#概述">#</a></h2>
+<p>Animancer Events 默认使用无参数回调，但支持通过 <code>AnimancerEvent.Parameter</code> 系统传递参数值给事件回调。</p>
+<h3 id="-核心特性">🎯 核心特性<a hidden class="anchor" aria-hidden="true" href="#-核心特性">#</a></h3>
+<blockquote>
+<p><strong>&ldquo;事件回调默认为无参数，但可以通过设置 AnimancerEvent.Parameter 选项来传递参数值&rdquo;</strong></p>
+</blockquote>
+<hr>
+<h2 id="核心概念">核心概念<a hidden class="anchor" aria-hidden="true" href="#核心概念">#</a></h2>
+<h3 id="-参数系统架构">📦 参数系统架构<a hidden class="anchor" aria-hidden="true" href="#-参数系统架构">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">AnimancerEvent
+</span></span><span class="line"><span class="cl">    ├── 无参数回调 (默认)
+</span></span><span class="line"><span class="cl">    │   └── Action callback
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    └── 带参数回调
+</span></span><span class="line"><span class="cl">            ├── AnimancerEvent.Parameter&lt;T&gt; (引用类型)
+</span></span><span class="line"><span class="cl">            └── AnimancerEvent.ParameterBoxed&lt;T&gt; (值类型)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="-参数类型分类">🔍 参数类型分类<a hidden class="anchor" aria-hidden="true" href="#-参数类型分类">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>参数类型</th>
+          <th>基类</th>
+          <th>适用于</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>引用类型</strong></td>
+          <td><code>AnimancerEvent.Parameter&lt;T&gt;</code></td>
+          <td>class</td>
+          <td>AudioSource, GameObject</td>
+      </tr>
+      <tr>
+          <td><strong>值类型</strong></td>
+          <td><code>AnimancerEvent.ParameterBoxed&lt;T&gt;</code></td>
+          <td>struct, enum</td>
+          <td>Vector3, int, SoundType</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="使用带参数的回调">使用带参数的回调<a hidden class="anchor" aria-hidden="true" href="#使用带参数的回调">#</a></h2>
+<h3 id="-基础语法">🎯 基础语法<a hidden class="anchor" aria-hidden="true" href="#-基础语法">#</a></h3>
+<p>使用泛型方法注册带参数的回调：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 泛型语法指定参数类型</span>
+</span></span><span class="line"><span class="cl"><span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">AudioSource</span><span class="p">&gt;(</span><span class="n">_EventName</span><span class="p">,</span> <span class="n">PlaySound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">_Animation</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddCallback</span><span class="p">&lt;</span><span class="n">AudioSource</span><span class="p">&gt;(</span><span class="n">_EventName</span><span class="p">,</span> <span class="n">PlaySound</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="-三种配置方式">📚 三种配置方式<a hidden class="anchor" aria-hidden="true" href="#-三种配置方式">#</a></h3>
+<p>所有三种事件配置方式都支持参数：</p>
+<h4 id="1-central-events中央事件">1. Central Events（中央事件）<a hidden class="anchor" aria-hidden="true" href="#1-central-events中央事件">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 注册带参数的全局事件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">AudioSource</span><span class="p">&gt;(</span><span class="s">&#34;PlaySound&#34;</span><span class="p">,</span> <span class="n">PlaySound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">AudioSource</span> <span class="n">audioSource</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">audioSource</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2-transition-eventstransition事件">2. Transition Events（Transition事件）<a hidden class="anchor" aria-hidden="true" href="#2-transition-eventstransition事件">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 为Transition注册带参数回调</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_AttackTransition</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddCallback</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="s">&#34;Hit&#34;</span><span class="p">,</span> <span class="n">OnHit</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">OnHit</span><span class="p">(</span><span class="kt">int</span> <span class="n">damage</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;造成 {damage} 点伤害&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3-state-events状态事件">3. State Events（状态事件）<a hidden class="anchor" aria-hidden="true" href="#3-state-events状态事件">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">PerformAttack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">state</span> <span class="p">=</span> <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AttackClip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在状态上注册带参数回调</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddCallback</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;(</span><span class="s">&#34;SpawnEffect&#34;</span><span class="p">,</span> <span class="n">SpawnEffect</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">SpawnEffect</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">position</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Instantiate</span><span class="p">(</span><span class="n">_EffectPrefab</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">identity</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="内置参数类型">内置参数类型<a hidden class="anchor" aria-hidden="true" href="#内置参数类型">#</a></h2>
+<p>Animancer 内置支持常见参数类型：</p>
+<h3 id="-常用类型">📝 常用类型<a hidden class="anchor" aria-hidden="true" href="#-常用类型">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Unity常用类型（引用类型）</span>
+</span></span><span class="line"><span class="cl"><span class="n">AudioSource</span>
+</span></span><span class="line"><span class="cl"><span class="n">GameObject</span>
+</span></span><span class="line"><span class="cl"><span class="n">Transform</span>
+</span></span><span class="line"><span class="cl"><span class="n">ParticleSystem</span>
+</span></span><span class="line"><span class="cl"><span class="n">AudioClip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 值类型</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span>
+</span></span><span class="line"><span class="cl"><span class="n">Quaternion</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="-使用示例">📊 使用示例<a hidden class="anchor" aria-hidden="true" href="#-使用示例">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">BuiltInParameterExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// AudioSource参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">AudioSource</span><span class="p">&gt;(</span><span class="s">&#34;PlaySound&#34;</span><span class="p">,</span> <span class="n">PlaySound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// int参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="s">&#34;Damage&#34;</span><span class="p">,</span> <span class="n">ApplyDamage</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// Vector3参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;(</span><span class="s">&#34;SpawnAt&#34;</span><span class="p">,</span> <span class="n">SpawnEffect</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// bool参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;(</span><span class="s">&#34;SetActive&#34;</span><span class="p">,</span> <span class="n">SetWeaponActive</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">AudioSource</span> <span class="n">source</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">source</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">ApplyDamage</span><span class="p">(</span><span class="kt">int</span> <span class="n">damage</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;伤害: {damage}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">SpawnEffect</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">pos</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;生成特效 @ {pos}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">SetWeaponActive</span><span class="p">(</span><span class="kt">bool</span> <span class="n">active</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;武器激活: {active}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="自定义参数类型">自定义参数类型<a hidden class="anchor" aria-hidden="true" href="#自定义参数类型">#</a></h2>
+<h3 id="-创建自定义参数类型">🎨 创建自定义参数类型<a hidden class="anchor" aria-hidden="true" href="#-创建自定义参数类型">#</a></h3>
+<p>根据类型分类选择基类：</p>
+<h4 id="引用类型class">引用类型（class）<a hidden class="anchor" aria-hidden="true" href="#引用类型class">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterAudioSource</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Animancer</span><span class="p">.</span><span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">AudioSource</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="值类型structenum">值类型（struct/enum）<a hidden class="anchor" aria-hidden="true" href="#值类型structenum">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterVector3</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Animancer</span><span class="p">.</span><span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">ParameterBoxed</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterSoundType</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Animancer</span><span class="p">.</span><span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">ParameterBoxed</span><span class="p">&lt;</span><span class="n">SoundType</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="-完整示例">📚 完整示例<a hidden class="anchor" aria-hidden="true" href="#-完整示例">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义枚举</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">SoundType</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Footstep</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Jump</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Land</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Attack</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 创建参数类型</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterSoundType</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">ParameterBoxed</span><span class="p">&lt;</span><span class="n">SoundType</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 自定义参数类型示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">CustomParameterExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_WalkTransition</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注册带自定义参数的事件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">SoundType</span><span class="p">&gt;(</span><span class="s">&#34;PlaySound&#34;</span><span class="p">,</span> <span class="n">PlaySound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">SoundType</span> <span class="n">soundType</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;播放音效: {soundType}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">soundType</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">SoundType</span><span class="p">.</span><span class="n">Footstep</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 播放脚步声</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">SoundType</span><span class="p">.</span><span class="n">Jump</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 播放跳跃音效</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// ...</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="-高级实现-iinvokable-接口">🔧 高级：实现 IInvokable 接口<a hidden class="anchor" aria-hidden="true" href="#-高级实现-iinvokable-接口">#</a></h3>
+<p>对于更复杂的需求，可以直接实现 <code>IInvokable</code> 接口：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 自定义可调用事件</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">CustomInvokable</span> <span class="p">:</span> <span class="n">IInvokable</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string</span> <span class="n">EventName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">Damage</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">float</span> <span class="n">Multiplier</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">Invoke</span><span class="p">(</span><span class="n">AnimancerState</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;事件: {EventName}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;伤害: {Damage * Multiplier}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="代码示例">代码示例<a hidden class="anchor" aria-hidden="true" href="#代码示例">#</a></h2>
+<h3 id="示例1footstep-events脚步声事件">示例1：Footstep Events（脚步声事件）<a hidden class="anchor" aria-hidden="true" href="#示例1footstep-events脚步声事件">#</a></h3>
+<blockquote>
+<p><strong>官方示例</strong>：&ldquo;Footstep Events示例演示了如何用参数区分左右脚事件&rdquo;</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义脚步类型枚举</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">FootType</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Left</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Right</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 创建参数类型</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterFootType</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">ParameterBoxed</span><span class="p">&lt;</span><span class="n">FootType</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 脚步声事件参数示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 使用参数区分左右脚，避免创建重复的事件名称</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">FootstepEventsExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_WalkTransition</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;音效&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AudioSource</span> <span class="n">_AudioSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AudioClip</span><span class="p">[]</span> <span class="n">_LeftFootSounds</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AudioClip</span><span class="p">[]</span> <span class="n">_RightFootSounds</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;粒子特效&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ParticleSystem</span> <span class="n">_DustEffect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">Transform</span> <span class="n">_LeftFoot</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">Transform</span> <span class="n">_RightFoot</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注册单个事件名，使用参数区分左右脚</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">FootType</span><span class="p">&gt;(</span><span class="s">&#34;Footstep&#34;</span><span class="p">,</span> <span class="n">OnFootstep</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnFootstep</span><span class="p">(</span><span class="n">FootType</span> <span class="n">footType</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 根据脚步类型播放不同音效</span>
+</span></span><span class="line"><span class="cl">        <span class="n">AudioClip</span><span class="p">[]</span> <span class="n">sounds</span> <span class="p">=</span> <span class="n">footType</span> <span class="p">==</span> <span class="n">FootType</span><span class="p">.</span><span class="n">Left</span>
+</span></span><span class="line"><span class="cl">            <span class="p">?</span> <span class="n">_LeftFootSounds</span>
+</span></span><span class="line"><span class="cl">            <span class="p">:</span> <span class="n">_RightFootSounds</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">sounds</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">clip</span> <span class="p">=</span> <span class="n">sounds</span><span class="p">[</span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">sounds</span><span class="p">.</span><span class="n">Length</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_AudioSource</span><span class="p">.</span><span class="n">PlayOneShot</span><span class="p">(</span><span class="n">clip</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 在对应脚的位置生成粉尘特效</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Transform</span> <span class="n">foot</span> <span class="p">=</span> <span class="n">footType</span> <span class="p">==</span> <span class="n">FootType</span><span class="p">.</span><span class="n">Left</span>
+</span></span><span class="line"><span class="cl">            <span class="p">?</span> <span class="n">_LeftFoot</span>
+</span></span><span class="line"><span class="cl">            <span class="p">:</span> <span class="n">_RightFoot</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">_DustEffect</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">foot</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_DustEffect</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;{footType}脚触地&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">Inspector配置（在_WalkTransition中）：
+</span></span></span><span class="line"><span class="cl"><span class="cm">- Event 1: Time=0.3, Name=&#34;Footstep&#34;, Parameter=FootType.Left
+</span></span></span><span class="line"><span class="cl"><span class="cm">- Event 2: Time=0.7, Name=&#34;Footstep&#34;, Parameter=FootType.Right
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="示例2武器系统参数">示例2：武器系统参数<a hidden class="anchor" aria-hidden="true" href="#示例2武器系统参数">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 武器配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">WeaponConfig</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">Damage</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">float</span> <span class="n">Range</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ParticleSystem</span> <span class="n">HitEffect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 参数类型</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterWeaponConfig</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">WeaponConfig</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 武器系统参数示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 使用参数传递武器配置</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">WeaponSystemExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;武器配置&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">WeaponConfig</span> <span class="n">_SwordConfig</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">WeaponConfig</span> <span class="n">_AxeConfig</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">WeaponConfig</span> <span class="n">_SpearConfig</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注册带武器配置参数的事件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">WeaponConfig</span><span class="p">&gt;(</span><span class="s">&#34;Attack&#34;</span><span class="p">,</span> <span class="n">OnAttack</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">OnAttack</span><span class="p">(</span><span class="n">WeaponConfig</span> <span class="n">weapon</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;攻击: {weapon.Name}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;伤害: {weapon.Damage}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;范围: {weapon.Range}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 检测命中</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CheckHit</span><span class="p">(</span><span class="n">weapon</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放特效</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">weapon</span><span class="p">.</span><span class="n">HitEffect</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">weapon</span><span class="p">.</span><span class="n">HitEffect</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">CheckHit</span><span class="p">(</span><span class="n">WeaponConfig</span> <span class="n">weapon</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Collider</span><span class="p">[]</span> <span class="n">hits</span> <span class="p">=</span> <span class="n">Physics</span><span class="p">.</span><span class="n">OverlapSphere</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">weapon</span><span class="p">.</span><span class="n">Range</span>
+</span></span><span class="line"><span class="cl">        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">hit</span> <span class="k">in</span> <span class="n">hits</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">hit</span><span class="p">.</span><span class="n">CompareTag</span><span class="p">(</span><span class="s">&#34;Enemy&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">hit</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Enemy</span><span class="p">&gt;()?.</span><span class="n">TakeDamage</span><span class="p">(</span><span class="n">weapon</span><span class="p">.</span><span class="n">Damage</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Enemy</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">TakeDamage</span><span class="p">(</span><span class="kt">int</span> <span class="n">damage</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="示例3技能特效参数">示例3：技能特效参数<a hidden class="anchor" aria-hidden="true" href="#示例3技能特效参数">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 特效配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">EffectConfig</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">GameObject</span> <span class="n">EffectPrefab</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Vector3</span> <span class="n">LocalOffset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">float</span> <span class="n">Lifetime</span> <span class="p">=</span> <span class="m">2f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">bool</span> <span class="n">AttachToParent</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 参数类型</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterEffectConfig</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">EffectConfig</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 技能特效参数示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 使用参数配置特效生成</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SkillEffectExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_FireballSkill</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransition</span> <span class="n">_IceSpellSkill</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;特效配置&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">EffectConfig</span> <span class="n">_FireballEffect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">EffectConfig</span> <span class="n">_IceEffect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">Transform</span> <span class="n">_CastPoint</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注册特效生成事件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">EffectConfig</span><span class="p">&gt;(</span><span class="s">&#34;SpawnEffect&#34;</span><span class="p">,</span> <span class="n">SpawnEffect</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">SpawnEffect</span><span class="p">(</span><span class="n">EffectConfig</span> <span class="n">config</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="n">EffectPrefab</span> <span class="p">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 计算生成位置</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Vector3</span> <span class="n">spawnPos</span> <span class="p">=</span> <span class="n">_CastPoint</span><span class="p">.</span><span class="n">position</span> <span class="p">+</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">_CastPoint</span><span class="p">.</span><span class="n">TransformDirection</span><span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="n">LocalOffset</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 生成特效</span>
+</span></span><span class="line"><span class="cl">        <span class="n">GameObject</span> <span class="n">effect</span> <span class="p">=</span> <span class="n">Instantiate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">config</span><span class="p">.</span><span class="n">EffectPrefab</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">spawnPos</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_CastPoint</span><span class="p">.</span><span class="n">rotation</span>
+</span></span><span class="line"><span class="cl">        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 是否附加到父物体</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="n">AttachToParent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">effect</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">SetParent</span><span class="p">(</span><span class="n">_CastPoint</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置生命周期</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Destroy</span><span class="p">(</span><span class="n">effect</span><span class="p">,</span> <span class="n">config</span><span class="p">.</span><span class="n">Lifetime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;生成特效: {config.EffectPrefab.name}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Alpha1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_FireballSkill</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Alpha2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_IceSpellSkill</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">Inspector配置：
+</span></span></span><span class="line"><span class="cl"><span class="cm">- FireballSkill: Event=&#34;SpawnEffect&#34;, Parameter=_FireballEffect @ 0.6
+</span></span></span><span class="line"><span class="cl"><span class="cm">- IceSpellSkill: Event=&#34;SpawnEffect&#34;, Parameter=_IceEffect @ 0.5
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="示例4多参数组合">示例4：多参数组合<a hidden class="anchor" aria-hidden="true" href="#示例4多参数组合">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 复合参数配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AttackData</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">Damage</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">float</span> <span class="n">KnockbackForce</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Vector3</span> <span class="n">HitDirection</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">AudioClip</span> <span class="n">HitSound</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ParticleSystem</span> <span class="n">HitEffect</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 参数类型</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterAttackData</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">AttackData</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 多参数组合示例</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// 使用复合参数传递多个配置</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">MultiParameterExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;攻击配置&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AttackData</span> <span class="n">_LightAttackData</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AttackData</span> <span class="n">_HeavyAttackData</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AttackData</span> <span class="n">_SpecialAttackData</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AudioSource</span> <span class="n">_AudioSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注册复合参数事件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">AttackData</span><span class="p">&gt;(</span><span class="s">&#34;ExecuteAttack&#34;</span><span class="p">,</span> <span class="n">ExecuteAttack</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">ExecuteAttack</span><span class="p">(</span><span class="n">AttackData</span> <span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;执行攻击:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;- 伤害: {data.Damage}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;- 击退: {data.KnockbackForce}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;- 方向: {data.HitDirection}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放音效</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">HitSound</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_AudioSource</span><span class="p">.</span><span class="n">PlayOneShot</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">HitSound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 播放特效</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">HitEffect</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="p">.</span><span class="n">HitEffect</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 执行攻击逻辑</span>
+</span></span><span class="line"><span class="cl">        <span class="n">PerformAttackLogic</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">PerformAttackLogic</span><span class="p">(</span><span class="n">AttackData</span> <span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 检测敌人</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Collider</span><span class="p">[]</span> <span class="n">enemies</span> <span class="p">=</span> <span class="n">Physics</span><span class="p">.</span><span class="n">OverlapSphere</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="m">2f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">enemy</span> <span class="k">in</span> <span class="n">enemies</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">enemy</span><span class="p">.</span><span class="n">CompareTag</span><span class="p">(</span><span class="s">&#34;Enemy&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 造成伤害</span>
+</span></span><span class="line"><span class="cl">                <span class="n">enemy</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Enemy</span><span class="p">&gt;()?.</span><span class="n">TakeDamage</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Damage</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1">// 应用击退</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Rigidbody</span> <span class="n">rb</span> <span class="p">=</span> <span class="n">enemy</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">rb</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">rb</span><span class="p">.</span><span class="n">AddForce</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">HitDirection</span> <span class="p">*</span> <span class="n">data</span><span class="p">.</span><span class="n">KnockbackForce</span><span class="p">,</span> <span class="n">ForceMode</span><span class="p">.</span><span class="n">Impulse</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="最佳实践">最佳实践<a hidden class="anchor" aria-hidden="true" href="#最佳实践">#</a></h2>
+<h3 id="-do推荐做法">✅ DO（推荐做法）<a hidden class="anchor" aria-hidden="true" href="#-do推荐做法">#</a></h3>
+<ol>
+<li><strong>使用参数避免重复事件名</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：单个事件名，用参数区分</span>
+</span></span><span class="line"><span class="cl"><span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">FootType</span><span class="p">&gt;(</span><span class="s">&#34;Footstep&#34;</span><span class="p">,</span> <span class="n">OnFootstep</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ❌ 差：多个事件名</span>
+</span></span><span class="line"><span class="cl"><span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;FootstepLeft&#34;</span><span class="p">,</span> <span class="n">OnFootstepLeft</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;FootstepRight&#34;</span><span class="p">,</span> <span class="n">OnFootstepRight</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li><strong>为值类型使用 ParameterBoxed</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：值类型使用ParameterBoxed</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterVector3</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">ParameterBoxed</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li><strong>为引用类型使用 Parameter</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：引用类型使用Parameter</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterAudioSource</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">AudioSource</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li><strong>使用配置对象传递多个参数</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：封装配置</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AttackConfig</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">Damage</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">float</span> <span class="n">Range</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">AudioClip</span> <span class="n">Sound</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="-dont避免做法">❌ DON&rsquo;T（避免做法）<a hidden class="anchor" aria-hidden="true" href="#-dont避免做法">#</a></h3>
+<ol>
+<li><strong>不要为每个参数值创建事件名</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 差：难以维护</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;FootstepLeft&#34;</span><span class="p">,</span> <span class="s">&#34;FootstepRight&#34;</span><span class="p">,</span> <span class="s">&#34;FootstepLeftHeavy&#34;</span><span class="p">,</span> <span class="p">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li><strong>不要混淆参数类型基类</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 差：Vector3是值类型，应该用ParameterBoxed</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterVector3</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// 错误！</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li><strong>不要在参数中存储状态</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ❌ 差：参数应该是数据，不是状态</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">BadParameter</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">bool</span> <span class="n">hasTriggered</span><span class="p">;</span> <span class="c1">// 不应该有状态</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="faq常见问题">FAQ常见问题<a hidden class="anchor" aria-hidden="true" href="#faq常见问题">#</a></h2>
+<h3 id="q1-什么时候应该使用参数">Q1: 什么时候应该使用参数？<a hidden class="anchor" aria-hidden="true" href="#q1-什么时候应该使用参数">#</a></h3>
+<p><strong>A:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>场景</th>
+          <th>是否使用参数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>多个事件只是参数不同</td>
+          <td>✅ 使用</td>
+      </tr>
+      <tr>
+          <td>需要传递配置数据</td>
+          <td>✅ 使用</td>
+      </tr>
+      <tr>
+          <td>事件逻辑完全不同</td>
+          <td>❌ 不使用，分开事件</td>
+      </tr>
+      <tr>
+          <td>简单的无数据事件</td>
+          <td>❌ 不使用</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="q2-parameter-和-parameterboxed-有什么区别">Q2: Parameter 和 ParameterBoxed 有什么区别？<a hidden class="anchor" aria-hidden="true" href="#q2-parameter-和-parameterboxed-有什么区别">#</a></h3>
+<p><strong>A:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Parameter: 用于引用类型（class）</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterAudioSource</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">AudioSource</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ParameterBoxed: 用于值类型（struct, enum）</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterVector3</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">ParameterBoxed</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="q3-如何在inspector中设置参数值">Q3: 如何在Inspector中设置参数值？<a hidden class="anchor" aria-hidden="true" href="#q3-如何在inspector中设置参数值">#</a></h3>
+<p><strong>A:</strong> 创建参数类型后，会自动在Inspector的事件面板中显示参数字段：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Event:
+</span></span><span class="line"><span class="cl">  ├─ Name: &#34;Footstep&#34;
+</span></span><span class="line"><span class="cl">  ├─ Time: 0.3
+</span></span><span class="line"><span class="cl">  └─ Parameter: [FootType Dropdown]
+</span></span><span class="line"><span class="cl">                └─ Left / Right
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="q4-可以传递多个参数吗">Q4: 可以传递多个参数吗？<a hidden class="anchor" aria-hidden="true" href="#q4-可以传递多个参数吗">#</a></h3>
+<p><strong>A:</strong> 不能直接传递多个参数，但可以封装为配置对象：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：封装多个参数</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">EventData</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">Param1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string</span> <span class="n">Param2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Vector3</span> <span class="n">Param3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">_Animancer</span><span class="p">.</span><span class="n">Events</span><span class="p">.</span><span class="n">AddTo</span><span class="p">&lt;</span><span class="n">EventData</span><span class="p">&gt;(</span><span class="s">&#34;Event&#34;</span><span class="p">,</span> <span class="n">OnEvent</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="q5-参数类型必须标记为-serializable-吗">Q5: 参数类型必须标记为 [Serializable] 吗？<a hidden class="anchor" aria-hidden="true" href="#q5-参数类型必须标记为-serializable-吗">#</a></h3>
+<p><strong>A:</strong> 如果需要在Inspector中配置，必须标记：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ✅ 好：可以在Inspector中配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">[System.Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterData</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">MyData</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ❌ 差：无法在Inspector中配置</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ParameterData</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AnimancerEvent</span><span class="p">.</span><span class="n">Parameter</span><span class="p">&lt;</span><span class="n">MyData</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="参考资料">参考资料<a hidden class="anchor" aria-hidden="true" href="#参考资料">#</a></h2>
+<h3 id="-相关文档">📚 相关文档<a hidden class="anchor" aria-hidden="true" href="#-相关文档">#</a></h3>
+<ul>
+<li><a href="https://kybernetik.com.au/animancer/docs/manual/events/animancer/usage">Animancer Events - Usage</a></li>
+<li><a href="https://kybernetik.com.au/animancer/docs/manual/events/animancer/behaviour">Animancer Events - Behaviour</a></li>
+<li><a href="https://kybernetik.com.au/animancer/docs/samples/">Footstep Events 示例</a></li>
+</ul>
+<h3 id="-api-参考">🔗 API 参考<a hidden class="anchor" aria-hidden="true" href="#-api-参考">#</a></h3>
+<ul>
+<li><code>AnimancerEvent.Parameter&lt;T&gt;</code></li>
+<li><code>AnimancerEvent.ParameterBoxed&lt;T&gt;</code></li>
+<li><code>IInvokable</code> 接口</li>
+</ul>
+<hr>
+<p><strong>文档版本</strong>: 1.0
+<strong>最后更新</strong>: 2025-12-25
+<strong>适用 Animancer 版本</strong>: 8.0+（需要 Pro 版本）</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/NewskyGameBlog/animancer/event/animancer_eventsbehaviour%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+    <span class="title">« Prev</span>
+    <br>
+    <span></span>
+  </a>
+  <a class="next" href="http://localhost:1313/NewskyGameBlog/animancer/event/animancer_eventsusage%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+    <span class="title">Next »</span>
+    <br>
+    <span></span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on x"
+            href="https://x.com/intent/tweet/?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f&amp;title=&amp;summary=&amp;source=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f&title=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on whatsapp"
+            href="https://api.whatsapp.com/send?text=%20-%20http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on telegram"
+            href="https://telegram.me/share/url?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=&u=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2fevent%2fanimancer_eventsparameters%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/NewskyGameBlog/">Newsky Game Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Newsky Game Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Animancer Transition Assets 官方文档
+
+原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/
+抓取日期：2025-01-24
+
+
+概述 (Overview)
+TransitionAsset 是一个 ScriptableObject，它封装了过渡配置。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。
+核心概念
+
+
+1
+2
+3
+4
+5
+
+
+TransitionAsset (ScriptableObject)
+    ↓
+包含 Transition 配置数据
+    ↓
+可以在多个脚本中引用
+
+
+优势：
+
+✅ 可重用性：多个脚本可以共享同一个配置
+✅ 集中管理：所有动画配置统一存放
+✅ 内存优化：多个实例共享同一份数据
+✅ 易于维护：修改一处，所有引用自动更新
+
+
+创建方法 (Creation Methods)
+方法一：使用菜单功能
+最常用的创建方式：
+
+
+1
+2
+3
+4
+
+
+步骤：
+1. 在 Project 窗口中右键
+2. 选择 Assets → Create → Animancer → Transition Asset
+3. 命名并配置
+
+
+示例：
+
+
+1
+2
+3
+
+
+创建位置：Assets/Animations/Transitions/
+文件名：Idle.asset
+类型：Clip Transition
+
+
+
+方法二：通过 Transition Library 创建
+在 Transition Library 窗口中创建（Pro 版本功能）：">
+<meta name="author" content="mickorz">
+<link rel="canonical" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionassets%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+<link crossorigin="anonymous" href="/NewskyGameBlog/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/NewskyGameBlog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/NewskyGameBlog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/NewskyGameBlog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/NewskyGameBlog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/NewskyGameBlog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionassets%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionassets%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Newsky Game Blog">
+  <meta property="og:description" content="Animancer Transition Assets 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/ 抓取日期：2025-01-24
+概述 (Overview) TransitionAsset 是一个 ScriptableObject，它封装了过渡配置。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。
+核心概念 1 2 3 4 5 TransitionAsset (ScriptableObject) ↓ 包含 Transition 配置数据 ↓ 可以在多个脚本中引用 优势：
+✅ 可重用性：多个脚本可以共享同一个配置 ✅ 集中管理：所有动画配置统一存放 ✅ 内存优化：多个实例共享同一份数据 ✅ 易于维护：修改一处，所有引用自动更新 创建方法 (Creation Methods) 方法一：使用菜单功能 最常用的创建方式：
+1 2 3 4 步骤： 1. 在 Project 窗口中右键 2. 选择 Assets → Create → Animancer → Transition Asset 3. 命名并配置 示例：
+1 2 3 创建位置：Assets/Animations/Transitions/ 文件名：Idle.asset 类型：Clip Transition 方法二：通过 Transition Library 创建 在 Transition Library 窗口中创建（Pro 版本功能）：">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="animancer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="Animancer Transition Assets 官方文档
+
+原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/
+抓取日期：2025-01-24
+
+
+概述 (Overview)
+TransitionAsset 是一个 ScriptableObject，它封装了过渡配置。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。
+核心概念
+
+
+1
+2
+3
+4
+5
+
+
+TransitionAsset (ScriptableObject)
+    ↓
+包含 Transition 配置数据
+    ↓
+可以在多个脚本中引用
+
+
+优势：
+
+✅ 可重用性：多个脚本可以共享同一个配置
+✅ 集中管理：所有动画配置统一存放
+✅ 内存优化：多个实例共享同一份数据
+✅ 易于维护：修改一处，所有引用自动更新
+
+
+创建方法 (Creation Methods)
+方法一：使用菜单功能
+最常用的创建方式：
+
+
+1
+2
+3
+4
+
+
+步骤：
+1. 在 Project 窗口中右键
+2. 选择 Assets → Create → Animancer → Transition Asset
+3. 命名并配置
+
+
+示例：
+
+
+1
+2
+3
+
+
+创建位置：Assets/Animations/Transitions/
+文件名：Idle.asset
+类型：Clip Transition
+
+
+
+方法二：通过 Transition Library 创建
+在 Transition Library 窗口中创建（Pro 版本功能）：">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "http://localhost:1313/NewskyGameBlog/animancer/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionassets%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Animancer Transition Assets 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/ 抓取日期：2025-01-24\n概述 (Overview) TransitionAsset 是一个 ScriptableObject，它封装了过渡配置。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。\n核心概念 1 2 3 4 5 TransitionAsset (ScriptableObject) ↓ 包含 Transition 配置数据 ↓ 可以在多个脚本中引用 优势：\n✅ 可重用性：多个脚本可以共享同一个配置 ✅ 集中管理：所有动画配置统一存放 ✅ 内存优化：多个实例共享同一份数据 ✅ 易于维护：修改一处，所有引用自动更新 创建方法 (Creation Methods) 方法一：使用菜单功能 最常用的创建方式：\n1 2 3 4 步骤： 1. 在 Project 窗口中右键 2. 选择 Assets → Create → Animancer → Transition Asset 3. 命名并配置 示例：\n1 2 3 创建位置：Assets/Animations/Transitions/ 文件名：Idle.asset 类型：Clip Transition 方法二：通过 Transition Library 创建 在 Transition Library 窗口中创建（Pro 版本功能）：\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Animancer Transition Assets 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/ 抓取日期：2025-01-24\n概述 (Overview) TransitionAsset 是一个 ScriptableObject，它封装了过渡配置。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。\n核心概念 1 2 3 4 5 TransitionAsset (ScriptableObject) ↓ 包含 Transition 配置数据 ↓ 可以在多个脚本中引用 优势：\n✅ 可重用性：多个脚本可以共享同一个配置 ✅ 集中管理：所有动画配置统一存放 ✅ 内存优化：多个实例共享同一份数据 ✅ 易于维护：修改一处，所有引用自动更新 创建方法 (Creation Methods) 方法一：使用菜单功能 最常用的创建方式：\n1 2 3 4 步骤： 1. 在 Project 窗口中右键 2. 选择 Assets → Create → Animancer → Transition Asset 3. 命名并配置 示例：\n1 2 3 创建位置：Assets/Animations/Transitions/ 文件名：Idle.asset 类型：Clip Transition 方法二：通过 Transition Library 创建 在 Transition Library 窗口中创建（Pro 版本功能）：\n1 2 3 4 步骤： 1. 打开 Transition Library 窗口 2. 点击 \"Create Transition\" 按钮 3. 配置并保存为 Library 的子资源 优势：\n自动添加到 Library 中 便于集中管理 支持批量创建 方法三：批量创建 从现有的 Animation Clips 批量创建：\n1 2 3 4 5 6 步骤： 1. 在 Project 窗口中选中多个 Animation Clips 或 Animator Controllers 2. 右键 → Create Transition Asset 或者 菜单栏 → Assets → Create → Animancer → Transition Assets From Selection 3. 自动为每个选中的资源创建对应的 Transition Asset 示例场景：\n1 2 3 4 5 6 7 8 9 10 11 选中以下动画片段： ├─ Rifle_Walk_F ├─ Rifle_Walk_B ├─ Rifle_Walk_L └─ Rifle_Walk_R 批量创建后生成： ├─ WalkForward.asset ├─ WalkBackward.asset ├─ WalkLeft.asset └─ WalkRight.asset 批量创建的配置：\n自动使用选中的 AnimationClip 默认 Fade Duration：0.25s 默认 Speed：1 可以批量修改设置 方法四：通过代码创建 在编辑器脚本中动态创建：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 using UnityEngine; using UnityEditor; using Animancer; public class TransitionAssetCreator { [MenuItem(\"Tools/Create Transition Asset\")] static void CreateTransitionAsset() { // 创建 TransitionAsset 实例 TransitionAsset asset = ScriptableObject.CreateInstance\u003cTransitionAsset\u003e(); // 配置 Transition ClipTransition transition = new ClipTransition(); transition.Clip = /* 你的 AnimationClip */; transition.FadeDuration = 0.25f; transition.Speed = 1f; // 保存为资源文件 string path = \"Assets/Animations/NewTransition.asset\"; AssetDatabase.CreateAsset(asset, path); AssetDatabase.SaveAssets(); Debug.Log($\"创建 Transition Asset: {path}\"); } } 高级示例（批量创建）：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 using UnityEngine; using UnityEditor; using Animancer; using System.IO; public class BatchTransitionCreator { [MenuItem(\"Tools/Batch Create Transitions\")] static void BatchCreateTransitions() { // 获取选中的所有 AnimationClip AnimationClip[] clips = Selection.GetFiltered\u003cAnimationClip\u003e(SelectionMode.Assets); if (clips.Length == 0) { Debug.LogWarning(\"请先选中 AnimationClip\"); return; } // 创建保存目录 string outputFolder = \"Assets/Animations/Transitions\"; if (!AssetDatabase.IsValidFolder(outputFolder)) { Directory.CreateDirectory(outputFolder); } foreach (AnimationClip clip in clips) { // 创建 TransitionAsset TransitionAsset asset = ScriptableObject.CreateInstance\u003cTransitionAsset\u003e(); // 配置 ClipTransition ClipTransition transition = new ClipTransition { Clip = clip, FadeDuration = 0.25f, Speed = 1f }; // 保存 string assetPath = $\"{outputFolder}/{clip.name}.asset\"; AssetDatabase.CreateAsset(asset, assetPath); Debug.Log($\"创建: {assetPath}\"); } AssetDatabase.SaveAssets(); AssetDatabase.Refresh(); Debug.Log($\"批量创建完成！共创建 {clips.Length} 个 Transition Assets\"); } } 使用方法对比 (Usage Comparison) 方式一：内联 Transitions (Inline Transitions) 定义：使用 [SerializeReference] 直接在脚本中序列化 Transition\n代码示例：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 using Animancer; using UnityEngine; public class InlineTransitionExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; // 内联 Transition，直接在 Inspector 中配置 [SerializeReference] private ITransition _IdleAnimation; [SerializeReference] private ITransition _WalkAnimation; void Update() { if (Input.GetKey(KeyCode.W)) { _Animancer.Play(_WalkAnimation); } else { _Animancer.Play(_IdleAnimation); } } } Inspector 中的显示：\n1 2 3 4 5 6 7 8 9 10 11 12 Inline Transition Example (Script) ├─ Animancer: [AnimancerComponent] ├─ Idle Animation: │ ├─ Type: [下拉选择] ClipTransition │ ├─ Clip: Rifle_Idle │ ├─ Fade Duration: 0.25 │ └─ Speed: 1 └─ Walk Animation: ├─ Type: [下拉选择] ClipTransition ├─ Clip: Rifle_Walk_F ├─ Fade Duration: 0.25 └─ Speed: 1 特点：\n✅ 配置直接在脚本中，无需创建单独文件 ✅ 设置简单直接 ❌ 无法在多个脚本间共享 ❌ 每个脚本都有独立的配置副本 方式二：基于资源的方式 (Asset-based Approach) 定义：使用 [SerializeField] 引用独立的 TransitionAsset 文件\n代码示例：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 using Animancer; using UnityEngine; public class AssetBasedTransitionExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; // 引用外部的 TransitionAsset [SerializeField] private TransitionAsset _IdleAnimation; [SerializeField] private TransitionAsset _WalkAnimation; void Update() { if (Input.GetKey(KeyCode.W)) { _Animancer.Play(_WalkAnimation); } else { _Animancer.Play(_IdleAnimation); } } } Inspector 中的显示：\n1 2 3 4 Asset Based Transition Example (Script) ├─ Animancer: [AnimancerComponent] ├─ Idle Animation: [拖入 Idle.asset] └─ Walk Animation: [拖入 WalkForward.asset] 文件结构：\n1 2 3 4 5 6 7 Assets/ ├─ Scripts/ │ └─ AssetBasedTransitionExample.cs └─ Animations/ └─ Transitions/ ├─ Idle.asset └─ WalkForward.asset 特点：\n✅ 可以在多个脚本间共享同一配置 ✅ 集中管理，易于维护 ✅ 内存优化（多个实例共享数据） ❌ 需要先创建资源文件 ❌ 引用关系需要手动拖入 对比表格 特性 内联 Transitions TransitionAssets 创建难度 ⭐ 简单 ⭐⭐ 需要创建文件 配置位置 Inspector 中 独立的 .asset 文件 可重用性 ❌ 不可重用 ✅ 高度可重用 内存使用 每个脚本独立副本 多个脚本共享 维护难度 ⭐⭐ 需要分别修改 ⭐ 修改一处即可 适合场景 单一脚本使用 多脚本共享 项目规模 小型/原型 中大型项目 何时使用 Transition Assets (When to Use) ✅ 推荐使用 TransitionAsset 的场景 1. 多个角色共享相同的动画配置 场景：你有多个敌人类型，它们使用相同的动画资源\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 // Enemy1.cs public class Enemy1 : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [SerializeField] private TransitionAsset _WalkAnimation; // 共享 void Update() { _Animancer.Play(_WalkAnimation); } } // Enemy2.cs public class Enemy2 : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [SerializeField] private TransitionAsset _WalkAnimation; // 相同的资源 void Update() { _Animancer.Play(_WalkAnimation); } } 好处：\n修改 _WalkAnimation.asset 会同时影响所有敌人 内存中只有一份配置数据 维护成本低 2. 需要集中定义动画 场景：团队协作，美术和程序分工明确\n1 2 3 4 5 6 7 8 9 10 11 12 13 项目结构： Assets/ ├─ Animations/ │ └─ Transitions/ │ ├─ Player/ │ │ ├─ Idle.asset ← 美术配置 │ │ ├─ Walk.asset ← 美术配置 │ │ └─ Run.asset ← 美术配置 │ └─ Enemy/ │ ├─ Idle.asset │ └─ Patrol.asset └─ Scripts/ └─ PlayerController.cs ← 程序员引用 好处：\n美术可以独立调整动画配置 程序员只需引用，不需要了解细节 分工明确，提高效率 3. 使用 Transition Libraries（Pro 功能） 场景：需要管理大量动画，并设置动画间的过渡规则\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 // 必须使用 TransitionAsset 才能在 Library 中管理 public class CharacterAnimations : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; // 这些 TransitionAsset 都在 Transition Library 中管理 [SerializeField] private TransitionAsset _Idle; [SerializeField] private TransitionAsset _Walk; [SerializeField] private TransitionAsset _Run; [SerializeField] private TransitionAsset _Attack; void Update() { // Library 会自动处理过渡时长等细节 if (Input.GetKey(KeyCode.W)) _Animancer.Play(_Run); else _Animancer.Play(_Idle); } } Library 的优势：\n自动管理动画间的过渡时长 可视化编辑过渡规则 支持别名系统 4. 内存优化场景 场景：大量相同类型的实体（如 100 个士兵）\n1 2 3 4 5 6 7 8 9 10 11 12 13 // Soldier.cs public class Soldier : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; // 100 个士兵共享同一个 TransitionAsset [SerializeField] private TransitionAsset _MarchAnimation; void Start() { _Animancer.Play(_MarchAnimation); } } 内存对比：\n1 2 3 4 5 内联方式： 100 个士兵 × 每个独立配置 = 浪费内存 TransitionAsset 方式： 100 个士兵 → 共享 1 个配置 = 内存优化 ❌ 不推荐使用 TransitionAsset 的场景 1. 动画配置仅在单一脚本中使用 1 2 3 4 5 // 这种情况下，内联更简单 public class UniqueCharacter : MonoBehaviour { [SerializeReference] private ITransition _UniqueAnimation; // 内联即可 } 2. 快速原型开发 在原型阶段，内联方式更快捷，无需创建额外文件。\n3. 动画配置需要频繁调整 如果配置经常变化且不需要共享，内联方式更方便调试。\n实战示例 示例1：多角色共享动画系统 场景：敌人和 NPC 共享基础动画\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 using Animancer; using UnityEngine; public class SharedAnimationCharacter : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; // 共享的基础动画 [SerializeField] private TransitionAsset _Idle; [SerializeField] private TransitionAsset _Walk; [SerializeField] private TransitionAsset _Run; protected virtual void Update() { float speed = GetMovementSpeed(); if (speed \u003c 0.1f) _Animancer.Play(_Idle); else if (speed \u003c 3f) _Animancer.Play(_Walk); else _Animancer.Play(_Run); } protected virtual float GetMovementSpeed() { return 0f; // 由子类实现 } } // 敌人类 public class Enemy : SharedAnimationCharacter { protected override float GetMovementSpeed() { return /* 敌人的移动速度 */ 2f; } } // NPC 类 public class NPC : SharedAnimationCharacter { protected override float GetMovementSpeed() { return /* NPC 的移动速度 */ 1.5f; } } 文件结构：\n1 2 3 4 5 6 7 8 9 10 11 Assets/ ├─ Animations/ │ └─ Transitions/ │ └─ Shared/ │ ├─ Idle.asset ← 所有角色共享 │ ├─ Walk.asset ← 所有角色共享 │ └─ Run.asset ← 所有角色共享 └─ Scripts/ ├─ SharedAnimationCharacter.cs ├─ Enemy.cs └─ NPC.cs 示例2：动画配置管理器 场景：集中管理所有角色的动画配置\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 using Animancer; using UnityEngine; [CreateAssetMenu(menuName = \"Game/Animation Config\")] public class AnimationConfig : ScriptableObject { [Header(\"移动动画\")] public TransitionAsset Idle; public TransitionAsset Walk; public TransitionAsset Run; public TransitionAsset Sprint; [Header(\"战斗动画\")] public TransitionAsset Attack1; public TransitionAsset Attack2; public TransitionAsset Attack3; [Header(\"受击动画\")] public TransitionAsset HitLight; public TransitionAsset HitHeavy; public TransitionAsset Death; } // 使用示例 public class Player : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; [SerializeField] private AnimationConfig _AnimConfig; void Update() { if (Input.GetKeyDown(KeyCode.Space)) { _Animancer.Play(_AnimConfig.Attack1); } } } 好处：\n所有动画配置集中在一个 ScriptableObject 中 易于维护和查找 支持创建多个配置（如玩家配置、敌人配置） 最佳实践 1. 文件组织结构 推荐的目录结构：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 Assets/ └─ Animations/ └─ Transitions/ ├─ Player/ │ ├─ Movement/ │ │ ├─ Idle.asset │ │ ├─ Walk.asset │ │ └─ Run.asset │ ├─ Combat/ │ │ ├─ Attack1.asset │ │ └─ Attack2.asset │ └─ Special/ │ └─ Death.asset ├─ Enemy/ │ └─ ... └─ Shared/ └─ CommonAnimations/ 命名规范：\n清晰描述用途：PlayerIdle.asset 而不是 Anim1.asset 包含状态信息：WalkForward.asset、WalkBackward.asset 使用前缀区分类型：Player_, Enemy_, NPC_ 2. 创建时机 何时创建 TransitionAsset：\n✅ 项目初期规划好动画列表后立即创建 ✅ 发现多处需要相同配置时立即重构 ✅ 准备使用 Transition Library 之前 何时使用内联：\n✅ 原型开发阶段 ✅ 确认只在一个脚本中使用 ✅ 配置频繁变化的测试动画 3. 版本控制 .gitignore 配置：\n1 2 3 4 5 # 不要忽略 TransitionAsset # *.asset ← 不要这样做 # 可以忽略自动生成的 meta 文件（如果需要） # *.meta 团队协作：\nTransitionAsset 应该提交到版本控制 避免多人同时修改同一个 Asset 使用描述性的提交信息 4. 性能优化 预加载常用动画：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 public class AnimationPreloader : MonoBehaviour { [SerializeField] private TransitionAsset[] _CommonAnimations; void Awake() { // 预加载，避免运行时卡顿 foreach (var transition in _CommonAnimations) { if (transition != null) { // 预加载逻辑 } } } } 常见问题 FAQ Q1: 内联 Transitions 和 TransitionAsset 可以混用吗？ A: 可以！根据实际需求选择：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 public class MixedExample : MonoBehaviour { [SerializeField] private AnimancerComponent _Animancer; // 共享的动画使用 Asset [SerializeField] private TransitionAsset _SharedWalk; // 角色特有的动画使用内联 [SerializeReference] private ITransition _UniqueSkill; void Update() { if (Input.GetKey(KeyCode.W)) _Animancer.Play(_SharedWalk); // Asset else if (Input.GetKeyDown(KeyCode.E)) _Animancer.Play(_UniqueSkill); // Inline } } Q2: 修改 TransitionAsset 会影响所有引用它的地方吗？ A: 是的！这是 TransitionAsset 的核心优势：\n1 2 3 修改 Idle.asset 的 Fade Duration 从 0.25 → 0.5 ↓ 所有引用 Idle.asset 的脚本自动生效 Q3: 如何批量修改 TransitionAsset 的设置？ A: 使用编辑器脚本：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 [MenuItem(\"Tools/Batch Update Fade Duration\")] static void BatchUpdateFadeDuration() { string[] guids = AssetDatabase.FindAssets(\"t:TransitionAsset\"); foreach (string guid in guids) { string path = AssetDatabase.GUIDToAssetPath(guid); TransitionAsset asset = AssetDatabase.LoadAssetAtPath\u003cTransitionAsset\u003e(path); if (asset != null) { // 修改 Fade Duration // asset.FadeDuration = 0.5f; // 需要访问内部 Transition EditorUtility.SetDirty(asset); } } AssetDatabase.SaveAssets(); } Q4: TransitionAsset 可以嵌套吗？ A: TransitionAsset 本身不支持嵌套，但可以通过其他方式实现类似功能：\n1 2 3 // 使用 ClipTransitionSequence [SerializeField] private ClipTransitionSequence _ComboAttack; // 其中包含多个 Transition 配置 Q5: 删除 TransitionAsset 会导致引用丢失吗？ A: 是的！删除前请确认：\n使用 “Find References In Scene” 查找所有引用 考虑重命名而不是删除 做好版本控制备份 总结 核心要点 TransitionAsset 是可重用的配置容器\n封装 Transition 数据 可在多个脚本间共享 四种创建方法\n菜单创建 Library 创建 批量创建 代码创建 两种使用方式\n内联：简单快捷，适合单一使用 Asset：可重用，适合共享场景 何时使用 Asset\n多角色共享配置 集中管理动画 使用 Transition Library 内存优化需求 选择指南 1 2 3 4 5 6 是否需要在多个地方使用相同配置？ ├─ 是 → 使用 TransitionAsset └─ 否 → 使用内联 Transition ├─ 但未来可能需要共享？ │ ├─ 是 → 提前创建 Asset │ └─ 否 → 保持内联 文档抓取日期：2025-01-24 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/ Animancer 版本：7.0+ 适用项目：animator-third-person-controller (ShooterTPP)\n",
+  "wordCount" : "1831",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mickorz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionassets%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Newsky Game Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/NewskyGameBlog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/NewskyGameBlog/" accesskey="h" title="Newsky Game Blog (Alt + H)">Newsky Game Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/animancer/" title="📚 Animancer 中文文档">
+                    <span>📚 Animancer 中文文档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/NewskyGameBlog/posts/" title="所有文章">
+                    <span>所有文章</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/NewskyGameBlog/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/NewskyGameBlog/animancer/"></a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta"><span>9 min</span>&nbsp;·&nbsp;<span>mickorz</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#animancer-transition-assets-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3" aria-label="Animancer Transition Assets 官方文档">Animancer Transition Assets 官方文档</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a6%82%e8%bf%b0-overview" aria-label="概述 (Overview)">概述 (Overview)</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5" aria-label="核心概念">核心概念</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e6%96%b9%e6%b3%95-creation-methods" aria-label="创建方法 (Creation Methods)">创建方法 (Creation Methods)</a><ul>
+                        
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e4%b8%80%e4%bd%bf%e7%94%a8%e8%8f%9c%e5%8d%95%e5%8a%9f%e8%83%bd" aria-label="方法一：使用菜单功能">方法一：使用菜单功能</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e4%ba%8c%e9%80%9a%e8%bf%87-transition-library-%e5%88%9b%e5%bb%ba" aria-label="方法二：通过 Transition Library 创建">方法二：通过 Transition Library 创建</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e4%b8%89%e6%89%b9%e9%87%8f%e5%88%9b%e5%bb%ba" aria-label="方法三：批量创建">方法三：批量创建</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e5%9b%9b%e9%80%9a%e8%bf%87%e4%bb%a3%e7%a0%81%e5%88%9b%e5%bb%ba" aria-label="方法四：通过代码创建">方法四：通过代码创建</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e5%af%b9%e6%af%94-usage-comparison" aria-label="使用方法对比 (Usage Comparison)">使用方法对比 (Usage Comparison)</a><ul>
+                        
+                <li>
+                    <a href="#%e6%96%b9%e5%bc%8f%e4%b8%80%e5%86%85%e8%81%94-transitions-inline-transitions" aria-label="方式一：内联 Transitions (Inline Transitions)">方式一：内联 Transitions (Inline Transitions)</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e5%bc%8f%e4%ba%8c%e5%9f%ba%e4%ba%8e%e8%b5%84%e6%ba%90%e7%9a%84%e6%96%b9%e5%bc%8f-asset-based-approach" aria-label="方式二：基于资源的方式 (Asset-based Approach)">方式二：基于资源的方式 (Asset-based Approach)</a></li>
+                <li>
+                    <a href="#%e5%af%b9%e6%af%94%e8%a1%a8%e6%a0%bc" aria-label="对比表格">对比表格</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bd%95%e6%97%b6%e4%bd%bf%e7%94%a8-transition-assets-when-to-use" aria-label="何时使用 Transition Assets (When to Use)">何时使用 Transition Assets (When to Use)</a><ul>
+                        
+                <li>
+                    <a href="#-%e6%8e%a8%e8%8d%90%e4%bd%bf%e7%94%a8-transitionasset-%e7%9a%84%e5%9c%ba%e6%99%af" aria-label="✅ 推荐使用 TransitionAsset 的场景">✅ 推荐使用 TransitionAsset 的场景</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%a4%9a%e4%b8%aa%e8%a7%92%e8%89%b2%e5%85%b1%e4%ba%ab%e7%9b%b8%e5%90%8c%e7%9a%84%e5%8a%a8%e7%94%bb%e9%85%8d%e7%bd%ae" aria-label="1. 多个角色共享相同的动画配置">1. 多个角色共享相同的动画配置</a></li>
+                <li>
+                    <a href="#2-%e9%9c%80%e8%a6%81%e9%9b%86%e4%b8%ad%e5%ae%9a%e4%b9%89%e5%8a%a8%e7%94%bb" aria-label="2. 需要集中定义动画">2. 需要集中定义动画</a></li>
+                <li>
+                    <a href="#3-%e4%bd%bf%e7%94%a8-transition-librariespro-%e5%8a%9f%e8%83%bd" aria-label="3. 使用 Transition Libraries（Pro 功能）">3. 使用 Transition Libraries（Pro 功能）</a></li>
+                <li>
+                    <a href="#4-%e5%86%85%e5%ad%98%e4%bc%98%e5%8c%96%e5%9c%ba%e6%99%af" aria-label="4. 内存优化场景">4. 内存优化场景</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-%e4%b8%8d%e6%8e%a8%e8%8d%90%e4%bd%bf%e7%94%a8-transitionasset-%e7%9a%84%e5%9c%ba%e6%99%af" aria-label="❌ 不推荐使用 TransitionAsset 的场景">❌ 不推荐使用 TransitionAsset 的场景</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%8a%a8%e7%94%bb%e9%85%8d%e7%bd%ae%e4%bb%85%e5%9c%a8%e5%8d%95%e4%b8%80%e8%84%9a%e6%9c%ac%e4%b8%ad%e4%bd%bf%e7%94%a8" aria-label="1. 动画配置仅在单一脚本中使用">1. 动画配置仅在单一脚本中使用</a></li>
+                <li>
+                    <a href="#2-%e5%bf%ab%e9%80%9f%e5%8e%9f%e5%9e%8b%e5%bc%80%e5%8f%91" aria-label="2. 快速原型开发">2. 快速原型开发</a></li>
+                <li>
+                    <a href="#3-%e5%8a%a8%e7%94%bb%e9%85%8d%e7%bd%ae%e9%9c%80%e8%a6%81%e9%a2%91%e7%b9%81%e8%b0%83%e6%95%b4" aria-label="3. 动画配置需要频繁调整">3. 动画配置需要频繁调整</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%9e%e6%88%98%e7%a4%ba%e4%be%8b" aria-label="实战示例">实战示例</a><ul>
+                        
+                <li>
+                    <a href="#%e7%a4%ba%e4%be%8b1%e5%a4%9a%e8%a7%92%e8%89%b2%e5%85%b1%e4%ba%ab%e5%8a%a8%e7%94%bb%e7%b3%bb%e7%bb%9f" aria-label="示例1：多角色共享动画系统">示例1：多角色共享动画系统</a></li>
+                <li>
+                    <a href="#%e7%a4%ba%e4%be%8b2%e5%8a%a8%e7%94%bb%e9%85%8d%e7%bd%ae%e7%ae%a1%e7%90%86%e5%99%a8" aria-label="示例2：动画配置管理器">示例2：动画配置管理器</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" aria-label="最佳实践">最佳实践</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%96%87%e4%bb%b6%e7%bb%84%e7%bb%87%e7%bb%93%e6%9e%84" aria-label="1. 文件组织结构">1. 文件组织结构</a></li>
+                <li>
+                    <a href="#2-%e5%88%9b%e5%bb%ba%e6%97%b6%e6%9c%ba" aria-label="2. 创建时机">2. 创建时机</a></li>
+                <li>
+                    <a href="#3-%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6" aria-label="3. 版本控制">3. 版本控制</a></li>
+                <li>
+                    <a href="#4-%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" aria-label="4. 性能优化">4. 性能优化</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98-faq" aria-label="常见问题 FAQ">常见问题 FAQ</a><ul>
+                        
+                <li>
+                    <a href="#q1-%e5%86%85%e8%81%94-transitions-%e5%92%8c-transitionasset-%e5%8f%af%e4%bb%a5%e6%b7%b7%e7%94%a8%e5%90%97" aria-label="Q1: 内联 Transitions 和 TransitionAsset 可以混用吗？">Q1: 内联 Transitions 和 TransitionAsset 可以混用吗？</a></li>
+                <li>
+                    <a href="#q2-%e4%bf%ae%e6%94%b9-transitionasset-%e4%bc%9a%e5%bd%b1%e5%93%8d%e6%89%80%e6%9c%89%e5%bc%95%e7%94%a8%e5%ae%83%e7%9a%84%e5%9c%b0%e6%96%b9%e5%90%97" aria-label="Q2: 修改 TransitionAsset 会影响所有引用它的地方吗？">Q2: 修改 TransitionAsset 会影响所有引用它的地方吗？</a></li>
+                <li>
+                    <a href="#q3-%e5%a6%82%e4%bd%95%e6%89%b9%e9%87%8f%e4%bf%ae%e6%94%b9-transitionasset-%e7%9a%84%e8%ae%be%e7%bd%ae" aria-label="Q3: 如何批量修改 TransitionAsset 的设置？">Q3: 如何批量修改 TransitionAsset 的设置？</a></li>
+                <li>
+                    <a href="#q4-transitionasset-%e5%8f%af%e4%bb%a5%e5%b5%8c%e5%a5%97%e5%90%97" aria-label="Q4: TransitionAsset 可以嵌套吗？">Q4: TransitionAsset 可以嵌套吗？</a></li>
+                <li>
+                    <a href="#q5-%e5%88%a0%e9%99%a4-transitionasset-%e4%bc%9a%e5%af%bc%e8%87%b4%e5%bc%95%e7%94%a8%e4%b8%a2%e5%a4%b1%e5%90%97" aria-label="Q5: 删除 TransitionAsset 会导致引用丢失吗？">Q5: 删除 TransitionAsset 会导致引用丢失吗？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e8%a6%81%e7%82%b9" aria-label="核心要点">核心要点</a></li>
+                <li>
+                    <a href="#%e9%80%89%e6%8b%a9%e6%8c%87%e5%8d%97" aria-label="选择指南">选择指南</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="animancer-transition-assets-官方文档">Animancer Transition Assets 官方文档<a hidden class="anchor" aria-hidden="true" href="#animancer-transition-assets-官方文档">#</a></h1>
+<blockquote>
+<p>原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/
+抓取日期：2025-01-24</p>
+</blockquote>
+<hr>
+<h2 id="概述-overview">概述 (Overview)<a hidden class="anchor" aria-hidden="true" href="#概述-overview">#</a></h2>
+<p><strong>TransitionAsset</strong> 是一个 <code>ScriptableObject</code>，它封装了<strong>过渡配置</strong>。可以理解为将 Transition 的配置数据保存为一个可重用的资源文件。</p>
+<h3 id="核心概念">核心概念<a hidden class="anchor" aria-hidden="true" href="#核心概念">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">TransitionAsset (ScriptableObject)
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">包含 Transition 配置数据
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">可以在多个脚本中引用
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>优势</strong>：</p>
+<ul>
+<li>✅ <strong>可重用性</strong>：多个脚本可以共享同一个配置</li>
+<li>✅ <strong>集中管理</strong>：所有动画配置统一存放</li>
+<li>✅ <strong>内存优化</strong>：多个实例共享同一份数据</li>
+<li>✅ <strong>易于维护</strong>：修改一处，所有引用自动更新</li>
+</ul>
+<hr>
+<h2 id="创建方法-creation-methods">创建方法 (Creation Methods)<a hidden class="anchor" aria-hidden="true" href="#创建方法-creation-methods">#</a></h2>
+<h3 id="方法一使用菜单功能">方法一：使用菜单功能<a hidden class="anchor" aria-hidden="true" href="#方法一使用菜单功能">#</a></h3>
+<p>最常用的创建方式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">步骤：
+</span></span><span class="line"><span class="cl">1. 在 Project 窗口中右键
+</span></span><span class="line"><span class="cl">2. 选择 Assets → Create → Animancer → Transition Asset
+</span></span><span class="line"><span class="cl">3. 命名并配置
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>示例</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">创建位置：Assets/Animations/Transitions/
+</span></span><span class="line"><span class="cl">文件名：Idle.asset
+</span></span><span class="line"><span class="cl">类型：Clip Transition
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="方法二通过-transition-library-创建">方法二：通过 Transition Library 创建<a hidden class="anchor" aria-hidden="true" href="#方法二通过-transition-library-创建">#</a></h3>
+<p>在 Transition Library 窗口中创建（Pro 版本功能）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">步骤：
+</span></span><span class="line"><span class="cl">1. 打开 Transition Library 窗口
+</span></span><span class="line"><span class="cl">2. 点击 &#34;Create Transition&#34; 按钮
+</span></span><span class="line"><span class="cl">3. 配置并保存为 Library 的子资源
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>优势</strong>：</p>
+<ul>
+<li>自动添加到 Library 中</li>
+<li>便于集中管理</li>
+<li>支持批量创建</li>
+</ul>
+<hr>
+<h3 id="方法三批量创建">方法三：批量创建<a hidden class="anchor" aria-hidden="true" href="#方法三批量创建">#</a></h3>
+<p>从现有的 Animation Clips 批量创建：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">步骤：
+</span></span><span class="line"><span class="cl">1. 在 Project 窗口中选中多个 Animation Clips 或 Animator Controllers
+</span></span><span class="line"><span class="cl">2. 右键 → Create Transition Asset
+</span></span><span class="line"><span class="cl">   或者
+</span></span><span class="line"><span class="cl">   菜单栏 → Assets → Create → Animancer → Transition Assets From Selection
+</span></span><span class="line"><span class="cl">3. 自动为每个选中的资源创建对应的 Transition Asset
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>示例场景</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">选中以下动画片段：
+</span></span><span class="line"><span class="cl">├─ Rifle_Walk_F
+</span></span><span class="line"><span class="cl">├─ Rifle_Walk_B
+</span></span><span class="line"><span class="cl">├─ Rifle_Walk_L
+</span></span><span class="line"><span class="cl">└─ Rifle_Walk_R
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">批量创建后生成：
+</span></span><span class="line"><span class="cl">├─ WalkForward.asset
+</span></span><span class="line"><span class="cl">├─ WalkBackward.asset
+</span></span><span class="line"><span class="cl">├─ WalkLeft.asset
+</span></span><span class="line"><span class="cl">└─ WalkRight.asset
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>批量创建的配置</strong>：</p>
+<ul>
+<li>自动使用选中的 AnimationClip</li>
+<li>默认 Fade Duration：0.25s</li>
+<li>默认 Speed：1</li>
+<li>可以批量修改设置</li>
+</ul>
+<hr>
+<h3 id="方法四通过代码创建">方法四：通过代码创建<a hidden class="anchor" aria-hidden="true" href="#方法四通过代码创建">#</a></h3>
+<p>在编辑器脚本中动态创建：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">TransitionAssetCreator</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [MenuItem(&#34;Tools/Create Transition Asset&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="k">void</span> <span class="n">CreateTransitionAsset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建 TransitionAsset 实例</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TransitionAsset</span> <span class="n">asset</span> <span class="p">=</span> <span class="n">ScriptableObject</span><span class="p">.</span><span class="n">CreateInstance</span><span class="p">&lt;</span><span class="n">TransitionAsset</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 配置 Transition</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ClipTransition</span> <span class="n">transition</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ClipTransition</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transition</span><span class="p">.</span><span class="n">Clip</span> <span class="p">=</span> <span class="cm">/* 你的 AnimationClip */</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transition</span><span class="p">.</span><span class="n">FadeDuration</span> <span class="p">=</span> <span class="m">0.25f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transition</span><span class="p">.</span><span class="n">Speed</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 保存为资源文件</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="s">&#34;Assets/Animations/NewTransition.asset&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">CreateAsset</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">path</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">SaveAssets</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;创建 Transition Asset: {path}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>高级示例（批量创建）</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">BatchTransitionCreator</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [MenuItem(&#34;Tools/Batch Create Transitions&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="k">void</span> <span class="n">BatchCreateTransitions</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取选中的所有 AnimationClip</span>
+</span></span><span class="line"><span class="cl">        <span class="n">AnimationClip</span><span class="p">[]</span> <span class="n">clips</span> <span class="p">=</span> <span class="n">Selection</span><span class="p">.</span><span class="n">GetFiltered</span><span class="p">&lt;</span><span class="n">AnimationClip</span><span class="p">&gt;(</span><span class="n">SelectionMode</span><span class="p">.</span><span class="n">Assets</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">clips</span><span class="p">.</span><span class="n">Length</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">&#34;请先选中 AnimationClip&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建保存目录</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">string</span> <span class="n">outputFolder</span> <span class="p">=</span> <span class="s">&#34;Assets/Animations/Transitions&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(!</span><span class="n">AssetDatabase</span><span class="p">.</span><span class="n">IsValidFolder</span><span class="p">(</span><span class="n">outputFolder</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Directory</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">outputFolder</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">foreach</span> <span class="p">(</span><span class="n">AnimationClip</span> <span class="n">clip</span> <span class="k">in</span> <span class="n">clips</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 创建 TransitionAsset</span>
+</span></span><span class="line"><span class="cl">            <span class="n">TransitionAsset</span> <span class="n">asset</span> <span class="p">=</span> <span class="n">ScriptableObject</span><span class="p">.</span><span class="n">CreateInstance</span><span class="p">&lt;</span><span class="n">TransitionAsset</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 配置 ClipTransition</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ClipTransition</span> <span class="n">transition</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ClipTransition</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Clip</span> <span class="p">=</span> <span class="n">clip</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">FadeDuration</span> <span class="p">=</span> <span class="m">0.25f</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Speed</span> <span class="p">=</span> <span class="m">1f</span>
+</span></span><span class="line"><span class="cl">            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 保存</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">string</span> <span class="n">assetPath</span> <span class="p">=</span> <span class="s">$&#34;{outputFolder}/{clip.name}.asset&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">CreateAsset</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">assetPath</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;创建: {assetPath}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">SaveAssets</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">Refresh</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&#34;批量创建完成！共创建 {clips.Length} 个 Transition Assets&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="使用方法对比-usage-comparison">使用方法对比 (Usage Comparison)<a hidden class="anchor" aria-hidden="true" href="#使用方法对比-usage-comparison">#</a></h2>
+<h3 id="方式一内联-transitions-inline-transitions">方式一：内联 Transitions (Inline Transitions)<a hidden class="anchor" aria-hidden="true" href="#方式一内联-transitions-inline-transitions">#</a></h3>
+<p><strong>定义</strong>：使用 <code>[SerializeReference]</code> 直接在脚本中序列化 Transition</p>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">InlineTransitionExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 内联 Transition，直接在 Inspector 中配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeReference]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ITransition</span> <span class="n">_IdleAnimation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeReference]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ITransition</span> <span class="n">_WalkAnimation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">W</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_WalkAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_IdleAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Inspector 中的显示</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Inline Transition Example (Script)
+</span></span><span class="line"><span class="cl">├─ Animancer: [AnimancerComponent]
+</span></span><span class="line"><span class="cl">├─ Idle Animation:
+</span></span><span class="line"><span class="cl">│  ├─ Type: [下拉选择] ClipTransition
+</span></span><span class="line"><span class="cl">│  ├─ Clip: Rifle_Idle
+</span></span><span class="line"><span class="cl">│  ├─ Fade Duration: 0.25
+</span></span><span class="line"><span class="cl">│  └─ Speed: 1
+</span></span><span class="line"><span class="cl">└─ Walk Animation:
+</span></span><span class="line"><span class="cl">   ├─ Type: [下拉选择] ClipTransition
+</span></span><span class="line"><span class="cl">   ├─ Clip: Rifle_Walk_F
+</span></span><span class="line"><span class="cl">   ├─ Fade Duration: 0.25
+</span></span><span class="line"><span class="cl">   └─ Speed: 1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>特点</strong>：</p>
+<ul>
+<li>✅ 配置直接在脚本中，无需创建单独文件</li>
+<li>✅ 设置简单直接</li>
+<li>❌ 无法在多个脚本间共享</li>
+<li>❌ 每个脚本都有独立的配置副本</li>
+</ul>
+<hr>
+<h3 id="方式二基于资源的方式-asset-based-approach">方式二：基于资源的方式 (Asset-based Approach)<a hidden class="anchor" aria-hidden="true" href="#方式二基于资源的方式-asset-based-approach">#</a></h3>
+<p><strong>定义</strong>：使用 <code>[SerializeField]</code> 引用独立的 TransitionAsset 文件</p>
+<p><strong>代码示例</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AssetBasedTransitionExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 引用外部的 TransitionAsset</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_IdleAnimation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_WalkAnimation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">W</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_WalkAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_IdleAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Inspector 中的显示</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Asset Based Transition Example (Script)
+</span></span><span class="line"><span class="cl">├─ Animancer: [AnimancerComponent]
+</span></span><span class="line"><span class="cl">├─ Idle Animation: [拖入 Idle.asset]
+</span></span><span class="line"><span class="cl">└─ Walk Animation: [拖入 WalkForward.asset]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>文件结构</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Assets/
+</span></span><span class="line"><span class="cl">├─ Scripts/
+</span></span><span class="line"><span class="cl">│  └─ AssetBasedTransitionExample.cs
+</span></span><span class="line"><span class="cl">└─ Animations/
+</span></span><span class="line"><span class="cl">   └─ Transitions/
+</span></span><span class="line"><span class="cl">      ├─ Idle.asset
+</span></span><span class="line"><span class="cl">      └─ WalkForward.asset
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>特点</strong>：</p>
+<ul>
+<li>✅ 可以在多个脚本间共享同一配置</li>
+<li>✅ 集中管理，易于维护</li>
+<li>✅ 内存优化（多个实例共享数据）</li>
+<li>❌ 需要先创建资源文件</li>
+<li>❌ 引用关系需要手动拖入</li>
+</ul>
+<hr>
+<h3 id="对比表格">对比表格<a hidden class="anchor" aria-hidden="true" href="#对比表格">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>内联 Transitions</th>
+          <th>TransitionAssets</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>创建难度</strong></td>
+          <td>⭐ 简单</td>
+          <td>⭐⭐ 需要创建文件</td>
+      </tr>
+      <tr>
+          <td><strong>配置位置</strong></td>
+          <td>Inspector 中</td>
+          <td>独立的 .asset 文件</td>
+      </tr>
+      <tr>
+          <td><strong>可重用性</strong></td>
+          <td>❌ 不可重用</td>
+          <td>✅ 高度可重用</td>
+      </tr>
+      <tr>
+          <td><strong>内存使用</strong></td>
+          <td>每个脚本独立副本</td>
+          <td>多个脚本共享</td>
+      </tr>
+      <tr>
+          <td><strong>维护难度</strong></td>
+          <td>⭐⭐ 需要分别修改</td>
+          <td>⭐ 修改一处即可</td>
+      </tr>
+      <tr>
+          <td><strong>适合场景</strong></td>
+          <td>单一脚本使用</td>
+          <td>多脚本共享</td>
+      </tr>
+      <tr>
+          <td><strong>项目规模</strong></td>
+          <td>小型/原型</td>
+          <td>中大型项目</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="何时使用-transition-assets-when-to-use">何时使用 Transition Assets (When to Use)<a hidden class="anchor" aria-hidden="true" href="#何时使用-transition-assets-when-to-use">#</a></h2>
+<h3 id="-推荐使用-transitionasset-的场景">✅ 推荐使用 TransitionAsset 的场景<a hidden class="anchor" aria-hidden="true" href="#-推荐使用-transitionasset-的场景">#</a></h3>
+<h4 id="1-多个角色共享相同的动画配置">1. <strong>多个角色共享相同的动画配置</strong><a hidden class="anchor" aria-hidden="true" href="#1-多个角色共享相同的动画配置">#</a></h4>
+<p><strong>场景</strong>：你有多个敌人类型，它们使用相同的动画资源</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Enemy1.cs</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Enemy1</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_WalkAnimation</span><span class="p">;</span> <span class="c1">// 共享</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_WalkAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Enemy2.cs</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Enemy2</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_WalkAnimation</span><span class="p">;</span> <span class="c1">// 相同的资源</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_WalkAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>好处</strong>：</p>
+<ul>
+<li>修改 <code>_WalkAnimation.asset</code> 会同时影响所有敌人</li>
+<li>内存中只有一份配置数据</li>
+<li>维护成本低</li>
+</ul>
+<hr>
+<h4 id="2-需要集中定义动画">2. <strong>需要集中定义动画</strong><a hidden class="anchor" aria-hidden="true" href="#2-需要集中定义动画">#</a></h4>
+<p><strong>场景</strong>：团队协作，美术和程序分工明确</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">项目结构：
+</span></span><span class="line"><span class="cl">Assets/
+</span></span><span class="line"><span class="cl">├─ Animations/
+</span></span><span class="line"><span class="cl">│  └─ Transitions/
+</span></span><span class="line"><span class="cl">│     ├─ Player/
+</span></span><span class="line"><span class="cl">│     │  ├─ Idle.asset        ← 美术配置
+</span></span><span class="line"><span class="cl">│     │  ├─ Walk.asset        ← 美术配置
+</span></span><span class="line"><span class="cl">│     │  └─ Run.asset         ← 美术配置
+</span></span><span class="line"><span class="cl">│     └─ Enemy/
+</span></span><span class="line"><span class="cl">│        ├─ Idle.asset
+</span></span><span class="line"><span class="cl">│        └─ Patrol.asset
+</span></span><span class="line"><span class="cl">└─ Scripts/
+</span></span><span class="line"><span class="cl">   └─ PlayerController.cs     ← 程序员引用
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>好处</strong>：</p>
+<ul>
+<li>美术可以独立调整动画配置</li>
+<li>程序员只需引用，不需要了解细节</li>
+<li>分工明确，提高效率</li>
+</ul>
+<hr>
+<h4 id="3-使用-transition-librariespro-功能">3. <strong>使用 Transition Libraries（Pro 功能）</strong><a hidden class="anchor" aria-hidden="true" href="#3-使用-transition-librariespro-功能">#</a></h4>
+<p><strong>场景</strong>：需要管理大量动画，并设置动画间的过渡规则</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 必须使用 TransitionAsset 才能在 Library 中管理</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">CharacterAnimations</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 这些 TransitionAsset 都在 Transition Library 中管理</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_Idle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_Walk</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_Run</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_Attack</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Library 会自动处理过渡时长等细节</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">W</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Run</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Idle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Library 的优势</strong>：</p>
+<ul>
+<li>自动管理动画间的过渡时长</li>
+<li>可视化编辑过渡规则</li>
+<li>支持别名系统</li>
+</ul>
+<hr>
+<h4 id="4-内存优化场景">4. <strong>内存优化场景</strong><a hidden class="anchor" aria-hidden="true" href="#4-内存优化场景">#</a></h4>
+<p><strong>场景</strong>：大量相同类型的实体（如 100 个士兵）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Soldier.cs</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Soldier</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 100 个士兵共享同一个 TransitionAsset</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_MarchAnimation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_MarchAnimation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>内存对比</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">内联方式：
+</span></span><span class="line"><span class="cl">100 个士兵 × 每个独立配置 = 浪费内存
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">TransitionAsset 方式：
+</span></span><span class="line"><span class="cl">100 个士兵 → 共享 1 个配置 = 内存优化
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="-不推荐使用-transitionasset-的场景">❌ 不推荐使用 TransitionAsset 的场景<a hidden class="anchor" aria-hidden="true" href="#-不推荐使用-transitionasset-的场景">#</a></h3>
+<h4 id="1-动画配置仅在单一脚本中使用">1. <strong>动画配置仅在单一脚本中使用</strong><a hidden class="anchor" aria-hidden="true" href="#1-动画配置仅在单一脚本中使用">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 这种情况下，内联更简单</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">UniqueCharacter</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeReference]</span> <span class="kd">private</span> <span class="n">ITransition</span> <span class="n">_UniqueAnimation</span><span class="p">;</span> <span class="c1">// 内联即可</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h4 id="2-快速原型开发">2. <strong>快速原型开发</strong><a hidden class="anchor" aria-hidden="true" href="#2-快速原型开发">#</a></h4>
+<p>在原型阶段，内联方式更快捷，无需创建额外文件。</p>
+<hr>
+<h4 id="3-动画配置需要频繁调整">3. <strong>动画配置需要频繁调整</strong><a hidden class="anchor" aria-hidden="true" href="#3-动画配置需要频繁调整">#</a></h4>
+<p>如果配置经常变化且不需要共享，内联方式更方便调试。</p>
+<hr>
+<h2 id="实战示例">实战示例<a hidden class="anchor" aria-hidden="true" href="#实战示例">#</a></h2>
+<h3 id="示例1多角色共享动画系统">示例1：多角色共享动画系统<a hidden class="anchor" aria-hidden="true" href="#示例1多角色共享动画系统">#</a></h3>
+<p><strong>场景</strong>：敌人和 NPC 共享基础动画</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SharedAnimationCharacter</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 共享的基础动画</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_Idle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_Walk</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_Run</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="n">GetMovementSpeed</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">speed</span> <span class="p">&lt;</span> <span class="m">0.1f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Idle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">speed</span> <span class="p">&lt;</span> <span class="m">3f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Walk</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_Run</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="k">virtual</span> <span class="kt">float</span> <span class="n">GetMovementSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="m">0f</span><span class="p">;</span> <span class="c1">// 由子类实现</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 敌人类</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Enemy</span> <span class="p">:</span> <span class="n">SharedAnimationCharacter</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="kt">float</span> <span class="n">GetMovementSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="cm">/* 敌人的移动速度 */</span> <span class="m">2f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NPC 类</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">NPC</span> <span class="p">:</span> <span class="n">SharedAnimationCharacter</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="kt">float</span> <span class="n">GetMovementSpeed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="cm">/* NPC 的移动速度 */</span> <span class="m">1.5f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>文件结构</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Assets/
+</span></span><span class="line"><span class="cl">├─ Animations/
+</span></span><span class="line"><span class="cl">│  └─ Transitions/
+</span></span><span class="line"><span class="cl">│     └─ Shared/
+</span></span><span class="line"><span class="cl">│        ├─ Idle.asset       ← 所有角色共享
+</span></span><span class="line"><span class="cl">│        ├─ Walk.asset       ← 所有角色共享
+</span></span><span class="line"><span class="cl">│        └─ Run.asset        ← 所有角色共享
+</span></span><span class="line"><span class="cl">└─ Scripts/
+</span></span><span class="line"><span class="cl">   ├─ SharedAnimationCharacter.cs
+</span></span><span class="line"><span class="cl">   ├─ Enemy.cs
+</span></span><span class="line"><span class="cl">   └─ NPC.cs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="示例2动画配置管理器">示例2：动画配置管理器<a hidden class="anchor" aria-hidden="true" href="#示例2动画配置管理器">#</a></h3>
+<p><strong>场景</strong>：集中管理所有角色的动画配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">[CreateAssetMenu(menuName = &#34;Game/Animation Config&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AnimationConfig</span> <span class="p">:</span> <span class="n">ScriptableObject</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;移动动画&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Idle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Walk</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Run</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Sprint</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;战斗动画&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Attack1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Attack2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Attack3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">
+</span></span></span><span class="line"><span class="cl"><span class="na">    [Header(&#34;受击动画&#34;)]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">HitLight</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">HitHeavy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TransitionAsset</span> <span class="n">Death</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用示例</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Player</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimationConfig</span> <span class="n">_AnimConfig</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Space</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_AnimConfig</span><span class="p">.</span><span class="n">Attack1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>好处</strong>：</p>
+<ul>
+<li>所有动画配置集中在一个 ScriptableObject 中</li>
+<li>易于维护和查找</li>
+<li>支持创建多个配置（如玩家配置、敌人配置）</li>
+</ul>
+<hr>
+<h2 id="最佳实践">最佳实践<a hidden class="anchor" aria-hidden="true" href="#最佳实践">#</a></h2>
+<h3 id="1-文件组织结构">1. <strong>文件组织结构</strong><a hidden class="anchor" aria-hidden="true" href="#1-文件组织结构">#</a></h3>
+<p>推荐的目录结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Assets/
+</span></span><span class="line"><span class="cl">└─ Animations/
+</span></span><span class="line"><span class="cl">   └─ Transitions/
+</span></span><span class="line"><span class="cl">      ├─ Player/
+</span></span><span class="line"><span class="cl">      │  ├─ Movement/
+</span></span><span class="line"><span class="cl">      │  │  ├─ Idle.asset
+</span></span><span class="line"><span class="cl">      │  │  ├─ Walk.asset
+</span></span><span class="line"><span class="cl">      │  │  └─ Run.asset
+</span></span><span class="line"><span class="cl">      │  ├─ Combat/
+</span></span><span class="line"><span class="cl">      │  │  ├─ Attack1.asset
+</span></span><span class="line"><span class="cl">      │  │  └─ Attack2.asset
+</span></span><span class="line"><span class="cl">      │  └─ Special/
+</span></span><span class="line"><span class="cl">      │     └─ Death.asset
+</span></span><span class="line"><span class="cl">      ├─ Enemy/
+</span></span><span class="line"><span class="cl">      │  └─ ...
+</span></span><span class="line"><span class="cl">      └─ Shared/
+</span></span><span class="line"><span class="cl">         └─ CommonAnimations/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>命名规范</strong>：</p>
+<ul>
+<li>清晰描述用途：<code>PlayerIdle.asset</code> 而不是 <code>Anim1.asset</code></li>
+<li>包含状态信息：<code>WalkForward.asset</code>、<code>WalkBackward.asset</code></li>
+<li>使用前缀区分类型：<code>Player_</code>, <code>Enemy_</code>, <code>NPC_</code></li>
+</ul>
+<hr>
+<h3 id="2-创建时机">2. <strong>创建时机</strong><a hidden class="anchor" aria-hidden="true" href="#2-创建时机">#</a></h3>
+<p><strong>何时创建 TransitionAsset</strong>：</p>
+<ul>
+<li>✅ 项目初期规划好动画列表后立即创建</li>
+<li>✅ 发现多处需要相同配置时立即重构</li>
+<li>✅ 准备使用 Transition Library 之前</li>
+</ul>
+<p><strong>何时使用内联</strong>：</p>
+<ul>
+<li>✅ 原型开发阶段</li>
+<li>✅ 确认只在一个脚本中使用</li>
+<li>✅ 配置频繁变化的测试动画</li>
+</ul>
+<hr>
+<h3 id="3-版本控制">3. <strong>版本控制</strong><a hidden class="anchor" aria-hidden="true" href="#3-版本控制">#</a></h3>
+<p><strong>.gitignore 配置</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 不要忽略 TransitionAsset
+</span></span><span class="line"><span class="cl"># *.asset  ← 不要这样做
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 可以忽略自动生成的 meta 文件（如果需要）
+</span></span><span class="line"><span class="cl"># *.meta
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>团队协作</strong>：</p>
+<ul>
+<li>TransitionAsset 应该提交到版本控制</li>
+<li>避免多人同时修改同一个 Asset</li>
+<li>使用描述性的提交信息</li>
+</ul>
+<hr>
+<h3 id="4-性能优化">4. <strong>性能优化</strong><a hidden class="anchor" aria-hidden="true" href="#4-性能优化">#</a></h3>
+<p><strong>预加载常用动画</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AnimationPreloader</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span><span class="p">[]</span> <span class="n">_CommonAnimations</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 预加载，避免运行时卡顿</span>
+</span></span><span class="line"><span class="cl">        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">transition</span> <span class="k">in</span> <span class="n">_CommonAnimations</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">transition</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 预加载逻辑</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="常见问题-faq">常见问题 FAQ<a hidden class="anchor" aria-hidden="true" href="#常见问题-faq">#</a></h2>
+<h3 id="q1-内联-transitions-和-transitionasset-可以混用吗">Q1: 内联 Transitions 和 TransitionAsset 可以混用吗？<a hidden class="anchor" aria-hidden="true" href="#q1-内联-transitions-和-transitionasset-可以混用吗">#</a></h3>
+<p><strong>A</strong>: 可以！根据实际需求选择：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">MixedExample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">AnimancerComponent</span> <span class="n">_Animancer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 共享的动画使用 Asset</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeField]</span> <span class="kd">private</span> <span class="n">TransitionAsset</span> <span class="n">_SharedWalk</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 角色特有的动画使用内联</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [SerializeReference]</span> <span class="kd">private</span> <span class="n">ITransition</span> <span class="n">_UniqueSkill</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">W</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_SharedWalk</span><span class="p">);</span>      <span class="c1">// Asset</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">E</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_Animancer</span><span class="p">.</span><span class="n">Play</span><span class="p">(</span><span class="n">_UniqueSkill</span><span class="p">);</span>     <span class="c1">// Inline</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="q2-修改-transitionasset-会影响所有引用它的地方吗">Q2: 修改 TransitionAsset 会影响所有引用它的地方吗？<a hidden class="anchor" aria-hidden="true" href="#q2-修改-transitionasset-会影响所有引用它的地方吗">#</a></h3>
+<p><strong>A</strong>: 是的！这是 TransitionAsset 的核心优势：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">修改 Idle.asset 的 Fade Duration 从 0.25 → 0.5
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">所有引用 Idle.asset 的脚本自动生效
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="q3-如何批量修改-transitionasset-的设置">Q3: 如何批量修改 TransitionAsset 的设置？<a hidden class="anchor" aria-hidden="true" href="#q3-如何批量修改-transitionasset-的设置">#</a></h3>
+<p><strong>A</strong>: 使用编辑器脚本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="na">[MenuItem(&#34;Tools/Batch Update Fade Duration&#34;)]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">static</span> <span class="k">void</span> <span class="n">BatchUpdateFadeDuration</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">string</span><span class="p">[]</span> <span class="n">guids</span> <span class="p">=</span> <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">FindAssets</span><span class="p">(</span><span class="s">&#34;t:TransitionAsset&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">guid</span> <span class="k">in</span> <span class="n">guids</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">GUIDToAssetPath</span><span class="p">(</span><span class="n">guid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TransitionAsset</span> <span class="n">asset</span> <span class="p">=</span> <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">LoadAssetAtPath</span><span class="p">&lt;</span><span class="n">TransitionAsset</span><span class="p">&gt;(</span><span class="n">path</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">asset</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 修改 Fade Duration</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// asset.FadeDuration = 0.5f; // 需要访问内部 Transition</span>
+</span></span><span class="line"><span class="cl">            <span class="n">EditorUtility</span><span class="p">.</span><span class="n">SetDirty</span><span class="p">(</span><span class="n">asset</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">AssetDatabase</span><span class="p">.</span><span class="n">SaveAssets</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="q4-transitionasset-可以嵌套吗">Q4: TransitionAsset 可以嵌套吗？<a hidden class="anchor" aria-hidden="true" href="#q4-transitionasset-可以嵌套吗">#</a></h3>
+<p><strong>A</strong>: TransitionAsset 本身不支持嵌套，但可以通过其他方式实现类似功能：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 使用 ClipTransitionSequence</span>
+</span></span><span class="line"><span class="cl"><span class="na">[SerializeField]</span> <span class="kd">private</span> <span class="n">ClipTransitionSequence</span> <span class="n">_ComboAttack</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 其中包含多个 Transition 配置</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="q5-删除-transitionasset-会导致引用丢失吗">Q5: 删除 TransitionAsset 会导致引用丢失吗？<a hidden class="anchor" aria-hidden="true" href="#q5-删除-transitionasset-会导致引用丢失吗">#</a></h3>
+<p><strong>A</strong>: 是的！删除前请确认：</p>
+<ol>
+<li>使用 &ldquo;Find References In Scene&rdquo; 查找所有引用</li>
+<li>考虑重命名而不是删除</li>
+<li>做好版本控制备份</li>
+</ol>
+<hr>
+<h2 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
+<h3 id="核心要点">核心要点<a hidden class="anchor" aria-hidden="true" href="#核心要点">#</a></h3>
+<ol>
+<li>
+<p><strong>TransitionAsset 是可重用的配置容器</strong></p>
+<ul>
+<li>封装 Transition 数据</li>
+<li>可在多个脚本间共享</li>
+</ul>
+</li>
+<li>
+<p><strong>四种创建方法</strong></p>
+<ul>
+<li>菜单创建</li>
+<li>Library 创建</li>
+<li>批量创建</li>
+<li>代码创建</li>
+</ul>
+</li>
+<li>
+<p><strong>两种使用方式</strong></p>
+<ul>
+<li>内联：简单快捷，适合单一使用</li>
+<li>Asset：可重用，适合共享场景</li>
+</ul>
+</li>
+<li>
+<p><strong>何时使用 Asset</strong></p>
+<ul>
+<li>多角色共享配置</li>
+<li>集中管理动画</li>
+<li>使用 Transition Library</li>
+<li>内存优化需求</li>
+</ul>
+</li>
+</ol>
+<h3 id="选择指南">选择指南<a hidden class="anchor" aria-hidden="true" href="#选择指南">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">是否需要在多个地方使用相同配置？
+</span></span><span class="line"><span class="cl">├─ 是 → 使用 TransitionAsset
+</span></span><span class="line"><span class="cl">└─ 否 → 使用内联 Transition
+</span></span><span class="line"><span class="cl">    ├─ 但未来可能需要共享？
+</span></span><span class="line"><span class="cl">    │  ├─ 是 → 提前创建 Asset
+</span></span><span class="line"><span class="cl">    │  └─ 否 → 保持内联
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p><strong>文档抓取日期</strong>：2025-01-24
+<strong>原文地址</strong>：https://kybernetik.com.au/animancer/docs/manual/transitions/assets/
+<strong>Animancer 版本</strong>：7.0+
+<strong>适用项目</strong>：animator-third-person-controller (ShooterTPP)</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/NewskyGameBlog/animancer/fsm/animancer_statetypes%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+    <span class="title">« Prev</span>
+    <br>
+    <span></span>
+  </a>
+  <a class="next" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer_transitionlibraries%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+    <span class="title">Next »</span>
+    <br>
+    <span></span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on x"
+            href="https://x.com/intent/tweet/?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f&amp;title=&amp;summary=&amp;source=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f&title=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on whatsapp"
+            href="https://api.whatsapp.com/send?text=%20-%20http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on telegram"
+            href="https://telegram.me/share/url?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=&u=http%3a%2f%2flocalhost%3a1313%2fNewskyGameBlog%2fanimancer%2ftransition%2fanimancer_transitionassets%25E5%25AE%2598%25E6%2596%25B9%25E6%2596%2587%25E6%25A1%25A3%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/NewskyGameBlog/">Newsky Game Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
