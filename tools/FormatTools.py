@@ -165,7 +165,7 @@ title: "{title}"
 date: {date_str}
 lastmod: {date_str}
 draft: false
-author: "mickorz"
+author: "逸空"
 tags: [{tags_str}]
 categories: ["技术笔记"]
 description: "{description}"

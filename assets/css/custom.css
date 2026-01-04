@@ -1,23 +1,31 @@
-/* 强制增加正文区域的最大宽度 */
-.max-w-screen-xl {
-    max-width: 1440px !important; /* 默认通常是 1280px，你可以改成 1600px 或更高 */
+/* 1. 强制统一背景（无论亮暗） */
+/* Blowfish 在深色模式下会在 <html> 标签添加 .dark 类 */
+
+html body,
+html.dark body {
+    background-color: #1a1a1a !important; /* 你想要的深色底色 */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0) !important;
+    background-size: 30px 30px !important;
+    background-attachment: fixed !important;
 }
 
-/* 针对 Blowfish 文章容器的专项加宽 */
-.prose {
-    max-width: 100% !important; /* 让文字部分不再被限制在窄行内 */
+/* 2. 如果你想在亮色模式下让网格变黑，可以这样写： */
+html:not(.dark) body {
+    background-color: #ffffff !important;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 0) !important;
 }
 
-/* 让表格能够横向铺开 */
-table {
-    display: table !important;
-    width: 100% !important;
-    margin-bottom: 2rem;
+/* 3. 解决内容区遮挡背景的问题 */
+/* Blowfish 的文章容器通常自带背景色，我们需要让它半透明 */
+.prose,
+section.flex.flex-col {
+    background: transparent !important;
 }
 
-/* 调整侧边栏 TOC 的位置，避免遮挡变宽后的正文 */
-@media screen and (min-width: 1280px) {
-    .toc {
-        margin-right: -150px; /* 根据你的实际宽度微调，防止重叠 */
-    }
+article {
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
 }

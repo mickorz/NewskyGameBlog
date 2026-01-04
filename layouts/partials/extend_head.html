@@ -1,25 +1,57 @@
 <style>
-    /* 1. 强制覆盖容器最大宽度 */
-    body .max-w-screen-xl {
-        max-width: 95% !important; /* 几乎占满全屏，也可以写固定值如 1600px */
+    /* 1. 强制全局宽屏 (自适应模式) */
+    :root {
+        --max-body-width: 1600px; /* 你可以根据表格复杂度调整这个值 */
     }
 
-    /* 2. 针对 Blowfish 的 article 容器加宽 */
-    body section.flex.flex-col {
+    .max-w-screen-xl {
+        max-width: var(--max-body-width) !important;
+    }
+
+    /* 移除正文容器的窄屏限制 */
+    .prose {
         max-width: 100% !important;
         width: 100% !important;
     }
 
-    /* 3. 强制表格撑开，不许缩成一团 */
-    .prose table {
-        display: table !important;
-        width: 100% !important;
-        min-width: 1000px !important; /* 强制产生横向滚动条而不是挤压内容 */
+    /* 2. 背景自适应：亮色模式 (默认) */
+    body {
+        background-color: #f8fafc !important; /* 浅灰白 */
+        background-image: radial-gradient(#cbd5e1 1px, transparent 0) !important;
+        background-size: 40px 40px !important;
+        background-attachment: fixed !important;
+        transition: background 0.3s ease; /* 切换时平滑过度 */
     }
 
-    /* 4. 隐藏不需要的空白边距 */
-    .prose {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+    /* 3. 背景自适应：暗色模式 (当 html 包含 .dark 类时) */
+    html.dark body {
+        background-color: #0f172a !important; /* 深蓝黑 */
+        background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 0) !important;
+        background-size: 40px 40px !important;
+    }
+
+    /* 4. 文章卡片与表格的自适应磨砂效果 */
+    article, .prose table {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    html.dark article {
+        background: rgba(30, 41, 59, 0.7) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    html:not(.dark) article {
+        background: rgba(255, 255, 255, 0.8) !important;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* 强制表格宽度撑满 */
+    .prose table {
+        width: 100% !important;
+        display: table !important;
     }
 </style>
