@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Events on Newsky Game Blog</title>
+    <link>http://localhost:1313/NewskyGameBlog/tags/events/</link>
+    <description>Recent content in Events on Newsky Game Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2026 逸空</copyright>
+    <lastBuildDate>Mon, 05 Jan 2026 15:48:42 +0800</lastBuildDate><atom:link href="http://localhost:1313/NewskyGameBlog/tags/events/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>入门</title>
+      <link>http://localhost:1313/NewskyGameBlog/battleanimationevent/betteranimationevent/</link>
+      <pubDate>Mon, 05 Jan 2026 15:48:42 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/battleanimationevent/betteranimationevent/</guid>
+      <description>更好的动画活动
+感谢购买
+如果您有任何问题或反馈，请联系我们！
+入门#打开窗口/动画/动画事件
+（如果已选择动画器，该工具将在加载时自动检测它）
+控制菜单的工作方式与 Unity 的原生动画编辑器类似，但具有一些额外功能
+选择一个具有动画器的游戏对象，该动画器在层次结构中具有动画控制器
+选择要编辑的动画剪辑
+添加事件#这将在选定的帧上添加一个事件，或者右键单击该栏将显示选项菜单。
+设置活动#</description>
+      
+    </item>
+    
+  </channel>
+</rss>

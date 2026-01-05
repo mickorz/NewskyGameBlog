@@ -1,0 +1,47 @@
+﻿{{ define "main" }}
+<section class="taxonomy-wrapper">
+    <header class="taxonomy-header">
+        <h1>{{ .Title }}</h1>
+        <hr>
+    </header>
+
+    <ul class="taxonomy-list">
+        {{ range .Data.Terms.ByCount }}
+        <li class="taxonomy-item">
+            <a href="{{ .Page.Permalink }}" class="taxonomy-link">
+                <span class="taxonomy-name">{{ .Page.Title }}</span>
+                <span class="taxonomy-count">({{ .Count }})</span>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</section>
+
+<style>
+    /* 基础样式示例 */
+    .taxonomy-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        gap: 15px;
+    }
+    .taxonomy-item {
+        background: #f4f4f4;
+        padding: 8px 15px;
+        border-radius: 20px;
+        transition: background 0.3s;
+    }
+    .taxonomy-item:hover {
+        background: #e0e0e0;
+    }
+    .taxonomy-link {
+        text-decoration: none;
+        color: #333;
+    }
+    .taxonomy-count {
+        font-size: 0.8em;
+        color: #666;
+    }
+</style>
+{{ end }}

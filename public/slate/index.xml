@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slates on Newsky Game Blog</title>
+    <link>http://localhost:1313/NewskyGameBlog/slate/</link>
+    <description>Recent content in Slates on Newsky Game Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2026 逸空</copyright>
+    <lastBuildDate>Mon, 05 Jan 2026 14:12:45 +0800</lastBuildDate><atom:link href="http://localhost:1313/NewskyGameBlog/slate/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Slate Cinematic Sequencer - 演员动作片段文档</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/08-actor-action-clips-reference/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/08-actor-action-clips-reference/</guid>
+      <description>Slate Cinematic Sequencer - 演员动作片段文档#概述#该页面是 Slate Cinematic Sequencer 的官方文档，位于 https://slate.paradoxnotion.com/documentation/。这是一个用于 Unity 的电影级序列编辑工具。
+主要内容：演员动作片段参考 (7.5.2)#文档详细列举了可在演员组的动作轨道中添加的各类 ActionClips。内容按类别组织：
+核心类别#动画属性 (Animate Properties)
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate Cinematic Sequencer 文档 - 编辑器偏好设置</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/03-editor-preferences/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/03-editor-preferences/</guid>
+      <description>Slate Cinematic Sequencer 文档 - 编辑器偏好设置#概览#本页面是 Slate Cinematic Sequencer 的官方文档，这是一个用于 Unity 的电影序列编辑工具。内容涵盖了编辑器偏好设置面板的详细说明。
+编辑器偏好设置 (Editor Preferences)#编辑器偏好设置面板可通过 Slate 编辑器窗口右上角的"齿轮"图标打开。
+主要设置项#时间步长模式 (Time Step Mode)
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate Cinematic Sequencer 文档提取</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/05_cutscenegroups/01-cutscene-groups/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/05_cutscenegroups/01-cutscene-groups/</guid>
+      <description>Slate Cinematic Sequencer 文档提取#页面概述#这是Slate Cinematic Sequencer for Unity的官方文档页面。该页面包含完整的产品文档导航和"Cutscene Groups"章节的详细内容。
+主要内容#文档导航结构#文档包含18个主要章节：
+Welcome（欢迎） Getting Started（快速开始） Editor Overview（编辑器概览） Editor Preferences（编辑器偏好设置） Action Clips Overview（动作片段概览） 以及Camera Track、Audio Track等多个轨道类型 Cutscene Groups（第6章）详解#核心概念： Cutscene Groups包含Cutscene Tracks，每个都指向一个目标GameObject（称为Actor）。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate Cinematic Sequencer 文档提取</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/03-audio-track/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/03-audio-track/</guid>
+      <description>Slate Cinematic Sequencer 文档提取#页面概览#这是 Slate Cinematic Sequencer 的官方文档页面。该页面主要包含导航菜单和文档章节信息。
+提取内容#页面标题： Documentation | Slate Sequencer 📖
+主要描述： “Unity Cutscenes & Cinematics Made Easy”（在 Unity 中轻松制作电影级场景和过场动画）
+文档目录结构#页面列出了以下主要章节（共18个主要部分）：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate Cinematic Sequencer 文档提取</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/06-action-clips-reference/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/06-action-clips-reference/</guid>
+      <description>Slate Cinematic Sequencer 文档提取#根据页面内容，这是 Slate Cinematic Sequencer 的官方文档页面。以下是主要内容的中文整理：
+页面概述#该文档页面为 Unity 电影级序列器工具 Slate 的使用指南，标题为"文档 📖"。
+文档结构目录#文档包含以下主要章节：
+欢迎 - 简介部分 快速开始 - 初步指南 编辑器概览 - 界面介绍 编辑器偏好设置 - 自定义选项 动作片段概览 - 核心功能 镜头组 - 虚拟演员参考 镜头轨道 - 包括摄像机、音频、视频、动画师、动作轨道等 运动路径 - 路径编辑 变换空间 - 坐标系统 动态镜头控制器 脚本编写 - 自定义脚本和控制 导演动作片段参考（核心内容）#文档详细列出了可在导演组动作轨道中添加的片段，分类包括：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate Sequencer 文档 - 摄像机轨道</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/02-camera-track/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/02-camera-track/</guid>
+      <description>Slate Sequencer 文档 - 摄像机轨道#7.1 摄像机轨道#概述#摄像机轨道是创建所有电影摄像机镜头的地方，负责渲染电影。每个电影中只能有一条摄像机轨道，始终位于导演组下方。新电影会自动添加摄像机轨道，但如果不需要摄像机镜头，可以删除。
+当摄像机轨道激活时，导演渲染摄像机也会激活，设置为电影渲染的主摄像机。
+摄像机轨道检查器参数#活跃时间偏移：控制摄像机轨道在电影长度内何时激活的最小-最大滑块 游戏混合进入：启用从游戏摄像机（Camera.main）到第一个摄像机镜头的混合 游戏混合退出：启用从最后一个摄像机镜头到游戏摄像机的混合 插值：用于游戏混合进入和退出的插值方法 CineBox淡入淡出时间：电影信箱淡入淡出所需时间（设为零即不使用信箱） 后平滑处理：应用于所有摄像机镜头的可选平滑 退出摄像机覆盖：电影结束时要激活的可选摄像机 摄像机镜头#镜头创建#放置摄像机镜头剪辑后，可以通过镜头选择器创建新镜头或选择现有镜头，该选择器提供场景中所有可用镜头的预览。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate 序列器文档 - 操作片段概览</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/04-action-clips/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/04-action-clips/</guid>
+      <description>Slate 序列器文档 - 操作片段概览#页面内容提取与翻译#本页面来自 Slate Cinematic Sequencer 官方文档，主要介绍操作片段（Action Clips）的核心概念。
+主要章节#1. 片段基础概念#“操作片段"是可添加到切镜轨道中的通用术语。每种轨道类型都有其特定的片段类型。文档以"播放音频片段"为例进行说明。
+2. 时序控制#片段包含开始时间（IN）和结束时间（OUT）的控制。用户可在检查器中调整，但在编辑器中"点击并拖动片段边缘"更便捷。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate 序列器文档 - 视频轨道部分</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/04-video-track/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/04-video-track/</guid>
+      <description>Slate 序列器文档 - 视频轨道部分#根据提供的网页内容，这是 Slate 序列器文档中关于视频轨道的章节。以下是提取的主要内容：
+7.3 视频轨道#概述#视频轨道只能添加到导演组中，与视频剪辑紧密合作，后者是唯一能添加到视频轨道的剪辑类型。
+视频轨道检查器属性#该轨道提供以下主要配置选项：
+渲染目标：指定视频剪辑的渲染位置——可选摄像机背景、摄像机前景或材质覆盖。选择材质覆盖时，检查器中会显示额外属性"目标材质渲染器"，用于选择要播放视频的对象渲染器。
+纵横比：处理视频尺寸的方式选项。
+目标摄像机透明度：设置此视频轨道中播放视频的透明度值。
+视频剪辑#视频剪辑是唯一能添加到视频轨道的剪辑类型，提供以下功能：
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate 影像序列器文档 - 虚拟角色引用</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/05_cutscenegroups/02-virtual-actor-references/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/05_cutscenegroups/02-virtual-actor-references/</guid>
+      <description>Slate 影像序列器文档 - 虚拟角色引用#概述#虚拟角色引用是一项功能，允许用户在仅限于过场动画持续时间内使用虚拟角色引用。该功能通过实例化原始角色引用并可选地将其放置在指定的本地过场动画坐标处来实现，同时禁用原始角色。过场动画完成后，原始角色重新启用，临时实例被销毁。“这一切当然是自动完成的，是一种非常方便的处理预制体角色的方式”。
+配置选项#所有相关选项都位于所有角色组的检查器中。
+功能说明#在示例中，目标角色是 Chan，这是一个预制体。虚拟引用线框在场景视图中显示为表示 Chan（角色）实例化位置的表示。此位置和方向也在称为过场动画空间的坐标系中表示，这意味着它们与过场动画位置/旋转相关。如果移动过场动画游戏对象，Chan 将在相同的相关位置/旋转处实例化。显示的线条表示与过场动画位置的偏移。
+参考模式和初始变换组合#Use Original + Use Original#原始角色将在其原始坐标处使用，无特殊操作。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate 电影序列器文档 - 入门指南</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/01-getting-started/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/01-getting-started/</guid>
+      <description>Slate 电影序列器文档 - 入门指南#概述#这是关于 Slate Cinematic Sequencer（Slate 电影序列器）的官方文档页面，这是一款用于 Unity 的过场动画和电影制作工具。
+主要内容提取#创建新过场动画#要开始使用 Slate 创建过场动画，需要导航到菜单路径并创建新的过场动画游戏对象。创建后，检查器中会显示几个关键设置选项。
+核心配置选项#更新模式（Update Mode）
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate 电影序列器文档提取</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/02-editor-overview/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/02-editor-overview/</guid>
+      <description>Slate 电影序列器文档提取#文档概览#这是 Slate Cinematic Sequencer 的官方文档页面，这是一款用于 Unity 的过场动画和电影制作工具。
+主要内容结构#编辑器概览（第3章）#编辑器分为4个主要部分：
+1. 播放控制 提供播放、反向播放、停止和暂停功能。可通过空格键快速控制。上一个/下一个按钮用于在"<“和”>“键的快捷方式下在剪辑或关键帧之间移动。
+2. 组和轨道 列出所有过场动画组及其下的轨道。导演组始终存在且无法删除（但其轨道可以）。右键点击可打开上下文菜单进行轨道管理、锁定或禁用操作。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate 电影级序列器文档提取</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/07-action-track/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/07-action-track/</guid>
+      <description>Slate 电影级序列器文档提取#基于提供的网页内容，这是关于 Slate Cinematic Sequencer 的文档页面。
+页面主要信息#网站: https://slate.paradoxnotion.com/documentation/
+描述: “Unity Cutscenes & Cinematics Made Easy” - 一个Unity电影级序列工具的文档中心。
+文档结构概览#页面提供了详细的文档导航结构，包括18个主要部分：
+欢迎页面 入门指南 编辑器概览 编辑器偏好设置 动作片段概览 电影组及虚拟演员参考 电影轨道（包括摄像机、音频、视频、动画师、动作轨道等） 运动路径 变换空间 动态镜头控制器 片段 角色系统 子电影 快捷键速查表 离线渲染 脚本编程指南 Alembic集成 遗留轨道 核心内容示例#动作轨道章节指出：“Action Track是用于不与特定轨道绑定的片段的通用轨道”，根据添加位置（导演组或演员组），提供不同的功能片段。
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Slate 音乐序列编辑器文档提取</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/01-cutscene-tracks/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/01-cutscene-tracks/</guid>
+      <description>Slate 音乐序列编辑器文档提取#页面概述#此页面为 Slate Cinematic Sequencer 的官方文档中心，是一个 Unity 视频制作和动画工具的综合指南。
+主要内容结构#文档导航包含以下部分：
+欢迎与入门指南 编辑器概览和偏好设置 动作片段(Action Clips)详解 剪辑组和虚拟演员引用 剪辑轨道系统 运动路径和变换空间 动态镜头控制器 场景分段功能 角色组件系统 子剪辑场景 快捷键速查表 离线渲染功能 脚本编程指南 核心功能说明#剪辑轨道类型： 该系统支持相机轨道、音频轨道、视频轨道、动画轨道和动作轨道五种主要类型。“轨道始终从下到上采样，因此在排序很重要的情况下，记住顶部的轨道总是拥有最终决定权。”
+</description>
+      
+    </item>
+    
+    <item>
+      <title>动画轨道 (Animator Track) 文档</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/05-animator-track/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/05-animator-track/</guid>
+      <description>动画轨道 (Animator Track) 文档#概述#动画轨道能够播放为Mecanim创建的动画剪辑。演员需要具有Animator组件，但无需创建或分配任何动画控制器。如果分配了控制器，动画轨道可以混合叠加在控制器正在播放的动画之上。
+多层动画支持#可在同一演员组中添加多个动画轨道。每条轨道代表一个单独的动画层，具有自己的权重，可以以覆盖(Override)或加法(Additive)方式与下层混合，并可通过Avatar Masks选择性影响演员身体的不同部位。
+根运动(Root Motion)#如在第一个动画轨道中启用"Use Root Motion"参数，可使用来自动画的根运动。需要注意的是，仅第一个(底部)动画轨道拥有此选项，根运动仅可应用于该第一动画轨道内播放的动画剪辑。与Slate中的大多数剪辑一样，动画轨道中使用的动画剪辑也可相互混合，或与下层轨道正在播放的动画混合进/出。
+动画剪辑设置#基础参数#参数 说明 Animation Clip 要播放的动画剪辑 Clip Offset 动画剪辑开始时间相对于Slate剪辑开始时间的时间偏移 Clip Wrap Mode 循环(Loop)或乒乓球(Ping Pong)模式 Clip Weight 动画剪辑的权重(乘以轨道权重) Playback Speed 播放速度(可为正值或负值用于反向播放) 起始变换设置#这些设置在动画具有根运动且在动画轨道中启用"Use Root Motion"时最为相关:
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>

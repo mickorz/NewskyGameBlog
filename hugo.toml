@@ -6,6 +6,12 @@ languageCode = "zh-cn"
 title = "Newsky Game Blog"
 theme = "blowfish"
 
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series" # 如果你想自定义其他的分类方式
+
 # ============================================================
 # 内容解析设置
 # ============================================================
@@ -72,35 +78,42 @@ theme = "blowfish"
 # ============================================================
 # 菜单配置
 # ============================================================
+
+[[menu.main]]
+    identifier = "Slate"
+    name = "Slate 文档"
+    url = "/Slate/"
+    weight = 100
+
 [[menu.main]]
     identifier = "GSpawn"
-    name = "📚 GSpawn 文档"
+    name = "GSpawn 文档"
     url = "/GSpawn/"
-    weight = 1
+    weight = 101
 
 [[menu.main]]
     identifier = "animancer"
-    name = "📚 Animancer 文档"
+    name = "Animancer 文档"
     url = "/animancer/"
-    weight = 2
+    weight = 102
 
-[[menu.main]]
-    identifier = "posts"
-    name = "所有文章"
-    url = "/posts/"
-    weight = 3
+#[[menu.main]]
+#    identifier = "posts"
+#    name = "所有文章"
+#    url = "/posts/"
+# 
 
-[[menu.main]]
-    identifier = "github"
-    pre = "github"
-    url = "https://github.com/mickorz"
-    weight = 4
+#[[menu.main]]
+#    identifier = "github"
+#    pre = "github"
+#    url = "https://github.com/mickorz"
+#  
 
-[[menu.main]]
-    identifier = "contact"
-    name = "💬 Contact"
-    url = "http://wpa.qq.com/msgrd?v=3&uin=490113806&site=qq&menu=yes"
-    weight = 100
+#[[menu.main]]
+#    identifier = "contact"
+#    name = "💬 Contact"
+#    url = "http://wpa.qq.com/msgrd?v=3&uin=490113806&site=qq&menu=yes"
+#   
 
 # ============================================================
 # 输出配置

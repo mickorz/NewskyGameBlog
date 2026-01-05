@@ -2,39 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Newsky Game Blog</title>
-    <link>https://mickorz.github.io/NewskyGameBlog/tags/</link>
+    <link>http://localhost:1313/NewskyGameBlog/tags/</link>
     <description>Recent content in Tags on Newsky Game Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 2026 逸空</copyright>
-    <lastBuildDate>Mon, 05 Jan 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://mickorz.github.io/NewskyGameBlog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jan 2026 15:48:42 +0800</lastBuildDate><atom:link href="http://localhost:1313/NewskyGameBlog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>AI</title>
-      <link>https://mickorz.github.io/NewskyGameBlog/tags/ai/</link>
-      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      <title>Animancer</title>
+      <link>http://localhost:1313/NewskyGameBlog/tags/animancer/</link>
+      <pubDate>Mon, 05 Jan 2026 15:48:42 +0800</pubDate>
       
-      <guid>https://mickorz.github.io/NewskyGameBlog/tags/ai/</guid>
+      <guid>http://localhost:1313/NewskyGameBlog/tags/animancer/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Animancer</title>
-      <link>https://mickorz.github.io/NewskyGameBlog/tags/animancer/</link>
-      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      <title>Events</title>
+      <link>http://localhost:1313/NewskyGameBlog/tags/events/</link>
+      <pubDate>Mon, 05 Jan 2026 15:48:42 +0800</pubDate>
       
-      <guid>https://mickorz.github.io/NewskyGameBlog/tags/animancer/</guid>
+      <guid>http://localhost:1313/NewskyGameBlog/tags/events/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Unity</title>
-      <link>https://mickorz.github.io/NewskyGameBlog/tags/unity/</link>
+      <link>http://localhost:1313/NewskyGameBlog/tags/unity/</link>
+      <pubDate>Mon, 05 Jan 2026 15:48:42 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/tags/unity/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Animator</title>
+      <link>http://localhost:1313/NewskyGameBlog/tags/animator/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/tags/animator/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>AI</title>
+      <link>http://localhost:1313/NewskyGameBlog/tags/ai/</link>
       <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
       
-      <guid>https://mickorz.github.io/NewskyGameBlog/tags/unity/</guid>
+      <guid>http://localhost:1313/NewskyGameBlog/tags/ai/</guid>
       <description></description>
       
     </item>

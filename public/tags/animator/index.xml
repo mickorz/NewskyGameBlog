@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Animator on Newsky Game Blog</title>
+    <link>http://localhost:1313/NewskyGameBlog/tags/animator/</link>
+    <description>Recent content in Animator on Newsky Game Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2026 逸空</copyright>
+    <lastBuildDate>Mon, 05 Jan 2026 14:12:45 +0800</lastBuildDate><atom:link href="http://localhost:1313/NewskyGameBlog/tags/animator/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>动画轨道 (Animator Track) 文档</title>
+      <link>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/05-animator-track/</link>
+      <pubDate>Mon, 05 Jan 2026 14:12:45 +0800</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/slate/06_cutscenetracks/05-animator-track/</guid>
+      <description>动画轨道 (Animator Track) 文档#概述#动画轨道能够播放为Mecanim创建的动画剪辑。演员需要具有Animator组件，但无需创建或分配任何动画控制器。如果分配了控制器，动画轨道可以混合叠加在控制器正在播放的动画之上。
+多层动画支持#可在同一演员组中添加多个动画轨道。每条轨道代表一个单独的动画层，具有自己的权重，可以以覆盖(Override)或加法(Additive)方式与下层混合，并可通过Avatar Masks选择性影响演员身体的不同部位。
+根运动(Root Motion)#如在第一个动画轨道中启用"Use Root Motion"参数，可使用来自动画的根运动。需要注意的是，仅第一个(底部)动画轨道拥有此选项，根运动仅可应用于该第一动画轨道内播放的动画剪辑。与Slate中的大多数剪辑一样，动画轨道中使用的动画剪辑也可相互混合，或与下层轨道正在播放的动画混合进/出。
+动画剪辑设置#基础参数#参数 说明 Animation Clip 要播放的动画剪辑 Clip Offset 动画剪辑开始时间相对于Slate剪辑开始时间的时间偏移 Clip Wrap Mode 循环(Loop)或乒乓球(Ping Pong)模式 Clip Weight 动画剪辑的权重(乘以轨道权重) Playback Speed 播放速度(可为正值或负值用于反向播放) 起始变换设置#这些设置在动画具有根运动且在动画轨道中启用"Use Root Motion"时最为相关:
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>

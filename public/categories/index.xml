@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Newsky Game Blog</title>
-    <link>https://mickorz.github.io/NewskyGameBlog/categories/</link>
+    <link>http://localhost:1313/NewskyGameBlog/categories/</link>
     <description>Recent content in Categories on Newsky Game Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 2026 逸空</copyright>
-    <lastBuildDate>Mon, 05 Jan 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://mickorz.github.io/NewskyGameBlog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jan 2026 15:48:42 +0800</lastBuildDate><atom:link href="http://localhost:1313/NewskyGameBlog/categories/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>技术笔记</title>
-      <link>https://mickorz.github.io/NewskyGameBlog/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      <link>http://localhost:1313/NewskyGameBlog/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 05 Jan 2026 15:48:42 +0800</pubDate>
       
-      <guid>https://mickorz.github.io/NewskyGameBlog/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</guid>
+      <guid>http://localhost:1313/NewskyGameBlog/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
       
     </item>

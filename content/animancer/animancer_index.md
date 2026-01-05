@@ -2,14 +2,14 @@
 title: "Animancer 中文文档目录"
 date: 2025-12-25
 draft: false
-
+author: "逸空"
+tags: ["Unity", "Animancer"]
+categories: ["技术笔记"]
+type: "posts"
 # ============================================================
 # Blowfish 布局关键设置
 # ============================================================
-layout: "list"                # 核心设置：强制使用列表布局
-showSimpleListing: true       # 开启简洁列表，适合展示大量文档标题
-showPagination: true          # 如果文章太多（超过 10 篇），开启分页
-showTableOfContents: true     # 依然在侧边显示目录
+
 ---
 
 # Animancer 中文文档目录
