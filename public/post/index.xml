@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Newsky Game Blog</title>
+    <link>http://localhost:1313/NewskyGameBlog/post/</link>
+    <description>Recent content in Posts on Newsky Game Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2026 逸空</copyright>
+    <atom:link href="http://localhost:1313/NewskyGameBlog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/NewskyGameBlog/post/kinematiccharactercontroller/kinematiccharactercontroller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/NewskyGameBlog/post/kinematiccharactercontroller/kinematiccharactercontroller/</guid>
+      <description>运动角色控制器#运动角色控制器#用户指南
+支持电子邮件：store.pstamand@gmail.com
+快速入门#角色游乐场场景#要立即尝试示例字符控制器：
+将 KinematicCharacterController 包导入 Unity
+打开 KinematicCharacterController/Examples/Scenes 下的“CharacterPlayground”场景
+按播放键并尝试示例角色
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -7,7 +7,69 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 2026 逸空</copyright>
-    <lastBuildDate>Thu, 25 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mickorz.github.io/NewskyGameBlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jan 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://mickorz.github.io/NewskyGameBlog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blaze AI 文档</title>
+      <link>https://mickorz.github.io/NewskyGameBlog/blazeaiengine/</link>
+      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      
+      <guid>https://mickorz.github.io/NewskyGameBlog/blazeaiengine/</guid>
+      <description>Blaze AI 文档#如有任何问题和支持，请访问 Discord 或者您可以直接给我发电子邮件：pathiralgames@gmail.com
+Blaze AI 特定 Discord 服务器位于此处
+在此处查看 Pathiral 的更多资产
+入门第 3 页
+动画……第7页
+音频……第9页
+视觉和探测敌人。第11页
+设置近战/远程 AI 第 16 页
+设置掩护射手 Al 。第20页
+为 Cover Shooter Al 设置封面……第 24 页
+警报层和对标签的反应……第 28 页
+打到第30页
+健康第33页
+死亡第35页
+分心。第37页
+距离剔除。第40页
+同伴模式。第43页
+公共属性和 API。第 47 页
+添加剂 Blaze 脚本。第52页
+行为的内部 API。第54页
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Gspawn 中文文档目录</title>
+      <link>https://mickorz.github.io/NewskyGameBlog/gspawn/</link>
+      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      
+      <guid>https://mickorz.github.io/NewskyGameBlog/gspawn/</guid>
+      <description>什么是 Gspawn - 关卡设计师？#Gspawn 是一款功能强大的工具，旨在简化在 Unity 编辑器中创建、编辑和管理各种类型视频游戏关卡的过程，使用本文档中将详细介绍的大量工具。
+入门#开始观看由两部分组成的介绍视频教程。
+Gspawn - 简介（第 1 部分）。 （模块化环境入门）。
+Gspawn - 简介（第 2 部分）（户外环境入门）。 尽管本文档确实讨论了一些可用的热键，但它不包含完整的列表。有关热键的完整列表，请参阅 GSpawn - Level Designer/Docs 文件夹中的 GSpawn - Shortcuts 文档。
+对于 HDRP 集成，请参阅 GSpawn - Level Designer/Docs 文件夹内的 GSpawn - HDRP 集成文档。
+支持#如需支持，请联系octamodius@yahoo.com
+</description>
+      
+    </item>
+    
+    <item>
+      <title>运动角色控制器</title>
+      <link>https://mickorz.github.io/NewskyGameBlog/kinematiccharactercontroller/kinematiccharactercontroller/</link>
+      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      
+      <guid>https://mickorz.github.io/NewskyGameBlog/kinematiccharactercontroller/kinematiccharactercontroller/</guid>
+      <description>运动角色控制器#运动角色控制器#用户指南
+支持电子邮件：store.pstamand@gmail.com
+快速入门#角色游乐场场景#要立即尝试示例字符控制器：
+将 KinematicCharacterController 包导入 Unity
+打开 KinematicCharacterController/Examples/Scenes 下的“CharacterPlayground”场景
+按播放键并尝试示例角色
+</description>
+      
+    </item>
     
     <item>
       <title>Animancer - Adaptability 适应性</title>
@@ -704,22 +766,6 @@ Transition 字段参考 (Transition Field Reference)#字段名称 代码属性
 概述 (Overview)#WeightedMaskLayers 是 Animancer Pro 的高级功能,扩展了 Unity 的 AvatarMask 系统。它允许开发者控制每个单独骨骼的权重,包括随时间淡入淡出,而不是简单地启用或禁用整个骨骼组。
 ⚠️ 重要：这是 Animancer Pro 专属功能
 核心概念 (Core Concept)#标准 Avatar Mask：
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Gspawn 中文文档目录</title>
-      <link>https://mickorz.github.io/NewskyGameBlog/gspawn/</link>
-      <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://mickorz.github.io/NewskyGameBlog/gspawn/</guid>
-      <description>什么是 Gspawn - 关卡设计师？#Gspawn 是一款功能强大的工具，旨在简化在 Unity 编辑器中创建、编辑和管理各种类型视频游戏关卡的过程，使用本文档中将详细介绍的大量工具。
-入门#开始观看由两部分组成的介绍视频教程。
-Gspawn - 简介（第 1 部分）。 （模块化环境入门）。
-Gspawn - 简介（第 2 部分）（户外环境入门）。 尽管本文档确实讨论了一些可用的热键，但它不包含完整的列表。有关热键的完整列表，请参阅 GSpawn - Level Designer/Docs 文件夹中的 GSpawn - Shortcuts 文档。
-对于 HDRP 集成，请参阅 GSpawn - Level Designer/Docs 文件夹内的 GSpawn - HDRP 集成文档。
-支持#如需支持，请联系octamodius@yahoo.com
 </description>
       
     </item>

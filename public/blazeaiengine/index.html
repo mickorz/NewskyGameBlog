@@ -1,0 +1,2969 @@
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh-cn">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Blaze AI 文档 &middot; Newsky Game Blog</title>
+    <meta name="title" content="Blaze AI 文档 &middot; Newsky Game Blog">
+  
+
+  
+  
+    <meta name="description" content="深入了解 Blaze AI 文档 的使用方法和最佳实践">
+  
+  
+    <meta name="keywords" content="Unity,AI,">
+  
+  
+    <meta name="robots" content="no_index, nofollow">
+  
+  
+  <link rel="canonical" href="https://mickorz.github.io/NewskyGameBlog/blazeaiengine/">
+  
+
+  
+  
+    <meta name="author" content="逸空">
+  
+  
+    
+      
+        
+          <link href="https://github.com/mickorz" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="https://mickorz.github.io/NewskyGameBlog/blazeaiengine/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Blaze AI 文档">
+  <meta property="og:description" content="深入了解 Blaze AI 文档 的使用方法和最佳实践">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-01-05T10:00:00+08:00">
+    <meta property="article:modified_time" content="2026-01-05T10:00:00+08:00">
+    <meta property="article:tag" content="Unity">
+    <meta property="article:tag" content="AI">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blaze AI 文档">
+  <meta name="twitter:description" content="深入了解 Blaze AI 文档 的使用方法和最佳实践">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/NewskyGameBlog/css/main.bundle.min.fb1eedd06e11553ad84a85ea75999636d94306bb1acfb1ff48138f934ca9900d3541fe2d6ca0bee624c8c9fb7649b934704aefdadf483ab68da0eaeeeec00ecf.css"
+    integrity="sha512-&#43;x7t0G4RVTrYSoXqdZmWNtlDBrsaz7H/SBOPk0ypkA01Qf4tbKC&#43;5iTIyft2Sbk0cErv2t9IOraNoOru7sAOzw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/NewskyGameBlog/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/NewskyGameBlog/js/main.bundle.min.e2a486e2d26101d42b0ae6565951c0ab32807f06c8cac845e9a430aac163bf4b95eaaf22ac52825b7c9135e177953252afda0c2c8b6e64291c90238a4685aaa3.js"
+      integrity="sha512-4qSG4tJhAdQrCuZWWVHAqzKAfwbIyshF6aQwqsFjv0uV6q8irFKCW3yRNeF3lTJSr9oMLItuZCkckCOKRoWqow=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+
+  
+  
+
+<script src="/NewskyGameBlog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/NewskyGameBlog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/NewskyGameBlog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/NewskyGameBlog/favicon-16x16.png">
+    <link rel="manifest" href="/NewskyGameBlog/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Newsky Game Blog",
+    "name": "Blaze AI 文档",
+    "headline": "Blaze AI 文档",
+    "description": "深入了解 Blaze AI 文档 的使用方法和最佳实践",
+    "inLanguage": "zh-cn",
+    "url" : "https://mickorz.github.io/NewskyGameBlog/blazeaiengine/",
+    "author" : {
+      "@type": "Person",
+      "name": "逸空"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-01-05T10:00:00\u002b08:00",
+    "datePublished": "2026-01-05T10:00:00\u002b08:00",
+    
+    "dateModified": "2026-01-05T10:00:00\u002b08:00",
+    
+    "keywords": ["Unity","AI"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1848"
+  }]
+  </script>
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        跳过正文
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/NewskyGameBlog/" class="text-base font-medium">
+          Newsky Game Blog
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/NewskyGameBlog/gspawn/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 GSpawn 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 GSpawn 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/animancer/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 Animancer 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 Animancer 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/posts/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="所有文章"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      所有文章
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="https://github.com/mickorz"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="github"
+  title="">
+  
+    <span >
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+    </span>
+  
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="http://wpa.qq.com/msgrd?v=3&amp;uin=490113806&amp;site=qq&amp;menu=yes"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="💬 Contact"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      💬 Contact
+    </p>
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/gspawn/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 GSpawn 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 GSpawn 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/animancer/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 Animancer 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 Animancer 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/posts/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="所有文章"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        所有文章
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/mickorz"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="github"
+    title="">
+    
+      <div >
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+      </div>
+    
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="http://wpa.qq.com/msgrd?v=3&amp;uin=490113806&amp;site=qq&amp;menu=yes"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="💬 Contact"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        💬 Contact
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Blaze AI 文档
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-01-05T10:00:00&#43;08:00">January 5, 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1848 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">9 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        作者
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        逸空
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">专注于 Unity 开发与 Animancer 插件深度解析</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/mickorz"
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1206"
+    height="803"
+    src="/NewskyGameBlog/blazeaiengine/images/e0148197f41d765a4ec60ec9e8cb374be4576d9800902dc2124c5c073bc99f65_hu_26a4a9475f109c72.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/e0148197f41d765a4ec60ec9e8cb374be4576d9800902dc2124c5c073bc99f65_hu_26a4a9475f109c72.jpg 800w, /NewskyGameBlog/blazeaiengine/images/e0148197f41d765a4ec60ec9e8cb374be4576d9800902dc2124c5c073bc99f65.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/e0148197f41d765a4ec60ec9e8cb374be4576d9800902dc2124c5c073bc99f65.jpg"></figure>
+</p>
+
+<h1 class="relative group">Blaze AI 文档
+    <div id="blaze-ai-文档" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#blaze-ai-%e6%96%87%e6%a1%a3" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>如有任何问题和支持，请访问 Discord 或者您可以直接给我发电子邮件：pathiralgames@gmail.com</p>
+<p>Blaze AI 特定 Discord 服务器位于此处</p>
+<p>在此处查看 Pathiral 的更多资产</p>
+<p>入门第 3 页</p>
+<p>动画&hellip;&hellip;第7页</p>
+<p>音频&hellip;&hellip;第9页</p>
+<p>视觉和探测敌人。第11页</p>
+<p>设置近战/远程 AI 第 16 页</p>
+<p>设置掩护射手 Al 。第20页</p>
+<p>为 Cover Shooter Al 设置封面&hellip;&hellip;第 24 页</p>
+<p>警报层和对标签的反应&hellip;&hellip;第 28 页</p>
+<p>打到第30页</p>
+<p>健康第33页</p>
+<p>死亡第35页</p>
+<p>分心。第37页</p>
+<p>距离剔除。第40页</p>
+<p>同伴模式。第43页</p>
+<p>公共属性和 API。第 47 页</p>
+<p>添加剂 Blaze 脚本。第52页</p>
+<p>行为的内部 API。第54页</p>
+<p>转换行为/武器和逃跑 第 57 页</p>
+<p>布娃娃 &hellip;. 第 62 页</p>
+<p>目标/玩家死亡 &hellip;. 第 70 页</p>
+<p>离网链接/攀爬梯&hellip;&hellip;第 71 页</p>
+<p>备用状态（表情）&hellip;. 第 76 页</p>
+<p>敌人经理&hellip;&hellip;第79页</p>
+<p>音频管理器&hellip;.第 80 页</p>
+<p>编写新行为&hellip;&hellip;第 83 页</p>
+<p>跟踪/调试 AI 状态 &hellip;. 第 85 页</p>
+<p>Blaze AI 教程（由 Discord 用户创建：@hrohabil）|制造干扰</p>
+
+<h1 class="relative group">入门
+    <div id="入门" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%85%a5%e9%97%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<ol>
+<li>
+<p>将空的 Plane 游戏对象添加到场景中。这将是人工智能行走的基础。</p>
+</li>
+<li>
+<p>现在确保选择了平面并添加组件 &gt; Navmesh Surface - 您可能必须从包管理器下载 AI 包才能显示这些选项。添加组件后，按“烘烤”。</p>
+</li>
+</ol>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1025"
+    height="592"
+    src="/NewskyGameBlog/blazeaiengine/images/c1f2ffb2af01b686c443544f8144288bc10ea2ae8d048e9fd0c3be9a9c1fc121_hu_23942195ba7bc54a.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/c1f2ffb2af01b686c443544f8144288bc10ea2ae8d048e9fd0c3be9a9c1fc121_hu_23942195ba7bc54a.jpg 800w, /NewskyGameBlog/blazeaiengine/images/c1f2ffb2af01b686c443544f8144288bc10ea2ae8d048e9fd0c3be9a9c1fc121.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/c1f2ffb2af01b686c443544f8144288bc10ea2ae8d048e9fd0c3be9a9c1fc121.jpg"></figure>
+</p>
+<ol start="3">
+<li>用于在场景中添加障碍物。单击对象，添加组件 &gt; 导航网格障碍，然后单击雕刻</li>
+</ol>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1022"
+    height="367"
+    src="/NewskyGameBlog/blazeaiengine/images/d7aa55830b5d5d49894b780379fcee76ba7dab686d4038c5f504622fd9eac588_hu_fa99a2b8f118ac8b.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/d7aa55830b5d5d49894b780379fcee76ba7dab686d4038c5f504622fd9eac588_hu_fa99a2b8f118ac8b.jpg 800w, /NewskyGameBlog/blazeaiengine/images/d7aa55830b5d5d49894b780379fcee76ba7dab686d4038c5f504622fd9eac588.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/d7aa55830b5d5d49894b780379fcee76ba7dab686d4038c5f504622fd9eac588.jpg"></figure>
+</p>
+<ol start="4">
+<li>
+<p>将 Blaze AI 组件添加到您的角色游戏对象中。</p>
+</li>
+<li>
+<p>您会发现还添加了一些必需的组件。比如Animator和NavMeshAgent。</p>
+</li>
+<li>
+<p>单击“状态”选项卡，您将找到每个属性都需要脚本的属性。您也会在检查器的其他地方找到它。您还会发现“添加行为”按钮。单击它，它将自动添加默认行为并将它们设置为各自的属性。</p>
+</li>
+</ol>
+
+<h1 class="relative group">添加行为
+    <div id="添加行为" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%b7%bb%e5%8a%a0%e8%a1%8c%e4%b8%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<ol start="7">
+<li>
+<p>Blaze 为每个同名的状态属性提供了一个行为脚本。例如，“正常状态行为”属性具有“NormalStateBehaviour”脚本等。您还可以制作自己的自定义行为脚本并拖放至所需状态。</p>
+</li>
+<li>
+<p>在添加的正常状态行为组件上，通过添加空闲和移动的动画名称来设置属性 - 我们将在本文档后面介绍动画。在入门后的动画部分 - 以及所需的速度、音频等&hellip;</p>
+</li>
+<li>
+<p>现在返回 Blaze AI 检查器 &gt; 常规选项卡 &gt; 航点。默认情况下，启用随机化。随机化意味着不会读取航路点，而是人工智能将在每个周期生成一个新的随机点。换句话说，将在指定半径内随机巡逻导航网格。</p>
+</li>
+<li>
+<p>在常规选项卡的 Vision 类内。您可以通过将敌人的图层添加到“敌对和警报图层”中并将其标签名称添加到“敌对标签”中来设置敌人。另一方面，“要检测的层”是您设置障碍物以及希望视觉检测到的内容的位置。如果未设置图层，则将通过游戏对象看到它。敌方需要至少有一台对撞机。多个碰撞器也可以。有关此内容的更多信息，请参阅“添加敌人”部分。</p>
+</li>
+</ol>
+<p>按下播放键后，你会发现你的人工智能正在四处走动。</p>
+<p>大多数属性上都存在工具提示。只需将鼠标悬停在任何属性上，就会弹出更多信息。</p>
+
+<h1 class="relative group">动画
+    <div id="动画" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%8a%a8%e7%94%bb" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>在检查器内的某些部分，您会发现需要设置某个事物的 Anim 和 AnimT。像这些：</p>
+<table><tr><td>移动动画</td><td>行走</td></tr><tr><td>动画T</td><td>0.25</td></tr></table>
+
+<h1 class="relative group">现在这些是什么意思呢？
+    <div id="现在这些是什么意思呢" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%8e%b0%e5%9c%a8%e8%bf%99%e4%ba%9b%e6%98%af%e4%bb%80%e4%b9%88%e6%84%8f%e6%80%9d%e5%91%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>让我们从简单的开始吧。 AnimT 是动画过渡时间。从当前动画到相关动画的时间量。</p>
+<p>Anim 是动画名称。 Unity 引擎内部称为动画状态名称。这是哪个：</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="372"
+    height="455"
+    src="/NewskyGameBlog/blazeaiengine/images/fa7a160ef50ea56ac8a37926993622b0b38ac4dfccc6c2e3f5a5bde70524077b.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/fa7a160ef50ea56ac8a37926993622b0b38ac4dfccc6c2e3f5a5bde70524077b.jpg 800w, /NewskyGameBlog/blazeaiengine/images/fa7a160ef50ea56ac8a37926993622b0b38ac4dfccc6c2e3f5a5bde70524077b.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/fa7a160ef50ea56ac8a37926993622b0b38ac4dfccc6c2e3f5a5bde70524077b.jpg"></figure>
+</p>
+<p>这是动画器中动画的名称。就是这样！</p>
+<p>确保在需要循环的动画设置中启用循环，例如（空闲、跑步、行走等&hellip;）</p>
+<p>必读：在 Blaze 的大部分部分中，此动画字段是一个弹出菜单，可自动读取动画制作器内的动画。因此，您只需选择即可，但请注意：1.弹出窗口仅读取子状态内的第一级嵌套动画。也就是说，您可以拥有任意多个不同的</p>
+<p>您喜欢的子状态只是不要将子状态嵌套在子状态内。 2.弹出窗口仅读取200个动画，如果您想要更多，请输入BlazeAIEditor.cs脚本，搜索animationStateNamesArr并将数组大小设置为您想要的任何值。</p>
+<p>您可以在 Animator 中更改动画状态名称，如下所示：</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1081"
+    height="509"
+    src="/NewskyGameBlog/blazeaiengine/images/1d64b272808614239512c49a258a15ecca79552f53096369c87562d3b6c1c1b4_hu_f3046e16dc8b632a.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/1d64b272808614239512c49a258a15ecca79552f53096369c87562d3b6c1c1b4_hu_f3046e16dc8b632a.jpg 800w, /NewskyGameBlog/blazeaiengine/images/1d64b272808614239512c49a258a15ecca79552f53096369c87562d3b6c1c1b4.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/1d64b272808614239512c49a258a15ecca79552f53096369c87562d3b6c1c1b4.jpg"></figure>
+</p>
+<p>单击动画，然后更改右上角的名称。但是，请记住您已经更改了动画状态名称，因此您必须在 Blaze AI 中更改其名称以匹配动画器。</p>
+<p>您不需要在动画之间进行转换。只需将动画拖/放到 Animator 中，然后根据需要组织它们，并在 Blaze 中写下它们的名称。就是这样！</p>
+
+<h1 class="relative group">音频
+    <div id="音频" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%9f%b3%e9%a2%91" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>所有要在 Blaze 内播放的音频及其行为都设置在一个可脚本化对象内，该对象称为音频可脚本化。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="980"
+    height="614"
+    src="/NewskyGameBlog/blazeaiengine/images/013442e94e622314e141c98bbe99cd0644d0d84ff9d5f26ddd3a7a0f66ac45a8_hu_5de0a8b8ccbba3d8.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/013442e94e622314e141c98bbe99cd0644d0d84ff9d5f26ddd3a7a0f66ac45a8_hu_5de0a8b8ccbba3d8.jpg 800w, /NewskyGameBlog/blazeaiengine/images/013442e94e622314e141c98bbe99cd0644d0d84ff9d5f26ddd3a7a0f66ac45a8.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/013442e94e622314e141c98bbe99cd0644d0d84ff9d5f26ddd3a7a0f66ac45a8.jpg"></figure>
+</p>
+<p>Blaze 提供了创建音频脚本并将音频剪辑设置为所有必要的状态和操作的选项。创建一个像这样的音频脚本：（在项目空间中右键单击）</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="370"
+    height="709"
+    src="/NewskyGameBlog/blazeaiengine/images/43c03cb2d18504a45e390d7ada56ca81c9f543172c6be62fbc9d457001166c1a.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/43c03cb2d18504a45e390d7ada56ca81c9f543172c6be62fbc9d457001166c1a.jpg 800w, /NewskyGameBlog/blazeaiengine/images/43c03cb2d18504a45e390d7ada56ca81c9f543172c6be62fbc9d457001166c1a.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/43c03cb2d18504a45e390d7ada56ca81c9f543172c6be62fbc9d457001166c1a.jpg"></figure>
+</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="411"
+    height="278"
+    src="/NewskyGameBlog/blazeaiengine/images/de6120927ef468f7bdced4e61040e69fbe419cac145508cd595768847d587066.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/de6120927ef468f7bdced4e61040e69fbe419cac145508cd595768847d587066.jpg 800w, /NewskyGameBlog/blazeaiengine/images/de6120927ef468f7bdced4e61040e69fbe419cac145508cd595768847d587066.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/de6120927ef468f7bdced4e61040e69fbe419cac145508cd595768847d587066.jpg"></figure>
+</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="619"
+    height="492"
+    src="/NewskyGameBlog/blazeaiengine/images/f41204c81361d02465fb0812592fd73baf8c5ca672e93056d4965e7e6d20a292.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/f41204c81361d02465fb0812592fd73baf8c5ca672e93056d4965e7e6d20a292.jpg 800w, /NewskyGameBlog/blazeaiengine/images/f41204c81361d02465fb0812592fd73baf8c5ca672e93056d4965e7e6d20a292.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/f41204c81361d02465fb0812592fd73baf8c5ca672e93056d4965e7e6d20a292.jpg"></figure>
+</p>
+<p>对于每个状态/操作，您可以添加无限数量的音频。当进行音频呼叫时，系统将在该状态下随机选择一个音频，如果只设置了一个，则将始终播放该音频。如果为空，则不会播放任何音频。</p>
+<p>将播放所有音频剪辑的代理的中央音频在“代理音频”属性中自动设置。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1208"
+    height="183"
+    src="/NewskyGameBlog/blazeaiengine/images/bd746beef62206249e97edb4f4c11c1df008b16c994e6d22b50e66dc3a34e734_hu_44f16cc06046914f.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/bd746beef62206249e97edb4f4c11c1df008b16c994e6d22b50e66dc3a34e734_hu_44f16cc06046914f.jpg 800w, /NewskyGameBlog/blazeaiengine/images/bd746beef62206249e97edb4f4c11c1df008b16c994e6d22b50e66dc3a34e734.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/bd746beef62206249e97edb4f4c11c1df008b16c994e6d22b50e66dc3a34e734.jpg"></figure>
+</p>
+<p>您还可以选择手动设置 AI 将使用的您喜欢的另一个音频源。</p>
+<p>要播放正常和警报行为的巡逻音频，您应该使用音频管理器。</p>
+
+<h1 class="relative group">视觉和探测敌人
+    <div id="视觉和探测敌人" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a7%86%e8%a7%89%e5%92%8c%e6%8e%a2%e6%b5%8b%e6%95%8c%e4%ba%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>只需转到主 Blaze AI 检查器 -&gt; 视觉选项卡并按照步骤操作即可。</p>
+<p>选择“设置”子选项卡，并确保下面的“显示视觉”部分全部被选中：</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="628"
+    height="339"
+    src="/NewskyGameBlog/blazeaiengine/images/7a76f02d82348be485fc6d04a17afbd260691ce950eb3583d717e680aa18fe6e.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/7a76f02d82348be485fc6d04a17afbd260691ce950eb3583d717e680aa18fe6e.jpg 800w, /NewskyGameBlog/blazeaiengine/images/7a76f02d82348be485fc6d04a17afbd260691ce950eb3583d717e680aa18fe6e.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/7a76f02d82348be485fc6d04a17afbd260691ce950eb3583d717e680aa18fe6e.jpg"></figure>
+</p>
+<p>这将在场景视图中绘制所有状态的视图，以便您可以轻松地对其进行可视化和调试。</p>
+<p>现在您可以设置 Vision Position 属性并将视觉放置在 AI 的眼睛上。如您所见，我将 Y 轴设置为 2。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1064"
+    height="636"
+    src="/NewskyGameBlog/blazeaiengine/images/b94fc2542e4158fd77d14b16f8e475813d5df1700a808cfbfac46cca0bbf396e_hu_5f72564b8868560f.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/b94fc2542e4158fd77d14b16f8e475813d5df1700a808cfbfac46cca0bbf396e_hu_5f72564b8868560f.jpg 800w, /NewskyGameBlog/blazeaiengine/images/b94fc2542e4158fd77d14b16f8e475813d5df1700a808cfbfac46cca0bbf396e.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/b94fc2542e4158fd77d14b16f8e475813d5df1700a808cfbfac46cca0bbf396e.jpg"></figure>
+</p>
+<p>它应该看起来像这样：</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1053"
+    height="705"
+    src="/NewskyGameBlog/blazeaiengine/images/f3afddf74bf4e3d28f3f935dc814f6d62b907d3615d13ba3700db00ebb9e70cc_hu_35859ab0668a58de.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/f3afddf74bf4e3d28f3f935dc814f6d62b907d3615d13ba3700db00ebb9e70cc_hu_35859ab0668a58de.jpg 800w, /NewskyGameBlog/blazeaiengine/images/f3afddf74bf4e3d28f3f935dc814f6d62b907d3615d13ba3700db00ebb9e70cc.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/f3afddf74bf4e3d28f3f935dc814f6d62b907d3615d13ba3700db00ebb9e70cc.jpg"></figure>
+</p>
+<p>使用这些属性为每个状态设置 AI 的视角和范围。攻击状态锥角最好为 360 度，以便在攻击状态下检测各个方向的敌人。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="947"
+    height="439"
+    src="/NewskyGameBlog/blazeaiengine/images/d413a8a28d514ec69bba3997533374d23e307a1e07ffb12799befd61c2c4208d_hu_6c52c1dd1a56c13b.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/d413a8a28d514ec69bba3997533374d23e307a1e07ffb12799befd61c2c4208d_hu_6c52c1dd1a56c13b.jpg 800w, /NewskyGameBlog/blazeaiengine/images/d413a8a28d514ec69bba3997533374d23e307a1e07ffb12799befd61c2c4208d.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/d413a8a28d514ec69bba3997533374d23e307a1e07ffb12799befd61c2c4208d.jpg"></figure>
+</p>
+<p>现在是时候设置最大可检测视力水平和最小视力水平了。</p>
+<p>转到场景视图，你会发现AI有两个标记，一绿一红。绿色的是最大可检测级别，使用“最大视线级别”属性进行设置，任何高于此绿色的内容都不会被检测到。虽然红色是使用“最小视线级别”属性设置的，但低于此红色的任何内容也不会被检测到。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1092"
+    height="900"
+    src="/NewskyGameBlog/blazeaiengine/images/a7acc1a7bf6ad26233c2ddb66eb7b3513d2127c0ca363f3f843ee2f576a1caa0_hu_8613ae4e1a627781.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/a7acc1a7bf6ad26233c2ddb66eb7b3513d2127c0ca363f3f843ee2f576a1caa0_hu_8613ae4e1a627781.jpg 800w, /NewskyGameBlog/blazeaiengine/images/a7acc1a7bf6ad26233c2ddb66eb7b3513d2127c0ca363f3f843ee2f576a1caa0.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/a7acc1a7bf6ad26233c2ddb66eb7b3513d2127c0ca363f3f843ee2f576a1caa0.jpg"></figure>
+</p>
+<p>如果“使用最小级别”设置为 false，则将检测低于最大视线的所有内容，并且不会有最小检测点。</p>
+<p>现在要检测实际的敌人，请转到“目标”子选项卡。</p>
+<p>设置要检测的图层：这必须包含您希望 AI 视觉检查的所有图层，包括障碍物、墙壁等……任何具有此处未添加的图层的游戏对象都将被透视。这里不需要添加敌人的层。</p>
+<p>P.S：为了获得更好的性能，请确保设置用作障碍物、地面等的图层&hellip;不要设置为“全部”或“默认”。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="964"
+    height="570"
+    src="/NewskyGameBlog/blazeaiengine/images/cabe2a54db7d7647f9bab4701f0b47a51df4a918588845f88aee00d5f9884bba_hu_ef1a1bff3b8bd51c.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/cabe2a54db7d7647f9bab4701f0b47a51df4a918588845f88aee00d5f9884bba_hu_ef1a1bff3b8bd51c.jpg 800w, /NewskyGameBlog/blazeaiengine/images/cabe2a54db7d7647f9bab4701f0b47a51df4a918588845f88aee00d5f9884bba.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/cabe2a54db7d7647f9bab4701f0b47a51df4a918588845f88aee00d5f9884bba.jpg"></figure>
+</p>
+<p>设置敌对和警报层：这应该包含敌人碰撞器的层。所以在这里设置敌人的层。如图所示。</p>
+<p>在敌对标签中，设置玩家的标签名称或任何您希望 AI 识别为敌对的名称。</p>
+<p>如果你正在制作 VR 游戏。然后从“设置”子选项卡中禁用多射线视觉，因为它可能会导致问题。</p>
+<p>要返回 Al 的当前目标，请执行：blaze.enemyToAttack;</p>
+
+<h1 class="relative group">检测敌人的最后一件重要事情
+    <div id="检测敌人的最后一件重要事情" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a3%80%e6%b5%8b%e6%95%8c%e4%ba%ba%e7%9a%84%e6%9c%80%e5%90%8e%e4%b8%80%e4%bb%b6%e9%87%8d%e8%a6%81%e4%ba%8b%e6%83%85" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>最后，您的玩家/敌人需要至少检测到一个对撞机。多重碰撞器没问题。敌人碰撞器可以设置为Is Trigger，就可以了。这就是检测敌人所需的全部。</p>
+
+<h1 class="relative group">视力计
+    <div id="视力计" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a7%86%e5%8a%9b%e8%ae%a1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>在“设置”选项卡中启用“使用视力表”——当 AI 检测到目标时，它会将其视力表从 0 增加到 1，其速度取决于您设置的值。当视力表达到 1 时，目标将被完全检测到，并且人工智能将参与。在潜行游戏中非常方便。</p>
+<p>将鼠标悬停在每个速度属性上，它会解释速度的用途。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="992"
+    height="258"
+    src="/NewskyGameBlog/blazeaiengine/images/4ec97db6446d93af1eab7f2b14f033e18392efdac0a0032d2b05a80124076d3c_hu_7ad03a4fed3f14ee.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/4ec97db6446d93af1eab7f2b14f033e18392efdac0a0032d2b05a80124076d3c_hu_7ad03a4fed3f14ee.jpg 800w, /NewskyGameBlog/blazeaiengine/images/4ec97db6446d93af1eab7f2b14f033e18392efdac0a0032d2b05a80124076d3c.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/4ec97db6446d93af1eab7f2b14f033e18392efdac0a0032d2b05a80124076d3c.jpg"></figure>
+</p>
+
+<h1 class="relative group">蜜蜂
+    <div id="蜜蜂" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%9c%9c%e8%9c%82" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>要了解 Al 当前的视力表是什么，只需阅读：blaze.visionMeter – 它从 0 到 1。</p>
+<p>要读取视野计瞄准的潜在敌人是什么，请读取： blaze.potentialEnemyToAttack - 返回游戏对象或 null。</p>
+
+<h1 class="relative group">设置近战/远程人工智能
+    <div id="设置近战远程人工智能" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%ae%be%e7%bd%ae%e8%bf%91%e6%88%98%e8%bf%9c%e7%a8%8b%e4%ba%ba%e5%b7%a5%e6%99%ba%e8%83%bd" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>按照以下步骤设置你的近战/远程人工智能。</p>
+<ul>
+<li>
+<p>转到主 Blaze AI 检查器  $&gt;$  状态选项卡  $&gt;$  单击添加行为按钮。</p>
+</li>
+<li>
+<p>您会发现脚本已添加到游戏对象中，并在“状态”选项卡的状态行为中进行设置。</p>
+</li>
+<li>
+<p>如果您不打算使用掩护射击模式，请继续从游戏对象中删除添加的掩护射击行为和前往掩护行为脚本。</p>
+</li>
+<li>
+<p>确保“状态”选项卡中的封面射击模式已关闭。</p>
+</li>
+<li>
+<p>现在展开攻击状态行为脚本并确保您位于移动选项卡中。</p>
+</li>
+<li>
+<p>将“移动速度”和“转动速度”属性设置为您喜欢的任何值。前者是你希望人工智能处于攻击状态的速度，这包括追逐、在被呼叫时移动到目标位置以及接近距离以对目标发起攻击。后者同样适用于人工智能转向路径拐角的速度。</p>
+</li>
+<li>
+<p>空闲动画是 AI 处于战斗姿态、等待轮到攻击时播放的动画名称。设置那个。</p>
+</li>
+<li>
+<p>移动动画是当您的 AI 追逐玩家、被另一个 AI 呼叫到目标位置或移动到玩家以发起攻击时播放的移动动画名称。</p>
+</li>
+<li>
+<p>现在转到“攻击”选项卡。</p>
+</li>
+<li>
+<p>远程属性会调整计算，使 AI 表现得像远程敌人。因此，如果您希望 AI 是远程的，则设置为 true；如果 AI 是近战的，则设置为 false。</p>
+</li>
+<li>
+<p>与敌人的距离属性是目标与 AI 之间的距离，在该距离中，AI 将在战斗姿态（空闲动画）中等待轮到攻击。此外，如果 AI 和目标之间的距离超过此属性中设置的距离，AI 将追逐其目标以缩小距离。</p>
+</li>
+<li>
+<p>攻击距离是实际攻击期间 AI 与其目标之间所需的距离。例如，如果你的 AI 是近战型，你希望这个值非常小，比如 0.5 - 1。因为 AI 需要更接近目标。当触发攻击时，AI会移动以接近距离，然后在达到距离时发起攻击。</p>
+</li>
+<li>
+<p>攻击层检查更多地用于远程。这是为了避免人工智能互相碰撞。因此，如果你想避免误伤，请将其设置为其他 AI 的图层。</p>
+</li>
+<li>
+<p>Attacks 是一个列表（可以动态更改），您可以在其中设置每个攻击动画名称、每个攻击的持续时间以及是否希望每次攻击伴随音频。每个攻击周期将随机选择一次攻击。</p>
+</li>
+<li>
+<p>攻击事件是您可以设置发起攻击时触发的事件的地方。伴随着攻击动画。</p>
+</li>
+<li>
+<p>间隔攻击：让我们首先了解为什么会出现这种情况。默认情况下，AI 会向它看到的任何敌方添加一个名为 BlazeAIEnemyManager 的脚本。该脚本管理每个AI的攻击，使它们一一攻击。默认情况下，该脚本的调用时间为 5 秒。因此每 5 秒就会调用一个随机 AI 来攻击目标。这可以通过检查员进行更改，它是公共财产。您可以在编辑器中将此脚本添加到您的播放器并更改值。但是，如果你想让所有人工智能都攻击而不考虑这种限制怎么办？这就是该属性的用武之地。启用此属性将打开另一个属性，您可以设置最小值和最大值两个值。每个周期都会生成一个随机数作为等待时间，完成后 AI 无论如何都会发起攻击。即使有另一个AI即将攻击。这有时也称为突发攻击。对于恒定时间，将两个值设置为相同的数字。这对于像僵尸这样的敌人来说是有好处的，因为他们无论如何都会一起攻击，并且每次攻击之间的等待时间很短。对于远程 AI 也有好处。</p>
+</li>
+</ul>
+<p>最后要提到的是伤害系统取决于你。您需要为 Als 创建自己的健康状况（查看本文档中的健康部分以及 Hit &amp; Death 演示中的健康脚本）和实际伤害系统（查看本文档中的 Hit 文档）。为了让 AI 检测实际目标，请查看本文档中的检测敌人部分。</p>
+
+<h1 class="relative group">设置封面射手 AI
+    <div id="设置封面射手-ai" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%ae%be%e7%bd%ae%e5%b0%81%e9%9d%a2%e5%b0%84%e6%89%8b-ai" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>请按照以下步骤设置掩护射击游戏 AI。</p>
+<ul>
+<li>
+<p>转到主 Blaze AI 检查器  $&gt;$  状态选项卡  $&gt;$  单击添加行为按钮。</p>
+</li>
+<li>
+<p>您会发现脚本已添加到游戏对象中，并在“状态”选项卡的状态行为中进行设置。</p>
+</li>
+<li>
+<p>如果您不打算使用用于近战和远程的攻击状态行为，请继续从游戏对象中删除添加的攻击状态行为脚本。</p>
+</li>
+<li>
+<p>确保“状态”选项卡中的封面射击模式已打开。</p>
+</li>
+<li>
+<p>现在展开 Cover Shooter Behaviour 脚本并选择 Movement 选项卡。</p>
+</li>
+<li>
+<p>将“移动速度”和“转动速度”属性设置为您喜欢的任何值。前者是你希望人工智能处于攻击状态的速度，这包括追逐、移动到目标位置以及从/到掩体。后者（转弯速度）同样适用于人工智能转弯到路径拐角的速度。</p>
+</li>
+<li>
+<p>空闲动画是 AI 在等待拍摄周期时播放的动画名称。</p>
+</li>
+<li>
+<p>移动动画是当您的 AI 追逐玩家、被另一个 AI 呼叫到目标位置、移入/移出掩体时播放的移动动画名称。</p>
+</li>
+<li>
+<p>现在选择“攻击”选项卡。</p>
+</li>
+<li>
+<p>与敌人的距离是 AI 不惜一切代价应保持的最大距离。如果距离增加超过此属性中设置的值，AI 将追逐其目标以接近此距离，然后在附近寻找掩护。 AI 会消除超出此设定值的覆盖物。</p>
+</li>
+<li>
+<p>攻击距离是 AI 在射击周期中应移动到的实际距离。问问自己，当人工智能向目标射击时，你希望它距离目标多近。作为掩护射击者，最好始终保持与“与敌人的距离”相同的值。但你绝对可以将其设置为其他任何值。</p>
+</li>
+<li>
+<p>攻击层检查是为了避免误伤。在启动射击周期之前，AI 将发射射线并检查此属性中设置的任何图层是否已被击中。如果是这样，人工智能将避免攻击，直到有一条清晰的路径才会攻击。您可以将此属性设置为其他 AI 代理的图层。因此，在人工智能攻击之前，它会检查是否有任何朋友挡道，如果有则停止。当路径畅通时，它将恢复拍摄。</p>
+</li>
+<li>
+<p>射击动画是您在拍摄时要播放的实际射击动画名称。</p>
+</li>
+<li>
+<p>Shoot Every 是 AI 触发拍摄周期的时间间隔（以秒为单位）。问问自己：你希望这个 AI 每隔多少秒射击一次？这会在每个周期生成一个介于最小值和最大值之间的随机数。当该值生成并且计时器完成时，AI 将移动到玩家并射击。对于恒定时间，将两个值设置为相同的数字。</p>
+</li>
+<li>
+<p>单次拍摄持续时间设置单次拍摄的时间量（以秒为单位）。拍摄周期由多个镜头组成。</p>
+</li>
+<li>
+<p>每次射击之间的延迟 触发下一次射击之前的延迟时间量。</p>
+</li>
+<li>
+<p>Total Shoot Time 总拍摄周期时间。你希望人工智能持续向敌人射击多久。取最小值和最大值之间的一个数字，并生成一个介于两者之间的随机数字。对于恒定时间，将两个值设置为相同的数字。</p>
+</li>
+<li>
+<p>攻击事件是您设置每次射击时触发的事件的地方。这是你应该使用子弹功能的地方，它可以播放粒子系统、伤害敌人、发射射线等等&hellip;&hellip;</p>
+</li>
+</ul>
+<p>其他一切都是不言自明的，并且具有提供更多信息的工具提示（通过鼠标悬停）。</p>
+<p>为了使 AI 在低盖上方进行拍摄，一个技巧是将“视觉”选项卡中的“视觉位置”设置为高于低盖高度，如图所示。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1208"
+    height="664"
+    src="/NewskyGameBlog/blazeaiengine/images/970cf1c27c03cda2a5f26e22397ef0c57a055edff3958b8da70072f29c079e82_hu_a18d788ece10fbfe.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/970cf1c27c03cda2a5f26e22397ef0c57a055edff3958b8da70072f29c079e82_hu_a18d788ece10fbfe.jpg 800w, /NewskyGameBlog/blazeaiengine/images/970cf1c27c03cda2a5f26e22397ef0c57a055edff3958b8da70072f29c079e82.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/970cf1c27c03cda2a5f26e22397ef0c57a055edff3958b8da70072f29c079e82.jpg"></figure>
+</p>
+<p>这样，当人工智能找到掩体并进行攻击时，它会立即起身从低掩体射击，而无需绕着掩体跑来更好地观察目标。您将在下一节中学习如何设置封面，请记住这一点。</p>
+<p>最后要提到的是伤害系统取决于你。您需要为 Als 创建自己的健康状况（查看本文档中的 Health 部分）和实际伤害系统（查看本文档中的 Hit 文档）。为了让 AI 检测实际目标，请查看本文档中的检测敌人部分。</p>
+
+<h1 class="relative group">为封面射手 AI 设置封面
+    <div id="为封面射手-ai-设置封面" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%ba%e5%b0%81%e9%9d%a2%e5%b0%84%e6%89%8b-ai-%e8%ae%be%e7%bd%ae%e5%b0%81%e9%9d%a2" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>在执行这些步骤之前，请确保您已在平面上烘焙导航网格。如果没有，请按照入门部分操作。</p>
+<ul>
+<li>
+<p>创建封面游戏对象或插入封面模型并给它们一个盒子碰撞器。</p>
+</li>
+<li>
+<p>然后使用“窗口”&gt;“AI”&gt;“导航”打开“导航”窗口。</p>
+</li>
+<li>
+<p>现在您已经打开了导航菜单。单击层次结构中的所有封面游戏对象，然后转到“对象”选项卡并检查“导航静态”并将“导航区域”设置为“不可步行”，如下所示</p>
+</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1150"
+    height="467"
+    src="/NewskyGameBlog/blazeaiengine/images/0a3bec9a73570d173fd043da6803747f0a02db3dc87f48d9aee12e77b37658b6_hu_98d54b0ad593675d.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/0a3bec9a73570d173fd043da6803747f0a02db3dc87f48d9aee12e77b37658b6_hu_98d54b0ad593675d.jpg 800w, /NewskyGameBlog/blazeaiengine/images/0a3bec9a73570d173fd043da6803747f0a02db3dc87f48d9aee12e77b37658b6.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/0a3bec9a73570d173fd043da6803747f0a02db3dc87f48d9aee12e77b37658b6.jpg"></figure>
+</p>
+<ul>
+<li>现在转到“烘焙”选项卡并单击“烘焙”。</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="886"
+    height="700"
+    src="/NewskyGameBlog/blazeaiengine/images/43101b557c1e36b58536a3512478c511c15ecf15518eaa09db02e4a2da97d3b1_hu_c3255af87571d395.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/43101b557c1e36b58536a3512478c511c15ecf15518eaa09db02e4a2da97d3b1_hu_c3255af87571d395.jpg 800w, /NewskyGameBlog/blazeaiengine/images/43101b557c1e36b58536a3512478c511c15ecf15518eaa09db02e4a2da97d3b1.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/43101b557c1e36b58536a3512478c511c15ecf15518eaa09db02e4a2da97d3b1.jpg"></figure>
+</p>
+<ul>
+<li>现在，您会在场景视图中发现您的盖子已在其周围雕刻了导航网格。</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="758"
+    height="647"
+    src="/NewskyGameBlog/blazeaiengine/images/299179cc5c8de7ae363d665fa98164c54966bd35ac1449211e6df4495e2d34b8.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/299179cc5c8de7ae363d665fa98164c54966bd35ac1449211e6df4495e2d34b8.jpg 800w, /NewskyGameBlog/blazeaiengine/images/299179cc5c8de7ae363d665fa98164c54966bd35ac1449211e6df4495e2d34b8.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/299179cc5c8de7ae363d665fa98164c54966bd35ac1449211e6df4495e2d34b8.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>封面设置的最后一件事是给你的封面添加一层。最好为您的封面提供一个独特的图层，而不是将其设置为“默认”。</p>
+</li>
+<li>
+<p>现在您已经设置了封面，是时候回到人工智能了。展开“Going To Cover Behaviour”脚本。</p>
+</li>
+<li>
+<p>将覆盖层属性设置为覆盖层。</p>
+</li>
+<li>
+<p>隐藏灵敏度是指您希望隐藏点的程度。您很少会编辑此内容。所以就将其保留为 -0.25 即可。</p>
+</li>
+<li>
+<p>搜索距离是围绕 Al 搜索掩体的距离。启用其下方的“显示搜索距离”，在场景视图中，半径将显示为浅蓝色线球体，以便您可以直观地了解距离有多好。</p>
+</li>
+<li>
+<p>最小覆盖高度是符合搜索条件的最小覆盖高度。要获取任何游戏对象的覆盖高度，只需添加组件 BlazeAIGetCoverHeight 并单击按钮即可。它会告诉你这个游戏对象的高度。它需要有一个对撞机。</p>
+</li>
+<li>
+<p>高覆盖物高度 如果选择的覆盖物高度大于或等于该值，则该覆盖物将被视为高覆盖物，并且将播放高覆盖物动画。如果选择的掩护小于此，则它是低掩护。</p>
+</li>
+<li>
+<p>High Cover Anim 当 AI 隐藏在高度大于 Min Cover Height 属性的掩体后面时播放的动画。</p>
+</li>
+<li>
+<p>Low Cover Anim 当覆盖高度等于 Min Cover Height 时播放的动画名称。</p>
+</li>
+<li>
+<p>旋转到掩体正常 如果选中，当 AI 到达掩体时，它会旋转，使其回到掩体。</p>
+</li>
+</ul>
+<p>现在你的人工智能可以完美地检测到掩体并隐藏在它们后面。其他一切都是不言自明的，并且具有提供更多信息的工具提示（通过鼠标悬停）。</p>
+
+<h1 class="relative group">手动设置盖子位置
+    <div id="手动设置盖子位置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%89%8b%e5%8a%a8%e8%ae%be%e7%bd%ae%e7%9b%96%e5%ad%90%e4%bd%8d%e7%bd%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>有时您可能需要手动添加封面位置，而不是依赖自动化系统。这可能是因为您的网格不均匀/复杂，导致系统很难自动选择准确的网格。添加手动位置：</p>
+<ul>
+<li>
+<p>单击您的封面游戏对象</p>
+</li>
+<li>
+<p>添加组件：BlazeAIOverManager</p>
+</li>
+<li>
+<p>在 CoverPositions 数组中添加位置。</p>
+</li>
+<li>
+<p>每个物体一侧一个位置就可以了。</p>
+</li>
+<li>
+<p>启用 ShowCoverPositions 将显示场景视图中的位置，并让您使用手柄定位它们。</p>
+</li>
+</ul>
+<p>就是这样！现在，当人工智能去覆盖时，它会自动选择一个自动点，并转而前往最近的手动设置点。</p>
+
+<h1 class="relative group">警报层/对某些标签做出反应
+    <div id="警报层对某些标签做出反应" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%ad%a6%e6%8a%a5%e5%b1%82%e5%af%b9%e6%9f%90%e4%ba%9b%e6%a0%87%e7%ad%be%e5%81%9a%e5%87%ba%e5%8f%8d%e5%ba%94" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>如果您阅读了前面的“添加敌人”部分，您可能会问，什么是警报层？</p>
+<p>警报层是警报标签层（位于 Vision 类中的“敌对标签”下方）。警报标签是具有标签名称的游戏对象，您希望 AI 对其做出反应，并将 AI 转变为 Saw Alert Tag 状态。 AI将触发警报视觉并播放警报状态的移动动画。查看演示 3（仅限完整版）。</p>
+<p>首先，在 Vision 中的 Alert Tags 类内的 Alert Tag 属性中添加要做出反应的游戏对象的标签名称。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1011"
+    height="264"
+    src="/NewskyGameBlog/blazeaiengine/images/b24b3a61da42fac851721684885702ada1d0e6cb66b0279d845bcc25bf29221c_hu_f1760837ea40903e.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/b24b3a61da42fac851721684885702ada1d0e6cb66b0279d845bcc25bf29221c_hu_f1760837ea40903e.jpg 800w, /NewskyGameBlog/blazeaiengine/images/b24b3a61da42fac851721684885702ada1d0e6cb66b0279d845bcc25bf29221c.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/b24b3a61da42fac851721684885702ada1d0e6cb66b0279d845bcc25bf29221c.jpg"></figure>
+</p>
+<p>正如您所看到的，我希望 AI 能够做出反应并收到带有标签名称 AlarmingObject 的任何游戏对象的警报。</p>
+<p>第二个属性是当看到此标记名称时您想要启用的行为脚本。您可以为每个警报标签设置不同的行为。 Blaze 附带一个默认脚本，其中包含许多属性来自定义行为。</p>
+<p>只需将组件添加到您的 AI：警报标签行为</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="492"
+    height="669"
+    src="/NewskyGameBlog/blazeaiengine/images/910f2271dc2613aca438809b52ab64e8e589802dd39f4106315c92472d4d8b2d.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/910f2271dc2613aca438809b52ab64e8e589802dd39f4106315c92472d4d8b2d.jpg 800w, /NewskyGameBlog/blazeaiengine/images/910f2271dc2613aca438809b52ab64e8e589802dd39f4106315c92472d4d8b2d.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/910f2271dc2613aca438809b52ab64e8e589802dd39f4106315c92472d4d8b2d.jpg"></figure>
+</p>
+<p>添加组件后，将其拖放到警报标签中的“行为脚本”属性。</p>
+<p>最后一件事是 Fall Back Tag 属性。当 AI 看到带有警报标签的游戏​​对象时，它会立即将对象标签更改为后备标签，以免自身或其他 Al 再次对其做出反应。无论您在此属性中设置什么，都将成为游戏对象的新标签名称。默认情况下，如果将此属性留空，游戏对象将回退为“未标记”。</p>
+<p>就是这样！现在，当人工智能看到警报标签时，行为脚本将在持续时间结束时启用。它将返回到警报状态。</p>
+
+<h1 class="relative group">打
+    <div id="打" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%89%93" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>首先，要让AI转到命中状态，你需要先添加它的行为。因为与任何其他状态一样，状态需要一种行为来指示它如何在该特定状态下采取行动。真的很简单。要研究的示例演示是 Hit &amp; Death 演示。</p>
+<p>首先转至 Blaze 中的“Hit”选项卡并单击“Add Behaviour”按钮。这会将 Hit State Behaviour 脚本组件添加到您的 AI 游戏对象并将其设置为其属性。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="992"
+    height="403"
+    src="/NewskyGameBlog/blazeaiengine/images/f55b890b47a5099dbf37da376b37c8657b59a92257e8f035dcf56a53cbf28663_hu_42a8d00672c0d8ba.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/f55b890b47a5099dbf37da376b37c8657b59a92257e8f035dcf56a53cbf28663_hu_42a8d00672c0d8ba.jpg 800w, /NewskyGameBlog/blazeaiengine/images/f55b890b47a5099dbf37da376b37c8657b59a92257e8f035dcf56a53cbf28663.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/f55b890b47a5099dbf37da376b37c8657b59a92257e8f035dcf56a53cbf28663.jpg"></figure>
+</p>
+<p>这是添加到Al后的脚本。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="844"
+    height="641"
+    src="/NewskyGameBlog/blazeaiengine/images/63a558b4974f67a2630592c1271e98d8cfcb811bb6ed46d95d10ad9d2f4f6780_hu_80ab9f5bd543b87f.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/63a558b4974f67a2630592c1271e98d8cfcb811bb6ed46d95d10ad9d2f4f6780_hu_80ab9f5bd543b87f.jpg 800w, /NewskyGameBlog/blazeaiengine/images/63a558b4974f67a2630592c1271e98d8cfcb811bb6ed46d95d10ad9d2f4f6780.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/63a558b4974f67a2630592c1271e98d8cfcb811bb6ed46d95d10ad9d2f4f6780.jpg"></figure>
+</p>
+<p>与其他行为一样，该脚本将被禁用。那挺好的。</p>
+<p>要将 AI 切换到命中状态，只需调用 Blaze 公共方法 Hit(GameObject hitter = null, bool callOthers = false)。</p>
+<p>这会将 AI 转至命中状态并播放命中动画和音频，并在命中持续时间属性（命中状态行为脚本中）中设置的时间内保持该状态，然后退出。</p>
+<p>上面看到的 API 只有两个参数：</p>
+<p>击球手参数：如果击球手被传递，则退出击球状态后，AI将转为攻击状态，并移动到击球手的位置并查看位置。如果没有通过，退出命中状态后AI将转为警戒并继续巡逻。默认情况下它设置为 null。</p>
+<p>您可以使用它来设置是否希望玩家攻击是匿名的。</p>
+<p>// AI会在命中状态后移动以检查位置 blaze.Hit(player.gameObject);</p>
+<p>// AI在命中状态后会转入警戒状态并继续巡逻 blaze.Hit();</p>
+<p>两者都是有效的，但取决于您想要做什么。</p>
+<p>callOthers参数：如果设置为true，则会呼叫附近的座席。如果击球手也被传球，它会呼叫 Als 到击球手位置。如果击球手没有被传球，它会呼叫 Als 到它自己的位置。从命中状态行为检查器配置呼叫半径和代理层。</p>
+<p>// 将击中 AI 并调用其他 Als 到玩家位置</p>
+<p>blaze.Hit(player.gameObject, true);</p>
+<p>// 将击中 AI 并调用其他 Al 到当前 AI 位置</p>
+<p>blaze.Hit(null, true);</p>
+<p>对于属于击中行为一部分的布娃娃击倒，请查看布娃娃部分。</p>
+
+<h1 class="relative group">健康
+    <div id="健康" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%81%a5%e5%ba%b7" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>你问的健康呢？好吧，健康取决于你。这意味着您可以使用资产附带的资源。您可以在 Hit &amp; Death 演示中测试它。该脚本位于演示 &gt; 资源 &gt; 脚本 &gt; Health.cs 中。或者您可以编写自己的或使用您最喜欢的健康资产。 Blaze 为您提供选择的自由。</p>
+<p>这也意味着您需要编写另一个简单的脚本来调用 Blaze 的 Hit() 并减少您的健康脚本的点数。让我们一一检查一下。</p>
+<p>首先，健康脚本非常简单：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">using UnityEngine;   
+</span></span><span class="line"><span class="cl">public class Health : MonoBehaviour { public int healthPoints  $= 100$  .</span></span></code></pre></div></div>
+<p>这个健康脚本或类似脚本应该在你的人工智能上。这个想法是在攻击时，你将这个 healthPoints 变量减少攻击伤害量。</p>
+<p>然后，您应该在另一个脚本中为您的播放器提供某种命中管理器功能，该功能可以处理减少生命值并调用 Blaze 的命中状态。</p>
+<p>像这样的东西：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HitAI</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">damagePoints</span><span class="p">)</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="p">{</span><span class="w"> </span><span class="n">blaze</span><span class="p">.</span><span class="na">Hit</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span><span class="w"> </span><span class="n">healthScript</span><span class="p">.</span><span class="na">healthPoints</span><span class="w">  </span><span class="n">$</span><span class="err">\</span><span class="n">equiv$</span><span class="w">  </span><span class="n">damagePoints</span><span class="p">;</span></span></span></code></pre></div></div>
+<p>所以这将在你的玩家身上，这就是当你的玩家击中 AI 时你所调用的。</p>
+
+<h1 class="relative group">死亡
+    <div id="死亡" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%ad%bb%e4%ba%a1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>您不必设置任何行为。您只需调用公共 blaze 方法 Death(bool callOthers = false, GameObject player = null) 即可。检查死亡演示。对于布娃娃死亡，请查看布娃娃部分。</p>
+<p>设置死亡属性位于主 Blaze AI 检查器的“死亡”选项卡中。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="717"
+    height="675"
+    src="/NewskyGameBlog/blazeaiengine/images/70e0cc4d81ee50530dfa3d326de6c9bd6e737ba3d0c817497129df2a8080d3f2.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/70e0cc4d81ee50530dfa3d326de6c9bd6e737ba3d0c817497129df2a8080d3f2.jpg 800w, /NewskyGameBlog/blazeaiengine/images/70e0cc4d81ee50530dfa3d326de6c9bd6e737ba3d0c817497129df2a8080d3f2.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/70e0cc4d81ee50530dfa3d326de6c9bd6e737ba3d0c817497129df2a8080d3f2.jpg"></figure>
+</p>
+
+<h1 class="relative group">参数：
+    <div id="参数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%8f%82%e6%95%b0" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>Death() 方法有两个参数，两个参数都是可选的，默认值分别为 false 和 null。</p>
+<p>callOthers：是当AI死亡时是否要呼叫其他Als到某个位置。你要么通过 true，要么通过 false。默认为假。配置巡检员呼叫的半径和层数。</p>
+<p>玩家：如果第一个参数（callOthers）为真，则作为玩家游戏对象发送其他AI来检查其位置。它需要一个游戏对象，并且默认设置为 null。如果在 callOthers 为 true 时未传递此参数，则 AI 会将其他人呼叫到其自己的位置。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// will kill Al and call other Als to current location blaze.Death(true);
+</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">// will kill AI and call other AIs to player location blaze.Hit(true, player/object);</span></span></code></pre></div></div>
+<p>您还可以在 AI 上安装一个脚本来检查健康点。如果它小于或等于 0，则调用 Death()。</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">void Update()   
+</span></span><span class="line"><span class="cl">{ if (healthScript.healthPoints  $\Leftarrow$  0）{ // this won&#39;t call others since nothing is passed blaze.Death(); }</span></span></code></pre></div></div>
+<p>当然，最好的方法是让 healthPoints 成为一个属性，并检查设置器内的健康点。但这种方法也很有效，而且如果你是初学者的话会更容易。</p>
+
+<h1 class="relative group">干扰
+    <div id="干扰" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b9%b2%e6%89%b0" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>首先转到 Blaze AI 检查器中的 Distract 选项卡。</p>
+<p>启用可以分散注意力。然后单击“添加行为”按钮。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="945"
+    height="605"
+    src="/NewskyGameBlog/blazeaiengine/images/2025fda757c54350650889ceda4d3476023bc6552513d2f601dc06b1396c1bac_hu_ab4b9554d4b6c408.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/2025fda757c54350650889ceda4d3476023bc6552513d2f601dc06b1396c1bac_hu_ab4b9554d4b6c408.jpg 800w, /NewskyGameBlog/blazeaiengine/images/2025fda757c54350650889ceda4d3476023bc6552513d2f601dc06b1396c1bac.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/2025fda757c54350650889ceda4d3476023bc6552513d2f601dc06b1396c1bac.jpg"></figure>
+</p>
+<p>这会将默认的分心状态行为添加到您的 AI 中并将其设置为其状态属性。</p>
+<p>添加的脚本是您希望人工智能在分心时如何行动。所以按照你想要的方式填写。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="830"
+    height="475"
+    src="/NewskyGameBlog/blazeaiengine/images/839391f6a2cf34b538cc534c63451ae157aaff07a298609ec62b356cca71888b_hu_c2a15efc75153a1e.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/839391f6a2cf34b538cc534c63451ae157aaff07a298609ec62b356cca71888b_hu_c2a15efc75153a1e.jpg 800w, /NewskyGameBlog/blazeaiengine/images/839391f6a2cf34b538cc534c63451ae157aaff07a298609ec62b356cca71888b.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/839391f6a2cf34b538cc534c63451ae157aaff07a298609ec62b356cca71888b.jpg"></figure>
+</p>
+
+<h1 class="relative group">现在有两种方法可以分散人工智能的注意力。
+    <div id="现在有两种方法可以分散人工智能的注意力" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%8e%b0%e5%9c%a8%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%96%b9%e6%b3%95%e5%8f%af%e4%bb%a5%e5%88%86%e6%95%a3%e4%ba%ba%e5%b7%a5%e6%99%ba%e8%83%bd%e7%9a%84%e6%b3%a8%e6%84%8f%e5%8a%9b" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>您可以通过执行以下操作在单个特定 AI 上调用 Distract(Vector3 location, bool playAudio) 方法：</p>
+<p>blazeScript.Distract locationOfDistraction, true);</p>
+<p>第一个参数是干扰的位置。</p>
+<p>第二个参数是AI是否应该播放音频。</p>
+<p>第二种也是最受青睐的方法，也是分散群体注意力的方法是使用脚本：Blaze AI Distraction。将此脚本添加到您想要分散注意力的任何游戏对象/位置。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1089"
+    height="300"
+    src="/NewskyGameBlog/blazeaiengine/images/3b135de363d2e8fc5e5dba66d6d22e7d298fcf836e2e04b4a02135cb85b0764e_hu_3cc4280cf122b9d8.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/3b135de363d2e8fc5e5dba66d6d22e7d298fcf836e2e04b4a02135cb85b0764e_hu_3cc4280cf122b9d8.jpg 800w, /NewskyGameBlog/blazeaiengine/images/3b135de363d2e8fc5e5dba66d6d22e7d298fcf836e2e04b4a02135cb85b0764e.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/3b135de363d2e8fc5e5dba66d6d22e7d298fcf836e2e04b4a02135cb85b0764e.jpg"></figure>
+</p>
+<p>设置属性后（我们将获取它们），您可以使用脚本的公共方法触发干扰：</p>
+<p>触发干扰()。所以你可以这样做：</p>
+<p>BlazeAIDistraction 脚本 = GetComponent<BlazeAIDistraction>();</p>
+<p>script.TriggerDistraction();</p>
+<p>这是首选方式，因为它可以为您完成大部分工作，并且还可以分散多个人工智能的注意力。</p>
+<p>或者，您可以使用图像中看到的第一个属性在清醒时触发干扰。</p>
+<p>现在来说说属性：</p>
+<p>代理层：您想要分散注意力的 Als 层。</p>
+<p>干扰半径：检查和干扰Als的半径。您可以在场景视图中将干扰半径视为黄色线球体，该球体随该属性的值而变化。这样你就可以直观地看到分心半径有多大。就这样：</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="914"
+    height="430"
+    src="/NewskyGameBlog/blazeaiengine/images/794001e83531d71cb86279f9d0318768b7e09ce08dc66f9d9c0a7d13efd0c58a_hu_9b2fcdcf94e48bfb.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/794001e83531d71cb86279f9d0318768b7e09ce08dc66f9d9c0a7d13efd0c58a_hu_9b2fcdcf94e48bfb.jpg 800w, /NewskyGameBlog/blazeaiengine/images/794001e83531d71cb86279f9d0318768b7e09ce08dc66f9d9c0a7d13efd0c58a.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/794001e83531d71cb86279f9d0318768b7e09ce08dc66f9d9c0a7d13efd0c58a.jpg"></figure>
+</p>
+<p>穿过碰撞器：您是否希望干扰物穿过墙壁和物体并分散人工智能的注意力？</p>
+<p>仅分散优先级代理：如果启用，则只有组中具有最高分散注意力优先级的 AI 才会转身面对分散注意力的情况。如果禁用，整个小组都会面对并看着干扰物，但只有最高优先级的人会检查位置。</p>
+<p>要了解干扰如何发挥作用，请查看干扰演示。</p>
+
+<h1 class="relative group">距离剔除
+    <div id="距离剔除" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%b7%9d%e7%a6%bb%e5%89%94%e9%99%a4" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>这是一个很棒的系统，可以通过禁用远离玩家或摄像机的 Als 并在范围内重新启用它们来大幅提高游戏性能。它的设置也非常容易。请注意：这也有 API，因此请检查 API 部分。</p>
+<p>首先在场景中创建一个空游戏对象并向其中添加 Blaze AI 距离剔除脚本。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="556"
+    height="522"
+    src="/NewskyGameBlog/blazeaiengine/images/7af6bf54460167f956cd9755ff02797220b80a2483f32d9ecadceb4ade61eabc.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/7af6bf54460167f956cd9755ff02797220b80a2483f32d9ecadceb4ade61eabc.jpg 800w, /NewskyGameBlog/blazeaiengine/images/7af6bf54460167f956cd9755ff02797220b80a2483f32d9ecadceb4ade61eabc.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/7af6bf54460167f956cd9755ff02797220b80a2483f32d9ecadceb4ade61eabc.jpg"></figure>
+</p>
+<p>这将是在您的空游戏对象上添加的脚本。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1056"
+    height="336"
+    src="/NewskyGameBlog/blazeaiengine/images/cb1410ff6769b2def2f6568e52500e6ba7caf2d982774ded543fb86bc54910c8_hu_83b5c91b62a34e43.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/cb1410ff6769b2def2f6568e52500e6ba7caf2d982774ded543fb86bc54910c8_hu_83b5c91b62a34e43.jpg 800w, /NewskyGameBlog/blazeaiengine/images/cb1410ff6769b2def2f6568e52500e6ba7caf2d982774ded543fb86bc54910c8.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/cb1410ff6769b2def2f6568e52500e6ba7caf2d982774ded543fb86bc54910c8.jpg"></figure>
+</p>
+<p>距离剔除使用玩家或摄像机来计算到 Als 的距离，您可以根据您的游戏选择最佳的距离。</p>
+<p>如果相机是最好的，您只需启用自动捕捉相机即可。这将使主摄像头处于唤醒状态。因此不需要更多的手动工作。</p>
+<p>但是，如果您的相机在运行时生成。禁用自动捕捉相机，当相机准备好并生成时，任何脚本中都有一个函数可以执行以下操作：</p>
+<p>BlazeAIDistanceCulling.instance_playerOrCamera = Camera.main.transform;</p>
+<p>如果你想比较与玩家角色的距离。您可以禁用自动捕捉相机并将播放器变换缝合到属性播放器或相机，如第 21 页的图像所示。</p>
+<p>Distance To Cull 是当 AI 超过此值时您想要禁用 AI 的距离。</p>
+<p>循环帧是一种通过在每组帧运行剔除循环来进一步提高性能的方法。默认情况下，它每 7 帧运行一次。除非作为游戏性能不佳的最后手段，否则您不应该使用此功能。</p>
+<p>仅禁用 Blaze 将仅禁用 blaze 组件并播放正常或警报状态的第一个空闲动画。取决于您设置在唤醒时使用的状态。启用此功能将使您的剔除看起来更自然，没有弹出窗口，因为它不会禁用游戏对象。 （会让你的人工智能看起来好像在等待）</p>
+<p>现在您已经为距离剔除设置了“中央管理器”。剩下的就是指示 Blaze AI 使用此功能。</p>
+<p>转到您的 AI，在常规选项卡中打开 Blaze 检查器。向下滚动并启用距离剔除。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1175"
+    height="186"
+    src="/NewskyGameBlog/blazeaiengine/images/a6ac3aed719dec4c7c49584760e00267b01425de2f322a8d2cc34abb8da3c5f3_hu_60b1c02080fea0f6.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/a6ac3aed719dec4c7c49584760e00267b01425de2f322a8d2cc34abb8da3c5f3_hu_60b1c02080fea0f6.jpg 800w, /NewskyGameBlog/blazeaiengine/images/a6ac3aed719dec4c7c49584760e00267b01425de2f322a8d2cc34abb8da3c5f3.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/a6ac3aed719dec4c7c49584760e00267b01425de2f322a8d2cc34abb8da3c5f3.jpg"></figure>
+</p>
+<p>当您启用距离剔除时，会出现一个新属性“剔除时播放动画”。在此属性中设置 AI 被剔除时要播放的动画名称。仅当我们之前看到的主剔除管理器中启用了“Disable Blaze Only”时，才会考虑这一点。如果您不想设置动画，也可以将其留空。</p>
+<p>就是这样！现在，当您玩游戏并将玩家或摄像机移离任何 AI 时，它会禁用该 AI 并在范围内重新启用。</p>
+
+<h1 class="relative group">同伴模式
+    <div id="同伴模式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%90%8c%e4%bc%b4%e6%a8%a1%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>使用同伴模式，您可以将任何 Blaze AI 交给您的朋友，并让它与您并肩作战。你甚至可以用它让一个人工智能成为另一个人工智能的伴侣。</p>
+<p>首先转到同伴选项卡，然后单击“添加同伴行为”</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="927"
+    height="377"
+    src="/NewskyGameBlog/blazeaiengine/images/a458f843bcfbe91ac2e7a89a522a0ee599110e76b2d45d1da2808d83a955c693_hu_c7b2993a5efbc3e.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/a458f843bcfbe91ac2e7a89a522a0ee599110e76b2d45d1da2808d83a955c693_hu_c7b2993a5efbc3e.jpg 800w, /NewskyGameBlog/blazeaiengine/images/a458f843bcfbe91ac2e7a89a522a0ee599110e76b2d45d1da2808d83a955c693.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/a458f843bcfbe91ac2e7a89a522a0ee599110e76b2d45d1da2808d83a955c693.jpg"></figure>
+</p>
+<p>点击后你会注意到两件事。</p>
+<p>首先，Companion Mode 属性已设置为 true。其次，同伴行为属性已设置为新添加的脚本。</p>
+<p>接下来是将您的播放器（或任何其他播放器）拖放到“Companion To”属性中。这意味着设置您希望人工智能成为同伴的游戏对象。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="986"
+    height="183"
+    src="/NewskyGameBlog/blazeaiengine/images/dea2fb6d3d5ed7d64d4b85253580920f1814d68fd1f740dc378e66c5b897e393_hu_4431d09165a77a17.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/dea2fb6d3d5ed7d64d4b85253580920f1814d68fd1f740dc378e66c5b897e393_hu_4431d09165a77a17.jpg 800w, /NewskyGameBlog/blazeaiengine/images/dea2fb6d3d5ed7d64d4b85253580920f1814d68fd1f740dc378e66c5b897e393.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/dea2fb6d3d5ed7d64d4b85253580920f1814d68fd1f740dc378e66c5b897e393.jpg"></figure>
+</p>
+<p>这在运行时也有效。所以你可以动态地改变它。</p>
+<p>现在我们已经完成了主要检查器部分的工作。现在转到新添加的脚本CompanionBehaviour来设置属性。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="856"
+    height="967"
+    src="/NewskyGameBlog/blazeaiengine/images/971c76a84305e88cf1b301b42a503ba1b3d058e02c1ff471bae5147c916d7c0d_hu_5548db61cb5a29a0.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/971c76a84305e88cf1b301b42a503ba1b3d058e02c1ff471bae5147c916d7c0d_hu_5548db61cb5a29a0.jpg 800w, /NewskyGameBlog/blazeaiengine/images/971c76a84305e88cf1b301b42a503ba1b3d058e02c1ff471bae5147c916d7c0d.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/971c76a84305e88cf1b301b42a503ba1b3d058e02c1ff471bae5147c916d7c0d.jpg"></figure>
+</p>
+
+<h1 class="relative group">特性：
+    <div id="特性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%89%b9%e6%80%a7" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>Follow ：默认设置为 true，这意味着 AI 将跟随同伴。如果设置为 false，这意味着 AI 已被命令保持原地不动，并且 AI 将强制保持原地不动，同时无限期地播放“原地不动”动画，直到跟随再次恢复为 true。</p>
+<p>跟随距离：设置播放运行动画时 AI 应跟随的距离。当距离较小时，AI 将停止并播放空闲动画。</p>
+<p>如果距离行走：如果 AI 与同伴之间的距离小于或等于此距离，AI 将使用行走动画和行走速度行走。该值必须始终大于 Follow If Distance 属性。</p>
+<p>四处走动：使用此选项，您可以在满足距离时让 AI 在玩家周围徘徊。这可以为你的游戏增添更多活力，因为人工智能会四处游荡。漂移半径是 Als navmesh 代理高度 * 2 + 0.5。</p>
+<p>徘徊点时间：再次移动之前在每个徘徊点花费的时间。对于每个漂移点，将在两个设定值之间生成一个随机值。对于恒定时间，将两个 (X 和 Y) 值设置为相同的值。</p>
+<p>Move Away On Contact ：将此属性设置为 true 将使 AI 在接触到下面设置的图层时移动到随机位置。当玩家接触时，你可以用它来让 AI 移动。</p>
+<p>要避免的层：当人工智能接触到这些设置层中的任何一个时，它会移动到随机位置。当玩家接触时，你可以用它来让 AI 移动。</p>
+
+<h1 class="relative group">音频
+    <div id="音频-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%9f%b3%e9%a2%91-1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="833"
+    height="195"
+    src="/NewskyGameBlog/blazeaiengine/images/d2f881cbce3af59790c5c03343541be0bb94cd9e0fd6b7e32bd764d2904015db_hu_c3e910c04d7bbae9.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/d2f881cbce3af59790c5c03343541be0bb94cd9e0fd6b7e32bd764d2904015db_hu_c3e910c04d7bbae9.jpg 800w, /NewskyGameBlog/blazeaiengine/images/d2f881cbce3af59790c5c03343541be0bb94cd9e0fd6b7e32bd764d2904015db.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/d2f881cbce3af59790c5c03343541be0bb94cd9e0fd6b7e32bd764d2904015db.jpg"></figure>
+</p>
+<p>空闲和徘徊时播放音频：让您的同伴在空闲或闲逛时每隔设定时间（音频计时器）播放随机音频</p>
+<p>徘徊。在音频脚本中设置音频。检查本文档中的音频部分以了解音频脚本是什么。</p>
+<p>音频定时器：每个周期将在两个值之间选择一个随机时间。对于恒定时间，将两个值设置为相同的数字。</p>
+<p>在跟随状态时播放音频：这将使同伴在跟随状态更改时播放音频。在音频脚本中，您将找到两个属性：Companion On Follow 和 Companion On Stop。在这些中，您可以为每一个设置音频。例如，如果您将 follow 状态设置为 false。你可以让人工智能说“好吧，我会留在这里”，就像它受到命令一样，当 follow 被设置为 true 时，它​​可以像“我正在路上”一样。</p>
+
+<h1 class="relative group">同伴系统如何运作？
+    <div id="同伴系统如何运作" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%90%8c%e4%bc%b4%e7%b3%bb%e7%bb%9f%e5%a6%82%e4%bd%95%e8%bf%90%e4%bd%9c" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>简而言之：当启用同伴模式时，同伴行为将在正常和警报状态下运行，而不是默认行为。至于攻击状态，默认的攻击行为会运行，以使同伴与同伴一起攻击其他敌人。</p>
+
+<h1 class="relative group">配套 API？
+    <div id="配套-api" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%85%8d%e5%a5%97-api" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>配套 AI 支持任何其他 Blaze AI 的 API。您可以使用API​​将其调用到某个位置，设置其攻击敌人等&hellip;请查看本文档中的API部分并使用您喜欢的API。</p>
+
+<h1 class="relative group">公共属性和 API
+    <div id="公共属性和-api" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%85%ac%e5%85%b1%e5%b1%9e%e6%80%a7%e5%92%8c-api" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>检查器中的所有类/变量都可以使用驼峰式命名约定以编程方式访问。只制作第一个字母小写。</p>
+
+<h1 class="relative group">例如：
+    <div id="例如" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%be%8b%e5%a6%82" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>使用根运动 -&gt; blaze.useRootMotion</p>
+<p>Vision 类中的视线级别 -&gt; blaze.vision.sightLevel</p>
+<p>以下是方便调用的公共属性和 API（方法）：</p>
+
+<h1 class="relative group">特性
+    <div id="特性-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%89%b9%e6%80%a7-1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>state - 返回以下任一状态的状态枚举：</p>
+<p>状态正常</p>
+<p>状态警报</p>
+<p>状态_攻击</p>
+<p>状态.goingToCover</p>
+<p>状态分散</p>
+<p>状态.惊讶</p>
+<p>状态.sawAlertTag</p>
+<p>State.returningToAlert</p>
+<p>国家打击</p>
+<p>状态.死亡</p>
+<p>状态.spareState</p>
+<p>animManager.currentState - 返回当前动画名称的字符串。</p>
+<p>enemyToAttack - 返回 AI 所针对的敌人的游戏对象。</p>
+<p>潜在的敌人攻击 - 如果启用了“使用视觉计”，则返回 AI 正在检测的敌方游戏对象。</p>
+<p>waypointIndex 返回（int）航路点的当前索引。</p>
+<p>enemyColPoint - 返回检测到的敌人的碰撞点。可用于最后一个敌人位置。</p>
+<p>VisionMeter - 返回视力表的值。如果启用使用视力计。从 0 到 1。当检测到敌人时增加到 1，如果没有检测到敌人则减少到 0。</p>
+<p>agentAudio - 返回 Blaze 使用的 AI 的主音频源（在启动时动态生成）来播放音频。</p>
+<p>distanceToEnemy - 返回 AI 和目标敌人之间的距离（浮动）。将此与“enemyToAttack”结合使用，以确保首先存在目标敌人。</p>
+<p>isAttacking - 当 Al 移动到攻击位置或已经在攻击时返回 true (bool)。</p>
+<p>isAttackingAnim - 当 AI 攻击动画播放时返回 true (bool)。</p>
+<p>sawAlertTagName - 返回所见警报标签的名称（字符串）。</p>
+<p>sawAlertTagPos - 返回带有警报标签的所见游戏对象的位置 (Vector3)。</p>
+<p>Cover Shooter Behaviour属性：（先获取CoverShooterBehaviour然后调用）</p>
+<p>hitPoint - 返回 AI 射击的 Vector3 点。</p>
+<p>ShootingAt - 返回正在射击的游戏对象。有助于了解 AI 是否正在射击玩家或其掩体。</p>
+
+<h1 class="relative group">蜜蜂
+    <div id="蜜蜂-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%9c%9c%e8%9c%82-1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>MoveToLocation (Vector3 location, bool randomize = false) - 将代理移动到某个位置。第二个参数是是否要随机化位置点。这对于避免多个 Al 停在完全相同的点很有用。</p>
+<p>IgnoreMoveToLocation() - 使用此函数可以忽略先前强制移动到某个位置的操作。</p>
+<p>StayIdle() – 强制 AI 保持空闲状态，然后在空闲时间结束后再次移动。如果AI处于攻击状态或即将掩护状态，则无法使用此方法。</p>
+<p>IgnoreStayIdle() - 忽略保持空闲调用并让 AI 返回巡逻状态。</p>
+<p>IsIdle() - 返回一个布尔值以检查 AI 是否空闲。空闲是指 AI 到达航路点并等待空闲计时器完成后再再次巡逻或调用 StayIdle() API。</p>
+<p>Distract (Vector3 location, bool playAudio=true) - 将单个特定 AI 分散到某个位置。</p>
+<p>IsOnOffMeshLink() - 返回一个布尔值，无论 Al 是否处于非网格链接上。</p>
+<p>Attack() - 强制 AI 攻击其目标。这只能在AI已经有目标的情况下使用，否则它要攻击什么？将此与检查enemyToAttack != null 一起使用以确保AI有目标。</p>
+<p>StopAttack() - 停止 AI 的攻击。</p>
+<p>ChangeState（字符串状态）——使用此方法，您可以仅在正常和警报之间更改 Al 的状态。该方法采用“正常”或“警报”字符串，并将 Al 的状态更改为特定的通过状态。</p>
+<p>SetTarget (GameObject敌人, bool randomizePoint = false, bool AttackVisionForFrame = false) – 为Al设置一个敌人并检查它的位置。第二个参数是您是否希望 Als 停在该位置，但要进行一点随机化，以避免 Als 聚集在同一点。如果第三个参数为 true，Al 的视野将转向单帧的攻击状态，如果它在该帧中捕获任何敌方，它将参与战斗。这对于掩体射手来说特别有用，因为阿尔斯的攻击视野会忽略障碍物和掩体。所以传递第二个参数可以帮助Al直接抓住敌人，而不是先去敌人的位置。</p>
+<p>Hit (GameObject敌人= null, bool callOthers = false) - 使用此方法来击中AI。有关更多信息，请查看本文档中的命中部分。</p>
+<p>KnockOut (GameObject敌人 = null, bool callOthers = false) - 调用此函数将淘汰AI。</p>
+<p>Death (bool callOthers = false, GameObject敌人= null) - 杀死AI。有关更多信息，请查看本文档中的“死亡”部分。</p>
+<p>DeathDoll (float timeToRaqdoll, bool callOthers = false, GameObject敌人= null) - 用动画杀死AI，然后在中途杀死布娃娃。有关更多信息，请查看本文档中的布娃娃部分。</p>
+<p>AddDistanceCulling () - 这会将 AI 添加到距离剔除管理器。</p>
+<p>RemoveDistanceCulling (bool enableObject = false) - 从距离剔除管理器中删除此 AI。采用可选参数。如果传递为 true，则还将启用游戏对象（如果它已被距离剔除禁用）。默认为 false。</p>
+<p>CheckDistanceCulling() - 检查此 AI 是否已添加到距离剔除管理器中。返回 true 或 false。</p>
+<p>animManager.Play(string animName, float animTransitionTime) – 使用这个公共方法，即使 Blaze 被禁用，您也可以播放任何您想要的动画。</p>
+<p>TakeCover (GameObject playerEnemy) – 使 AI 到达最佳掩体。</p>
+
+<h1 class="relative group">附加脚本
+    <div id="附加脚本" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%99%84%e5%8a%a0%e8%84%9a%e6%9c%ac" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>这些是提供的额外脚本，可增强 Blaze AI 的功能。</p>
+<p>BlazeAIEnemyManager – 这是 Blaze 在看到敌对游戏对象时添加的，如果它已经添加到敌对对象中，则 Blaze 不会再次添加它。该脚本组件是敌人管理器，使 Blaze AI 一次攻击一个敌方。你可以在编辑时预先添加这个，以便能够控制AI的攻击间隔。将 callEnemies 属性设置为 false 将阻止任何 AI 攻击目标。</p>
+<p>BlazeAlDistraction – 将此脚本添加到您想要分散注意力的任何游戏对象中。使用 TriggerDistraction() 以编程方式触发此干扰。这是完整触发的方式：</p>
+<p>GetComponent<BlazeAlDistraction>();TriggerDistraction();</p>
+<p>这将使任何 Blaze AI 分心并查看分心触发源方向。显然，您还可以在调用 TriggerDistraction() 的函数中播放音频。这将模拟或看起来好像人工智能听到了声音并被它分散了注意力。声音干扰，这就是游戏中的运作方式。</p>
+<p>BlazeAIGetCoverHeight – 将此脚本添加到带有碰撞器的任何覆盖障碍物中，然后单击“获取覆盖高度”按钮，它将在检查器中打印它的高度。将其与掩体发射器设置一起使用，以便能够设置高和低掩体高度。</p>
+<p>StayInPosition - 只要 AI 处于正常和警报状态，该组件就能使 AI 保持在原来的位置。将此脚本添加到 Blaze 所在的 AI 中。</p>
+<p>BlazeAICoverManager – 处于掩护射击模式的 Blaze AI 将此脚本添加到它们要掩护的任何障碍物中，并在占领属性中设置其变换。当离开封面时，它们会从前面提到的相同属性进行变换。</p>
+<p>BlazeAldistanceCulling - 将此脚本添加到场景中的任何空游戏对象，然后在 AI 的 Blaze 检查器中启用距离剔除。当距离超过距离剔除脚本中设置的距离时，AI 将禁用。</p>
+
+<h1 class="relative group">行为的内部 API
+    <div id="行为的内部-api" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a1%8c%e4%b8%ba%e7%9a%84%e5%86%85%e9%83%a8-api" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>这些是 blaze 中的 API，您可以在编写自己的行为脚本时使用。您将看到所有这些方法实际上都在标准行为中使用。</p>
+<p>MoveTo (Vector3 location, float moveSpeed, floatturnSpeed, string moveAnimName = null, float animT = 0.25f, string Direction = &ldquo;front&rdquo;) -&gt; 将 AI 移动到位置。当移动到某个位置时返回 false，当 AI 到达该位置时返回 true。</p>
+<p>位置：移动到的目的地。</p>
+<p>moveSpeed：移动到目的地时的移动速度。</p>
+<p>TurnSpeed：移动到目的地时的旋转速度。</p>
+<p>moveAnimName：要播放的移动动画的名称。</p>
+<p>animT：从当前动画到移动动画的过渡时间。</p>
+<p>方向：设置运动的方向向量。采取“前”、“后”、“左”或“右”。默认设置为前面。</p>
+<p>TurnTo (Vector3 location, string leftTurnAnim=null, string rightTurnAnim=null, float animT=0.25f, floatturnSpeed=0) -&gt; 在播放动画时将 AI 转向某个方向。转动时返回 false，转动完成时返回 true。该方法将自动确定选择哪个转弯动画（左或右）</p>
+<p>location：转向的位置。</p>
+<p>leftTurnAnim：左转动画名称。</p>
+<p>rightTurnAnim：右转动画名称。</p>
+<p>animT：从当前动画到转动动画的过渡时间。</p>
+<p>转弯速度：转弯的速度。</p>
+<p>RotateTo (Vector3 位置，浮动速度) -&gt; 将 AI 旋转到位置。</p>
+<p>location：旋转到的位置。</p>
+<p>速度：旋转速度。</p>
+<p>NextWayPoint() -&gt; 将公共 waypointIndex 属性设置为下一个航点索引并返回目的地的 Vector3。</p>
+<p>CheckWayPointRotation() -&gt; 检查到达的航点是否有航点旋转。如果当前路径点有旋转，则返回 true，否则返回 false。</p>
+<p>WayPointTurning() -&gt; 将 AI 转向航路点旋转并在完成后返回 true。</p>
+<p>SetState(State stateToTurnTo) -&gt; 设置 AI 的状态。</p>
+<p>stateToTurnTo：您希望 AI 转向的状态。接受（BlazeAI.State.normal等&hellip;）检查Blaze AI脚本中的状态枚举。</p>
+
+<h1 class="relative group">改变行为/武器和逃跑
+    <div id="改变行为武器和逃跑" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%94%b9%e5%8f%98%e8%a1%8c%e4%b8%ba%e6%ad%a6%e5%99%a8%e5%92%8c%e9%80%83%e8%b7%91" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>Blaze 的设计使您能够在运行时切换任何状态的行为脚本。为人工智能的行为提供更多自由。</p>
+<p>例如，我们希望人工智能在其生命值低于  $30%$  并且处于攻击状态。这将需要彻底改变攻击状态行为。 Blaze 完全适合哪个。</p>
+<p>我将创建一个新脚本，该脚本将成为 AI 的逃离行为，在启用时将其移动到该位置。该脚本将播放运行动画并执行以下操作：</p>
+<p>// 移动角色</p>
+<p>navmeshAgent.Move(moveLocation);</p>
+<p>我将把这个新脚本添加到 AI 中，并创建另一个新脚本来跟踪运行状况，并在运行状况小于时将攻击状态行为切换为新行为  $30%$ .</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">MonoBehaviour fleeBehaviour;   
+</span></span><span class="line"><span class="cl">BlazeAl blaze;   
+</span></span><span class="line"><span class="cl">void Start() { fleeBehaviour  $=$  GetComponent&lt;FleeBehaviour&gt;(); blaze  $=$  GetComponent&lt;BlazeAl&gt;();   
+</span></span><span class="line"><span class="cl">}   
+</span></span><span class="line"><span class="cl">void Update() { if (health &lt;= 30) { Blaze_attackStateBehaviour  $=$  fleeBehaviour }   
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></div></div>
+<p>通过对攻击状态行为进行交换，Blaze 将自动禁用旧的脚本行为并启用新的逃离行为脚本。现在，驱动攻击状态的是新的控制行为。将人工智能移动到远离目标的位置。</p>
+
+<h1 class="relative group">更改攻击武器或攻击模式
+    <div id="更改攻击武器或攻击模式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%9b%b4%e6%94%b9%e6%94%bb%e5%87%bb%e6%ad%a6%e5%99%a8%e6%88%96%e6%94%bb%e5%87%bb%e6%a8%a1%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>这种行为切换的另一种快速而简单的形式是启用/禁用 coverShooterMode 属性（在 Blaze 中），这将使 AI 在游戏时在攻击状态行为和掩护射手行为之间切换。您还可以向单个 AI 添加多个攻击状态行为，并将链接到 Blaze 的行为与另一种行为切换。这就是如何让AI改变攻击方式/武器。对于实际的武器更换动画，请将其与备用状态结合起来。</p>
+
+<h1 class="relative group">逃跑
+    <div id="逃跑" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%80%83%e8%b7%91" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>现在，在阅读本节的第一部分（切换行为）之前，对您来说很重要。所以你知道你可以在运行时改变行为，你可以让敌人的人工智能自然地攻击，然后在某些情况下让他们逃跑。</p>
+<p>也就是说，您可以使用 Blaze 附带的更高级的逃离行为脚本。</p>
+<p>比方说，我们想要制作某种动物人工智能。当它看到玩家时，它会立即逃跑。这很容易。</p>
+<ul>
+<li>我们首先将逃跑行为添加到 AI 中。</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="908"
+    height="664"
+    src="/NewskyGameBlog/blazeaiengine/images/0d8591c66f661ad9d244776aeee00a78525654aa43e78cac3303b50a9d5f5b04_hu_d67cb69e30a59bca.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/0d8591c66f661ad9d244776aeee00a78525654aa43e78cac3303b50a9d5f5b04_hu_d67cb69e30a59bca.jpg 800w, /NewskyGameBlog/blazeaiengine/images/0d8591c66f661ad9d244776aeee00a78525654aa43e78cac3303b50a9d5f5b04.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/0d8591c66f661ad9d244776aeee00a78525654aa43e78cac3303b50a9d5f5b04.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>在“距离跑”中设置您希望 AI 逃离的距离。</p>
+</li>
+<li>
+<p>设置逃跑时的移动和转弯速度。</p>
+</li>
+<li>
+<p>在Move Anim中设置奔跑动画。</p>
+</li>
+<li>
+<p>如果您希望AI在逃跑时前往特定位置而不是随机奔跑，您可以启用“前往位置”。将会出现一堆其他属性，您可以在“设置位置”中设置位置。</p>
+</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="886"
+    height="353"
+    src="/NewskyGameBlog/blazeaiengine/images/772234102feaa8e35683b8226b456222bc3a4ff9e1637a7a91aec8e9c87ad69d_hu_1f89f024c644a7c8.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/772234102feaa8e35683b8226b456222bc3a4ff9e1637a7a91aec8e9c87ad69d_hu_1f89f024c644a7c8.jpg 800w, /NewskyGameBlog/blazeaiengine/images/772234102feaa8e35683b8226b456222bc3a4ff9e1637a7a91aec8e9c87ad69d.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/772234102feaa8e35683b8226b456222bc3a4ff9e1637a7a91aec8e9c87ad69d.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>您还可以使用到达事件在 AI 到达特定位置时触发事件。</p>
+</li>
+<li>
+<p>如果启用“显示位置”，则可以轻松地将场景视图中的“设置位置”位置视为绿色球体。就这样：</p>
+</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1092"
+    height="567"
+    src="/NewskyGameBlog/blazeaiengine/images/95c9c76544255f95e5b7c9c0282b42c182322078516a7b71658a7fc628a62268_hu_1e3527012544be6d.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/95c9c76544255f95e5b7c9c0282b42c182322078516a7b71658a7fc628a62268_hu_1e3527012544be6d.jpg 800w, /NewskyGameBlog/blazeaiengine/images/95c9c76544255f95e5b7c9c0282b42c182322078516a7b71658a7fc628a62268.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/95c9c76544255f95e5b7c9c0282b42c182322078516a7b71658a7fc628a62268.jpg"></figure>
+</p>
+<ul>
+<li>最后，我们需要将“状态”选项卡中 Blaze 检查器内的“攻击行为”替换为“逃跑行为”。只需将逃离行为拖放到该属性即可。</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="800"
+    height="656"
+    src="/NewskyGameBlog/blazeaiengine/images/0806945076c055a46077558e0a38a13c759825cb37ed18525d23fb54a1af87a2.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/0806945076c055a46077558e0a38a13c759825cb37ed18525d23fb54a1af87a2.jpg 800w, /NewskyGameBlog/blazeaiengine/images/0806945076c055a46077558e0a38a13c759825cb37ed18525d23fb54a1af87a2.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/0806945076c055a46077558e0a38a13c759825cb37ed18525d23fb54a1af87a2.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>确保您已在 Vision 类中设置了敌对对象。如果您不知道如何操作，请阅读视觉和检测敌人部分。</p>
+</li>
+<li>
+<p>现在，当动物AI看到玩家时，它会转为攻击状态，但控制攻击状态的行为是逃跑行为。所以动物AI逃跑了。</p>
+</li>
+</ul>
+
+<h1 class="relative group">布娃娃
+    <div id="布娃娃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%83%e5%a8%83%e5%a8%83" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>Blaze 在死亡和淘汰赛（击中状态的一部分）下支持布娃娃。但是，首先您需要使用 Unity 的布娃娃向导或任何其他工具来设置布娃娃  $3^{rd}$  像 PuppetMaster 这样的派对资产。在这里，我将使用 Unity 的。</p>
+<p>右键单击层次结构中的 AI，然后转到 3D 对象 &gt; 布娃娃。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="797"
+    height="850"
+    src="/NewskyGameBlog/blazeaiengine/images/608d810c8d4352f78f0a81208ee1febe2cc98e2953598e80ff349730b272ae24.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/608d810c8d4352f78f0a81208ee1febe2cc98e2953598e80ff349730b272ae24.jpg 800w, /NewskyGameBlog/blazeaiengine/images/608d810c8d4352f78f0a81208ee1febe2cc98e2953598e80ff349730b272ae24.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/608d810c8d4352f78f0a81208ee1febe2cc98e2953598e80ff349730b272ae24.jpg"></figure>
+</p>
+<p>然后将相应的变换拖放到 AI 游戏对象中以设置角色的骨骼，然后单击“创建”。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="628"
+    height="1119"
+    src="/NewskyGameBlog/blazeaiengine/images/3ad1721e02e02614dfa8dd9622c8e123cb31bb3cc0fbec5eee53012bf34c9529.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/3ad1721e02e02614dfa8dd9622c8e123cb31bb3cc0fbec5eee53012bf34c9529.jpg 800w, /NewskyGameBlog/blazeaiengine/images/3ad1721e02e02614dfa8dd9622c8e123cb31bb3cc0fbec5eee53012bf34c9529.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/3ad1721e02e02614dfa8dd9622c8e123cb31bb3cc0fbec5eee53012bf34c9529.jpg"></figure>
+</p>
+<p>创建布娃娃后就可以使用它了。我们将从死亡中的布娃娃开始，然后检查淘汰赛。</p>
+
+<h1 class="relative group">布娃娃之死
+    <div id="布娃娃之死" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%83%e5%a8%83%e5%a8%83%e4%b9%8b%e6%ad%bb" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>转至 Blaze AI 主组件中的“死亡”选项卡并启用“使用布娃娃”。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1075"
+    height="270"
+    src="/NewskyGameBlog/blazeaiengine/images/6207c8b5dbe9283b00a65a7bb9664d32e5d3d60784b3a85357fd4a2f16ace8e6_hu_bc567c115d0136c.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/6207c8b5dbe9283b00a65a7bb9664d32e5d3d60784b3a85357fd4a2f16ace8e6_hu_bc567c115d0136c.jpg 800w, /NewskyGameBlog/blazeaiengine/images/6207c8b5dbe9283b00a65a7bb9664d32e5d3d60784b3a85357fd4a2f16ace8e6.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/6207c8b5dbe9283b00a65a7bb9664d32e5d3d60784b3a85357fd4a2f16ace8e6.jpg"></figure>
+</p>
+<p>你会发现出现了一堆属性。让我们来看看它们。</p>
+<p>使用自然速度：启用此功能不会对布娃娃施加任何额外的力。相反，它将使用自然速度。禁用此功能将使您能够对布娃娃施加力。</p>
+<p>髋骨：这是施加力的地方。将其设置为骨盆或胸部变换。如果您要添加一些不属于布娃娃的自定义变换，请确保它具有 Rigidbody 组件。</p>
+<p>死亡布娃娃力：您想要施加到布娃娃的力。这可以在调用 Death() 之前通过代码动态更改，以根据死亡方式改变力量。</p>
+<p>现在你完成了！你已经设置好了一切，唯一缺少的是实际上触发死亡状态。您只需调用公共函数 blaze.Death() 即可做到这一点。当它被调用时，人工智能将随着布娃娃物理而死亡。如果你想播放死亡动画，然后在中途播放布娃娃，例如在隐身杀戮中，则调用 blaze.DeathDoll(float timeToRagdoll) – 但请注意：必须启用“在死亡”选项卡中使用布娃娃。</p>
+<p>要重置 AI，只需调用：ChangeState(&ldquo;normal&rdquo;);或 ChangeState(“警报”);取决于你想要哪个状态。布娃娃将自动重置。</p>
+
+<h1 class="relative group">淘汰赛中的布偶
+    <div id="淘汰赛中的布偶" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%b7%98%e6%b1%b0%e8%b5%9b%e4%b8%ad%e7%9a%84%e5%b8%83%e5%81%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>淘汰赛基本上就是让人工智能布娃娃，并在一段时间后它会再次站起来。这是命中状态行为的一部分。</p>
+<p>按照本节开头所述设置布娃娃后。将 Hit State Behaviour 组件添加到您的 AI 中（在 Hit 部分中提到）</p>
+<p>您将在“命中状态行为”中找到两个部分。击倒和击倒力量。这些属性是您设置淘汰赛的地方，所以让我们来看看它们。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="972"
+    height="439"
+    src="/NewskyGameBlog/blazeaiengine/images/8df1504d972bf8cdf33c206a1c01169eb28b43bf18b036437c343737e24e1ca2_hu_c8189c331a5fe692.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/8df1504d972bf8cdf33c206a1c01169eb28b43bf18b036437c343737e24e1ca2_hu_c8189c331a5fe692.jpg 800w, /NewskyGameBlog/blazeaiengine/images/8df1504d972bf8cdf33c206a1c01169eb28b43bf18b036437c343737e24e1ca2.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/8df1504d972bf8cdf33c206a1c01169eb28b43bf18b036437c343737e24e1ca2.jpg"></figure>
+</p>
+<p>击倒持续时间：设置您希望人工智能保持布娃娃状态（击倒）的时间。</p>
+<p>接下来的两个属性“面朝上支架剪辑名称”和“面朝下支架剪辑名称”很棘手。 Animator中的动画状态名称和实际剪辑名称必须相同。不然的话，就不行了。</p>
+<p>这是一个例子：</p>
+<p>这是我在动画器中制作的两个起床动画。就像我们在 Blaze 中经常做的那样。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="811"
+    height="475"
+    src="/NewskyGameBlog/blazeaiengine/images/fd43dc3377d91dab003b4c3acfa3443172a33e5b102517de2c78e326452354a6_hu_bf7caacdb6014d97.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/fd43dc3377d91dab003b4c3acfa3443172a33e5b102517de2c78e326452354a6_hu_bf7caacdb6014d97.jpg 800w, /NewskyGameBlog/blazeaiengine/images/fd43dc3377d91dab003b4c3acfa3443172a33e5b102517de2c78e326452354a6.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/fd43dc3377d91dab003b4c3acfa3443172a33e5b102517de2c78e326452354a6.jpg"></figure>
+</p>
+<p>现在我需要确保实际的剪辑名称相同。如果我点击“面朝下站立”，我就会得到这个。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="739"
+    height="527"
+    src="/NewskyGameBlog/blazeaiengine/images/032518f1aeca03da94b7d840823ed281af715e211c8140166d49a285edbeace5.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/032518f1aeca03da94b7d840823ed281af715e211c8140166d49a285edbeace5.jpg 800w, /NewskyGameBlog/blazeaiengine/images/032518f1aeca03da94b7d840823ed281af715e211c8140166d49a285edbeace5.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/032518f1aeca03da94b7d840823ed281af715e211c8140166d49a285edbeace5.jpg"></figure>
+</p>
+<p>确保剪辑名称与动画器中的状态相同。如果没有，很容易。只需单击动画文件，转到动画选项卡，然后如下所示重命名为动画器中的相同名称。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="714"
+    height="775"
+    src="/NewskyGameBlog/blazeaiengine/images/542088ec9f5bcc8c54432a54837b10dca6806dbf093c4adea47cc3626804b87f.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/542088ec9f5bcc8c54432a54837b10dca6806dbf093c4adea47cc3626804b87f.jpg 800w, /NewskyGameBlog/blazeaiengine/images/542088ec9f5bcc8c54432a54837b10dca6806dbf093c4adea47cc3626804b87f.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/542088ec9f5bcc8c54432a54837b10dca6806dbf093c4adea47cc3626804b87f.jpg"></figure>
+</p>
+<p>更改名称后点击下方的Apply即可应用新名称。</p>
+<p>现在让我们回到属性。</p>
+<p>Face Up Stand 剪辑名称：如果布娃娃后面的 AI 面朝上（背面），那么它将使用此动画站起来。</p>
+<p>面朝下站立剪辑名称：如果布娃娃后面的 AI 面朝下（趴着），那么它将使用此动画站起来。</p>
+<p>布娃娃站立速度：布娃娃到站立动画之间的过渡速度。</p>
+<p>髋骨：将其设置为骨盆。这很重要并且有两个功能。首先，对这块骨头施加敲击力。其次，该骨骼用于确定 AI 是面朝上还是面朝下。</p>
+<p>使用自然速度：如果启用，则在击倒时不会向布娃娃施加额外的力。相反，它将使用给定时间的自然速度。</p>
+<p>击倒力：添加您想要施加到布娃娃的力。您可以通过代码动态更改此设置，以根据导致淘汰的原因应用不同的力。</p>
+<p>现在您已经设置了属性，剩下的实际上是调用淘汰赛。这很简单。只需执行 blaze.KnockOut() 即可。</p>
+<p>它需要两个带有默认值的参数。</p>
+<p>KnockOut（游戏对象敌人 = null，bool callOthers = false）</p>
+<p>如果你通过了敌人的游戏对象，将其击倒。站立后AI会转为攻击状态并移动至敌方位置。</p>
+<p>第二个参数是你是否想让被击倒的Al给别人打电话。如果敌人的游戏对象也被传递，那么 Als 将被调用到敌人的位置。如果没有传递敌人参数，那么 Als 将被调用到实际被击倒的 Al 位置。</p>
+
+<h1 class="relative group">目标/玩家死亡
+    <div id="目标玩家死亡" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%9b%ae%e6%a0%87%e7%8e%a9%e5%ae%b6%e6%ad%bb%e4%ba%a1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>当你杀死你的玩家时，你会注意到人工智能仍在攻击和攻击死去玩家的身体。这是因为人工智能仍然检测到它前面有一个敌对的游戏对象，并且没有任何东西告诉它不要管它。</p>
+<p>解决这个问题的方法非常简单。当玩家死亡时，只需将其标签名称更改为任何非敌意的名称，例如“Untagged”。人工智能将不再检测到任何敌方，因此将脱离交战，留下死亡的目标/玩家并继续巡逻。</p>
+<p>死亡时更改玩家的标签名称，很简单：</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">if (healthPoints &lt;= 0) {  
+</span></span><span class="line"><span class="cl">    player.gameObject.tag = &#34;Untagged&#34;;  
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></div></div>
+
+<h1 class="relative group">关闭网状链接
+    <div id="关闭网状链接" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%85%b3%e9%97%ad%e7%bd%91%e7%8a%b6%e9%93%be%e6%8e%a5" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>Blaze AI 完全支持离线网状链接。首先，您需要实际生成离线网格链接。为此：请观看以下内容：</p>
+<p>1-Unity 的离网链接教程</p>
+<p>2-生成导航网格链接</p>
+<p>完成关闭网格链接的设置并且所有内容都已连接后，就可以开始使用 Blaze 了。</p>
+<p>只需转到主 Blaze 检查器中的“Off Mesh”选项卡并启用“Use Off Mesh Links”即可。</p>
+<p>将会出现一堆属性供您轻松填写。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1134"
+    height="697"
+    src="/NewskyGameBlog/blazeaiengine/images/a02c09f7f537198b2413287dc45a496b2f7748ee3ccd4b82dcf7f41656de3f89_hu_a541882eb00f8151.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/a02c09f7f537198b2413287dc45a496b2f7748ee3ccd4b82dcf7f41656de3f89_hu_a541882eb00f8151.jpg 800w, /NewskyGameBlog/blazeaiengine/images/a02c09f7f537198b2413287dc45a496b2f7748ee3ccd4b82dcf7f41656de3f89.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/a02c09f7f537198b2413287dc45a496b2f7748ee3ccd4b82dcf7f41656de3f89.jpg"></figure>
+</p>
+<p>当最终目的地的Y点大于或等于Al的transform.position时，播放跳跃动画。如果最终目标Y点低于transform.position，则会播放下落动画。</p>
+<p>如果你不想有下降动画，你当然可以将其设置为跳跃动画，没有任何问题。</p>
+<p>这就是跳跃！现在，如果你设置一个路径点到人工智能需要通过链接的位置，它会自动跳转并为你处理一切。</p>
+<p>请注意：如果禁用“使用非网格链接”并且非网格链接组件“导航区域”设置为“跳转”，则 AI 将完全忽略通过该链接的目的地。仅当“使用关闭网格链接”设置为 true 时，AI 才会寻找可跳转的导航区域。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1128"
+    height="361"
+    src="/NewskyGameBlog/blazeaiengine/images/dda04a6aebd636a9c0597057ce4cb2088ff6c9ad98c523518cd314d738bf1520_hu_500f1971f3c003dc.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/dda04a6aebd636a9c0597057ce4cb2088ff6c9ad98c523518cd314d738bf1520_hu_500f1971f3c003dc.jpg 800w, /NewskyGameBlog/blazeaiengine/images/dda04a6aebd636a9c0597057ce4cb2088ff6c9ad98c523518cd314d738bf1520.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/dda04a6aebd636a9c0597057ce4cb2088ff6c9ad98c523518cd314d738bf1520.jpg"></figure>
+</p>
+
+<h1 class="relative group">爬梯
+    <div id="爬梯" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%88%ac%e6%a2%af" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>请注意，火焰只能爬上梯子，不能爬下。</p>
+<p>首先，让我们设置梯子。将您的梯子游戏对象添加到场景中。必须是直角 90 度。并给它一个独特的层。我会给我一个“梯子”层，它需要有一个碰撞器，最好是一个盒子或网格碰撞器。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="544"
+    height="855"
+    src="/NewskyGameBlog/blazeaiengine/images/11cabe56813418b90969dc9ea5d6a70adc981e58686e2aec0d944014f98113bf.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/11cabe56813418b90969dc9ea5d6a70adc981e58686e2aec0d944014f98113bf.jpg 800w, /NewskyGameBlog/blazeaiengine/images/11cabe56813418b90969dc9ea5d6a70adc981e58686e2aec0d944014f98113bf.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/11cabe56813418b90969dc9ea5d6a70adc981e58686e2aec0d944014f98113bf.jpg"></figure>
+</p>
+<p>添加关闭网格链接及其靠近梯子的起始位置。我的是下面的红色球体，向您展示。这是阶梯的开始。</p>
+<p>在梯子后面添加地面上脱离网格链接的结束位置，如下所示：</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="808"
+    height="756"
+    src="/NewskyGameBlog/blazeaiengine/images/ae6aa7cb96d0a11336e773ea5870be9bfe87468312d703501660d8a729c97aeb_hu_81f1526a4f903491.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/ae6aa7cb96d0a11336e773ea5870be9bfe87468312d703501660d8a729c97aeb_hu_81f1526a4f903491.jpg 800w, /NewskyGameBlog/blazeaiengine/images/ae6aa7cb96d0a11336e773ea5870be9bfe87468312d703501660d8a729c97aeb.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/ae6aa7cb96d0a11336e773ea5870be9bfe87468312d703501660d8a729c97aeb.jpg"></figure>
+</p>
+<p>现在我们已经完成了梯子的设置。</p>
+<p>返回 Blaze，选择 Off Mesh 选项卡，确保启用 Use Off Mesh Links，然后启用 Climb Ladders</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1117"
+    height="461"
+    src="/NewskyGameBlog/blazeaiengine/images/ff88b3a5225d6fc613f49b7ed2a1faa83cc5b8adfb1cad939d5bb3fc2ae38b80_hu_6e6609c649175a1d.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/ff88b3a5225d6fc613f49b7ed2a1faa83cc5b8adfb1cad939d5bb3fc2ae38b80_hu_6e6609c649175a1d.jpg 800w, /NewskyGameBlog/blazeaiengine/images/ff88b3a5225d6fc613f49b7ed2a1faa83cc5b8adfb1cad939d5bb3fc2ae38b80.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/ff88b3a5225d6fc613f49b7ed2a1faa83cc5b8adfb1cad939d5bb3fc2ae38b80.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>设置我们之前制作的梯子层。请记住，该层必须是带有碰撞器的层。</p>
+</li>
+<li>
+<p>设置攀爬动画和攀爬速度。</p>
+</li>
+<li>
+<p>爬到顶部动画和持续时间是当 AI 到达梯子顶部并向平面移动并离开梯子时播放的动画。所以设置动画和持续时间。</p>
+</li>
+<li>
+<p>爬到顶部头部空间 给 AI 多少头部空间来指示它已到达梯子的顶部。不同的人工智能类型之间的差异是不同的，因为它们的高度不同，这需要你进行一些尝试和错误。这会触发爬升到顶部子状态。</p>
+</li>
+</ul>
+<p>现在设置一个到不同平面的路径点，并使用梯子进行非网格链接。将会发生的情况是，当人工智能处于非网格链接时，它会检测到梯子并开始攀爬。</p>
+
+<h1 class="relative group">它是如何运作的？
+    <div id="它是如何运作的" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%bf%90%e4%bd%9c%e7%9a%84" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>当 AI 位于启用了爬梯的离线网格链接时，它将触发一个以代理为半径的重叠球体。如果它检测到任何具有梯子层的游戏对象，则它开始播放攀爬动画。</p>
+<p>如果它没有检测到任何东西，它就会跳跃。</p>
+<p>如果 AI 与梯子位于同一个离线网格链接上，但“攀爬梯子”设置为 false，那么它会跳跃。</p>
+
+<h1 class="relative group">备用状态（表情）
+    <div id="备用状态表情" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%a4%87%e7%94%a8%e7%8a%b6%e6%80%81%e8%a1%a8%e6%83%85" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>备用状态是一项功能，可让您激活临时自定义状态，该状态可播放任何动画、触发事件，然后通过自动计时器或使用 API 手动退出该状态。此类功能可以用作表情来嘲讽玩家在战斗中、阻止玩家攻击或运行自定义行为等&hellip;&hellip;</p>
+<p>以下是如何开始：</p>
+<ul>
+<li>将 Blaze AI Spare State 组件添加到 Blaze AI 所在的 AI 中，并将一个项目添加到列表中。</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="756"
+    height="1052"
+    src="/NewskyGameBlog/blazeaiengine/images/f72151d129b7cfa64b114773539a064619c6df8cc0028c083d7f92d41d7e985d.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/f72151d129b7cfa64b114773539a064619c6df8cc0028c083d7f92d41d7e985d.jpg 800w, /NewskyGameBlog/blazeaiengine/images/f72151d129b7cfa64b114773539a064619c6df8cc0028c083d7f92d41d7e985d.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/f72151d129b7cfa64b114773539a064619c6df8cc0028c083d7f92d41d7e985d.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>在“州名称”中，为州命名（这很重要，因为该名称将用于调用州，因此请确保它是唯一的）</p>
+</li>
+<li>
+<p>（可选）在<em>要播放的动画</em>中，您可以在列表中添加动画，并且在调用状态时将选择并播放随机动画。如果使用此功能，请记住将 <em>Anim T</em> 属性设置为良好的过渡时间，例如 0.25。如果您不想播放动画，可以将两者留空。</p>
+</li>
+<li>
+<p>（可选）与音频相同，您可以选择在“要播放的音频”中插入音频剪辑并启用“播放音频”。当状态被调用时，这将播放随机选择的音频。</p>
+</li>
+<li>
+<p>在退出方法中，您有两种退出状态的方法。选择“Exit After Time”（在“Exit Timer”值过去后自动退出状态）或“Manual Exit”（手动退出），这将需要调用 API：blaze.ExitSpareState() 才能退出状态。</p>
+</li>
+<li>
+<p>在状态事件中，您可以设置状态的进入和退出事件。</p>
+</li>
+<li>
+<p>设置备用状态后，您可以在游戏中随时调用它： blaze.SetSpareState(&ldquo;stateName&rdquo;);</p>
+</li>
+</ul>
+
+<h1 class="relative group">重要API
+    <div id="重要api" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%87%8d%e8%a6%81api" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>调用状态： blaze.SetSpareState(&ldquo;stateName&rdquo;);</p>
+<p>要调用具有特定动画和音频的状态： blaze.SetSpareState(&ldquo;stateName&rdquo;, animIndex, audioIndex);</p>
+<p>要调用具有特定动画的状态并随机化音频： blaze.setSpareState(&ldquo;stateName&rdquo;, animIndex);</p>
+<p>要调用具有特定音频的状态并随机化动画： blaze.SetSpareState(&ldquo;stateName&rdquo;, -1, audioIndex);</p>
+<p>手动退出： blaze.ExitSpareState();</p>
+<p>检查 AI 是否处于备用状态或检索备用状态信息：SpareState stateInfo = blaze.CurrentSpareState();</p>
+<p>如果 Al 不处于空闲状态，则返回 null。<br>
+如果Al处于空闲状态则将返回SpareState类型的数据。</p>
+
+<h1 class="relative group">敌人经理
+    <div id="敌人经理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%95%8c%e4%ba%ba%e7%bb%8f%e7%90%86" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>当 AI 捕获敌对游戏对象（玩家）时，它会自动向其添加 BlazeAIEnemyManager 组件。这是人工智能生命周期中的重要组成部分。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1189"
+    height="278"
+    src="/NewskyGameBlog/blazeaiengine/images/6e44b01ea4ffdb7caa0f360f7132afc5d8a59481f6dc9a70ee4f7e85e71d9bcf_hu_dac013c0365b89ac.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/6e44b01ea4ffdb7caa0f360f7132afc5d8a59481f6dc9a70ee4f7e85e71d9bcf_hu_dac013c0365b89ac.jpg 800w, /NewskyGameBlog/blazeaiengine/images/6e44b01ea4ffdb7caa0f360f7132afc5d8a59481f6dc9a70ee4f7e85e71d9bcf.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/6e44b01ea4ffdb7caa0f360f7132afc5d8a59481f6dc9a70ee4f7e85e71d9bcf.jpg"></figure>
+</p>
+<p>您也可以在编辑器中手动添加这个敌人管理器。</p>
+<p>攻击计时器是指管理者调用 AI 对其进行攻击之前的时间。</p>
+<p>呼叫敌人是标记是否可以攻击该经理的属性。如果禁用，AI 将永远不会攻击并等待此属性变为真。当你的玩家正在进行终结且你不想被打断时，最好使用此功能，这样你就可以暂时禁用此功能。</p>
+
+<h1 class="relative group">敌人管理器的用途
+    <div id="敌人管理器的用途" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%95%8c%e4%ba%ba%e7%ae%a1%e7%90%86%e5%99%a8%e7%9a%84%e7%94%a8%e9%80%94" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>它安排了阿尔斯人的攻击。让阿尔斯队以一分的优势进攻。这种情况仅发生在攻击状态行为中禁用了间隔攻击的 ALS 上。如果启用该属性，AI 将使用自己的计时器管理自己的攻击，而不考虑任何其他 AI。掩护射击模式是相同的，有自己的计时器。</p>
+
+<h1 class="relative group">重要API
+    <div id="重要api-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%87%8d%e8%a6%81api-1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>敌人管理器.targetedBy：使用这个敌人管理器 API，你可以检查你的玩家是否成为任何 AI 的目标。这将返回 Blaze AI 类型的列表 (List<BlazeAI>)，其中包含所有已看到并与经理互动的 AI。</p>
+<p>敌人管理器.潜在敌人：这将返回可能使用视野计瞄准玩家的人工智能。因此，如果人工智能启用了视觉计，并且它的条形正在递增（尚未检测到您！），因为您位于它的视野中，那么您将使用此 API 在这里找到人工智能。用它来检查您的玩家是否处于潜在危险中。这将返回 Blaze AI 类型的列表 (List<BlazeAI>)</p>
+
+<h1 class="relative group">音频管理器
+    <div id="音频管理器" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%9f%b3%e9%a2%91%e7%ae%a1%e7%90%86%e5%99%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>音频管理器仅用于播放AI在正常和警报状态下的巡逻音频。所有其他状态音频均由 AI 本身触发和播放，而不是由该管理器触发和播放。</p>
+<p>以下是如何开始使用巡逻音频：</p>
+<ul>
+<li>创建一个空游戏对象并添加组件 Blaze AI Audio Manager。</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="964"
+    height="347"
+    src="/NewskyGameBlog/blazeaiengine/images/d1cd54909a28611257aca1b8cb452e52246a26296fce0bb627eac0671bba9341_hu_fe71657f546cae.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/d1cd54909a28611257aca1b8cb452e52246a26296fce0bb627eac0671bba9341_hu_fe71657f546cae.jpg 800w, /NewskyGameBlog/blazeaiengine/images/d1cd54909a28611257aca1b8cb452e52246a26296fce0bb627eac0671bba9341.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/d1cd54909a28611257aca1b8cb452e52246a26296fce0bb627eac0671bba9341.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>当摄像机或玩家距离播放距离属性足够近时，Als 将播放巡逻音频。如果您想使用相机进行远距离拍摄，可以启用“自动捕捉相机”。您的相机必须具有 MainCamera 标签，否则将无法找到。</p>
+</li>
+<li>
+<p>如果您想改用播放器变换，则只需禁用“自动捕获相机”并将播放器拖/放到要绘制的“相机”或“播放器”属性中即可。</p>
+</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="1164"
+    height="222"
+    src="/NewskyGameBlog/blazeaiengine/images/79d25c801336d30b499aafd46ad0c02aa5ec7e71d04d98598d7271391fac6802_hu_7827d58aed466957.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/79d25c801336d30b499aafd46ad0c02aa5ec7e71d04d98598d7271391fac6802_hu_7827d58aed466957.jpg 800w, /NewskyGameBlog/blazeaiengine/images/79d25c801336d30b499aafd46ad0c02aa5ec7e71d04d98598d7271391fac6802.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/79d25c801336d30b499aafd46ad0c02aa5ec7e71d04d98598d7271391fac6802.jpg"></figure>
+</p>
+<ul>
+<li>
+<p>当玩家和AI（或摄像机和AI）之间的距离小于或等于播放距离时，该距离内的Al将播放他们的巡逻音频。设置您喜欢的距离。</p>
+</li>
+<li>
+<p>Play Audio Every 属性的两个值之间将生成一个随机时间。计时器结束后，人工智能将播放巡逻音频。对于恒定时间，将两个字段设置为相同的值。</p>
+</li>
+<li>
+<p>最后，返回正常和警报行为并启用播放巡逻音频。</p>
+</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="883"
+    height="622"
+    src="/NewskyGameBlog/blazeaiengine/images/14ece42d8059cb2056743059337ace172a877256b023ca5d9eaf8bdc365958f7_hu_6c16c61dc0c44fba.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/14ece42d8059cb2056743059337ace172a877256b023ca5d9eaf8bdc365958f7_hu_6c16c61dc0c44fba.jpg 800w, /NewskyGameBlog/blazeaiengine/images/14ece42d8059cb2056743059337ace172a877256b023ca5d9eaf8bdc365958f7.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/14ece42d8059cb2056743059337ace172a877256b023ca5d9eaf8bdc365958f7.jpg"></figure>
+</p>
+<p>现在有了这个音频管理器，巡逻中的 Al 音频不会互相干扰，只有那些离玩家足够近的音频才会被允许播放。</p>
+<p>请记住，音频管理器仅用于播放巡逻音频。为了实际设置音频，您可以将它们添加到音频脚本中，如此处所述。</p>
+
+<h1 class="relative group">编写新行为
+    <div id="编写新行为" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bc%96%e5%86%99%e6%96%b0%e8%a1%8c%e4%b8%ba" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>Blaze 使您能够从头开始编写新行为并将它们链接到引擎以进行自定义操作。这非常简单，但有一些基本点需要注意。</p>
+<p>创建一个新的 C# 脚本并在编辑器中打开它。</p>
+<p>首先，您必须使用命名空间 BlazeAISpace 包装您的类名。这可以在红色矩形 1 中看到。（下一页的屏幕截图）</p>
+<p>其次，从 BlazeBehaviour 扩展您的类，而不是默认的 MonoBehaviour。这可以在红色矩形 2 中看到。不用担心，您仍然可以访问 MonoBehaviour 的内容。</p>
+<p>第三也是最后一点，您必须编写并重写 3 个主要函数：</p>
+<ul>
+<li>
+<p>Open() 相当于 OnEnable()</p>
+</li>
+<li>
+<p>Close() 相当于 OnDisable()</p>
+</li>
+<li>
+<p>Main() 相当于 Update()</p>
+</li>
+</ul>
+<p>这 3 个函数也必须是公共的。</p>
+<p>Main() 是您运行大部分代码的地方，因为它与 Update() 完全相同。</p>
+
+<h1 class="relative group">下一页截图
+    <div id="下一页截图" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%8b%e4%b8%80%e9%a1%b5%e6%88%aa%e5%9b%be" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="838"
+    height="734"
+    src="/NewskyGameBlog/blazeaiengine/images/195b002eddc1a035e2a5bb773ba7dd1483ccb831be1d3138da5f472c9323e317_hu_ce755ee16974f839.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/195b002eddc1a035e2a5bb773ba7dd1483ccb831be1d3138da5f472c9323e317_hu_ce755ee16974f839.jpg 800w, /NewskyGameBlog/blazeaiengine/images/195b002eddc1a035e2a5bb773ba7dd1483ccb831be1d3138da5f472c9323e317.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/195b002eddc1a035e2a5bb773ba7dd1483ccb831be1d3138da5f472c9323e317.jpg"></figure>
+</p>
+<p>您可以正常使用其他 MonoBehaviour 函数，例如 OnValidate()、Reset()、OnDestroy() 等&hellip;</p>
+
+<h1 class="relative group">跟踪/调试 AI 状态
+    <div id="跟踪调试-ai-状态" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%b7%9f%e8%b8%aa%e8%b0%83%e8%af%95-ai-%e7%8a%b6%e6%80%81" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>Blaze AI 附带了一个工具，可以帮助您跟踪 AI 当前所处的状态。使用起来非常简单。</p>
+<p>只需将 Blaze AI 状态跟踪器组件添加到 Blaze AI 所在的位置即可。意思是，在同一个游戏对象上。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="870"
+    height="506"
+    src="/NewskyGameBlog/blazeaiengine/images/b851b0ee68d30edebfac73492d865ddea586bf16f1b7e56c4ad99b944089193e_hu_ed01d0daf212a424.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/b851b0ee68d30edebfac73492d865ddea586bf16f1b7e56c4ad99b944089193e_hu_ed01d0daf212a424.jpg 800w, /NewskyGameBlog/blazeaiengine/images/b851b0ee68d30edebfac73492d865ddea586bf16f1b7e56c4ad99b944089193e.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/b851b0ee68d30edebfac73492d865ddea586bf16f1b7e56c4ad99b944089193e.jpg"></figure>
+</p>
+<p>该工具甚至会帮助您并通知您是否已检测到 Blaze AI，如底部栏中的绿色文本所示。</p>
+<p>现在只需玩游戏，该工具就会在 Al 发生变化时打印它的状态。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt=""
+    width="894"
+    height="472"
+    src="/NewskyGameBlog/blazeaiengine/images/50b94f97a02a4fbb7c5c8d2f266149589e35b4ebae748ba3bda2be9de24705dd_hu_17da15080543ef3d.jpg"
+    srcset="/NewskyGameBlog/blazeaiengine/images/50b94f97a02a4fbb7c5c8d2f266149589e35b4ebae748ba3bda2be9de24705dd_hu_17da15080543ef3d.jpg 800w, /NewskyGameBlog/blazeaiengine/images/50b94f97a02a4fbb7c5c8d2f266149589e35b4ebae748ba3bda2be9de24705dd.jpg 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/NewskyGameBlog/blazeaiengine/images/50b94f97a02a4fbb7c5c8d2f266149589e35b4ebae748ba3bda2be9de24705dd.jpg"></figure>
+</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/NewskyGameBlog/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_blazeaiengine\index.md"
+          data-oid-likes="likes_blazeaiengine\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/NewskyGameBlog/gspawn/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Gspawn 中文文档目录
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-01-05T10:00:00&#43;08:00">January 5, 2026</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          逸空
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://mickorz.github.io/NewskyGameBlog/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

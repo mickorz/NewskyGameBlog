@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术笔记 on Newsky Game Blog</title>
+    <link>https://mickorz.github.io/NewskyGameBlog/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 技术笔记 on Newsky Game Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2026 逸空</copyright>
+    <lastBuildDate>Mon, 05 Jan 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://mickorz.github.io/NewskyGameBlog/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blaze AI 文档</title>
+      <link>https://mickorz.github.io/NewskyGameBlog/blazeaiengine/</link>
+      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      
+      <guid>https://mickorz.github.io/NewskyGameBlog/blazeaiengine/</guid>
+      <description>Blaze AI 文档#如有任何问题和支持，请访问 Discord 或者您可以直接给我发电子邮件：pathiralgames@gmail.com
+Blaze AI 特定 Discord 服务器位于此处
+在此处查看 Pathiral 的更多资产
+入门第 3 页
+动画……第7页
+音频……第9页
+视觉和探测敌人。第11页
+设置近战/远程 AI 第 16 页
+设置掩护射手 Al 。第20页
+为 Cover Shooter Al 设置封面……第 24 页
+警报层和对标签的反应……第 28 页
+打到第30页
+健康第33页
+死亡第35页
+分心。第37页
+距离剔除。第40页
+同伴模式。第43页
+公共属性和 API。第 47 页
+添加剂 Blaze 脚本。第52页
+行为的内部 API。第54页
+</description>
+      
+    </item>
+    
+    <item>
+      <title>运动角色控制器</title>
+      <link>https://mickorz.github.io/NewskyGameBlog/kinematiccharactercontroller/kinematiccharactercontroller/</link>
+      <pubDate>Mon, 05 Jan 2026 10:00:00 +0800</pubDate>
+      
+      <guid>https://mickorz.github.io/NewskyGameBlog/kinematiccharactercontroller/kinematiccharactercontroller/</guid>
+      <description>运动角色控制器#运动角色控制器#用户指南
+支持电子邮件：store.pstamand@gmail.com
+快速入门#角色游乐场场景#要立即尝试示例字符控制器：
+将 KinematicCharacterController 包导入 Unity
+打开 KinematicCharacterController/Examples/Scenes 下的“CharacterPlayground”场景
+按播放键并尝试示例角色
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>

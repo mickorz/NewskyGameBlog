@@ -1,0 +1,1393 @@
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh-cn">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title> &middot; Newsky Game Blog</title>
+    <meta name="title" content=" &middot; Newsky Game Blog">
+  
+
+  
+  
+    <meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  
+  
+  
+    <meta name="robots" content="noindex, nofollow">
+  
+  
+  <link rel="canonical" href="http://localhost:1313/NewskyGameBlog/posts/kinematiccharactercontroller/kinematiccharactercontroller/">
+  
+
+  
+  
+    <meta name="author" content="逸空">
+  
+  
+    
+      
+        
+          <link href="https://github.com/mickorz" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/NewskyGameBlog/posts/kinematiccharactercontroller/kinematiccharactercontroller/">
+  <meta property="og:site_name" content="Newsky Game Blog">
+  <meta property="og:title" content="Newsky Game Blog">
+  <meta property="og:description" content="运动角色控制器#运动角色控制器#用户指南
+支持电子邮件：store.pstamand@gmail.com
+快速入门#角色游乐场场景#要立即尝试示例字符控制器：
+将 KinematicCharacterController 包导入 Unity
+打开 KinematicCharacterController/Examples/Scenes 下的“CharacterPlayground”场景
+按播放键并尝试示例角色">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Newsky Game Blog">
+  <meta name="twitter:description" content="运动角色控制器#运动角色控制器#用户指南
+支持电子邮件：store.pstamand@gmail.com
+快速入门#角色游乐场场景#要立即尝试示例字符控制器：
+将 KinematicCharacterController 包导入 Unity
+打开 KinematicCharacterController/Examples/Scenes 下的“CharacterPlayground”场景
+按播放键并尝试示例角色">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/NewskyGameBlog/css/main.bundle.min.fb1eedd06e11553ad84a85ea75999636d94306bb1acfb1ff48138f934ca9900d3541fe2d6ca0bee624c8c9fb7649b934704aefdadf483ab68da0eaeeeec00ecf.css"
+    integrity="sha512-&#43;x7t0G4RVTrYSoXqdZmWNtlDBrsaz7H/SBOPk0ypkA01Qf4tbKC&#43;5iTIyft2Sbk0cErv2t9IOraNoOru7sAOzw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/NewskyGameBlog/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/NewskyGameBlog/js/main.bundle.min.e2a486e2d26101d42b0ae6565951c0ab32807f06c8cac845e9a430aac163bf4b95eaaf22ac52825b7c9135e177953252afda0c2c8b6e64291c90238a4685aaa3.js"
+      integrity="sha512-4qSG4tJhAdQrCuZWWVHAqzKAfwbIyshF6aQwqsFjv0uV6q8irFKCW3yRNeF3lTJSr9oMLItuZCkckCOKRoWqow=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+
+  
+  
+
+<script src="/NewskyGameBlog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/NewskyGameBlog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/NewskyGameBlog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/NewskyGameBlog/favicon-16x16.png">
+    <link rel="manifest" href="/NewskyGameBlog/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "",
+    "headline": "",
+    
+    "inLanguage": "zh-cn",
+    "url" : "http://localhost:1313/NewskyGameBlog/posts/kinematiccharactercontroller/kinematiccharactercontroller/",
+    "author" : {
+      "@type": "Person",
+      "name": "逸空"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "276"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        跳过正文
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/NewskyGameBlog/" class="text-base font-medium">
+          Newsky Game Blog
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/NewskyGameBlog/gspawn/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 GSpawn 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 GSpawn 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/animancer/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 Animancer 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 Animancer 文档
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="/NewskyGameBlog/posts/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="所有文章"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      所有文章
+    </p>
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="https://github.com/mickorz"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="github"
+  title="">
+  
+    <span >
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+    </span>
+  
+  
+</a>
+
+
+
+      
+        
+  <a
+  href="http://wpa.qq.com/msgrd?v=3&amp;uin=490113806&amp;site=qq&amp;menu=yes"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="💬 Contact"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      💬 Contact
+    </p>
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/gspawn/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 GSpawn 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 GSpawn 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/animancer/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 Animancer 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 Animancer 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/posts/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="所有文章"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        所有文章
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/mickorz"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="github"
+    title="">
+    
+      <div >
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+      </div>
+    
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="http://wpa.qq.com/msgrd?v=3&amp;uin=490113806&amp;site=qq&amp;menu=yes"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="💬 Contact"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        💬 Contact
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="0001-01-01T00:00:00&#43;00:00">January 1, 1</time><span class="px-2 text-primary-500">&middot;</span><span>276 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        作者
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        逸空
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">专注于 Unity 开发与 Animancer 插件深度解析</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/mickorz"
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">运动角色控制器
+    <div id="运动角色控制器" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%bf%90%e5%8a%a8%e8%a7%92%e8%89%b2%e6%8e%a7%e5%88%b6%e5%99%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt=""
+    src="images/d56c521b36399dedb1dce6668509e38b7e4c7101835d045769696f43aa04f518.jpg"
+    ></figure>
+</p>
+
+<h1 class="relative group">运动角色控制器
+    <div id="运动角色控制器-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%bf%90%e5%8a%a8%e8%a7%92%e8%89%b2%e6%8e%a7%e5%88%b6%e5%99%a8-1" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>用户指南</p>
+<p>支持电子邮件：store.pstamand@gmail.com</p>
+
+<h1 class="relative group">快速入门
+    <div id="快速入门" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%bf%ab%e9%80%9f%e5%85%a5%e9%97%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+
+<h1 class="relative group">角色游乐场场景
+    <div id="角色游乐场场景" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a7%92%e8%89%b2%e6%b8%b8%e4%b9%90%e5%9c%ba%e5%9c%ba%e6%99%af" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>要立即尝试示例字符控制器：</p>
+<ol>
+<li>
+<p>将 KinematicCharacterController 包导入 Unity</p>
+</li>
+<li>
+<p>打开 KinematicCharacterController/Examples/Scenes 下的“CharacterPlayground”场景</p>
+</li>
+<li>
+<p>按播放键并尝试示例角色</p>
+</li>
+</ol>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt=""
+    src="images/b070a845b3f4486d5e8cc90b546d183f41b0fe4c36eb8ddbd3cd9b5d5da0e95c.jpg"
+    ></figure>
+</p>
+<p>场景布置如下：</p>
+<ul>
+<li>
+<p>“Player”对象负责向玩家的角色和相机发送输入，并为角色提供有关相机方向的信息</p>
+</li>
+<li>
+<p>“角色”对象是您在游戏模式下控制的角色</p>
+</li>
+<li>
+<p>“Camera”对象是游戏的相机</p>
+</li>
+<li>
+<p>“关卡”对象包含所有其他关卡几何图形和内容，排列在不同的模块中</p>
+</li>
+<li>
+<p>按下播放按钮后，会通过类似单例的实例化自动生成“KinematicCharacterSystem”对象，以便以正确的顺序处理更新所有角色和移动平台</p>
+</li>
+</ul>
+<p>控制措施是：</p>
+<p>W、S、A、D 移动</p>
+<ul>
+<li>
+<p>鼠标环顾四周</p>
+</li>
+<li>
+<p>鼠标滚轮可放大/缩小相机</p>
+</li>
+</ul>
+<p>跳跃空间</p>
+<p>C 蹲下</p>
+
+<h1 class="relative group">封装概览
+    <div id="封装概览" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b0%81%e8%a3%85%e6%a6%82%e8%a7%88" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+
+<h1 class="relative group">封装结构
+    <div id="封装结构" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b0%81%e8%a3%85%e7%bb%93%e6%9e%84" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<ul>
+<li>
+<p>Core：该文件夹包含角色系统的核心脚本。如果您使用此软件包，则必须绝对保留这些脚本。</p>
+</li>
+<li>
+<p>ExampleCharacter：此文件夹包含一个可选的示例角色和相机，旨在演示上述核心脚本的用法。如果不需要，可以删除整个文件夹，但演练文件夹依赖于它。</p>
+</li>
+<li>
+<p>示例：此文件夹包含其余可选示例内容。如果不需要，可以删除整个文件夹，但演练文件夹依赖于它。</p>
+</li>
+<li>
+<p>演练：此文件夹包含一系列完整记录的角色控制器功能实现示例。有关详细信息，请参阅“演练”文档。如果不需要，可以删除整个文件夹。</p>
+</li>
+</ul>
+
+<h1 class="relative group">核心脚本
+    <div id="核心脚本" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a0%b8%e5%bf%83%e8%84%9a%e6%9c%ac" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<ul>
+<li>
+<p>KinematicCharacterMotor：这是角色系统的核心。该脚本根据给定的速度、方向和其他因素解决所有角色移动和碰撞。</p>
+</li>
+<li>
+<p>PhysicsMover：此脚本移动运动物理对象（移动平台），以便角色可以正确地站在其上并被它们推动。</p>
+</li>
+</ul>
+<p>KinematicCharacterSystem：按照正确的顺序处理模拟 KinematicCharacterMotors 和PhysicsMovers。</p>
+<ul>
+<li>
+<p>ICharacterController：创建一个实现此接口的类并将其分配给 KinematicCharacterMotor 以实现您的角色控制器</p>
+</li>
+<li>
+<p>IMoverController：创建一个实现此接口的类并将其分配给PhysicsMover以实现您的移动器控制器</p>
+</li>
+</ul>
+
+<h1 class="relative group">示例脚本
+    <div id="示例脚本" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a4%ba%e4%be%8b%e8%84%9a%e6%9c%ac" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<ul>
+<li>
+<p>ExampleCharacterController：处理与 KinematicCharacterMotor 的通信，以创建可移动的角色。</p>
+</li>
+<li>
+<p>示例移动平台：使用数学函数移动PhysicsMover 并创建移动平台。</p>
+</li>
+</ul>
+<p>ExamplePlayer：处理ExampleCharacterController 的输入，充当摄像机和角色的管理器。</p>
+<ul>
+<li>
+<p>ExampleAIController：模拟场景中 AI 角色的输入</p>
+</li>
+<li>
+<p>ExampleCharacterCamera ：一个可以围绕角色旋转的简单相机脚本</p>
+</li>
+</ul>
+
+<h1 class="relative group">如何使用这个包
+    <div id="如何使用这个包" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8%e8%bf%99%e4%b8%aa%e5%8c%85" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+
+<h1 class="relative group">会发生什么？
+    <div id="会发生什么" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%bc%9a%e5%8f%91%e7%94%9f%e4%bb%80%e4%b9%88" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>众所周知，角色控制器很难很好地完成，而且每个游戏对它们的需求都有很大不同。可能性是无限的。因此，运动学角色控制器不会尝试预先打包每个问题的所有可能的解决方案。相反，它专注于解决创建高度动态和响应性的角色控制器的困难的核心物理问题，并将所有其余的交给您。这种设计理念确保您有能力制作为您的特定游戏量身定制的角色控制器，并且可以完全适应任何项目架构。</p>
+<p>这个包希望您编写自己的代码：玩家输入、摄像机处理、动画，甚至角色移动（告诉它它的速度应该是多少，它的方向应该是什么）等等&hellip;&hellip;然而，它提供的是一组低级组件，可以处理复杂的角色物理求解，并帮助您相对轻松地编写完全自定义的角色控制器。</p>
+<p>“CharacterPlayground”场景中提供了一个示例角色控制器，但这实际上只是一个用作概念证明和/或学习资源的示例。它并不意味着是适合任何项目的最终解决方案。</p>
+
+<h1 class="relative group">它是如何运作的？
+    <div id="它是如何运作的" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%bf%90%e4%bd%9c%e7%9a%84" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>整个包围绕“KinematicCharacterMotor”组件展开，该组件代表角色胶囊并在给定一组输入（速度、旋转等）的情况下正确解决运动问题。当你给它一定的速度时，它会运行它的运动代码并使其在表面上适当地碰撞/滑动。此外，它还为您提供有关其接地状态、移动平台上的手柄、推动其他刚体的手柄等的正确信息……这就是您构建角色控制器的基础。</p>
+<p>为了将这些输入提供给 KinematicCharacterMotor，您需要创建自己的实现 ICharacterController 接口的自定义类，并将其分配给 KinematicCharacterMotor.CharacterController 变量。通过这样做，您的类现在将开始接收来自电机的“回滚”。大多数这些“回滚”都可以解释为 KinematicCharacterMotor 提出的问题：</p>
+<ul>
+<li>
+<p>UpdateVelocity：“我现在的速度应该是多少？”</p>
+</li>
+<li>
+<p>UpdateRotation：“我现在的方向应该是什么？”</p>
+</li>
+</ul>
+<p>Is ColliderValidForCollisions：“我可以与这个对撞机发生碰撞，还是应该直接穿过它？”</p>
+<p>ETC&hellip;.</p>
+<p>这些回调都是由 KinematicCharacterMotor 在角色更新循环中在正确的时间自动调用的，因此您不必担心事情的执行顺序。通过实现它们，您可以准确地告诉 KinematicCharacterMotor 您希望它如何表现。</p>
+<p>同样的原则也适用于移动平台的创建。在这种情况下，“PhysicsMover”扮演与 KinematicCharacterMotor 相同的角色，“IMoverController”扮演与 ICharacterController 相同的角色。通过实现PhysicsMover的回调，您可以准确地告诉您的移动平台您想要它去哪里。</p>
+<p>该包的“Example”和“Walkthrough”文件夹下包含的所有内容实际上并不是运动角色控制器系统的一部分。它们只是帮助您入门的学习资源。</p>
+
+<h1 class="relative group">如何开始？
+    <div id="如何开始" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%a6%82%e4%bd%95%e5%bc%80%e5%a7%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>我建议使用两种主要方法来开始学习这一切：</p>
+<ol>
+<li>
+<p>阅读用户指南的“示例角色概述”部分</p>
+</li>
+<li>
+<p>找到“演练”文档和项目文件夹。这包含一系列非常深入的练习，并提供完整的资源。它将引导您从 A 到 Z 一步步创建整个自定义角色控制器，并且还包含使用PhysicsMovers 创建移动平台的示例。</p>
+</li>
+</ol>
+<p>该项目还提供 HTML 形式的 API 参考。只需解压 .zip 并打开“APIReference.html”即可访问它。</p>
+
+<h1 class="relative group">角色概述示例
+    <div id="角色概述示例" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a7%92%e8%89%b2%e6%a6%82%e8%bf%b0%e7%a4%ba%e4%be%8b" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>本节将总结几个组件如何协同工作以在“CharacterPlayground”场景中创建示例角色。打开场景并按照本节进行操作。</p>
+
+<h1 class="relative group">组件
+    <div id="组件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bb%84%e4%bb%b6" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>以下是对角色重要的主要组成部分：</p>
+<ul>
+<li>ExamplePlayer（在 Player 对象上）：这是处理玩家输入的类，并充当角色和相机之间的链接</li>
+</ul>
+<p>ExampleCharacterCamera（在 Camera 对象上）：这处理要遵循的围绕指定变换的相机移动</p>
+<ul>
+<li>
+<p>ExampleCharacterController（在角色对象上）：这是实现电机回调的实际自定义角色控制器脚本。如果您想创建自定义角色控制器，您需要自己执行其中一项操作</p>
+</li>
+<li>
+<p>KinematicCharacterMotor（在角色对象上）：与角色控制器来回通信的包的核心组件。它的工作主要是解决给定速度和旋转的所有角色物理问题</p>
+</li>
+</ul>
+<p>请注意，没有什么会强迫您将播放器、摄像机和控制器中的东西分开。这只是做事的一种方式。这里唯一必需的组件是 KinematicCharacterMotor。</p>
+
+<h1 class="relative group">ExamplePlayer 中的输入处理
+    <div id="exampleplayer-中的输入处理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#exampleplayer-%e4%b8%ad%e7%9a%84%e8%be%93%e5%85%a5%e5%a4%84%e7%90%86" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>在其 Update() 中，ExamplePlayer 脚本处理相机和角色的输入（分别在 HandleCameraInput() 和 HandleCharacterInput() 中）。</p>
+<p>对于相机，它使用 UpdateWithInput() 将鼠标移动和滚轮移动发送到 ExampleCharacterCamera</p>
+<p>对于角色，它构建一个包含角色所需的所有输入信息的结构，并使用 SetInputs() 将其发送到 ExampleCharacterController</p>
+
+<h1 class="relative group">相机移动
+    <div id="相机移动" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%9b%b8%e6%9c%ba%e7%a7%bb%e5%8a%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>当从ExamplePlayer调用UpdateWithInput()时，相机脚本会自动根据该输入计算新姿势，并立即应用它。</p>
+
+<h1 class="relative group">人物动作
+    <div id="人物动作" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%ba%ba%e7%89%a9%e5%8a%a8%e4%bd%9c" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>当从 ExamplePlayer 调用 SetInputs() 时，ExampleCharacterController 会处理所有这些输入并存储有关其移动方向、外观方向、跳跃和蹲伏状态等的信息。</p>
+<p>稍后，当 KinematicCharacterSystem 对所有角色调用其更新周期时（默认情况下，这发生在固定更新中），ExampleCharacterController 将在从 KinematicCharacterMotor 接收到的各种回调中使用已处理的信息。在 UpdateVelocity 中，它将处理计算当前速度应该是多少。在 UpdateRotation 中，它将计算新的旋转，等等&hellip;&hellip;</p>
+<p>有关 KinematicCharacterSystem 的更多信息，请参阅下一节</p>
+
+<h1 class="relative group">运动角色系统概述
+    <div id="运动角色系统概述" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%bf%90%e5%8a%a8%e8%a7%92%e8%89%b2%e7%b3%bb%e7%bb%9f%e6%a6%82%e8%bf%b0" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>本节概述了所有“核心”脚本如何协同工作以正确处理角色移动并创建角色系统。您的 KinematicCharacterMotors 和PhysicsMovers 需要非常特定的执行顺序才能按预期工作。这是由 KinematicCharacterSystem 类处理的。</p>
+
+<h1 class="relative group">组件注册
+    <div id="组件注册" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bb%84%e4%bb%b6%e6%b3%a8%e5%86%8c" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>当KinematicCharacterMotors和PhysicsMovers被创建时，它们在OnEnable()中将自己注册到KinematicCharacterSystem中。同样，它们在 OnDisable() 中注销自己。然后，KinematicCharacterSystem 将以正确的顺序处理所有注册的 KinematicCharacterMotors 和PhysicsMovers 的更新行为。</p>
+
+<h1 class="relative group">基本模拟循环
+    <div id="基本模拟循环" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e6%a8%a1%e6%8b%9f%e5%be%aa%e7%8e%af" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>在FixedUpdate()中，如果AutoSimulation为true，KinematicCharacterSystem将执行以下操作：</p>
+<ul>
+<li>预模拟插值更新()</li>
+</ul>
+<p>o 处理在完成任何运动之前保存所有已注册的电机和动子初始姿势。</p>
+<p>○ 手柄精加工插补</p>
+<ul>
+<li>模拟（）</li>
+</ul>
+<p>计算所有物理移动器的速度（基于它们的目标姿势）。</p>
+<p>o 在所有 KinematicCharacterMotor 上调用 UpdatePhase1()，这会解决初始重叠并处理接地逻辑。</p>
+<p>o 将所有物理移动器直接放置在目的地。</p>
+<ul>
+<li>在所有 KinematicCharacterMotors 上调用 UpdatePhase2()，这会解决运动问题并计算电机的最终姿态。然后，将电机移动到目标姿势。</li>
+</ul>
+<p>PostSimulationInterpolationUpdate()</p>
+<p>这将使所有电机和动子变换移动到 PreSimulationUpdate() 中保存的姿势</p>
+
+<h1 class="relative group">手动模拟
+    <div id="手动模拟" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%89%8b%e5%8a%a8%e6%a8%a1%e6%8b%9f" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>如果需要精确控制模拟，可以将 KinematicCharacterSystem.AutoSimulation 设置为 false。这将使您有责任自己处理模拟。这在网络环境中很有用，您可能需要在同一帧内多次调用 Simulate() 来重新模拟过去的输入。</p>
+<p>查看 KinematicCharacterSystem.FixedUpdate() 以观察默认的自动模拟循环是如何完成的</p>
+
+<h1 class="relative group">附加信息
+    <div id="附加信息" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%99%84%e5%8a%a0%e4%bf%a1%e6%81%af" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+
+<h1 class="relative group">重要角色控制器注意事项：
+    <div id="重要角色控制器注意事项" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%87%8d%e8%a6%81%e8%a7%92%e8%89%b2%e6%8e%a7%e5%88%b6%e5%99%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<ul>
+<li>
+<p>如果您确实想“传送”您的角色而不是使其移动，请使用 KinematicCharacterMotor.SetPosition()</p>
+</li>
+<li>
+<p>切勿使角色成为移动变换的子角色。</p>
+</li>
+<li>
+<p>角色游戏对象的有损尺度必须是  $(1,1,1)$ ，否则物理计算将无法正常进行。这意味着该对象的所有父对象也必须有一个  $(1,1,1)$  规模。如果不遵守此条件，您将在编辑器中收到错误。但是，您可以自由地为子对象设置任何您想要的比例。</p>
+</li>
+<li>
+<p>如果您想在游戏过程中调整胶囊的大小，请始终使用 KinematicCharacterMotor 的“SetCapsuleDimensions”方法，因为它会缓存有关胶囊尺寸的信息，这些信息稍后会被大多数运动代码使用。</p>
+</li>
+</ul>
+
+<h1 class="relative group">物理查询能力
+    <div id="物理查询能力" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%89%a9%e7%90%86%e6%9f%a5%e8%af%a2%e8%83%bd%e5%8a%9b" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>KinematicCharacterMotor 使用非 GC 分配方法进行物理查询，这意味着它具有固定大小的数组来存储这些查询的结果。默认情况下，它最多可以支持 32 个 RaycastHit 结果和 32 个碰撞体重叠结果。如果您需要更多，请随意修改 KinematicCharacterMotor 中的“MaxHitsBudget”和“MaxCollisionBudget”常量。</p>
+
+<h1 class="relative group">插值法
+    <div id="插值法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%8f%92%e5%80%bc%e6%b3%95" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>您可以通过修改 KinematicCharacterSystem 中的“Interpolate”来激活或停用所有 KinematicCharacterMotors 和PhysicsMovers 的插值</p>
+
+<h1 class="relative group">根部运动
+    <div id="根部运动" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a0%b9%e9%83%a8%e8%bf%90%e5%8a%a8" aria-label="锚点">#</a>
+    </span>
+    
+</h1>
+<p>如果需要，您可以使角色随着动画根运动而移动。您需要做的就是将动画的根运动 (animator.deltaposition) 存储在自定义角色控制器的 OnAnimatorMove() 中，并将其转换为速度 (animator.deltaposition / deltaTime)，以便您可以在电机的“UpdateVelocity”回调中设置电机的速度。旋转和“UpdateRotation”回调也是如此。演练中提供了这样的示例。</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/NewskyGameBlog/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts\kinematiccharactercontroller\KinematicCharacterController.md"
+          data-oid-likes="likes_posts\kinematiccharactercontroller\KinematicCharacterController.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          逸空
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/NewskyGameBlog/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

@@ -4,7 +4,7 @@
 baseURL = "https://mickorz.github.io/NewskyGameBlog/"
 languageCode = "zh-cn"
 title = "Newsky Game Blog"
-theme = "blowfish"  # 修改为 blowfish
+theme = "blowfish"
 
 # ============================================================
 # 内容解析设置
@@ -23,72 +23,55 @@ theme = "blowfish"  # 修改为 blowfish
   env = "production"
   description = "游戏技术分享 | Animancer 中文文档 | Unity 开发笔记"
   
+  defaultAppearance = "dark"
+  autoSwitchAppearance = true
+  colorScheme = "blowfish"
   
-  # 界面外观设置
-  defaultAppearance = "dark"      # 默认深色模式
-  autoSwitchAppearance = true     # 自动切换
-  colorScheme = "blowfish"        # 配色方案
-  
-  
-  # 禁止 SEO 爬虫
-  robots = "noindex, nofollow"
-  # 确保这里引用的文件名与 assets/css/ 下的一致
+  robots = "no_index, nofollow"
   customCSS = ["css/custom.css"]
 
-    # 作者
+  # 首页显示的文件夹
+  mainSections = ["posts", "animancer", "gspawn", "kinematiccharactercontroller", "blazeaiengine"]
+
   [params.author]
     name = "逸空"
-    image = "" # 如果没有头像，可以暂时留空 ""
     headline = "游戏开发者 / 技术博主"
     bio = "专注于 Unity 开发与 Animancer 插件深度解析"
-    links = [
-        { github = "https://github.com/mickorz" },
-        # { twitter = "https://twitter.com/..." },
-    ]
+    links = [{ github = "https://github.com/mickorz" }]
 
-  # 搜索配置
   [params.search]
     showSearch = true
     showSearchKeys = true
 
-  # 文章内部功能
   [params.article]
-    showTableOfContents = true    # 显示 TOC
-    showRelatedPosts = true       # 显示相关文章
+    showTableOfContents = true
+    showRelatedPosts = true
     showReadingTime = true
-    showLinksContext = true       # 显示上下文链接
+    showLinksContext = true
 
-  # 列表页布局 - 实现宽屏效果
-  [params.list]
-    constrainItemsWidth = false   # 不限制项目宽度,实现宽屏
-    cardViewScreenWidth = true    # 卡片视图占用全宽
-
-  # 主页布局 - 实现宽屏效果
   [params.homepage]
-    cardViewScreenWidth = true    # 主页卡片占用全宽
+    layout = "background"
+    showRecent = true
+    showRecentItems = 10
+    cardViewScreenWidth = false
 
-  # 头部/导航栏配置 (Blowfish 专用)
   [params.header]
-    layout = "basic"              # 可选: "basic", "fixed", "stacked"
+    layout = "basic"
     showSearch = true
 
-  # 首页欢迎语 (Blowfish 替代 HomeInfo 的方式)
   [params.hero]
     showHero = true
-    heroSize = "default"
-    image = ""                    # 可以放一张 Unity 相关的背景图
+    heroSize = "small"
     title = "Newsky Game Blog 🎮"
     subtitle = "专注于 Unity 动画系统 Animancer 的深度探索"
     content = """
 👉 **[立即进入：Animancer 中文索引](/animancer/)**
 
-这里有超过 50 篇详细的实战笔记，涵盖 IK 系统、FSM 状态机及动画混合技巧。
-"""
+这里有超过 50 篇详细的实战笔记，涵盖 IK 系统、FSM 状态机及动画混合技巧。"""
 
 # ============================================================
-# 菜单配置 - 链接不再需要手动加仓库名后缀
+# 菜单配置
 # ============================================================
-
 [[menu.main]]
     identifier = "GSpawn"
     name = "📚 GSpawn 文档"
@@ -99,24 +82,25 @@ theme = "blowfish"  # 修改为 blowfish
     identifier = "animancer"
     name = "📚 Animancer 文档"
     url = "/animancer/"
-    weight =2
-
-#[[menu.main]]
-#    identifier = "posts"
-#    name = "所有文章"
-#    url = "/posts/"
-#    weight = 2
+    weight = 2
 
 [[menu.main]]
-    identifier = "github"
-    pre = "github" # Blowfish 支持图标
-    url = "https://github.com/mickorz"
+    identifier = "posts"
+    name = "所有文章"
+    url = "/posts/"
     weight = 3
 
 [[menu.main]]
-name = "💬 Contact (QQ)"
-url = "http://wpa.qq.com/msgrd?v=3&uin=490113806&site=qq&menu=yes"
-weight = 100  # 确保它排在最后面
+    identifier = "github"
+    pre = "github"
+    url = "https://github.com/mickorz"
+    weight = 4
+
+[[menu.main]]
+    identifier = "contact"
+    name = "💬 Contact"
+    url = "http://wpa.qq.com/msgrd?v=3&uin=490113806&site=qq&menu=yes"
+    weight = 100
 
 # ============================================================
 # 输出配置

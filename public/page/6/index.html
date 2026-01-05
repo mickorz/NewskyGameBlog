@@ -1,354 +1,2191 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+	<meta name="generator" content="Hugo 0.153.2">
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh-cn">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
 
-<head>
-	<meta name="generator" content="Hugo 0.153.2"><script src="/NewskyGameBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=NewskyGameBlog/livereload" data-no-instant defer></script><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Newsky Game Blog</title>
-<meta name="keywords" content="Unity, Game Dev, Animancer, C#">
-<meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
-<meta name="author" content="mickorz">
-<link rel="canonical" href="http://localhost:1313/NewskyGameBlog/">
-<link crossorigin="anonymous" href="/NewskyGameBlog/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/NewskyGameBlog/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/NewskyGameBlog/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/NewskyGameBlog/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/NewskyGameBlog/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/NewskyGameBlog/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/NewskyGameBlog/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="http://localhost:1313/NewskyGameBlog/index.json" title="json">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/NewskyGameBlog/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
+  
+  
+    <title>Newsky Game Blog</title>
+    <meta name="title" content="Newsky Game Blog">
+  
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
+  
+  
+    <meta name="description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
+  
+  
+  
+    <meta name="robots" content="no_index, nofollow">
+  
+  
+  <link rel="canonical" href="https://mickorz.github.io/NewskyGameBlog/">
+  
+    
+      <link rel="alternate" type="application/rss+xml" href="/NewskyGameBlog/index.xml" title="Newsky Game Blog" />
+  
+    
+      <link rel="alternate" type="application/json" href="/NewskyGameBlog/index.json" title="Newsky Game Blog" />
+  
 
-            .list {
-                background: var(--theme);
-            }
+  
+  
+    <meta name="author" content="逸空">
+  
+  
+    
+      
+        
+          <link href="https://github.com/mickorz" rel="me">
+        
+      
+    
+  
 
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script><meta property="og:url" content="http://localhost:1313/NewskyGameBlog/">
+  
+  <meta property="og:url" content="https://mickorz.github.io/NewskyGameBlog/">
   <meta property="og:site_name" content="Newsky Game Blog">
   <meta property="og:title" content="Newsky Game Blog">
   <meta property="og:description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
-  <meta property="og:locale" content="zh-cn">
+  <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Newsky Game Blog">
-<meta name="twitter:description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Newsky Game Blog",
-  "url": "http://localhost:1313/NewskyGameBlog/",
-  "description": "游戏技术分享 | Animancer 中文文档 | Unity 开发笔记",
-  "logo": "http://localhost:1313/NewskyGameBlog/favicon.ico",
-  "sameAs": [
-      "https://github.com/mickorz"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://localhost:1313/NewskyGameBlog/" accesskey="h" title="Newsky Game Blog (Alt + H)">Newsky Game Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://localhost:1313/NewskyGameBlog/animancer/" title="📚 Animancer 中文文档">
-                    <span>📚 Animancer 中文文档</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/NewskyGameBlog/newskygameblog/posts/" title="所有文章">
-                    <span>所有文章</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main"> 
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Newsky Game Blog">
+  <meta name="twitter:description" content="游戏技术分享 | Animancer 中文文档 | Unity 开发笔记">
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Animancer Transition Previews
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Animancer Transition Previews 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/previews/ 抓取日期：2025-01-24
-概述 (Overview) Transition Previews 功能允许开发者在编辑器中预览动画过渡效果，无需进入 Play Mode，从而大大提高动画调试和迭代效率。
-核心功能 “预览过渡效果的样子，无需进入 Play Mode”
-主要用途：
-可视化预览：直接查看动画切换效果 快速调试：实时调整过渡参数 多角色测试：在不同角色模型上测试动画 时间轴控制：精确查看动画的每一帧 打开 Preview 窗口 方法1：点击预览图标 在 Inspector 中，任何 Transition 字段旁边都有一个预览图标：
-1 2 3 4 5 6 7 ┌─────────────────────────────────────┐ │ Idle Animation │ │ ┌─────────────────────────────┐ [▶] │ ← 点击这个图标 │ │ Clip: Rifle_Idle │ │ │ │ Fade Duration: 0.25 │ │ │ └─────────────────────────────┘ │ └─────────────────────────────────────┘ 点击 [▶] 图标后，会打开一个新的 Inspector 窗口，专门用于预览该 Transition。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
-  <a class="entry-link" aria-label="post link to Animancer Transition Previews" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionpreviews/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Animancer Transition Sequences
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Animancer Transition Sequences 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/fading/sequences/ 抓取日期：2025-01-24
-概述 (Overview) Transition Sequences（过渡序列） 允许您定义一系列 Transition 或 State，并将它们作为一个组进行管理和播放。它们的工作方式类似于标准的 Transition，在运行时会创建一个 SequenceState。
-核心概念 (Core Concept) TransitionSequences 允许您定义一系列 Transitions 或 States，并将它们作为一个组进行处理。
-工作原理：
-1 2 3 4 5 6 TransitionSequence: ├─ Child Transition 1 (Attack1) → 播放完成 ├─ Child Transition 2 (Attack2) → 播放完成 └─ Child Transition 3 (Attack3) → 播放完成 整个序列作为一个统一的 State 进行管理 关键特性：
-✅ 将多个动画组合成一个序列 ✅ 自动按顺序播放 ✅ 可以作为单一 State 使用 ✅ 支持事件管理 序列结构 (Sequence Structure) 基础结构 1 2 3 4 5 6 7 TransitionSequence sequence = new TransitionSequence { // 子过渡数组（通常是 ClipTransition） new ClipTransition { Clip = attack1Clip }, new ClipTransition { Clip = attack2Clip }, new ClipTransition { Clip = attack3Clip } }; 支持的 Transition 类型 常用类型：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>10 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
-  <a class="entry-link" aria-label="post link to Animancer Transition Sequences" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitionsequences/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Animancer Transition Types
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Animancer Transition Types 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/types/ 抓取日期：2025-01-24
-概述 (Overview) Animancer 中的每个状态类型都对应一个转换类型，用于在调用 AnimancerComponent.Play(ITransition) 时创建相应的状态。
-核心机制 1 2 3 4 5 6 Transition Type（转换类型） → 创建 → State Type（状态类型） ↓ ↓ ClipTransition ClipState LinearMixerTransition LinearMixerState MixerTransition2D Mixer2D ...等等 序列化引用机制 (Serialization Reference) 问题背景 Unity 通常不支持序列化继承类型。例如，如果你有一个 ITransition 接口，直接序列化会失败：
-1 2 3 // ❌ 这样不行，Unity 无法序列化接口 [SerializeField] private ITransition _Animation; // 在 Inspector 中显示为空 解决方案：SerializeReference 使用 [SerializeReference] 属性可以解决这个问题：
-1 2 3 // ✅ 使用 SerializeReference 属性 [SerializeReference] private ITransition _Animation; 效果：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>12 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
-  <a class="entry-link" aria-label="post link to Animancer Transition Types" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitiontypes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Animancer Transitions
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Animancer Transitions 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/transitions/ 抓取日期：2025-01-24
-概述 (Overview) Animancer 区分了动画控制中的两个核心概念：
-State（状态）：包含当前动画信息，如 Time（时间）和 Speed（速度） Transition（过渡/转换）：持有可序列化的数据，定义如何创建和播放状态，包括 AnimationClip 和淡入持续时间 关键概念 (Key Concept) Transition 包含可序列化的数据，这些数据定义了如何创建和播放一个状态，例如它的 AnimationClip 和用于混合的淡入持续时间。
-Animancer 中的每种状态类型都有对应的过渡类型。当传递给 AnimancerComponent.Play(ITransition) 时，它会创建相应的状态类型——例如，ClipTransition 创建一个 ClipState 来播放单个动画片段。
-Transition 字段参考 (Transition Field Reference) 字段名称 代码属性 用途说明 Animation（动画） Clip 要播放的 AnimationClip（动画片段） Fade Duration（淡入时长） FadeDuration 从上一个动画交叉淡入的时间（0 表示立即播放） Speed（播放速度） Speed 播放速度倍率；负值表示倒放 Start Time（起始时间） NormalizedStartTime 播放时的初始动画时间位置 End Time（结束时间） Events.NormalizedEndTime 决定何时触发结束事件 Events（事件） Events 过渡细节的时间轴可视化 时间字段单位 (Time Field Units) 提供三种测量系统：
-1. Normalized（归一化，x） 动画长度的倍数 示例：0.5x = 动画播放到一半的位置 用途：与动画实际长度无关的相对时间 2. Seconds（秒，s） 实际时间持续时间 示例：0.5s = 半秒 用途：精确的时间控制 3. Frames（帧，f） 基于动画帧的计数 示例：1f = 一帧 用途：逐帧精确控制 注意：不同字段的底层存储格式可能不同，具体请参考字段参考表。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
-  <a class="entry-link" aria-label="post link to Animancer Transitions" href="http://localhost:1313/NewskyGameBlog/animancer/transition/animancer-transitions/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Animancer Weighted Mask Layers
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Animancer Weighted Mask Layers 官方文档 原文地址：https://kybernetik.com.au/animancer/docs/manual/blending/layers/weighted/ 抓取日期：2025-01-24
-概述 (Overview) WeightedMaskLayers 是 Animancer Pro 的高级功能,扩展了 Unity 的 AvatarMask 系统。它允许开发者控制每个单独骨骼的权重,包括随时间淡入淡出,而不是简单地启用或禁用整个骨骼组。
-⚠️ 重要：这是 Animancer Pro 专属功能
-核心概念 (Core Concept) 标准 Avatar Mask：
-骨骼要么完全启用（1.0） 要么完全禁用（0.0） 只有二元选择 Weighted Mask Layers：
-每个骨骼可以有 0.0 - 1.0 的权重 支持骨骼权重的平滑过渡 可以随时间淡入淡出骨骼影响 设置流程 (Setup Process) 步骤1：添加组件 操作：
-选择带有 AnimancerComponent 的 GameObject Add Component → Animancer → Weighted Mask Layers 1 2 // 或通过代码添加 var weightedLayers = gameObject.AddComponent&lt;WeightedMaskLayers&gt;(); 步骤2：配置骨骼和组 操作：
-在 Inspector 中找到 WeightedMaskLayers 组件 点击 Edit 按钮打开编辑器窗口 配置骨骼权重组 Inspector 界面示例：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>8 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
-  <a class="entry-link" aria-label="post link to Animancer Weighted Mask Layers" href="http://localhost:1313/NewskyGameBlog/animancer/blend/animancer-weightedlayers/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Mecanim vs. Animancer 对比文档
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Mecanim vs. Animancer 对比文档 📋 目录 概述 核心差异 六大优势 对比领域 兼容性 参考资料 概述 “Animancer streamlines the animation development process by removing the need to create Animator Controllers and scripts that need to interact with each other.”
-Animancer 通过移除 Animator Controller 和脚本之间的交互需求，简化了动画开发流程。
-架构差异 系统 架构方式 Mecanim 动画逻辑分散在 Controller 和脚本中 Animancer 脚本完全管理动画逻辑 核心差异 Mecanim 的工作流程 1 2 3 4 5 6 7 8 9 创建 Animator Controller 资产 ↓ 在 Controller 中配置状态和过渡 ↓ 创建参数 ↓ 编写脚本设置参数 ↓ Controller 根据参数自动切换状态 Animancer 的工作流程 1 2 3 4 5 编写脚本 ↓ 直接调用 Play() 方法 ↓ 动画立即播放 六大优势 Animancer 相比 Mecanim 的六个主要优势：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
-  <a class="entry-link" aria-label="post link to Mecanim vs. Animancer 对比文档" href="http://localhost:1313/NewskyGameBlog/animancer/why/animancer-mecanimvsanimancer/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Why Animancer? 为什么选择Animancer？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Why Animancer? 为什么选择Animancer？ 📋 目录 概述 六大问题 Animancer解决方案 参考资料 概述 Unity的Mecanim Animator Controller系统存在六个核心问题，Animancer提供了针对性的解决方案。
-六大问题 1. 简洁性问题（Simplicity） Mecanim的问题：
-“Everything requires extra steps. To play something you need to make a state, give it an animation, make a parameter, make a transition based on the parameter, and set the parameter with a script.”
-播放一个动画需要7个步骤：
-获取Animator组件 创建Animator Controller资产 分配到Controller字段 创建状态 给状态命名 分配动画 调用Play方法 Animancer的解决：
-1 _animancer.Play(_clip); // 1行代码 2. 透明性问题（Transparency） Mecanim的问题：
-无法访问源代码进行调试 内部决策过程不可见 状态播放没有即时反馈 Animancer的解决：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-12-25 00:00:00 +0000 UTC'>December 25, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>mickorz</span></footer>
-  <a class="entry-link" aria-label="post link to Why Animancer? 为什么选择Animancer？" href="http://localhost:1313/NewskyGameBlog/animancer/why/animancer-why/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="http://localhost:1313/NewskyGameBlog/page/5/">
-      «&nbsp;Prev&nbsp;
-    </a>
-  </nav>
-</footer>
-    </main>
+  
+  
+  
+  
     
-<footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/NewskyGameBlog/">Newsky Game Blog</a></span> · 
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
 
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/NewskyGameBlog/css/main.bundle.min.fb1eedd06e11553ad84a85ea75999636d94306bb1acfb1ff48138f934ca9900d3541fe2d6ca0bee624c8c9fb7649b934704aefdadf483ab68da0eaeeeec00ecf.css"
+    integrity="sha512-&#43;x7t0G4RVTrYSoXqdZmWNtlDBrsaz7H/SBOPk0ypkA01Qf4tbKC&#43;5iTIyft2Sbk0cErv2t9IOraNoOru7sAOzw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/NewskyGameBlog/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/NewskyGameBlog/js/main.bundle.min.e2a486e2d26101d42b0ae6565951c0ab32807f06c8cac845e9a430aac163bf4b95eaaf22ac52825b7c9135e177953252afda0c2c8b6e64291c90238a4685aaa3.js"
+      integrity="sha512-4qSG4tJhAdQrCuZWWVHAqzKAfwbIyshF6aQwqsFjv0uV6q8irFKCW3yRNeF3lTJSr9oMLItuZCkckCOKRoWqow=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+
+  
+  
+
+<script src="/NewskyGameBlog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/NewskyGameBlog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/NewskyGameBlog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/NewskyGameBlog/favicon-16x16.png">
+    <link rel="manifest" href="/NewskyGameBlog/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://mickorz.github.io/NewskyGameBlog/",
+    "name": "Newsky Game Blog",
+    "description": "游戏技术分享 | Animancer 中文文档 | Unity 开发笔记",
+    "inLanguage": "zh-cn",
+    "url": "https://mickorz.github.io/NewskyGameBlog/",
+    
+    "publisher" : {
+      "@type": "Person",
+      "name": "逸空"
+    }
+  }
+  </script>
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        跳过正文
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/NewskyGameBlog/" class="text-base font-medium">
+          Newsky Game Blog
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/NewskyGameBlog/gspawn/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 GSpawn 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 GSpawn 文档
+    </p>
+  
 </a>
 
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
+
+
+      
         
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
+  <a
+  href="/NewskyGameBlog/animancer/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="📚 Animancer 文档"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      📚 Animancer 文档
+    </p>
+  
+</a>
+
+
+
+      
         
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
+  <a
+  href="/NewskyGameBlog/posts/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="所有文章"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      所有文章
+    </p>
+  
+</a>
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
 
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
 
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
+      
+        
+  <a
+  href="https://github.com/mickorz"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="github"
+  title="">
+  
+    <span >
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+    </span>
+  
+  
+</a>
 
-</script>
-</body>
 
+
+      
+        
+  <a
+  href="http://wpa.qq.com/msgrd?v=3&amp;uin=490113806&amp;site=qq&amp;menu=yes"
+  target="_blank"
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="💬 Contact"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      💬 Contact
+    </p>
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/gspawn/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 GSpawn 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 GSpawn 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/animancer/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="📚 Animancer 文档"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        📚 Animancer 文档
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/NewskyGameBlog/posts/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="所有文章"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        所有文章
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/mickorz"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="github"
+    title="">
+    
+      <div >
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+      </div>
+    
+    
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="http://wpa.qq.com/msgrd?v=3&amp;uin=490113806&amp;site=qq&amp;menu=yes"
+    
+      target="_blank"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="💬 Contact"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        💬 Contact
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  
+    
+<article class="prose dark:prose-invert max-w-full">
+  <div class="relative">
+    <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
+    <div class="mx-auto max-w-7xl p-0">
+      <div class="relative sm:overflow-hidden">
+        <div class="fixed inset-x-0 top-0 -z-10">
+          
+          
+          
+          
+          
+        </div>
+        <div class="relative flex flex-col items-center justify-center px-1 py-1 text-center">
+          
+          <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
+            逸空
+          </h1>
+          
+            <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
+              游戏开发者 / 技术博主
+            </h2>
+          
+          <div class="mt-3 mb-10 text-2xl">
+            
+              <div class="flex flex-wrap">
+                
+                  
+                    <a
+                      class="hover:text-primary-400 text-primary-800 dark:text-primary-200 px-1"
+                      href="https://github.com/mickorz"
+                      target="_blank"
+                      aria-label="Github"
+                      title="Github"
+                      rel="me noopener noreferrer">
+                      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+                    </a>
+                  
+                
+              </div>
+            
+          </div>
+          <section class="prose dark:prose-invert w-full"></section>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<section>
+  
+
+
+  
+    
+  
+  <h2 class="mt-8 text-2xl font-extrabold mb-10">最近的文章</h2>
+
+  
+    
+
+
+
+<section class="space-y-10 w-full">
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/animancer-parameters/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Parameters
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>143 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/transition/animancer-transitionassets/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Transition Assets
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1420 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">7 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/transition/animancer-transitionlibraries/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Transition Libraries
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1695 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/transition/animancer-transitionpreviews/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Transition Previews
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1139 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/transition/animancer-transitionsequences/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Transition Sequences
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1526 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/transition/animancer-transitiontypes/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Transition Types
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1906 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">9 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/transition/animancer-transitions/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Transitions
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>827 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/blend/animancer-weightedlayers/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Animancer Weighted Mask Layers
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1260 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/why/animancer-mecanimvsanimancer/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Mecanim vs. Animancer 对比文档
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>624 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/NewskyGameBlog/animancer/why/animancer-why/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          Why Animancer? 为什么选择Animancer？
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-25T00:00:00&#43;00:00">December 25, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>357 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+    </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+</section>
+
+  
+
+  
+
+
+</section>
+
+
+  
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          逸空
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/NewskyGameBlog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://mickorz.github.io/NewskyGameBlog/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
 </html>
